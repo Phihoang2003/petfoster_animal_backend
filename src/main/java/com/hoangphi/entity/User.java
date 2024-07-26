@@ -4,13 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hoangphi.entity.social.Comments;
 import com.hoangphi.entity.social.LikedComments;
 import com.hoangphi.entity.social.Likes;
+import com.hoangphi.entity.social.Posts;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Nationalized;
-import org.hibernate.criterion.Order;
+
 
 import javax.persistence.*;
 import java.util.Date;
@@ -67,7 +68,7 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Order> orders;
+    private List<Orders> orders;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Authorities> authorities;

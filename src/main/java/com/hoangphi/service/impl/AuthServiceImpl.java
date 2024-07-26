@@ -22,12 +22,12 @@ import java.util.concurrent.CompletableFuture;
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
 
-     UserRepository userRepository;
-     PasswordEncoder passwordEncoder;
+     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-     EmailServiceImpl emailServiceimpl;
+    private final EmailServiceImpl emailServiceimpl;
 
-     RoleRepository  roleRepository;
+    private final RoleRepository  roleRepository;
 
     @Override
     public AuthResponse register(HttpServletRequest httpServletRequest, RegisterRequest registerReq) {
@@ -41,7 +41,7 @@ public class AuthServiceImpl implements AuthService {
 
         }
         if(userRepository.existsByUsername(registerReq.getUsername())){
-             errorsMap.put("username","Username"+ RespMessage.EXISTS);
+             errorsMap.put("username","Username "+ RespMessage.EXISTS);
             return AuthResponse.builder()
                     .message(HttpStatus.CONFLICT.toString())
                     .errors(errorsMap)

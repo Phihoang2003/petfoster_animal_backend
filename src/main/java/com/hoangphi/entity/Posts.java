@@ -1,4 +1,4 @@
-package com.hoangphi.entity.Posts;
+package com.hoangphi.entity;
 
 public class Posts {
 }

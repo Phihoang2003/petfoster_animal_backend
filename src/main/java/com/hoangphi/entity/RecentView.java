@@ -1,4 +1,4 @@
-package com.hoangphi.entity.RecentView;
+package com.hoangphi.entity;
 
 public class RecentView {
 }

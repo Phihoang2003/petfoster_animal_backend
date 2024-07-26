@@ -1,11 +1,6 @@
 package com.hoangphi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.hoangphi.entity.Favourite.Favourite;
-import com.hoangphi.entity.Posts.Posts;
-import com.hoangphi.entity.RecentView.RecentView;
-import com.hoangphi.entity.Review.Review;
-import com.hoangphi.entity.SearchHistory.SearchHistory;
 import com.hoangphi.entity.social.Comments;
 import com.hoangphi.entity.social.LikedComments;
 import com.hoangphi.entity.social.Likes;

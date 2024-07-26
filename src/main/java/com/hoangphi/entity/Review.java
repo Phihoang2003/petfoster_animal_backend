@@ -1,4 +1,4 @@
-package com.hoangphi.entity.Review;
+package com.hoangphi.entity;
 
 public class Review {
 }

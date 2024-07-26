@@ -1,4 +1,4 @@
-package com.hoangphi.entity.Favourite;
+package com.hoangphi.entity;
 
 public class Favourite {
 }

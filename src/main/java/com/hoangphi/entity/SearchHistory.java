@@ -1,4 +1,4 @@
-package com.hoangphi.entity.SearchHistory;
+package com.hoangphi.entity;
 
 public class SearchHistory {
 }

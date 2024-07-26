@@ -1,7 +1,10 @@
 package com.hoangphi.service;
 
+import org.springframework.stereotype.Service;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.UUID;
+
 
 public interface EmailService {
     public void sendVerificationEmail(HttpServletRequest req, String email, UUID otp);

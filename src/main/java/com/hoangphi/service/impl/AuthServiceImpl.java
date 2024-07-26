@@ -2,7 +2,9 @@ package com.hoangphi.service.impl;
 
 import com.hoangphi.constant.PatternExpression;
 import com.hoangphi.constant.RespMessage;
+import com.hoangphi.entity.Authorities;
 import com.hoangphi.entity.User;
+import com.hoangphi.repository.RoleRepository;
 import com.hoangphi.repository.UserRepository;
 import com.hoangphi.request.RegisterRequest;
 import com.hoangphi.response.AuthResponse;
@@ -13,10 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +24,10 @@ public class AuthServiceImpl implements AuthService {
 
      UserRepository userRepository;
      PasswordEncoder passwordEncoder;
+
+     EmailServiceImpl emailServiceimpl;
+
+     RoleRepository  roleRepository;
 
     @Override
     public AuthResponse register(HttpServletRequest httpServletRequest, RegisterRequest registerReq) {
@@ -70,24 +74,30 @@ public class AuthServiceImpl implements AuthService {
                 .isEmailVerified(false)
                 .build();
 
-        String token=sendToken(httpServletRequest,registerReq.getEmail());
+        String token=sendToken(httpServletRequest,registerReq.getEmail()).toString();
+        newUser.setToken(token);
+        userRepository.save(newUser);
+        List<Authorities> authoritiesList=new ArrayList<>();
+        Authorities authorities=Authorities.builder()
+                .user(newUser)
+                .role(roleRepository.getRoleUser())
+                .build();
+        authoritiesList.add(authorities);
+        newUser.setAuthorities(authoritiesList);
+        userRepository.save(newUser);
 
-
-
-
-
-
-
-
-
-        return null;
+        return AuthResponse.builder()
+                .message("Register successfully")
+                .errors(false)
+                .build();
 
     }
 
     public UUID sendToken(HttpServletRequest httpServletRequest, String email) {
         UUID token=UUID.randomUUID();
+        CompletableFuture.runAsync(()->emailServiceimpl.sendVerificationEmail(httpServletRequest,email,token));
 
-        return null;
+        return token;
     }
 
 

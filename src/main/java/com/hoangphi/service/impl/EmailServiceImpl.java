@@ -1,13 +1,34 @@
 package com.hoangphi.service.impl;
 
+import com.hoangphi.constant.Constant;
 import com.hoangphi.service.EmailService;
+import com.hoangphi.ultils.MailUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
+@Service
 public class EmailServiceImpl implements EmailService {
+
+    @Autowired
+    MailUtils mailUtils;
     @Override
     public void sendVerificationEmail(HttpServletRequest req, String email, UUID otp) {
+        String verificationLink= Constant.BASE_URL+"verify?code="+otp;
+        try{
+            Map<String,String> map=new HashMap<>();
+            map.put("action_url",verificationLink);
+            map.put("name",req.getAttribute("username").toString());
+            mailUtils.sendTemplateEmail(email,"Active your account!","active",map);
+        }catch(Exception e){
+            e.printStackTrace();
+
+        }
+
 
     }
 

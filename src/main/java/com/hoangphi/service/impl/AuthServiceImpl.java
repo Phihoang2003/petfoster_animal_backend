@@ -1,6 +1,7 @@
 package com.hoangphi.service.impl;
 
 import com.hoangphi.config.JwtProvider;
+import com.hoangphi.constant.Constant;
 import com.hoangphi.constant.PatternExpression;
 import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.Authorities;
@@ -9,6 +10,7 @@ import com.hoangphi.repository.RoleRepository;
 import com.hoangphi.repository.UserRepository;
 import com.hoangphi.request.LoginRequest;
 import com.hoangphi.request.RegisterRequest;
+import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.AuthResponse;
 import com.hoangphi.service.AuthService;
 import com.hoangphi.service.user.UserService;
@@ -89,6 +91,41 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
+    public ApiResponse verifyEmail(String token) {
+        User user=userRepository.findByToken(token);
+        if(user==null){
+            return ApiResponse.builder()
+                    .message("Token not found")
+                    .status(404)
+                    .errors(true)
+                    .build();
+        }
+        if(user.getIsEmailVerified()){
+            return ApiResponse.builder()
+                    .message("Email has been verified")
+                    .status(400)
+                    .errors(true)
+                    .build();
+        }
+        if(new Date().getTime()-user.getTokenCreatedAt().getTime()> Constant.TOKEN_EXPIRE_LIMIT){
+            return ApiResponse.builder()
+                    .message("Token is expired")
+                    .status(HttpStatus.BANDWIDTH_LIMIT_EXCEEDED.value())
+                    .errors(true)
+                    .build();
+        }
+        user.setIsEmailVerified(true);
+        userRepository.save(user);
+        return ApiResponse.builder()
+                .message("Email has been verified")
+                .status(200)
+                .errors(false)
+                .data(user)
+                .build();
+
+    }
+
+    @Override
     public AuthResponse register(HttpServletRequest httpServletRequest, RegisterRequest registerReq) {
         Map<String,String> errorsMap=new HashMap<>();
         if(PatternExpression.NOT_SPECIAL.matcher(registerReq.getUsername()).find()){
@@ -151,6 +188,7 @@ public class AuthServiceImpl implements AuthService {
                 .build();
 
     }
+
 
     public UUID sendToken(HttpServletRequest httpServletRequest, String email) {
         UUID token=UUID.randomUUID();

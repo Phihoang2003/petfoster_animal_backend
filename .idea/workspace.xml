@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2jm60OCaDYZOoJEAlKunRm8ffJU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "hoangphi/register-user",
+    "last_opened_file_path": "D:/pet-backend/petfoster-animal-back-end-2.0",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.hoangphi.entity.Order" />
+      <recent name="com.hoangphi.entity.Posts" />
+      <recent name="com.hoangphi.entity.RecentView" />
+      <recent name="com.hoangphi.entity.SearchHistory" />
+      <recent name="com.hoangphi.entity.Review" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Hocweb\Hocweb\ProjectWeb\petfoster_animal_backend\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="petfoster_animal_backend" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="petfoster_animal_backend" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="" />
+      <created>1721979682185</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721979682185</updated>
+    </task>
+    <task id="LOCAL-00001" summary="add AuthResponse and Role,Api Response">
+      <option name="closed" value="true" />
+      <created>1721993386616</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721993386616</updated>
+    </task>
+    <task id="LOCAL-00002" summary="create AuthoritiesRepository and UserRepository">
+      <option name="closed" value="true" />
+      <created>1721993449909</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1721993449909</updated>
+    </task>
+    <task id="LOCAL-00003" summary="configuration server">
+      <option name="closed" value="true" />
+      <created>1721993474108</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721993474108</updated>
+    </task>
+    <task id="LOCAL-00004" summary="modified AuthoritiesRepository">
+      <option name="closed" value="true" />
+      <created>1722000985777</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1722000985777</updated>
+    </task>
+    <task id="LOCAL-00005" summary="create AuthService">
+      <option name="closed" value="true" />
+      <created>1722001015489</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1722001015489</updated>
+    </task>
+    <task id="LOCAL-00006" summary="create Email service">
+      <option name="closed" value="true" />
+      <created>1722001032343</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722001032343</updated>
+    </task>
+    <task id="LOCAL-00007" summary="bug for sendEmail when register">
+      <option name="closed" value="true" />
+      <created>1722001070001</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722001070001</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add PatternExpress to check when register">
+      <option name="closed" value="true" />
+      <created>1722001103224</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722001103224</updated>
+    </task>
+    <task id="LOCAL-00009" summary="configuration for send email">
+      <option name="closed" value="true" />
+      <created>1722003259723</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722003259723</updated>
+    </task>
+    <task id="LOCAL-00010" summary="create constance base url">
+      <option name="closed" value="true" />
+      <created>1722005459940</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1722005459940</updated>
+    </task>
+    <task id="LOCAL-00011" summary="create role repository">
+      <option name="closed" value="true" />
+      <created>1722005478953</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1722005478953</updated>
+    </task>
+    <task id="LOCAL-00012" summary="setup function to sendEmail and sendTemplate email">
+      <option name="closed" value="true" />
+      <created>1722005511577</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722005511577</updated>
+    </task>
+    <task id="LOCAL-00013" summary="create controller for register user">
+      <option name="closed" value="true" />
+      <created>1722005559433</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1722005559433</updated>
+    </task>
+    <task id="LOCAL-00014" summary="bug for initial bean object Addresses">
+      <option name="closed" value="true" />
+      <created>1722005607545</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1722005607545</updated>
+    </task>
+    <task id="LOCAL-00015" summary="modified to suit for relationship">
+      <option name="closed" value="true" />
+      <created>1722017396083</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1722017396083</updated>
+    </task>
+    <task id="LOCAL-00016" summary="update file">
+      <option name="closed" value="true" />
+      <created>1722017417459</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1722017417459</updated>
+    </task>
+    <task id="LOCAL-00017" summary="bug for query to get data">
+      <option name="closed" value="true" />
+      <created>1722017465324</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1722017465324</updated>
+    </task>
+    <task id="LOCAL-00018" summary="configuration for web security">
+      <option name="closed" value="true" />
+      <created>1722017504125</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1722017504125</updated>
+    </task>
+    <task id="LOCAL-00019" summary="initial for servlet">
+      <option name="closed" value="true" />
+      <created>1722017525122</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1722017525122</updated>
+    </task>
+    <task id="LOCAL-00020" summary="configuration for app config and cors filter">
+      <option name="closed" value="true" />
+      <created>1722017567737</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1722017567737</updated>
+    </task>
+    <task id="LOCAL-00021" summary="register user by receive token from email successfully">
+      <option name="closed" value="true" />
+      <created>1722017616818</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1722017616818</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add AuthResponse and Role,Api Response" />
+    <MESSAGE value="create AuthoritiesRepository and UserRepository" />
+    <MESSAGE value="configuration server" />
+    <MESSAGE value="modified AuthoritiesRepository" />
+    <MESSAGE value="create AuthService" />
+    <MESSAGE value="create Email service" />
+    <MESSAGE value="bug for sendEmail when register" />
+    <MESSAGE value="add PatternExpress to check when register" />
+    <MESSAGE value="configuration for send email" />
+    <MESSAGE value="create constance base url" />
+    <MESSAGE value="create role repository" />
+    <MESSAGE value="setup function to sendEmail and sendTemplate email" />
+    <MESSAGE value="create controller for register user" />
+    <MESSAGE value="bug for initial bean object Addresses" />
+    <MESSAGE value="modified to suit for relationship" />
+    <MESSAGE value="update file" />
+    <MESSAGE value="bug for query to get data" />
+    <MESSAGE value="configuration for web security" />
+    <MESSAGE value="initial for servlet" />
+    <MESSAGE value="configuration for app config and cors filter" />
+    <MESSAGE value="register user by receive token from email successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="register user by receive token from email successfully" />
+  </component>
+</project>

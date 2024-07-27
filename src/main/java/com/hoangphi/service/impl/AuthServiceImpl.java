@@ -1,16 +1,23 @@
 package com.hoangphi.service.impl;
 
+import com.hoangphi.config.JwtProvider;
 import com.hoangphi.constant.PatternExpression;
 import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.Authorities;
 import com.hoangphi.entity.User;
 import com.hoangphi.repository.RoleRepository;
 import com.hoangphi.repository.UserRepository;
+import com.hoangphi.request.LoginRequest;
 import com.hoangphi.request.RegisterRequest;
 import com.hoangphi.response.AuthResponse;
 import com.hoangphi.service.AuthService;
+import com.hoangphi.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,12 +29,64 @@ import java.util.concurrent.CompletableFuture;
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
 
-     private final UserRepository userRepository;
+    private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
     private final EmailServiceImpl emailServiceimpl;
 
     private final RoleRepository  roleRepository;
+
+    private final UserService userService;
+
+    private final JwtProvider jwtProvider;
+
+    @Override
+    public AuthResponse login(LoginRequest loginReq) {
+        String username=loginReq.getUsername();
+        String password=loginReq.getPassword();
+        Map<String,String> errorsMap=new HashMap<>();
+        UserDetails userDetails;
+        try{
+            userDetails=userService.findByUsername(loginReq.getUsername());
+
+        }catch(Exception e){
+            errorsMap.put("username","Username not found");
+            return AuthResponse.builder()
+                    .message(HttpStatus.NOT_FOUND.toString())
+                    .errors(errorsMap)
+                    .build();
+        }
+        if(!passwordEncoder.matches(loginReq.getPassword(),userDetails.getPassword())){
+            errorsMap.put("Username: ", "Username is incorrect");
+            errorsMap.put("Or Password: ","Password is incorrect,please try again!");
+            return AuthResponse.builder()
+                    .message(HttpStatus.BAD_REQUEST.toString())
+                    .errors(errorsMap)
+                    .build();
+        }
+        if(!userDetails.isEnabled()){
+            errorsMap.put("Email: ","your email is not verified, please check your email to verify");
+            return AuthResponse.builder()
+                    .message(HttpStatus.UNAUTHORIZED.value()+"")
+                    .errors(errorsMap)
+                    .build();
+        }
+        Authentication authentication=authenticate(username,password);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String token=jwtProvider.generateToken(authentication);
+        return AuthResponse.builder()
+                .message("Login successfully")
+                .token(token)
+                .errors(false)
+                .build();
+
+    }
+    @Override
+    public Authentication authenticate(String username, String password) {
+        UserDetails userDetails=userService.findByUsername(username);
+
+        return new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
+    }
 
     @Override
     public AuthResponse register(HttpServletRequest httpServletRequest, RegisterRequest registerReq) {

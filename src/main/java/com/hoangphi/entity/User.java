@@ -6,6 +6,7 @@ import com.hoangphi.entity.social.LikedComments;
 import com.hoangphi.entity.social.Likes;
 import com.hoangphi.entity.social.Posts;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Nationalized;
 
@@ -44,6 +45,7 @@ public class User {
     @JsonIgnore
     private String token;
     @JsonIgnore
+    @CreationTimestamp
     private Date tokenCreatedAt;
     @JsonIgnore
     @Column(name = "uuid")

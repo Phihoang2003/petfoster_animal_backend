@@ -19,7 +19,7 @@ public interface UserRepository extends JpaRepository<User,String> {
 
     @Query("select u from Users u where u.username = :username")
     public Optional<User> findByUsername(@Param("username") String username);
-    @Query(nativeQuery = true,value="select * from Users where Users.token = :token")
+    @Query(nativeQuery = true,value="select * from Users u where u.token = :token")
     public User findByToken(@Param("token") String token);
 
 }

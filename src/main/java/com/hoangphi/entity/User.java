@@ -5,10 +5,7 @@ import com.hoangphi.entity.social.Comments;
 import com.hoangphi.entity.social.LikedComments;
 import com.hoangphi.entity.social.Likes;
 import com.hoangphi.entity.social.Posts;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Nationalized;
 
@@ -21,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "users")
+@Entity(name = "Users")
 public class User {
     @Id
     @GeneratedValue(generator = "uuid")
@@ -71,6 +68,7 @@ public class User {
     private List<Orders> orders;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Authorities> authorities;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore

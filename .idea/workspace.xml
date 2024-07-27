@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AuthServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,13 +287,34 @@
       <option name="project" value="LOCAL" />
       <updated>1722064484040</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fix bug error for query to findByUsername">
+      <option name="closed" value="true" />
+      <created>1722064520793</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1722064520793</updated>
+    </task>
+    <task id="LOCAL-00027" summary="modified web security for login user">
+      <option name="closed" value="true" />
+      <created>1722064564290</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1722064564290</updated>
+    </task>
+    <task id="LOCAL-00028" summary="create generateToken and implement findByUsername interface">
+      <option name="closed" value="true" />
+      <created>1722064632030</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1722064632030</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add AuthResponse and Role,Api Response" />
-    <MESSAGE value="create AuthoritiesRepository and UserRepository" />
-    <MESSAGE value="configuration server" />
     <MESSAGE value="modified AuthoritiesRepository" />
     <MESSAGE value="create AuthService" />
     <MESSAGE value="create Email service" />
@@ -316,6 +337,9 @@
     <MESSAGE value="fix bug for Authorities and User" />
     <MESSAGE value="create AuthServiceImpl to receive token and check email  verified" />
     <MESSAGE value="add constant secret key" />
-    <option name="LAST_COMMIT_MESSAGE" value="add constant secret key" />
+    <MESSAGE value="fix bug error for query to findByUsername" />
+    <MESSAGE value="modified web security for login user" />
+    <MESSAGE value="create generateToken and implement findByUsername interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="create generateToken and implement findByUsername interface" />
   </component>
 </project>

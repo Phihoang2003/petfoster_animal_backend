@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +43,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "development",
+    "git-widget-placeholder": "hoangphi/login-user",
     "last_opened_file_path": "D:/Hocweb/Hocweb/ProjectWeb/petfoster_animal_backend",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
@@ -252,7 +255,39 @@
       <option name="project" value="LOCAL" />
       <updated>1722017616818</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="create controller for login user">
+      <option name="closed" value="true" />
+      <created>1722064249718</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1722064249718</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fix bug for Authorities and User">
+      <option name="closed" value="true" />
+      <created>1722064336019</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1722064336019</updated>
+    </task>
+    <task id="LOCAL-00024" summary="create AuthServiceImpl to receive token and check email  verified">
+      <option name="closed" value="true" />
+      <created>1722064456554</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1722064456554</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add constant secret key">
+      <option name="closed" value="true" />
+      <created>1722064484040</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1722064484040</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -277,6 +312,10 @@
     <MESSAGE value="initial for servlet" />
     <MESSAGE value="configuration for app config and cors filter" />
     <MESSAGE value="register user by receive token from email successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="register user by receive token from email successfully" />
+    <MESSAGE value="create controller for login user" />
+    <MESSAGE value="fix bug for Authorities and User" />
+    <MESSAGE value="create AuthServiceImpl to receive token and check email  verified" />
+    <MESSAGE value="add constant secret key" />
+    <option name="LAST_COMMIT_MESSAGE" value="add constant secret key" />
   </component>
 </project>

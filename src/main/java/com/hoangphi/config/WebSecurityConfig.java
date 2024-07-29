@@ -12,9 +12,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()  // Disable CSRF protection for simplicity.
                 .authorizeRequests()
-                .antMatchers("/api/register").permitAll()
-                .antMatchers("/api/login").permitAll()
-                .antMatchers("/api/verify").permitAll()// Allow public access to the register endpoint.
+                .antMatchers("/api/**").permitAll()
+                // Allow public access to the register endpoint.
                 .anyRequest().authenticated()  // Require authentication for all other requests.
                 .and()
                 .formLogin().disable();  // Disable form login.

@@ -4,6 +4,7 @@ public enum RespMessage {
     SUCCESS("Successfully"),
     FAILURE("Failures!"),
     INVALID("is invalid!"),
+    NOT_FOUND("Can't found data!"),
 
     INTERNAL_SERVER_ERROR("Internal Server Error!");
 

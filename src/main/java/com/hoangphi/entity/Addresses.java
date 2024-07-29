@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Nationalized;
 
 import javax.persistence.*;
@@ -32,6 +33,7 @@ public class Addresses {
     @JoinColumn(name = "is_default")
     private Boolean isDefault;
     @JoinColumn(name = "create_at")
+    @CreationTimestamp
     private Date createAt;
 
     @ManyToOne

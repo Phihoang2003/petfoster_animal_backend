@@ -79,6 +79,25 @@ public class AddressServiceImpl implements AddressService {
                 .build();
 
     }
+    private AddressUserResponse buildAddressResponse(Addresses addresses) {
+
+        if (addresses == null)
+            return null;
+
+        return AddressUserResponse.builder()
+                .id(addresses.getId())
+                .name(addresses.getRecipient())
+                .phone(addresses.getPhone())
+                .address(
+                        AddressResponse.builder()
+                                .province(addresses.getProvince())
+                                .district(addresses.getDistrict())
+                                .ward(addresses.getWard())
+                                .address(addresses.getAddress())
+                                .build())
+                .isDefault(addresses.getIsDefault())
+                .build();
+    }
 
     @Override
     public ApiResponse getUserAddresses(String username) {
@@ -94,18 +113,40 @@ public class AddressServiceImpl implements AddressService {
         List<Addresses> list=addressRepository.findByUser(user);
         List<AddressUserResponse> lists=new ArrayList<>();
         for(Addresses a:list){
-            lists.add(AddressUserResponse.builder()
-                    .id(a.getId())
-                    .name(a.getUser().getFullname())
-                    .phone(a.getPhone())
-                    .address(AddressResponse.builder()
-                            .address(a.getAddress())
-                            .district(a.getDistrict())
-                            .province(a.getProvince())
-                            .ward(a.getWard())
-                            .build())
-                    .isDefault(a.getIsDefault())
-                    .build());
+            lists.add(buildAddressResponse(a));
+        }
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message(RespMessage.SUCCESS.getValue())
+                .errors(false)
+                .data(lists)
+                .build();
+    }
+
+    @Override
+    public ApiResponse getAddressesByToken(String token) {
+        String username=getUsernameFromToken(token);
+        if(username==null||username.isEmpty()){
+            return ApiResponse.builder()
+                    .status(400)
+                    .message("Please login to use !")
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        User user=userRepository.findByUsername(username).orElse(null);
+        if(user==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .errors(true)
+                    .data(new ArrayList<>())
+                    .build();
+        }
+        List<Addresses> list=addressRepository.findByUser(user);
+        List<AddressUserResponse> lists=new ArrayList<>();
+        for(Addresses a:list){
+            lists.add(buildAddressResponse(a));
         }
         return ApiResponse.builder()
                 .status(HttpStatus.OK.value())

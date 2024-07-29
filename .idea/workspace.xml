@@ -414,11 +414,18 @@
       <option name="project" value="LOCAL" />
       <updated>1722239698266</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="create getUsernameAddresses successfully">
+      <option name="closed" value="true" />
+      <created>1722243103803</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1722243103803</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update file" />
     <MESSAGE value="bug for query to get data" />
     <MESSAGE value="configuration for web security" />
     <MESSAGE value="initial for servlet" />
@@ -443,6 +450,7 @@
     <MESSAGE value="create addresses repository for findByUser and findByIsDefaultUser" />
     <MESSAGE value="add controller for create addresses" />
     <MESSAGE value="create address successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="create address successfully" />
+    <MESSAGE value="create getUsernameAddresses successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="create getUsernameAddresses successfully" />
   </component>
 </project>

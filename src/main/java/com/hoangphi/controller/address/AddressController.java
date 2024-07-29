@@ -19,4 +19,8 @@ public class AddressController {
     public ResponseEntity<ApiResponse> create(@RequestHeader("Authorization") String token, @Valid @RequestBody AddressUserRequest data){
         return ResponseEntity.ok(addressService.create(token, data));
     }
+    @GetMapping("/{username}")
+    public ResponseEntity<ApiResponse> getUserAddresses(@PathVariable("username") String username){
+        return ResponseEntity.ok(addressService.getUserAddresses(username));
+    }
 }

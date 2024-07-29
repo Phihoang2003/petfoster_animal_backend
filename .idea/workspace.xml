@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/JwtProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/JwtProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/RespMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/RespMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Addresses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Addresses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/address/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/address/AddressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/address/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/address/AddressService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AddressServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AddressServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -351,18 +350,74 @@
       <option name="project" value="LOCAL" />
       <updated>1722068993574</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="modified Addresses by add timestamp">
+      <option name="closed" value="true" />
+      <created>1722239406532</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1722239406532</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add getUsername from token">
+      <option name="closed" value="true" />
+      <created>1722239439389</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1722239439389</updated>
+    </task>
+    <task id="LOCAL-00036" summary="modified web security request">
+      <option name="closed" value="true" />
+      <created>1722239497366</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1722239497366</updated>
+    </task>
+    <task id="LOCAL-00037" summary="add addressUser response and addressUser request">
+      <option name="closed" value="true" />
+      <created>1722239545283</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1722239545283</updated>
+    </task>
+    <task id="LOCAL-00038" summary="add address response and address request">
+      <option name="closed" value="true" />
+      <created>1722239576299</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1722239576299</updated>
+    </task>
+    <task id="LOCAL-00039" summary="create addresses repository for findByUser and findByIsDefaultUser">
+      <option name="closed" value="true" />
+      <created>1722239619639</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1722239619639</updated>
+    </task>
+    <task id="LOCAL-00040" summary="add controller for create addresses">
+      <option name="closed" value="true" />
+      <created>1722239668125</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1722239668125</updated>
+    </task>
+    <task id="LOCAL-00041" summary="create address successfully">
+      <option name="closed" value="true" />
+      <created>1722239698266</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1722239698266</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add PatternExpress to check when register" />
-    <MESSAGE value="configuration for send email" />
-    <MESSAGE value="create constance base url" />
-    <MESSAGE value="create role repository" />
-    <MESSAGE value="setup function to sendEmail and sendTemplate email" />
-    <MESSAGE value="create controller for register user" />
-    <MESSAGE value="bug for initial bean object Addresses" />
-    <MESSAGE value="modified to suit for relationship" />
     <MESSAGE value="update file" />
     <MESSAGE value="bug for query to get data" />
     <MESSAGE value="configuration for web security" />
@@ -380,6 +435,14 @@
     <MESSAGE value="add findByToken in user repository" />
     <MESSAGE value="verify email to login user successfully" />
     <MESSAGE value="create full properties for Addresses" />
-    <option name="LAST_COMMIT_MESSAGE" value="create full properties for Addresses" />
+    <MESSAGE value="modified Addresses by add timestamp" />
+    <MESSAGE value="add getUsername from token" />
+    <MESSAGE value="modified web security request" />
+    <MESSAGE value="add addressUser response and addressUser request" />
+    <MESSAGE value="add address response and address request" />
+    <MESSAGE value="create addresses repository for findByUser and findByIsDefaultUser" />
+    <MESSAGE value="add controller for create addresses" />
+    <MESSAGE value="create address successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="create address successfully" />
   </component>
 </project>

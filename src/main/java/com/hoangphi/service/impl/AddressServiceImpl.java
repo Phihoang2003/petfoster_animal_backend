@@ -9,11 +9,14 @@ import com.hoangphi.repository.UserRepository;
 import com.hoangphi.request.address.AddressRequest;
 import com.hoangphi.request.address.AddressUserRequest;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.address.AddressResponse;
+import com.hoangphi.response.address.AddressUserResponse;
 import com.hoangphi.service.address.AddressService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -76,6 +79,42 @@ public class AddressServiceImpl implements AddressService {
                 .build();
 
     }
+
+    @Override
+    public ApiResponse getUserAddresses(String username) {
+        User user=userRepository.findByUsername(username).orElse(null);
+        if(user==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .errors(true)
+                    .data(new ArrayList<>())
+                    .build();
+        }
+        List<Addresses> list=addressRepository.findByUser(user);
+        List<AddressUserResponse> lists=new ArrayList<>();
+        for(Addresses a:list){
+            lists.add(AddressUserResponse.builder()
+                    .id(a.getId())
+                    .name(a.getUser().getFullname())
+                    .phone(a.getPhone())
+                    .address(AddressResponse.builder()
+                            .address(a.getAddress())
+                            .district(a.getDistrict())
+                            .province(a.getProvince())
+                            .ward(a.getWard())
+                            .build())
+                    .isDefault(a.getIsDefault())
+                    .build());
+        }
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message(RespMessage.SUCCESS.getValue())
+                .errors(false)
+                .data(lists)
+                .build();
+    }
+
     private Addresses buildAddresses(AddressUserRequest addressUserRequest, User user){
         if(addressUserRequest==null){
             return null;

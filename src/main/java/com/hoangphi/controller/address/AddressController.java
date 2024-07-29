@@ -23,4 +23,9 @@ public class AddressController {
     public ResponseEntity<ApiResponse> getUserAddresses(@PathVariable("username") String username){
         return ResponseEntity.ok(addressService.getUserAddresses(username));
     }
+
+    @GetMapping("")
+    public ResponseEntity<ApiResponse> getAddressesByToken(@RequestHeader("Authorization") String token){
+        return ResponseEntity.ok(addressService.getAddressesByToken(token));
+    }
 }

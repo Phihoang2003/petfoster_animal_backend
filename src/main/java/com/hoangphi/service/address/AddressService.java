@@ -6,4 +6,6 @@ import com.hoangphi.response.ApiResponse;
 public interface AddressService {
     ApiResponse create(String token, AddressUserRequest data);
     ApiResponse getUserAddresses(String username);
+
+    ApiResponse getAddressesByToken(String token);
 }

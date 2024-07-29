@@ -21,5 +21,12 @@ public class JwtProvider {
                 .signWith(key).compact();
     }
 
+    public String getUsernameFromToken(String jwt){
+        jwt=jwt.substring(7);
+        return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody().get("username").toString();
+    }
+
+
+
 
 }

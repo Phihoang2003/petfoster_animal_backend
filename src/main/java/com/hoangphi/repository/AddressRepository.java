@@ -13,4 +13,7 @@ public interface AddressRepository extends JpaRepository<Addresses, Integer>{
     Addresses findByIsDefaultWithUser(@Param("username") String username);
 
     List<Addresses> findByUser(User user);
+
+    @Query("select a from Addresses a where a.id=:id and a.user.username=:username")
+    Addresses findByIdAndUser(@Param("id") Integer id, @Param("username") String username);
 }

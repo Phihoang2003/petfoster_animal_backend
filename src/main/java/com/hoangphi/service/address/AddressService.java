@@ -8,4 +8,6 @@ public interface AddressService {
     ApiResponse getUserAddresses(String username);
 
     ApiResponse getAddressesByToken(String token);
+
+    ApiResponse getAddressById(String token, Integer id);
 }

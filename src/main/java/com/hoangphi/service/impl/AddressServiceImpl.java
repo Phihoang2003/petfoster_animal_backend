@@ -156,6 +156,35 @@ public class AddressServiceImpl implements AddressService {
                 .build();
     }
 
+    @Override
+    public ApiResponse getAddressById(String token, Integer id) {
+        String username=getUsernameFromToken(token);
+        if(username==null||username.isEmpty()){
+            return ApiResponse.builder()
+                    .status(400)
+                    .message("Please login to use !")
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        Addresses addresses=addressRepository.findByIdAndUser(id,username);
+        if(addresses==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("Can not found address with item: "+id)
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message(RespMessage.SUCCESS.getValue())
+                .errors(false)
+                .data(buildAddressResponse(addresses))
+                .build();
+    }
+
     private Addresses buildAddresses(AddressUserRequest addressUserRequest, User user){
         if(addressUserRequest==null){
             return null;

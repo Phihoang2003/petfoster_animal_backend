@@ -36,4 +36,10 @@ public class AddressController {
     public ResponseEntity<ApiResponse> findDefaultAddress(@RequestHeader("Authorization") String token){
         return ResponseEntity.ok(addressService.findDefaultAddress(token));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse> update(@RequestHeader("Authorization") String token,@PathVariable("id") Integer id,@Valid @RequestBody AddressUserRequest data){
+        return ResponseEntity.ok(addressService.update(token, id, data));
+    }
+
 }

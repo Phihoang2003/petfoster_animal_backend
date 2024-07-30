@@ -12,4 +12,5 @@ public interface AddressService {
     ApiResponse getAddressById(String token, Integer id);
 
     ApiResponse findDefaultAddress(String token);
+    ApiResponse update(String token, Integer id, AddressUserRequest data);
 }

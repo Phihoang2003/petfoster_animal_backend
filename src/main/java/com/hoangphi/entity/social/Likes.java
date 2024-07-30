@@ -6,8 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -18,8 +20,16 @@ public class Likes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @CreationTimestamp
+    private Date likeAt;
+
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "user_id")
     private User user;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "post_id")
+    private Posts post;
 }

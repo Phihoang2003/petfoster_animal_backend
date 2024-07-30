@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/address/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/address/AddressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/address/AddressService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/address/AddressService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AddressServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AddressServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Comments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Comments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/LikedComments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/LikedComments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Likes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Likes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Posts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Posts.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +43,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "hoangphi/handle-addresses",
-    "last_opened_file_path": "D:/pet-backend/petfoster-animal-back-end-2.0",
+    "git-widget-placeholder": "hoangphi/handle-user-interactions",
+    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -52,11 +53,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.hoangphi.entity.social" />
       <recent name="com.hoangphi.entity.Order" />
       <recent name="com.hoangphi.entity.Posts" />
       <recent name="com.hoangphi.entity.RecentView" />
       <recent name="com.hoangphi.entity.SearchHistory" />
-      <recent name="com.hoangphi.entity.Review" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Hocweb\Hocweb\ProjectWeb\petfoster_animal_backend\src\main\resources\templates" />

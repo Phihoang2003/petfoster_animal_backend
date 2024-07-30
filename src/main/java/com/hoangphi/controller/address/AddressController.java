@@ -42,4 +42,10 @@ public class AddressController {
         return ResponseEntity.ok(addressService.update(token, id, data));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> delete(@RequestHeader("Authorization") String token,
+                                              @PathVariable("id") Integer id) {
+        return ResponseEntity.ok(addressService.delete(token, id));
+    }
+
 }

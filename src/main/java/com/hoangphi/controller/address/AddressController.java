@@ -32,4 +32,8 @@ public class AddressController {
     public ResponseEntity<ApiResponse> getAddressById(@RequestHeader("Authorization") String token, @PathVariable("id") Integer id){
         return ResponseEntity.ok(addressService.getAddressById(token, id));
     }
+    @GetMapping("/default")
+    public ResponseEntity<ApiResponse> findDefaultAddress(@RequestHeader("Authorization") String token){
+        return ResponseEntity.ok(addressService.findDefaultAddress(token));
+    }
 }

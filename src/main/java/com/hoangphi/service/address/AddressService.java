@@ -10,4 +10,6 @@ public interface AddressService {
     ApiResponse getAddressesByToken(String token);
 
     ApiResponse getAddressById(String token, Integer id);
+
+    ApiResponse findDefaultAddress(String token);
 }

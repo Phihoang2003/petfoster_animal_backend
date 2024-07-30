@@ -185,6 +185,34 @@ public class AddressServiceImpl implements AddressService {
                 .build();
     }
 
+    @Override
+    public ApiResponse findDefaultAddress(String token) {
+        String username=getUsernameFromToken(token);
+        if(username==null||username.isEmpty()){
+            return ApiResponse.builder()
+                    .status(400)
+                    .message("Please login to use !")
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        Addresses addresses=addressRepository.findByIsDefaultWithUser(username);
+        if(addresses==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("Can not found default address")
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message(RespMessage.SUCCESS.getValue())
+                .errors(false)
+                .data(buildAddressResponse(addresses))
+                .build();
+    }
+
     private Addresses buildAddresses(AddressUserRequest addressUserRequest, User user){
         if(addressUserRequest==null){
             return null;

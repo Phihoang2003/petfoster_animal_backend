@@ -215,6 +215,54 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
+    public ApiResponse delete(String token, Integer id) {
+        String username=getUsernameFromToken(token);
+        if(username==null||username.isEmpty()){
+            return ApiResponse.builder()
+                    .status(400)
+                    .message("Please login to use !")
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        User user = userRepository.findByUsername(username).orElse(null);
+
+        if (user == null) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        Addresses currentAddress=addressRepository.findById(id).orElse(null);
+        if(currentAddress==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("Can not found address with item: "+id)
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        addressRepository.delete(currentAddress);
+        if(currentAddress.getIsDefault()){
+            List<Addresses> list=addressRepository.findByUser(user);
+            if(list!=null&& !list.isEmpty()){
+                Addresses addresses=list.get(0);
+                addresses.setIsDefault(true);
+                addressRepository.save(addresses);
+            }
+        }
+
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message("Delete address success with id: "+ id)
+                .errors(false)
+                .data(null)
+                .build();
+    }
+
+    @Override
     public ApiResponse update(String token, Integer id, AddressUserRequest data) {
         String username=getUsernameFromToken(token);
         if(username==null||username.isEmpty()){

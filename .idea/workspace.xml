@@ -447,12 +447,26 @@
       <option name="project" value="LOCAL" />
       <updated>1722322655058</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="add updateAddress controller and service">
+      <option name="closed" value="true" />
+      <created>1722324520376</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1722324520376</updated>
+    </task>
+    <task id="LOCAL-00049" summary="complete update address successfully">
+      <option name="closed" value="true" />
+      <created>1722324565569</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1722324565569</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create controller for login user" />
-    <MESSAGE value="fix bug for Authorities and User" />
     <MESSAGE value="create AuthServiceImpl to receive token and check email  verified" />
     <MESSAGE value="add constant secret key" />
     <MESSAGE value="fix bug error for query to findByUsername" />
@@ -476,6 +490,8 @@
     <MESSAGE value="add getAddressById service successfully" />
     <MESSAGE value="add findDefault address service and controller" />
     <MESSAGE value="complete findDefaultAddress service" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete findDefaultAddress service" />
+    <MESSAGE value="add updateAddress controller and service" />
+    <MESSAGE value="complete update address successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete update address successfully" />
   </component>
 </project>

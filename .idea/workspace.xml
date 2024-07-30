@@ -431,12 +431,26 @@
       <option name="project" value="LOCAL" />
       <updated>1722244898568</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="add findDefault address service and controller">
+      <option name="closed" value="true" />
+      <created>1722322604783</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1722322604783</updated>
+    </task>
+    <task id="LOCAL-00047" summary="complete findDefaultAddress service">
+      <option name="closed" value="true" />
+      <created>1722322655058</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1722322655058</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="configuration for app config and cors filter" />
-    <MESSAGE value="register user by receive token from email successfully" />
     <MESSAGE value="create controller for login user" />
     <MESSAGE value="fix bug for Authorities and User" />
     <MESSAGE value="create AuthServiceImpl to receive token and check email  verified" />
@@ -460,6 +474,8 @@
     <MESSAGE value="create controller and service for getAddressesByToken" />
     <MESSAGE value="complete add getAddressesByToken successfully" />
     <MESSAGE value="add getAddressById service successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="add getAddressById service successfully" />
+    <MESSAGE value="add findDefault address service and controller" />
+    <MESSAGE value="complete findDefaultAddress service" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete findDefaultAddress service" />
   </component>
 </project>

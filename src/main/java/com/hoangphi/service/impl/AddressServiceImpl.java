@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import javax.mail.Address;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -210,6 +211,59 @@ public class AddressServiceImpl implements AddressService {
                 .message(RespMessage.SUCCESS.getValue())
                 .errors(false)
                 .data(buildAddressResponse(addresses))
+                .build();
+    }
+
+    @Override
+    public ApiResponse update(String token, Integer id, AddressUserRequest data) {
+        String username=getUsernameFromToken(token);
+        if(username==null||username.isEmpty()){
+            return ApiResponse.builder()
+                    .status(400)
+                    .message("Please login to use !")
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        User user=userRepository.findByUsername(username).orElse(null);
+        if(user==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        Addresses currentAddress=addressRepository.findById(id).orElse(null);
+        if(currentAddress==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("Can not found address with item: "+id)
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        Addresses addresses=buildAddresses(data,user);
+        if(addresses==null){
+            return ApiResponse.builder()
+                    .message(RespMessage.INVALID.getValue())
+                    .status(405)
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        currentAddress.setProvince(addresses.getProvince());
+        currentAddress.setDistrict(addresses.getDistrict());
+        currentAddress.setWard(addresses.getWard());
+        currentAddress.setAddress(addresses.getAddress());
+        currentAddress.setPhone(addresses.getPhone());
+        currentAddress.setRecipient(addresses.getRecipient());
+        currentAddress.setIsDefault(currentAddress.getIsDefault() || addresses.getIsDefault());
+        return ApiResponse.builder()
+                .message(RespMessage.SUCCESS.getValue())
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(buildAddressResponse(addressRepository.save(currentAddress)))
                 .build();
     }
 

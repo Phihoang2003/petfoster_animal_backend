@@ -2,7 +2,7 @@ package com.hoangphi.service.impl;
 
 import com.hoangphi.constant.Constant;
 import com.hoangphi.service.EmailService;
-import com.hoangphi.ultils.MailUtils;
+import com.hoangphi.utils.MailUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

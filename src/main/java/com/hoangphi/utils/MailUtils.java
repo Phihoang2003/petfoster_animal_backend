@@ -1,4 +1,4 @@
-package com.hoangphi.ultils;
+package com.hoangphi.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;

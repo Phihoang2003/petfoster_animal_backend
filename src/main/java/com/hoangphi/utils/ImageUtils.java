@@ -48,4 +48,9 @@ public class ImageUtils {
         }
 
     }
+    public static void deleteImg(String fileName) {
+        File imgFile = new File("images/" + fileName);
+        if (imgFile.exists())
+            imgFile.delete();
+    }
 }

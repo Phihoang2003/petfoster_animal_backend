@@ -25,13 +25,9 @@ public class Posts {
     @CreationTimestamp
     private Date createAt;
 
-    @UpdateTimestamp
+    @CreationTimestamp
     private Date lastUpdate;
 
-    @PreUpdate
-    protected void onUpdate() {
-        lastUpdate = new Date();
-    }
     private String uuid;
 
     @ManyToOne

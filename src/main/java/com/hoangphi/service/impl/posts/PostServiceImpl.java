@@ -91,7 +91,6 @@ public class PostServiceImpl implements PostService {
 
         // Get post with uuid
         Posts posts = postsRepository.findByUuid(id);
-        System.out.println("Post: " + posts);
 
         if (posts == null) {
             return ApiResponse.builder()
@@ -111,7 +110,6 @@ public class PostServiceImpl implements PostService {
 
                 if (mediasNeedUpdateIndex != null) {
                     mediasNeedUpdateIndex.setIndex(item.getIndex());
-
                     mediasRepository.save(mediasNeedUpdateIndex);
                 }
 
@@ -124,6 +122,7 @@ public class PostServiceImpl implements PostService {
                         OptionCreateAndSaveFile.builder()
                                 .acceptExtentions(Constant.ACCEPT_EXTENTION)
                                 .build());
+//                boolean hasVideo = medias.stream().anyMatch(Medias::getIsVideo);
 
                 if (isVideo) {
                     Medias exitMedias = mediasRepository.existsVideoOfPost(posts);
@@ -135,6 +134,16 @@ public class PostServiceImpl implements PostService {
                                     mediasRepository.delete(exitMedia);
                                 });
                     }
+                    //Handle when exist video in post
+//                    if (hasVideo) {
+//                        return ApiResponse.builder()
+//                                .message("One post allows only 1 video")
+//                                .errors(true)
+//                                .status(HttpStatus.BAD_REQUEST.value())
+//                                .data(null)
+//                                .build();
+//                    }
+
                 }
 
                 medias.add(Medias.builder()

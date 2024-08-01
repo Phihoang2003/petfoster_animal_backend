@@ -1,5 +1,6 @@
-package com.hoangphi.service.impl;
+package com.hoangphi.service.impl.users;
 
+import com.hoangphi.config.JwtProvider;
 import com.hoangphi.entity.User;
 import com.hoangphi.repository.UserRepository;
 import com.hoangphi.service.user.UserService;
@@ -16,6 +17,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
+    private final JwtProvider jwtProvider;
     @Override
     public UserDetails findByUsername(String username) {
         User exitsUser=userRepository.findByUsername(username).get();
@@ -29,5 +31,21 @@ public class UserServiceImpl implements UserService {
                 false,
                 false,
                 authorities);
+    }
+
+    @Override
+    public User getUserFromToken(String token) {
+        if(token==null||token.isBlank()){
+            return null;
+        }
+        String userName=jwtProvider.getUsernameFromToken(token);
+        if(userName==null){
+            return null;
+        }
+        User user=userRepository.findByUsername(userName).orElse(null);
+        if(user==null){
+            return null;
+        }
+        return user;
     }
 }

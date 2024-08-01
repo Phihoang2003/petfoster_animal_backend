@@ -56,17 +56,21 @@ public class User {
     private String displayName;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Adopt> adopts;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Favourite> favourites;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Addresses> addresses;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Orders> orders;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
@@ -83,6 +87,7 @@ public class User {
     private List<RecentView> recentViews;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Posts> posts;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore

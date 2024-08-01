@@ -181,6 +181,55 @@ public class PostServiceImpl implements PostService {
                 .build();
     }
 
+    @Override
+    public ApiResponse delete(String uuid, String token) {
+        if(uuid==null||uuid.isEmpty()){
+            return ApiResponse.builder()
+                    .message("Data not found")
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .data(null)
+                    .build();
+        }
+        if(token==null||token.isEmpty()){
+            return ApiResponse.builder()
+                    .message("Please login to delete")
+                    .errors(true)
+                    .status(HttpStatus.FORBIDDEN.value())
+                    .data(null)
+                    .build();
+        }
+        Posts posts=postsRepository.findByUuid(uuid);
+        User user=userService.getUserFromToken(token);
+        if(posts==null||user==null){
+            return ApiResponse.builder()
+                    .message("Data not found")
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .data(null)
+                    .build();
+        }
+        if(!posts.getUser().getId().equals(user.getId())&&!userService.isAdmin(user)){
+            return ApiResponse.builder()
+                    .message("You are not authorized to delete this post")
+                    .errors(true)
+                    .status(HttpStatus.FORBIDDEN.value())
+                    .data(null)
+                    .build();
+        }
+        posts.getMedias().forEach(item->{
+            ImageUtils.deleteImg("medias/"+item.getName());
+        });
+        postsRepository.delete(posts);
+        return ApiResponse.builder()
+                .message("Successfuly")
+                .errors(false)
+                .status(HttpStatus.OK.value())
+                .data(null)
+                .build();
+
+    }
+
     public PostDetailResponse buildDetailResponse(Posts posts){
         return null;
     }

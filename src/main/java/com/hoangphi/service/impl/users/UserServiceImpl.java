@@ -1,7 +1,9 @@
 package com.hoangphi.service.impl.users;
 
 import com.hoangphi.config.JwtProvider;
+import com.hoangphi.entity.Role;
 import com.hoangphi.entity.User;
+import com.hoangphi.repository.RoleRepository;
 import com.hoangphi.repository.UserRepository;
 import com.hoangphi.service.user.UserService;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final JwtProvider jwtProvider;
+    private final RoleRepository roleRepository;
     @Override
     public UserDetails findByUsername(String username) {
         User exitsUser=userRepository.findByUsername(username).get();
@@ -47,5 +50,18 @@ public class UserServiceImpl implements UserService {
             return null;
         }
         return user;
+    }
+
+    @Override
+    public Boolean isAdmin(User user) {
+        boolean isAdmin=false;
+        List<Role> manageRoles=roleRepository.managementRoles();
+        for(Role role:manageRoles){
+            if(role.getRole().equals(user.getAuthorities().get(0).getRole().getRole())){
+                isAdmin=true;
+            }
+        }
+
+        return isAdmin;
     }
 }

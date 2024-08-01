@@ -7,4 +7,5 @@ import com.hoangphi.response.ApiResponse;
 public interface PostService {
     ApiResponse create(PostRequest data, String token);
     ApiResponse update(PostUpdateRequest data, String id, String token);
+    ApiResponse delete(String uuid, String token);
 }

@@ -23,5 +23,10 @@ public class PostUserController {
                                                   @RequestHeader("Authorization") String token) {
         return ResponseEntity.ok(postService.update(data, id, token));
     }
+    @DeleteMapping("{uuid}")
+    public ResponseEntity<ApiResponse> deletePost(@PathVariable("uuid") String uuid,
+                                                  @RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(postService.delete(uuid, token));
+    }
 
 }

@@ -4,9 +4,12 @@ import com.hoangphi.constant.Constant;
 import com.hoangphi.entity.User;
 import com.hoangphi.entity.social.Medias;
 import com.hoangphi.entity.social.Posts;
+import com.hoangphi.repository.MediasRepository;
 import com.hoangphi.repository.PostRepository;
 import com.hoangphi.request.posts.PostMediaRequest;
+import com.hoangphi.request.posts.PostMediaUpdateRequest;
 import com.hoangphi.request.posts.PostRequest;
+import com.hoangphi.request.posts.PostUpdateRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.posts.PostDetailResponse;
 import com.hoangphi.service.impl.users.UserServiceImpl;
@@ -19,6 +22,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,6 +32,7 @@ import java.util.UUID;
 public class PostServiceImpl implements PostService {
     private final UserService userService;
     private final PostRepository postsRepository;
+    private final MediasRepository mediasRepository;
 
     @Override
     public ApiResponse create(PostRequest data, String token) {
@@ -69,6 +75,103 @@ public class PostServiceImpl implements PostService {
                 .build();
 
     }
+
+    @Override
+    public ApiResponse update(PostUpdateRequest data, String id, String token) {
+        User user = userService.getUserFromToken(token);
+
+        if (user == null) {
+            return ApiResponse.builder()
+                    .message("Un Authorization")
+                    .errors(true)
+                    .status(HttpStatus.FORBIDDEN.value())
+                    .data(null)
+                    .build();
+        }
+
+        // Get post with uuid
+        Posts posts = postsRepository.findByUuid(id);
+        System.out.println("Post: " + posts);
+
+        if (posts == null) {
+            return ApiResponse.builder()
+                    .message("Data not found")
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .data(null)
+                    .build();
+        }
+
+        List<Medias> medias = new ArrayList<>();
+
+        for (PostMediaUpdateRequest item : data.getMedias()) {
+            if (item.getId() != null) {
+                Medias mediasNeedUpdateIndex = mediasRepository.findById(item.getId())
+                        .orElse(null);
+
+                if (mediasNeedUpdateIndex != null) {
+                    mediasNeedUpdateIndex.setIndex(item.getIndex());
+
+                    mediasRepository.save(mediasNeedUpdateIndex);
+                }
+
+            }
+
+            if (item.getFile() != null && item.getId() == null) {
+                Boolean isVideo = item.getFile().getContentType().equalsIgnoreCase("video/mp4");
+
+                File file = ImageUtils.createFileAndSave("medias\\", item.getFile(),
+                        OptionCreateAndSaveFile.builder()
+                                .acceptExtentions(Constant.ACCEPT_EXTENTION)
+                                .build());
+
+                if (isVideo) {
+                    Medias exitMedias = mediasRepository.existsVideoOfPost(posts);
+                    if (exitMedias == null) {
+                        mediasRepository.findMediasWithPost(posts)
+                                .forEach(exitMedia -> {
+                                    ImageUtils.deleteImg("medias/"
+                                            + exitMedia.getName());
+                                    mediasRepository.delete(exitMedia);
+                                });
+                    }
+                }
+
+                medias.add(Medias.builder()
+                        .index(item.getIndex())
+                        .isVideo(isVideo)
+                        .post(posts)
+                        .name(file == null ? "" : file.getName())
+                        .build());
+            }
+
+        }
+
+        if (!medias.isEmpty()) {
+            posts.setMedias(medias);
+        }
+
+        if (posts.getMedias().isEmpty()) {
+            return ApiResponse.builder()
+                    .message("Update failure Make sure you have submitted the correct data")
+                    .errors(true)
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .data(null)
+                    .build();
+        }
+
+        posts.setTitle(data.getTitle());
+        posts.setLastUpdate(new Date());
+        postsRepository.save(posts);
+
+        return ApiResponse.builder()
+                .message("Successfuly")
+                .errors(false)
+                .status(HttpStatus.OK.value())
+                .data(posts)
+                .build();
+    }
+
     public PostDetailResponse buildDetailResponse(Posts posts){
         return null;
     }
@@ -84,7 +187,6 @@ public class PostServiceImpl implements PostService {
             File file= ImageUtils.createFileAndSave("medias\\",item.getFile(), OptionCreateAndSaveFile.builder()
                     .acceptExtentions(Constant.ACCEPT_EXTENTION)
                     .build());
-            System.out.println("file name: "+file.getName());
             return Medias.builder()
                     .index(item.getIndex())
                     .isVideo(isVideo)
@@ -109,6 +211,7 @@ public class PostServiceImpl implements PostService {
         if (medias.size() > 1) {
             for (PostMediaRequest media : medias) {
                 if (media.getFile().getContentType().equals("video/mp4")) {
+                    System.out.println("Can not upload more video");
                     return true;
                 }
             }

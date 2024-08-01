@@ -1,6 +1,7 @@
 package com.hoangphi.controller.posts;
 
 import com.hoangphi.request.posts.PostRequest;
+import com.hoangphi.request.posts.PostUpdateRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.posts.PostService;
 import lombok.RequiredArgsConstructor;
@@ -17,4 +18,10 @@ public class PostUserController {
                                                   @RequestHeader("Authorization") String token) {
         return ResponseEntity.ok(postService.create(data, token));
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse> updatePost(@ModelAttribute PostUpdateRequest data, @PathVariable("id") String id,
+                                                  @RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(postService.update(data, id, token));
+    }
+
 }

@@ -1,6 +1,8 @@
 package com.hoangphi.service.impl.posts;
 
+import com.hoangphi.config.JwtProvider;
 import com.hoangphi.constant.Constant;
+import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.User;
 import com.hoangphi.entity.social.Likes;
 import com.hoangphi.entity.social.Medias;
@@ -13,21 +15,26 @@ import com.hoangphi.request.posts.PostMediaUpdateRequest;
 import com.hoangphi.request.posts.PostRequest;
 import com.hoangphi.request.posts.PostUpdateRequest;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.response.posts.PostDetailResponse;
+import com.hoangphi.response.posts.PostReponse;
 import com.hoangphi.service.impl.users.UserServiceImpl;
 import com.hoangphi.service.posts.PostService;
 import com.hoangphi.service.user.UserService;
 import com.hoangphi.utils.ImageUtils;
 import com.hoangphi.utils.parent.OptionCreateAndSaveFile;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -36,6 +43,7 @@ public class PostServiceImpl implements PostService {
     private final PostRepository postsRepository;
     private final MediasRepository mediasRepository;
     private final LikeRepository likeRepository;
+    private final JwtProvider   jwtProvider;
 
     @Override
     public ApiResponse create(PostRequest data, String token) {
@@ -290,6 +298,97 @@ public class PostServiceImpl implements PostService {
                 .errors(false)
                 .status(HttpStatus.OK.value())
                 .data(null)
+                .build();
+    }
+
+    @Override
+    public List<PostReponse> buildPostHomePageResponses(List<Posts> posts) {
+        String token = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest()
+                .getHeader("Authorization");
+
+        return posts.stream().map(post->{
+            boolean isLike=false;
+            User user=userService.getUserFromToken(token);
+            if(token!=null||user!=null){
+                isLike=likeRepository.existByUserAndPost(user.getId(),post.getId())!=null;
+
+            }
+            Medias medias=mediasRepository.findMediasWithPost(post).get(0);
+            return PostReponse.builder()
+                    .id(post.getUuid())
+                    .title(post.getTitle())
+//                    .thumbnail(portUltil.getUrlImage(medias.getName(), "medias"))
+                    .containVideo(medias.getIsVideo())
+                    .comments(post.getComments().size())
+                    .likes(post.getLikes().size())
+                    .isLike(isLike)
+//                    .user(userServiceImpl.buildUserProfileResponse(post.getUser()))
+                    .build();
+
+        }).toList();
+
+    }
+
+    public List<Posts> getListPostOfUser(String username,Optional<String> rawType){
+        String token= ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest().getHeader("Authorization");
+        String type=rawType.orElse(null);
+        if(type!=null&&type.equals("likes")){
+            if(token!=null){
+                String usernameFromToken=jwtProvider.getUsernameFromToken(token);
+                if(usernameFromToken.equals(username)){
+                    return postsRepository.postsLikeOfUser(username);
+                }
+            }
+            return new ArrayList<>();
+        }
+        if(type!=null&& type.equals("posts")){
+            return postsRepository.postOfUser(username);
+        }
+
+        return postsRepository.postOfUser(username);
+    }
+    @Override
+    public ApiResponse postsOfUser(String username, Optional<Integer> page, Optional<String> type) {
+        List<Posts> posts =this.getListPostOfUser(username,type);
+        if(posts.isEmpty()){
+            return ApiResponse.builder()
+                    .message("Failure")
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .data(null)
+                    .build();
+        }
+        //On one page only show some posts,so we need to paginate
+        Pageable pageable= PageRequest.of(page.orElse(0),10);
+        int startIndex=(int) pageable.getOffset();
+        int endIndex=Math.min((startIndex+pageable.getPageSize()),posts.size());
+
+        if (startIndex >= endIndex) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .errors(false)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+        List<Posts> visiblePosts=posts.subList(startIndex,endIndex);
+        if (visiblePosts == null) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .errors(false)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+        Page<Posts> pagination = new PageImpl<Posts>(visiblePosts, pageable,
+                posts.size());
+
+        return ApiResponse.builder()
+                .message("Succeessfuly")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(PaginationResponse.builder().data(visiblePosts)
+                        .pages(pagination.getTotalPages()).build())
                 .build();
     }
 

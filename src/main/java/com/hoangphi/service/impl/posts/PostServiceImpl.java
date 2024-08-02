@@ -2,8 +2,10 @@ package com.hoangphi.service.impl.posts;
 
 import com.hoangphi.constant.Constant;
 import com.hoangphi.entity.User;
+import com.hoangphi.entity.social.Likes;
 import com.hoangphi.entity.social.Medias;
 import com.hoangphi.entity.social.Posts;
+import com.hoangphi.repository.LikeRepository;
 import com.hoangphi.repository.MediasRepository;
 import com.hoangphi.repository.PostRepository;
 import com.hoangphi.request.posts.PostMediaRequest;
@@ -33,6 +35,7 @@ public class PostServiceImpl implements PostService {
     private final UserService userService;
     private final PostRepository postsRepository;
     private final MediasRepository mediasRepository;
+    private final LikeRepository likeRepository;
 
     @Override
     public ApiResponse create(PostRequest data, String token) {
@@ -228,6 +231,66 @@ public class PostServiceImpl implements PostService {
                 .data(null)
                 .build();
 
+    }
+
+    @Override
+    public ApiResponse likePost(String uuid, String token) {
+        if(token==null){
+            return ApiResponse.builder()
+                    .message("Please login to like")
+                    .errors(true)
+                    .status(HttpStatus.FORBIDDEN.value())
+                    .data(null)
+                    .build();
+        }
+        if(uuid==null){
+            return ApiResponse.builder()
+                    .message("Data not found")
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .data(null)
+                    .build();
+        }
+        User user=userService.getUserFromToken(token);
+        Posts posts=postsRepository.findByUuid(uuid);
+        if(user==null||posts==null){
+            return ApiResponse.builder()
+                    .message("Something not found")
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .data(null)
+                    .build();
+        }
+        Likes checkLikes=likeRepository.existByUserAndPost(user.getId(),posts.getId());
+        if(checkLikes!=null){
+            likeRepository.delete(checkLikes);
+            return ApiResponse.builder()
+                    .message("Unlike successfully")
+                    .errors(false)
+                    .status(HttpStatus.OK.value())
+                    .data(null)
+                    .build();
+        }
+        Likes like=Likes.builder()
+                .user(user)
+                .post(posts)
+                .build();
+        if (like==null){
+            return ApiResponse.builder()
+                    .message("Like failure")
+                    .errors(true)
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .data(null)
+                    .build();
+        }
+        likeRepository.save(like);
+
+        return ApiResponse.builder()
+                .message("Like successfully")
+                .errors(false)
+                .status(HttpStatus.OK.value())
+                .data(null)
+                .build();
     }
 
     public PostDetailResponse buildDetailResponse(Posts posts){

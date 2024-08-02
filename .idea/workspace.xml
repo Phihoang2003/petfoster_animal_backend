@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/users/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/users/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/user/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -40,18 +37,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "hoangphi/handle-user-interactions",
-    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hoangphi/handle-user-interactions&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.hoangphi.entity.social" />
@@ -72,38 +69,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00019" summary="initial for servlet">
-      <option name="closed" value="true" />
-      <created>1722017525122</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1722017525122</updated>
-    </task>
-    <task id="LOCAL-00020" summary="configuration for app config and cors filter">
-      <option name="closed" value="true" />
-      <created>1722017567737</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1722017567737</updated>
-    </task>
-    <task id="LOCAL-00021" summary="register user by receive token from email successfully">
-      <option name="closed" value="true" />
-      <created>1722017616818</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1722017616818</updated>
-    </task>
-    <task id="LOCAL-00022" summary="create controller for login user">
-      <option name="closed" value="true" />
-      <created>1722064249718</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1722064249718</updated>
     </task>
     <task id="LOCAL-00023" summary="fix bug for Authorities and User">
       <option name="closed" value="true" />
@@ -465,14 +430,42 @@
       <option name="project" value="LOCAL" />
       <updated>1722518206528</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="create isAdmin and resolve success for userRepository">
+      <option name="closed" value="true" />
+      <created>1722518265257</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1722518265257</updated>
+    </task>
+    <task id="LOCAL-00069" summary="add service delete posts">
+      <option name="closed" value="true" />
+      <created>1722518306922</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1722518306923</updated>
+    </task>
+    <task id="LOCAL-00070" summary="delete posts successfully">
+      <option name="closed" value="true" />
+      <created>1722518329065</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1722518329065</updated>
+    </task>
+    <task id="LOCAL-00071" summary="add images when create and update posts">
+      <option name="closed" value="true" />
+      <created>1722518363749</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1722518363749</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create controller and service for getAddressesByToken" />
-    <MESSAGE value="complete add getAddressesByToken successfully" />
-    <MESSAGE value="add getAddressById service successfully" />
-    <MESSAGE value="add findDefault address service and controller" />
     <MESSAGE value="complete findDefaultAddress service" />
     <MESSAGE value="add updateAddress controller and service" />
     <MESSAGE value="complete update address successfully" />
@@ -494,6 +487,10 @@
     <MESSAGE value="create deleteImg utils" />
     <MESSAGE value="bug for update post" />
     <MESSAGE value="create manageRoles repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="create manageRoles repository" />
+    <MESSAGE value="create isAdmin and resolve success for userRepository" />
+    <MESSAGE value="add service delete posts" />
+    <MESSAGE value="delete posts successfully" />
+    <MESSAGE value="add images when create and update posts" />
+    <option name="LAST_COMMIT_MESSAGE" value="add images when create and update posts" />
   </component>
 </project>

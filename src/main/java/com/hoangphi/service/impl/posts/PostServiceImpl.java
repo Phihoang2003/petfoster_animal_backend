@@ -302,6 +302,27 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public ApiResponse highlight() {
+        List<Posts> posts = postsRepository.highlight();
+
+        if (posts == null || posts.isEmpty()) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(new ArrayList<>())
+                    .errors(false)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+
+        return ApiResponse.builder()
+                .message("Succeessfuly")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(posts)
+                .build();
+    }
+
+    @Override
     public List<PostReponse> buildPostHomePageResponses(List<Posts> posts) {
         String token = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest()
                 .getHeader("Authorization");

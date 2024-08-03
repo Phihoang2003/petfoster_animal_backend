@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PostRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,14 +71,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00033" summary="create full properties for Addresses">
-      <option name="closed" value="true" />
-      <created>1722068993574</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1722068993574</updated>
     </task>
     <task id="LOCAL-00034" summary="modified Addresses by add timestamp">
       <option name="closed" value="true" />
@@ -461,11 +456,18 @@
       <option name="project" value="LOCAL" />
       <updated>1722665196821</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="resolve problem with search posts and pagination successfully">
+      <option name="closed" value="true" />
+      <created>1722665236876</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1722665236876</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add includes list utils" />
     <MESSAGE value="add parent option and save file" />
     <MESSAGE value="handle controller and service for create post" />
     <MESSAGE value="fix bug create and save file successfully" />
@@ -490,6 +492,7 @@
     <MESSAGE value="add controller for postOfUser" />
     <MESSAGE value="create search posts with @Query repository" />
     <MESSAGE value="create controller and service with search posts" />
-    <option name="LAST_COMMIT_MESSAGE" value="create controller and service with search posts" />
+    <MESSAGE value="resolve problem with search posts and pagination successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with search posts and pagination successfully" />
   </component>
 </project>

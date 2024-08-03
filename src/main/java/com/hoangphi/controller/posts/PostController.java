@@ -25,4 +25,8 @@ public class PostController {
                                              @RequestParam("page") Optional<Integer> page) {
         return ResponseEntity.ok(postService.posts(search, page));
     }
+    @GetMapping("/highlight")
+    public ResponseEntity<ApiResponse> getAttributes() {
+        return ResponseEntity.ok(postService.highlight());
+    }
 }

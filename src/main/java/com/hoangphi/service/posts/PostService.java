@@ -14,6 +14,7 @@ public interface PostService {
     ApiResponse update(PostUpdateRequest data, String id, String token);
     ApiResponse delete(String uuid, String token);
     ApiResponse likePost(String uuid, String token);
+    ApiResponse highlight();
     List<PostReponse> buildPostHomePageResponses(List<Posts> posts);
 
     ApiResponse posts(Optional<String> search, Optional<Integer> page);

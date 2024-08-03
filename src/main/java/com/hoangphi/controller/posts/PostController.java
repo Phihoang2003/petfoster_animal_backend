@@ -29,4 +29,8 @@ public class PostController {
     public ResponseEntity<ApiResponse> getAttributes() {
         return ResponseEntity.ok(postService.highlight());
     }
+    @GetMapping("/highlight/{username}")
+    public ResponseEntity<ApiResponse> getAttributes(@PathVariable("username") String username) {
+        return ResponseEntity.ok(postService.highlightOfUser(username));
+    }
 }

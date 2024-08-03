@@ -16,5 +16,7 @@ public interface PostService {
     ApiResponse likePost(String uuid, String token);
     List<PostReponse> buildPostHomePageResponses(List<Posts> posts);
 
+    ApiResponse posts(Optional<String> search, Optional<Integer> page);
+
     ApiResponse postsOfUser(String username, Optional<Integer> page, Optional<String> type);
 }

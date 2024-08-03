@@ -20,4 +20,9 @@ public class PostController {
                                                   @RequestParam("page") Optional<Integer> page){
         return ResponseEntity.ok(postService.postsOfUser(username, page, type));
     }
+    @GetMapping("")
+    public ResponseEntity<ApiResponse> posts(@RequestParam("search") Optional<String> search,
+                                             @RequestParam("page") Optional<Integer> page) {
+        return ResponseEntity.ok(postService.posts(search, page));
+    }
 }

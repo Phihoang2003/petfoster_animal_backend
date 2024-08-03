@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PostRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,18 +36,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "hoangphi/handle-user-interactions",
-    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.editor"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hoangphi/handle-user-interactions&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.hoangphi.entity.social" />
@@ -71,62 +68,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00026" summary="fix bug error for query to findByUsername">
-      <option name="closed" value="true" />
-      <created>1722064520793</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1722064520793</updated>
-    </task>
-    <task id="LOCAL-00027" summary="modified web security for login user">
-      <option name="closed" value="true" />
-      <created>1722064564290</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1722064564290</updated>
-    </task>
-    <task id="LOCAL-00028" summary="create generateToken and implement findByUsername interface">
-      <option name="closed" value="true" />
-      <created>1722064632030</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1722064632030</updated>
-    </task>
-    <task id="LOCAL-00029" summary="complete verify email base on token">
-      <option name="closed" value="true" />
-      <created>1722065413093</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1722065413093</updated>
-    </task>
-    <task id="LOCAL-00030" summary="add findByToken in user repository">
-      <option name="closed" value="true" />
-      <created>1722065460121</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1722065460121</updated>
-    </task>
-    <task id="LOCAL-00031" summary="verify email to login user successfully">
-      <option name="closed" value="true" />
-      <created>1722066477213</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1722066477213</updated>
-    </task>
-    <task id="LOCAL-00032" summary="verify email to login user successfully">
-      <option name="closed" value="true" />
-      <created>1722067009644</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1722067009644</updated>
     </task>
     <task id="LOCAL-00033" summary="create full properties for Addresses">
       <option name="closed" value="true" />
@@ -464,17 +405,66 @@
       <option name="project" value="LOCAL" />
       <updated>1722584334668</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="create pagination response">
+      <option name="closed" value="true" />
+      <created>1722591967172</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1722591967172</updated>
+    </task>
+    <task id="LOCAL-00076" summary="create postOfUser and postLikeOfUser repository using @Query successfully">
+      <option name="closed" value="true" />
+      <created>1722592030778</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1722592030778</updated>
+    </task>
+    <task id="LOCAL-00077" summary="create service postOfUser and buildHomePageResponse">
+      <option name="closed" value="true" />
+      <created>1722592072058</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1722592072058</updated>
+    </task>
+    <task id="LOCAL-00078" summary="resolve problem with postOfUser and create pagination for response">
+      <option name="closed" value="true" />
+      <created>1722592116055</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1722592116055</updated>
+    </task>
+    <task id="LOCAL-00079" summary="add controller for postOfUser">
+      <option name="closed" value="true" />
+      <created>1722592143679</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1722592143679</updated>
+    </task>
+    <task id="LOCAL-00080" summary="create search posts with @Query repository">
+      <option name="closed" value="true" />
+      <created>1722665147865</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1722665147866</updated>
+    </task>
+    <task id="LOCAL-00081" summary="create controller and service with search posts">
+      <option name="closed" value="true" />
+      <created>1722665196821</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1722665196821</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add Medias entity" />
-    <MESSAGE value="update entity suit for social interaction" />
-    <MESSAGE value="create request for post medias" />
-    <MESSAGE value="create user profile and post request" />
-    <MESSAGE value="create post and post detail response" />
-    <MESSAGE value="bug for create image" />
-    <MESSAGE value="add getUserFromToken and Constant Accept extension" />
     <MESSAGE value="add includes list utils" />
     <MESSAGE value="add parent option and save file" />
     <MESSAGE value="handle controller and service for create post" />
@@ -493,6 +483,13 @@
     <MESSAGE value="create ExistsUserAndPost in likeRepository" />
     <MESSAGE value="add like post in controller and service" />
     <MESSAGE value="handle like post service successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="handle like post service successfully" />
+    <MESSAGE value="create pagination response" />
+    <MESSAGE value="create postOfUser and postLikeOfUser repository using @Query successfully" />
+    <MESSAGE value="create service postOfUser and buildHomePageResponse" />
+    <MESSAGE value="resolve problem with postOfUser and create pagination for response" />
+    <MESSAGE value="add controller for postOfUser" />
+    <MESSAGE value="create search posts with @Query repository" />
+    <MESSAGE value="create controller and service with search posts" />
+    <option name="LAST_COMMIT_MESSAGE" value="create controller and service with search posts" />
   </component>
 </project>

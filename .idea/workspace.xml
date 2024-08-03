@@ -72,30 +72,6 @@
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
     </task>
-    <task id="LOCAL-00034" summary="modified Addresses by add timestamp">
-      <option name="closed" value="true" />
-      <created>1722239406532</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1722239406532</updated>
-    </task>
-    <task id="LOCAL-00035" summary="add getUsername from token">
-      <option name="closed" value="true" />
-      <created>1722239439389</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1722239439389</updated>
-    </task>
-    <task id="LOCAL-00036" summary="modified web security request">
-      <option name="closed" value="true" />
-      <created>1722239497366</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1722239497366</updated>
-    </task>
     <task id="LOCAL-00037" summary="add addressUser response and addressUser request">
       <option name="closed" value="true" />
       <created>1722239545283</created>
@@ -464,13 +440,34 @@
       <option name="project" value="LOCAL" />
       <updated>1722665236876</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="add highlight posts using @Query repository">
+      <option name="closed" value="true" />
+      <created>1722666622527</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1722666622527</updated>
+    </task>
+    <task id="LOCAL-00084" summary="add highlight posts controller and service">
+      <option name="closed" value="true" />
+      <created>1722666656694</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1722666656694</updated>
+    </task>
+    <task id="LOCAL-00085" summary="resolve problem about highlight posts successfully">
+      <option name="closed" value="true" />
+      <created>1722666710489</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1722666710489</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add parent option and save file" />
-    <MESSAGE value="handle controller and service for create post" />
-    <MESSAGE value="fix bug create and save file successfully" />
     <MESSAGE value="add findByUUid repository" />
     <MESSAGE value="fix bug for loop" />
     <MESSAGE value="create getUserFromToken" />
@@ -493,6 +490,9 @@
     <MESSAGE value="create search posts with @Query repository" />
     <MESSAGE value="create controller and service with search posts" />
     <MESSAGE value="resolve problem with search posts and pagination successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with search posts and pagination successfully" />
+    <MESSAGE value="add highlight posts using @Query repository" />
+    <MESSAGE value="add highlight posts controller and service" />
+    <MESSAGE value="resolve problem about highlight posts successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem about highlight posts successfully" />
   </component>
 </project>

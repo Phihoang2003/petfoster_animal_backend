@@ -315,7 +315,28 @@ public class PostServiceImpl implements PostService {
         }
 
         return ApiResponse.builder()
-                .message("Succeessfuly")
+                .message("Successfully")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(posts)
+                .build();
+    }
+
+    @Override
+    public ApiResponse highlightOfUser(String username) {
+        List<Posts> posts = postsRepository.highlightOfUser(username);
+
+        if (posts == null || posts.isEmpty()) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(new ArrayList<>())
+                    .errors(false)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+
+        return ApiResponse.builder()
+                .message("Successfully")
                 .status(HttpStatus.OK.value())
                 .errors(false)
                 .data(posts)

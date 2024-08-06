@@ -26,4 +26,5 @@ public interface PostService {
     ApiResponse postsOfUser(String username, Optional<Integer> page, Optional<String> type);
 
     PostMediaResponse builPostMediaResponse(Medias media);
+
 }

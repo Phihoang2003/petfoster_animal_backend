@@ -322,7 +322,7 @@ public class PostServiceImpl implements PostService {
                 .message("Successfully")
                 .status(HttpStatus.OK.value())
                 .errors(false)
-                .data(posts)
+                .data(buildPostHomePageResponses(posts))
                 .build();
     }
 
@@ -343,7 +343,7 @@ public class PostServiceImpl implements PostService {
                 .message("Successfully")
                 .status(HttpStatus.OK.value())
                 .errors(false)
-                .data(posts)
+                .data(buildPostHomePageResponses(posts))
                 .build();
     }
 
@@ -384,12 +384,12 @@ public class PostServiceImpl implements PostService {
             return PostReponse.builder()
                     .id(post.getUuid())
                     .title(post.getTitle())
-//                    .thumbnail(portUltil.getUrlImage(medias.getName(), "medias"))
+                    .thumbnail(portUltil.getUrlImage(medias.getName(), "medias"))
                     .containVideo(medias.getIsVideo())
                     .comments(post.getComments().size())
                     .likes(post.getLikes().size())
                     .isLike(isLike)
-//                    .user(userServiceImpl.buildUserProfileResponse(post.getUser()))
+                    .user(userServiceImpl.buildUserProfileResponse(post.getUser()))
                     .build();
 
         }).toList();
@@ -436,7 +436,7 @@ public class PostServiceImpl implements PostService {
                 .message("Succeessfuly")
                 .status(HttpStatus.OK.value())
                 .errors(false)
-                .data(PaginationResponse.builder().data(visiblePosts)
+                .data(PaginationResponse.builder().data(buildPostHomePageResponses(visiblePosts))
                         .pages(pagination.getTotalPages()).build())
                 .build();
     }
@@ -499,7 +499,7 @@ public class PostServiceImpl implements PostService {
                 .message("Succeessfuly")
                 .status(HttpStatus.OK.value())
                 .errors(false)
-                .data(PaginationResponse.builder().data(visiblePosts)
+                .data(PaginationResponse.builder().data(buildPostHomePageResponses(visiblePosts))
                         .pages(pagination.getTotalPages()).build())
                 .build();
     }

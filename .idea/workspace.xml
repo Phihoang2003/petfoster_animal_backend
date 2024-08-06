@@ -7,6 +7,7 @@
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,14 +69,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00045" summary="add getAddressById service successfully">
-      <option name="closed" value="true" />
-      <created>1722244898568</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1722244898568</updated>
     </task>
     <task id="LOCAL-00046" summary="add findDefault address service and controller">
       <option name="closed" value="true" />
@@ -461,11 +454,18 @@
       <option name="project" value="LOCAL" />
       <updated>1722916501954</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="modified success data with buildDetail response">
+      <option name="closed" value="true" />
+      <created>1722916551851</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1722916551851</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add service delete posts" />
     <MESSAGE value="delete posts successfully" />
     <MESSAGE value="add images when create and update posts" />
     <MESSAGE value="create ExistsUserAndPost in likeRepository" />
@@ -490,6 +490,7 @@
     <MESSAGE value="create utils to return url for image" />
     <MESSAGE value="create service build PostDetailResponse" />
     <MESSAGE value="resolve problem with isAdmin with parameter token and buildUserProfile successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with isAdmin with parameter token and buildUserProfile successfully" />
+    <MESSAGE value="modified success data with buildDetail response" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified success data with buildDetail response" />
   </component>
 </project>

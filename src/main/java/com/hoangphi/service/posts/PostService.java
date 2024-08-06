@@ -1,9 +1,11 @@
 package com.hoangphi.service.posts;
 
+import com.hoangphi.entity.social.Medias;
 import com.hoangphi.entity.social.Posts;
 import com.hoangphi.request.posts.PostRequest;
 import com.hoangphi.request.posts.PostUpdateRequest;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.posts.PostMediaResponse;
 import com.hoangphi.response.posts.PostReponse;
 
 import java.util.List;
@@ -22,4 +24,6 @@ public interface PostService {
     ApiResponse posts(Optional<String> search, Optional<Integer> page);
 
     ApiResponse postsOfUser(String username, Optional<Integer> page, Optional<String> type);
+
+    PostMediaResponse builPostMediaResponse(Medias media);
 }

@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,46 +68,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00040" summary="add controller for create addresses">
-      <option name="closed" value="true" />
-      <created>1722239668125</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1722239668125</updated>
-    </task>
-    <task id="LOCAL-00041" summary="create address successfully">
-      <option name="closed" value="true" />
-      <created>1722239698266</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1722239698266</updated>
-    </task>
-    <task id="LOCAL-00042" summary="create getUsernameAddresses successfully">
-      <option name="closed" value="true" />
-      <created>1722243103803</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1722243103803</updated>
-    </task>
-    <task id="LOCAL-00043" summary="create controller and service for getAddressesByToken">
-      <option name="closed" value="true" />
-      <created>1722243747966</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1722243747966</updated>
-    </task>
-    <task id="LOCAL-00044" summary="complete add getAddressesByToken successfully">
-      <option name="closed" value="true" />
-      <created>1722243814194</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1722243814194</updated>
     </task>
     <task id="LOCAL-00045" summary="add getAddressById service successfully">
       <option name="closed" value="true" />
@@ -463,15 +421,50 @@
       <option name="project" value="LOCAL" />
       <updated>1722667715027</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="resolve problem with detail post successfully">
+      <option name="closed" value="true" />
+      <created>1722911842395</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1722911842396</updated>
+    </task>
+    <task id="LOCAL-00090" summary="create utils to check isURL">
+      <option name="closed" value="true" />
+      <created>1722913400798</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1722913400798</updated>
+    </task>
+    <task id="LOCAL-00091" summary="create utils to return url for image">
+      <option name="closed" value="true" />
+      <created>1722913432822</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1722913432822</updated>
+    </task>
+    <task id="LOCAL-00092" summary="create service build PostDetailResponse">
+      <option name="closed" value="true" />
+      <created>1722916431593</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1722916431593</updated>
+    </task>
+    <task id="LOCAL-00093" summary="resolve problem with isAdmin with parameter token and buildUserProfile successfully">
+      <option name="closed" value="true" />
+      <created>1722916501954</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1722916501954</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bug for time when update posts" />
-    <MESSAGE value="create deleteImg utils" />
-    <MESSAGE value="bug for update post" />
-    <MESSAGE value="create manageRoles repository" />
-    <MESSAGE value="create isAdmin and resolve success for userRepository" />
     <MESSAGE value="add service delete posts" />
     <MESSAGE value="delete posts successfully" />
     <MESSAGE value="add images when create and update posts" />
@@ -492,6 +485,11 @@
     <MESSAGE value="create highlight of user using @Query repository" />
     <MESSAGE value="add highlight user controller and service" />
     <MESSAGE value="resolve problem about highlight of user successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem about highlight of user successfully" />
+    <MESSAGE value="resolve problem with detail post successfully" />
+    <MESSAGE value="create utils to check isURL" />
+    <MESSAGE value="create utils to return url for image" />
+    <MESSAGE value="create service build PostDetailResponse" />
+    <MESSAGE value="resolve problem with isAdmin with parameter token and buildUserProfile successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with isAdmin with parameter token and buildUserProfile successfully" />
   </component>
 </project>

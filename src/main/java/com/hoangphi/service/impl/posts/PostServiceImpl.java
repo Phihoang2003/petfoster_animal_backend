@@ -17,11 +17,13 @@ import com.hoangphi.request.posts.PostUpdateRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.response.posts.PostDetailResponse;
+import com.hoangphi.response.posts.PostMediaResponse;
 import com.hoangphi.response.posts.PostReponse;
 import com.hoangphi.service.impl.users.UserServiceImpl;
 import com.hoangphi.service.posts.PostService;
 import com.hoangphi.service.user.UserService;
 import com.hoangphi.utils.ImageUtils;
+import com.hoangphi.utils.PortUtils;
 import com.hoangphi.utils.parent.OptionCreateAndSaveFile;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -44,6 +46,8 @@ public class PostServiceImpl implements PostService {
     private final MediasRepository mediasRepository;
     private final LikeRepository likeRepository;
     private final JwtProvider   jwtProvider;
+    private final PortUtils portUltil;
+    private final UserServiceImpl userServiceImpl;
 
     @Override
     public ApiResponse create(PostRequest data, String token) {
@@ -82,7 +86,7 @@ public class PostServiceImpl implements PostService {
                 .message("Successfuly")
                 .errors(false)
                 .status(HttpStatus.OK.value())
-                .data(posts)
+                .data(buildDetailResponse(posts))
                 .build();
 
     }
@@ -188,7 +192,7 @@ public class PostServiceImpl implements PostService {
                 .message("Successfuly")
                 .errors(false)
                 .status(HttpStatus.OK.value())
-                .data(posts)
+                .data(buildDetailResponse(posts))
                 .build();
     }
 
@@ -236,7 +240,7 @@ public class PostServiceImpl implements PostService {
                 .message("Successfuly")
                 .errors(false)
                 .status(HttpStatus.OK.value())
-                .data(null)
+                .data(buildDetailResponse(posts))
                 .build();
 
     }
@@ -276,7 +280,7 @@ public class PostServiceImpl implements PostService {
                     .message("Unlike successfully")
                     .errors(false)
                     .status(HttpStatus.OK.value())
-                    .data(null)
+                    .data(buildDetailResponse(posts))
                     .build();
         }
         Likes like=Likes.builder()
@@ -297,7 +301,7 @@ public class PostServiceImpl implements PostService {
                 .message("Like successfully")
                 .errors(false)
                 .status(HttpStatus.OK.value())
-                .data(null)
+                .data(buildDetailResponse(posts))
                 .build();
     }
 
@@ -500,8 +504,54 @@ public class PostServiceImpl implements PostService {
                 .build();
     }
 
+    @Override
+    public PostMediaResponse builPostMediaResponse(Medias media) {
+        return PostMediaResponse.builder()
+                .url(portUltil.getUrlImage(media.getName(),"medias"))
+                        .id(media.getId())
+                        .index(media.getIndex())
+                        .isVideo(media.getIsVideo())
+                        .build();
+
+    }
+
     public PostDetailResponse buildDetailResponse(Posts posts){
-        return null;
+        String token=((ServletRequestAttributes)RequestContextHolder
+                .getRequestAttributes())
+                .getRequest().getHeader("Authorization");
+        boolean isLike=false;
+        boolean owner=false;
+        boolean edit=false;
+        if(token!=null){
+            User user=userService.getUserFromToken(token);
+            if(user!=null){
+                isLike=likeRepository.existByUserAndPost(user.getId(),posts.getId())!=null;
+                owner=user.getUsername().equals(posts.getUser().getUsername())||userService.isAdmin(token);
+                edit=user.getUsername().equals(posts.getUser().getUsername());
+
+            }
+
+        }
+        List<PostMediaResponse> medias = mediasRepository.findMediasWithPost(posts).stream().map(media -> {
+            return PostMediaResponse.builder().url(portUltil.getUrlImage(media.getName(), "medias"))
+                    .id(media.getId())
+                    .index(media.getIndex())
+                    .isVideo(media.getIsVideo()).build();
+        }).toList();
+
+        return PostDetailResponse.builder()
+                .id(posts.getUuid())
+                .title(posts.getTitle())
+                .comments(posts.getComments()==null?0:posts.getComments().size())
+                .likes(posts.getLikes()==null?0:posts.getLikes().size())
+                .isLike(isLike)
+                .owner(owner)
+                .edit(edit)
+                .user(userServiceImpl.buildUserProfileResponse(posts.getUser()))
+                .images(medias)
+                .createdAt(posts.getCreateAt())
+                .build();
+
     }
     public Posts buildPostFromPostRequest(PostRequest data, User user){
         UUID uuid=UUID.randomUUID();

@@ -8,4 +8,5 @@ public interface UserService {
     public User getUserFromToken(String token);
 
     public Boolean isAdmin(User user);
+    public Boolean isAdmin(String token);
 }

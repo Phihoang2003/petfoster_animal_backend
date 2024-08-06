@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface LikeCommentRepository extends JpaRepository<LikedComments,Integer> {
-    @Query(value = "select l from LikedComment l where l.user.id=:userId and l.comment.id=:commentId")
+    @Query(value = "select l from LikedComments l where l.user.id=:userId and l.comment.id=:commentId")
     LikedComments existByUserAndComment(@Param("userId") String userId,@Param("commentId") Integer commentId);
 }

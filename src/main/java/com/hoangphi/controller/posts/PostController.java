@@ -33,4 +33,8 @@ public class PostController {
     public ResponseEntity<ApiResponse> getAttributes(@PathVariable("username") String username) {
         return ResponseEntity.ok(postService.highlightOfUser(username));
     }
+    @GetMapping("/detail/{uuid}")
+    public ResponseEntity<ApiResponse> detailPost(@PathVariable("uuid") String uuid) {
+        return ResponseEntity.ok(postService.detailPost(uuid));
+    }
 }

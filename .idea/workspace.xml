@@ -7,7 +7,6 @@
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PostRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" afterDir="false" />
     </list>
@@ -71,30 +70,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00037" summary="add addressUser response and addressUser request">
-      <option name="closed" value="true" />
-      <created>1722239545283</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1722239545283</updated>
-    </task>
-    <task id="LOCAL-00038" summary="add address response and address request">
-      <option name="closed" value="true" />
-      <created>1722239576299</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1722239576299</updated>
-    </task>
-    <task id="LOCAL-00039" summary="create addresses repository for findByUser and findByIsDefaultUser">
-      <option name="closed" value="true" />
-      <created>1722239619639</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1722239619639</updated>
     </task>
     <task id="LOCAL-00040" summary="add controller for create addresses">
       <option name="closed" value="true" />
@@ -464,13 +439,34 @@
       <option name="project" value="LOCAL" />
       <updated>1722666710489</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="create highlight of user using @Query repository">
+      <option name="closed" value="true" />
+      <created>1722667643621</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1722667643622</updated>
+    </task>
+    <task id="LOCAL-00087" summary="add highlight user controller and service">
+      <option name="closed" value="true" />
+      <created>1722667674289</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1722667674289</updated>
+    </task>
+    <task id="LOCAL-00088" summary="resolve problem about highlight of user successfully">
+      <option name="closed" value="true" />
+      <created>1722667715027</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1722667715027</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add findByUUid repository" />
-    <MESSAGE value="fix bug for loop" />
-    <MESSAGE value="create getUserFromToken" />
     <MESSAGE value="bug for time when update posts" />
     <MESSAGE value="create deleteImg utils" />
     <MESSAGE value="bug for update post" />
@@ -493,6 +489,9 @@
     <MESSAGE value="add highlight posts using @Query repository" />
     <MESSAGE value="add highlight posts controller and service" />
     <MESSAGE value="resolve problem about highlight posts successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem about highlight posts successfully" />
+    <MESSAGE value="create highlight of user using @Query repository" />
+    <MESSAGE value="add highlight user controller and service" />
+    <MESSAGE value="resolve problem about highlight of user successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem about highlight of user successfully" />
   </component>
 </project>

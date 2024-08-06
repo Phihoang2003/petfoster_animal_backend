@@ -16,6 +16,7 @@ public interface PostService {
     ApiResponse likePost(String uuid, String token);
     ApiResponse highlight();
     ApiResponse highlightOfUser(String username);
+    ApiResponse detailPost(String uuid);
     List<PostReponse> buildPostHomePageResponses(List<Posts> posts);
 
     ApiResponse posts(Optional<String> search, Optional<Integer> page);

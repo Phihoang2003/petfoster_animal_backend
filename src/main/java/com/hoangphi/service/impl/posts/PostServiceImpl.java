@@ -344,6 +344,27 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public ApiResponse detailPost(String uuid) {
+        Posts posts = postsRepository.findByUuid(uuid);
+
+        if (posts == null) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+
+        return ApiResponse.builder()
+                .message("Succeessfuly")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(buildDetailResponse(posts))
+                .build();
+    }
+
+    @Override
     public List<PostReponse> buildPostHomePageResponses(List<Posts> posts) {
         String token = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest()
                 .getHeader("Authorization");

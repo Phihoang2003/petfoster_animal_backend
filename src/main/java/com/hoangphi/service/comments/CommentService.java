@@ -5,4 +5,6 @@ import com.hoangphi.response.ApiResponse;
 
 public interface CommentService {
     ApiResponse commentPost(CommentPostRequest commentPostRequest, String token);
+    ApiResponse likeComment(Integer commentId, String token);
+
 }

@@ -3,6 +3,7 @@ package com.hoangphi.service.impl.comments;
 import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.User;
 import com.hoangphi.entity.social.Comments;
+import com.hoangphi.entity.social.LikedComments;
 import com.hoangphi.entity.social.Posts;
 import com.hoangphi.repository.CommentRepository;
 import com.hoangphi.repository.LikeCommentRepository;
@@ -82,6 +83,67 @@ public class CommentServiceImpl implements CommentService {
                 .build();
 
     }
+
+    @Override
+    public ApiResponse likeComment(Integer commentId, String token) {
+        if(commentId==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        if(token==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.UNAUTHORIZED.value())
+                    .message("Please login to like comment!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        User user=userService.getUserFromToken(token);
+        Comments comments=commentRepository.findById(commentId).orElse(null);
+        if (comments == null || user == null) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+        LikedComments checkLike=likeCommentRepository.existByUserAndComment(user.getId(),comments.getId());
+        if(checkLike!=null){
+            likeCommentRepository.delete(checkLike);
+            return ApiResponse.builder()
+                    .status(HttpStatus.OK.value())
+                    .message("Unlike comment successfully!")
+                    .data(null)
+                    .errors(false)
+                    .build();
+        }
+        LikedComments likedComments=LikedComments.builder()
+                .comment(comments)
+                .user(user)
+                .build();
+        if(likedComments==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("Something wrong")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        likeCommentRepository.save(likedComments);
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message("Like comment successfully!")
+                .data(null)
+                .errors(false)
+                .build();
+
+    }
+
     public CommentResponse buildCommentResponse(Comments comments){
         String token= ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest()
                 .getHeader("Authorization");

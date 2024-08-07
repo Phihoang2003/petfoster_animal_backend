@@ -11,4 +11,6 @@ public interface CommentService {
 
     ApiResponse getCommentWithIdPost(String uuid, Optional<Integer> page);
 
+    ApiResponse deleteComment(Integer id,String token);
+
 }

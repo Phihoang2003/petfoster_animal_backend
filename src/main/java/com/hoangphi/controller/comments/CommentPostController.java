@@ -18,4 +18,10 @@ public class CommentPostController {
         return ResponseEntity.ok(commentService.commentPost(commentPostRequest, token));
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity<ApiResponse> deleteComment(@PathVariable("id") Integer id,
+                                                     @RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(commentService.deleteComment(id, token));
+    }
+
 }

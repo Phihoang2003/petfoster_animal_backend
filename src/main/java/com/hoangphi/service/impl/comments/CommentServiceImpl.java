@@ -11,10 +11,15 @@ import com.hoangphi.repository.PostRepository;
 import com.hoangphi.request.comments.CommentPostRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.comments.CommentResponse;
+import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.service.comments.CommentService;
 import com.hoangphi.service.impl.users.UserServiceImpl;
 import com.hoangphi.service.user.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -22,6 +27,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -142,6 +148,55 @@ public class CommentServiceImpl implements CommentService {
                 .errors(false)
                 .build();
 
+    }
+
+    @Override
+    public ApiResponse getCommentWithIdPost(String uuid, Optional<Integer> page) {
+        Posts post=postRepository.findByUuid(uuid);
+        List<Comments> comments=commentRepository.findByPost(post);
+        if(post==null||comments==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("Failure")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+
+        Pageable pageable = PageRequest.of(page.orElse(0), 10);
+        int startIndex = (int) pageable.getOffset();
+        int endIndex = Math.min(startIndex + pageable.getPageSize(), comments.size());
+
+        if (startIndex >= endIndex) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .errors(false)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+
+        List<Comments> visibleComments = comments.subList(startIndex, endIndex);
+
+        if (visibleComments.isEmpty()) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .errors(false)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+
+        Page<Comments> pagination = new PageImpl<Comments>(visibleComments, pageable,
+                comments.size());
+
+        return ApiResponse.builder()
+                .message("Successfully")
+                .errors(false)
+                .status(HttpStatus.OK.value())
+                .data(PaginationResponse.builder().data(buildCommentResponses(visibleComments))
+                        .pages(pagination.getTotalPages()).build())
+                .build();
     }
 
     public CommentResponse buildCommentResponse(Comments comments){

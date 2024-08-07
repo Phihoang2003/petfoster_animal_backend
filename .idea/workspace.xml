@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/LikeCommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/LikeCommentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/comments/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/comments/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/CommentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/comments/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/comments/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/comments/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/comments/CommentServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,30 +71,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00053" summary="create user profile and post request">
-      <option name="closed" value="true" />
-      <created>1722332737807</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1722332737807</updated>
-    </task>
-    <task id="LOCAL-00054" summary="create post and post detail response">
-      <option name="closed" value="true" />
-      <created>1722332777529</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1722332777529</updated>
-    </task>
-    <task id="LOCAL-00055" summary="bug for create image">
-      <option name="closed" value="true" />
-      <created>1722348137157</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1722348137158</updated>
     </task>
     <task id="LOCAL-00056" summary="add getUserFromToken and Constant Accept extension">
       <option name="closed" value="true" />
@@ -461,13 +440,34 @@
       <option name="project" value="LOCAL" />
       <updated>1722927321901</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="fix bug LikedComment not mapped and resolve problem with comment posts successfully">
+      <option name="closed" value="true" />
+      <created>1722929690664</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1722929690664</updated>
+    </task>
+    <task id="LOCAL-00103" summary="create like comment in controller and service">
+      <option name="closed" value="true" />
+      <created>1723023086576</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1723023086576</updated>
+    </task>
+    <task id="LOCAL-00104" summary="resolve problem with like comment successfully">
+      <option name="closed" value="true" />
+      <created>1723023116408</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1723023116408</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create service postOfUser and buildHomePageResponse" />
-    <MESSAGE value="resolve problem with postOfUser and create pagination for response" />
-    <MESSAGE value="add controller for postOfUser" />
     <MESSAGE value="create search posts with @Query repository" />
     <MESSAGE value="create controller and service with search posts" />
     <MESSAGE value="resolve problem with search posts and pagination successfully" />
@@ -490,6 +490,9 @@
     <MESSAGE value="resolve issue with findByReply using @Query in comment repository" />
     <MESSAGE value="create comment posts in controller and service" />
     <MESSAGE value="bug for LikedComment not mapped" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug for LikedComment not mapped" />
+    <MESSAGE value="fix bug LikedComment not mapped and resolve problem with comment posts successfully" />
+    <MESSAGE value="create like comment in controller and service" />
+    <MESSAGE value="resolve problem with like comment successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with like comment successfully" />
   </component>
 </project>

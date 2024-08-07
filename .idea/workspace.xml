@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/comments/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/comments/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/CommentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/comments/CommentPostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/comments/CommentPostController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/comments/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/comments/CommentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/comments/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/comments/CommentServiceImpl.java" afterDir="false" />
     </list>
@@ -71,30 +70,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00056" summary="add getUserFromToken and Constant Accept extension">
-      <option name="closed" value="true" />
-      <created>1722411575680</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1722411575680</updated>
-    </task>
-    <task id="LOCAL-00057" summary="add includes list utils">
-      <option name="closed" value="true" />
-      <created>1722411612472</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1722411612472</updated>
-    </task>
-    <task id="LOCAL-00058" summary="add parent option and save file">
-      <option name="closed" value="true" />
-      <created>1722411651198</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1722411651198</updated>
     </task>
     <task id="LOCAL-00059" summary="handle controller and service for create post">
       <option name="closed" value="true" />
@@ -464,13 +439,34 @@
       <option name="project" value="LOCAL" />
       <updated>1723023116408</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="create findByPost repository using nativeQuery successfully">
+      <option name="closed" value="true" />
+      <created>1723024971481</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1723024971481</updated>
+    </task>
+    <task id="LOCAL-00106" summary="create find by post controller and service">
+      <option name="closed" value="true" />
+      <created>1723024999114</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1723024999114</updated>
+    </task>
+    <task id="LOCAL-00107" summary="resolve problem with find by post successfully">
+      <option name="closed" value="true" />
+      <created>1723025029580</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1723025029580</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create search posts with @Query repository" />
-    <MESSAGE value="create controller and service with search posts" />
-    <MESSAGE value="resolve problem with search posts and pagination successfully" />
     <MESSAGE value="add highlight posts using @Query repository" />
     <MESSAGE value="add highlight posts controller and service" />
     <MESSAGE value="resolve problem about highlight posts successfully" />
@@ -493,6 +489,9 @@
     <MESSAGE value="fix bug LikedComment not mapped and resolve problem with comment posts successfully" />
     <MESSAGE value="create like comment in controller and service" />
     <MESSAGE value="resolve problem with like comment successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with like comment successfully" />
+    <MESSAGE value="create findByPost repository using nativeQuery successfully" />
+    <MESSAGE value="create find by post controller and service" />
+    <MESSAGE value="resolve problem with find by post successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with find by post successfully" />
   </component>
 </project>

@@ -199,6 +199,53 @@ public class CommentServiceImpl implements CommentService {
                 .build();
     }
 
+    @Override
+    public ApiResponse deleteComment(Integer id, String token) {
+        if(id==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        if(token==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.UNAUTHORIZED.value())
+                    .message("Please login to delete comment!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        User user=userService.getUserFromToken(token);
+        Comments comments=commentRepository.findById(id).orElse(null);
+        if (comments == null || user == null) {
+            return ApiResponse.builder()
+                    .message("Something not found")
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+        List<Comments> replyComments=commentRepository.findByReply(comments.getPost().getId(),comments.getId());
+        if(!comments.getUser().getId().equals(user.getId())&&!userService.isAdmin(user)){
+            return ApiResponse.builder()
+                    .message("You are not owner of this comment")
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.FORBIDDEN.value())
+                    .build();
+        }
+        commentRepository.delete(comments);
+        commentRepository.deleteAll(replyComments);
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message("Delete comment successfully!")
+                .data(null)
+                .errors(false)
+                .build();
+    }
+
     public CommentResponse buildCommentResponse(Comments comments){
         String token= ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest()
                 .getHeader("Authorization");

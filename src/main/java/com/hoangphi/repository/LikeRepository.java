@@ -7,6 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface LikeRepository  extends JpaRepository<Likes, Integer>{
 
-    @Query("select l from Likes l where l.user.id=:userId and l.post.id=:postId")
+    @Query(value = "select l from Likes l where l.user.id =:userId and l.post.id=:postId")
     Likes existByUserAndPost(@Param("userId") String userId,@Param("postId") Integer postId);
 }

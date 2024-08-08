@@ -397,7 +397,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public ApiResponse posts(Optional<String> search, Optional<Integer> page) {
+    public ApiResponse posts(String search, Optional<Integer> page) {
         List<Posts> posts=postsRepository.posts(search);
         if(posts.isEmpty()){
             return ApiResponse.builder()
@@ -421,14 +421,6 @@ public class PostServiceImpl implements PostService {
                     .build();
         }
         List<Posts> visiblePosts=posts.subList(startIndex,endIndex);
-        if (visiblePosts == null) {
-            return ApiResponse.builder()
-                    .message(RespMessage.NOT_FOUND.getValue())
-                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
-                    .errors(false)
-                    .status(HttpStatus.NOT_FOUND.value())
-                    .build();
-        }
         Page<Posts> pagination = new PageImpl<Posts>(visiblePosts, pageable,
                 posts.size());
 

@@ -5,13 +5,12 @@ import com.hoangphi.entity.social.Comments;
 import com.hoangphi.entity.social.LikedComments;
 import com.hoangphi.entity.social.Likes;
 import com.hoangphi.entity.social.Posts;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Nationalized;
 
-
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 

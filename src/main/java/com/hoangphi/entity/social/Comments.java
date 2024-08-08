@@ -2,6 +2,7 @@ package com.hoangphi.entity.social;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hoangphi.entity.User;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +10,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Nationalized;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 

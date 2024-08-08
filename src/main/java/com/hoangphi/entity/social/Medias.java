@@ -1,9 +1,9 @@
 package com.hoangphi.entity.social;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
 
 @NoArgsConstructor
 @AllArgsConstructor

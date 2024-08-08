@@ -6,9 +6,43 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/comments/CommentPostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/comments/CommentPostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/address/AddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/address/AddressController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/auth/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/auth/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Addresses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Addresses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Adopt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Adopt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Authorities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Authorities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Favourite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Favourite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/RecentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/RecentView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/SearchHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/SearchHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Comments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Comments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/LikedComments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/LikedComments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Likes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Likes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Medias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Medias.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Posts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Posts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/LikeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/LikeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/MediasRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/MediasRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/request/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/request/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/request/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/request/address/AddressRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/request/address/AddressRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/request/address/AddressUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/request/address/AddressUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/EmailService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/comments/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/comments/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/comments/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/comments/CommentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/EmailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/EmailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/addresses/AddressServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/addresses/AddressServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/MailUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/MailUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,22 +104,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00059" summary="handle controller and service for create post">
-      <option name="closed" value="true" />
-      <created>1722411692302</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1722411692302</updated>
-    </task>
-    <task id="LOCAL-00060" summary="fix bug create and save file successfully">
-      <option name="closed" value="true" />
-      <created>1722412362792</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1722412362792</updated>
     </task>
     <task id="LOCAL-00061" summary="add findByUUid repository">
       <option name="closed" value="true" />
@@ -463,12 +481,37 @@
       <option name="project" value="LOCAL" />
       <updated>1723025029580</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="create delete comment and reply comment controller and service">
+      <option name="closed" value="true" />
+      <created>1723025933153</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1723025933153</updated>
+    </task>
+    <task id="LOCAL-00109" summary="resolve problem with delete comment and reply comment successfully">
+      <option name="closed" value="true" />
+      <created>1723025980821</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1723025980821</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add highlight posts using @Query repository" />
-    <MESSAGE value="add highlight posts controller and service" />
     <MESSAGE value="resolve problem about highlight posts successfully" />
     <MESSAGE value="create highlight of user using @Query repository" />
     <MESSAGE value="add highlight user controller and service" />
@@ -492,6 +535,8 @@
     <MESSAGE value="create findByPost repository using nativeQuery successfully" />
     <MESSAGE value="create find by post controller and service" />
     <MESSAGE value="resolve problem with find by post successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with find by post successfully" />
+    <MESSAGE value="create delete comment and reply comment controller and service" />
+    <MESSAGE value="resolve problem with delete comment and reply comment successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with delete comment and reply comment successfully" />
   </component>
 </project>

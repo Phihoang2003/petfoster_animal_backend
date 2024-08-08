@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface MediasRepository extends JpaRepository<Medias, Integer>{
-    @Query("select m from Medias m where m.post=:post order by m.index asc")
+    @Query("select m from Medias m where m.post=:post order by m.index")
     List<Medias> findMediasWithPost(@Param("post") Posts posts);
     @Query("select m from Medias m where m.name=:name")
     Medias findByName(@Param("name") String name);

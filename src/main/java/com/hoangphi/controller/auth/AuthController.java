@@ -5,14 +5,12 @@ import com.hoangphi.request.RegisterRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.AuthResponse;
 import com.hoangphi.service.AuthService;
-import lombok.RequiredArgsConstructor;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/")

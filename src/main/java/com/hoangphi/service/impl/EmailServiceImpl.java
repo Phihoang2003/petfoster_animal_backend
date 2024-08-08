@@ -2,11 +2,11 @@ package com.hoangphi.service.impl;
 
 import com.hoangphi.constant.Constant;
 import com.hoangphi.service.EmailService;
-import com.hoangphi.ultils.MailUtils;
+import com.hoangphi.utils.MailUtils;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;

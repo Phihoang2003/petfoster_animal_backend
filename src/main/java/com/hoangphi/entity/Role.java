@@ -1,13 +1,13 @@
 package com.hoangphi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Nationalized;
 
-import javax.persistence.*;
 import java.util.List;
 
 @Data

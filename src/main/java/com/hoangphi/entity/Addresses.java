@@ -1,14 +1,10 @@
 package com.hoangphi.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Nationalized;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -37,8 +33,8 @@ public class Addresses {
     private Date createAt;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "user_id")
+    @ToString.Exclude
     private User user;
 
 }

@@ -2,12 +2,14 @@ package com.hoangphi.entity.social;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hoangphi.entity.User;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -22,4 +24,11 @@ public class LikedComments {
     @JsonIgnore
     @JoinColumn(name = "user_id")
     private User user;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "comment_id")
+    private Comments comment;
+    @CreationTimestamp
+    private Date likeAt;
 }

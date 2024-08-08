@@ -1,4 +1,4 @@
-package com.hoangphi.service.impl;
+package com.hoangphi.service.impl.addresses;
 
 import com.hoangphi.config.JwtProvider;
 import com.hoangphi.constant.RespMessage;
@@ -6,7 +6,6 @@ import com.hoangphi.entity.Addresses;
 import com.hoangphi.entity.User;
 import com.hoangphi.repository.AddressRepository;
 import com.hoangphi.repository.UserRepository;
-import com.hoangphi.request.address.AddressRequest;
 import com.hoangphi.request.address.AddressUserRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.address.AddressResponse;
@@ -16,7 +15,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import javax.mail.Address;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

@@ -5,13 +5,12 @@ import com.hoangphi.entity.social.Comments;
 import com.hoangphi.entity.social.LikedComments;
 import com.hoangphi.entity.social.Likes;
 import com.hoangphi.entity.social.Posts;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Nationalized;
 
-
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -56,17 +55,21 @@ public class User {
     private String displayName;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Adopt> adopts;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Favourite> favourites;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Addresses> addresses;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Orders> orders;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
@@ -83,6 +86,7 @@ public class User {
     private List<RecentView> recentViews;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Posts> posts;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore

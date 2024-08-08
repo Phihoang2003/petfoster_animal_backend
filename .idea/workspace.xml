@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="" />
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +35,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -43,15 +46,27 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hoangphi/handle-user-interactions&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+>>>>>>> hoangphi/handle-user-interactions
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.hoangphi.entity.social" />
       <recent name="com.hoangphi.entity.Order" />
       <recent name="com.hoangphi.entity.Posts" />
       <recent name="com.hoangphi.entity.RecentView" />
       <recent name="com.hoangphi.entity.SearchHistory" />
-      <recent name="com.hoangphi.entity.Review" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Hocweb\Hocweb\ProjectWeb\petfoster_animal_backend\src\main\resources\templates" />
@@ -66,427 +81,438 @@
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
     </task>
-    <task id="LOCAL-00001" summary="add AuthResponse and Role,Api Response">
+    <task id="LOCAL-00063" summary="create getUserFromToken">
       <option name="closed" value="true" />
-      <created>1721993386616</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+      <created>1722509166552</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
       <option name="project" value="LOCAL" />
-      <updated>1721993386616</updated>
+      <updated>1722509166552</updated>
     </task>
-    <task id="LOCAL-00002" summary="create AuthoritiesRepository and UserRepository">
+    <task id="LOCAL-00064" summary="bug for time when update posts">
       <option name="closed" value="true" />
-      <created>1721993449909</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+      <created>1722509195507</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
       <option name="project" value="LOCAL" />
-      <updated>1721993449909</updated>
+      <updated>1722509195508</updated>
     </task>
-    <task id="LOCAL-00003" summary="configuration server">
+    <task id="LOCAL-00065" summary="create deleteImg utils">
       <option name="closed" value="true" />
-      <created>1721993474108</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+      <created>1722509224912</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
       <option name="project" value="LOCAL" />
-      <updated>1721993474108</updated>
+      <updated>1722509224912</updated>
     </task>
-    <task id="LOCAL-00004" summary="modified AuthoritiesRepository">
+    <task id="LOCAL-00066" summary="bug for update post">
       <option name="closed" value="true" />
-      <created>1722000985777</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+      <created>1722516508047</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
       <option name="project" value="LOCAL" />
-      <updated>1722000985777</updated>
+      <updated>1722516508047</updated>
     </task>
-    <task id="LOCAL-00005" summary="create AuthService">
+    <task id="LOCAL-00067" summary="create manageRoles repository">
       <option name="closed" value="true" />
-      <created>1722001015489</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
+      <created>1722518206528</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
       <option name="project" value="LOCAL" />
-      <updated>1722001015489</updated>
+      <updated>1722518206528</updated>
     </task>
-    <task id="LOCAL-00006" summary="create Email service">
+    <task id="LOCAL-00068" summary="create isAdmin and resolve success for userRepository">
       <option name="closed" value="true" />
-      <created>1722001032343</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
+      <created>1722518265257</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
       <option name="project" value="LOCAL" />
-      <updated>1722001032343</updated>
+      <updated>1722518265257</updated>
     </task>
-    <task id="LOCAL-00007" summary="bug for sendEmail when register">
+    <task id="LOCAL-00069" summary="add service delete posts">
       <option name="closed" value="true" />
-      <created>1722001070001</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
+      <created>1722518306922</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
       <option name="project" value="LOCAL" />
-      <updated>1722001070001</updated>
+      <updated>1722518306923</updated>
     </task>
-    <task id="LOCAL-00008" summary="add PatternExpress to check when register">
+    <task id="LOCAL-00070" summary="delete posts successfully">
       <option name="closed" value="true" />
-      <created>1722001103224</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
+      <created>1722518329065</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
-      <updated>1722001103224</updated>
+      <updated>1722518329065</updated>
     </task>
-    <task id="LOCAL-00009" summary="configuration for send email">
+    <task id="LOCAL-00071" summary="add images when create and update posts">
       <option name="closed" value="true" />
-      <created>1722003259723</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
+      <created>1722518363749</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
       <option name="project" value="LOCAL" />
-      <updated>1722003259723</updated>
+      <updated>1722518363749</updated>
     </task>
-    <task id="LOCAL-00010" summary="create constance base url">
+    <task id="LOCAL-00072" summary="create ExistsUserAndPost in likeRepository">
       <option name="closed" value="true" />
-      <created>1722005459940</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
+      <created>1722584267514</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
       <option name="project" value="LOCAL" />
-      <updated>1722005459940</updated>
+      <updated>1722584267514</updated>
     </task>
-    <task id="LOCAL-00011" summary="create role repository">
+    <task id="LOCAL-00073" summary="add like post in controller and service">
       <option name="closed" value="true" />
-      <created>1722005478953</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
+      <created>1722584302654</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
       <option name="project" value="LOCAL" />
-      <updated>1722005478953</updated>
+      <updated>1722584302654</updated>
     </task>
-    <task id="LOCAL-00012" summary="setup function to sendEmail and sendTemplate email">
+    <task id="LOCAL-00074" summary="handle like post service successfully">
       <option name="closed" value="true" />
-      <created>1722005511577</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
+      <created>1722584334668</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
       <option name="project" value="LOCAL" />
-      <updated>1722005511577</updated>
+      <updated>1722584334668</updated>
     </task>
-    <task id="LOCAL-00013" summary="create controller for register user">
+    <task id="LOCAL-00075" summary="create pagination response">
       <option name="closed" value="true" />
-      <created>1722005559433</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
+      <created>1722591967172</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
       <option name="project" value="LOCAL" />
-      <updated>1722005559433</updated>
+      <updated>1722591967172</updated>
     </task>
-    <task id="LOCAL-00014" summary="bug for initial bean object Addresses">
+    <task id="LOCAL-00076" summary="create postOfUser and postLikeOfUser repository using @Query successfully">
       <option name="closed" value="true" />
-      <created>1722005607545</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
+      <created>1722592030778</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
       <option name="project" value="LOCAL" />
-      <updated>1722005607545</updated>
+      <updated>1722592030778</updated>
     </task>
-    <task id="LOCAL-00015" summary="modified to suit for relationship">
+    <task id="LOCAL-00077" summary="create service postOfUser and buildHomePageResponse">
       <option name="closed" value="true" />
-      <created>1722017396083</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
+      <created>1722592072058</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
       <option name="project" value="LOCAL" />
-      <updated>1722017396083</updated>
+      <updated>1722592072058</updated>
     </task>
-    <task id="LOCAL-00016" summary="update file">
+    <task id="LOCAL-00078" summary="resolve problem with postOfUser and create pagination for response">
       <option name="closed" value="true" />
-      <created>1722017417459</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
+      <created>1722592116055</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
       <option name="project" value="LOCAL" />
-      <updated>1722017417459</updated>
+      <updated>1722592116055</updated>
     </task>
-    <task id="LOCAL-00017" summary="bug for query to get data">
+    <task id="LOCAL-00079" summary="add controller for postOfUser">
       <option name="closed" value="true" />
-      <created>1722017465324</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
+      <created>1722592143679</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
       <option name="project" value="LOCAL" />
-      <updated>1722017465324</updated>
+      <updated>1722592143679</updated>
     </task>
-    <task id="LOCAL-00018" summary="configuration for web security">
+    <task id="LOCAL-00080" summary="create search posts with @Query repository">
       <option name="closed" value="true" />
-      <created>1722017504125</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
+      <created>1722665147865</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
       <option name="project" value="LOCAL" />
-      <updated>1722017504125</updated>
+      <updated>1722665147866</updated>
     </task>
-    <task id="LOCAL-00019" summary="initial for servlet">
+    <task id="LOCAL-00081" summary="create controller and service with search posts">
       <option name="closed" value="true" />
-      <created>1722017525122</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
+      <created>1722665196821</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
       <option name="project" value="LOCAL" />
-      <updated>1722017525122</updated>
+      <updated>1722665196821</updated>
     </task>
-    <task id="LOCAL-00020" summary="configuration for app config and cors filter">
+    <task id="LOCAL-00082" summary="resolve problem with search posts and pagination successfully">
       <option name="closed" value="true" />
-      <created>1722017567737</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
+      <created>1722665236876</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
       <option name="project" value="LOCAL" />
-      <updated>1722017567737</updated>
+      <updated>1722665236876</updated>
     </task>
-    <task id="LOCAL-00021" summary="register user by receive token from email successfully">
+    <task id="LOCAL-00083" summary="add highlight posts using @Query repository">
       <option name="closed" value="true" />
-      <created>1722017616818</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
+      <created>1722666622527</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
       <option name="project" value="LOCAL" />
-      <updated>1722017616818</updated>
+      <updated>1722666622527</updated>
     </task>
-    <task id="LOCAL-00022" summary="create controller for login user">
+    <task id="LOCAL-00084" summary="add highlight posts controller and service">
       <option name="closed" value="true" />
-      <created>1722064249718</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
+      <created>1722666656694</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
       <option name="project" value="LOCAL" />
-      <updated>1722064249718</updated>
+      <updated>1722666656694</updated>
     </task>
-    <task id="LOCAL-00023" summary="fix bug for Authorities and User">
+    <task id="LOCAL-00085" summary="resolve problem about highlight posts successfully">
       <option name="closed" value="true" />
-      <created>1722064336019</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
+      <created>1722666710489</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
       <option name="project" value="LOCAL" />
-      <updated>1722064336019</updated>
+      <updated>1722666710489</updated>
     </task>
-    <task id="LOCAL-00024" summary="create AuthServiceImpl to receive token and check email  verified">
+    <task id="LOCAL-00086" summary="create highlight of user using @Query repository">
       <option name="closed" value="true" />
-      <created>1722064456554</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
+      <created>1722667643621</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
       <option name="project" value="LOCAL" />
-      <updated>1722064456554</updated>
+      <updated>1722667643622</updated>
     </task>
-    <task id="LOCAL-00025" summary="add constant secret key">
+    <task id="LOCAL-00087" summary="add highlight user controller and service">
       <option name="closed" value="true" />
-      <created>1722064484040</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
+      <created>1722667674289</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
       <option name="project" value="LOCAL" />
-      <updated>1722064484040</updated>
+      <updated>1722667674289</updated>
     </task>
-    <task id="LOCAL-00026" summary="fix bug error for query to findByUsername">
+    <task id="LOCAL-00088" summary="resolve problem about highlight of user successfully">
       <option name="closed" value="true" />
-      <created>1722064520793</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
+      <created>1722667715027</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
       <option name="project" value="LOCAL" />
-      <updated>1722064520793</updated>
+      <updated>1722667715027</updated>
     </task>
-    <task id="LOCAL-00027" summary="modified web security for login user">
+    <task id="LOCAL-00089" summary="resolve problem with detail post successfully">
       <option name="closed" value="true" />
-      <created>1722064564290</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
+      <created>1722911842395</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
       <option name="project" value="LOCAL" />
-      <updated>1722064564290</updated>
+      <updated>1722911842396</updated>
     </task>
-    <task id="LOCAL-00028" summary="create generateToken and implement findByUsername interface">
+    <task id="LOCAL-00090" summary="create utils to check isURL">
       <option name="closed" value="true" />
-      <created>1722064632030</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
+      <created>1722913400798</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
       <option name="project" value="LOCAL" />
-      <updated>1722064632030</updated>
+      <updated>1722913400798</updated>
     </task>
-    <task id="LOCAL-00029" summary="complete verify email base on token">
+    <task id="LOCAL-00091" summary="create utils to return url for image">
       <option name="closed" value="true" />
-      <created>1722065413093</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
+      <created>1722913432822</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
       <option name="project" value="LOCAL" />
-      <updated>1722065413093</updated>
+      <updated>1722913432822</updated>
     </task>
-    <task id="LOCAL-00030" summary="add findByToken in user repository">
+    <task id="LOCAL-00092" summary="create service build PostDetailResponse">
       <option name="closed" value="true" />
-      <created>1722065460121</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
+      <created>1722916431593</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
       <option name="project" value="LOCAL" />
-      <updated>1722065460121</updated>
+      <updated>1722916431593</updated>
     </task>
-    <task id="LOCAL-00031" summary="verify email to login user successfully">
+    <task id="LOCAL-00093" summary="resolve problem with isAdmin with parameter token and buildUserProfile successfully">
       <option name="closed" value="true" />
-      <created>1722066477213</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
+      <created>1722916501954</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
       <option name="project" value="LOCAL" />
-      <updated>1722066477213</updated>
+      <updated>1722916501954</updated>
     </task>
-    <task id="LOCAL-00032" summary="verify email to login user successfully">
+    <task id="LOCAL-00094" summary="modified success data with buildDetail response">
       <option name="closed" value="true" />
-      <created>1722067009644</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
+      <created>1722916551851</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
       <option name="project" value="LOCAL" />
-      <updated>1722067009644</updated>
+      <updated>1722916551851</updated>
     </task>
-    <task id="LOCAL-00033" summary="create full properties for Addresses">
+    <task id="LOCAL-00095" summary="update buildPostHomePage response">
       <option name="closed" value="true" />
-      <created>1722068993574</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
+      <created>1722922478804</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
       <option name="project" value="LOCAL" />
-      <updated>1722068993574</updated>
+      <updated>1722922478804</updated>
     </task>
-    <task id="LOCAL-00034" summary="modified Addresses by add timestamp">
+    <task id="LOCAL-00096" summary="resolve problem with existByUserAndComment successfully">
       <option name="closed" value="true" />
-      <created>1722239406532</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
+      <created>1722927148783</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
       <option name="project" value="LOCAL" />
-      <updated>1722239406532</updated>
+      <updated>1722927148783</updated>
     </task>
-    <task id="LOCAL-00035" summary="add getUsername from token">
+    <task id="LOCAL-00097" summary="create comment post request">
       <option name="closed" value="true" />
-      <created>1722239439389</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
+      <created>1722927168092</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
       <option name="project" value="LOCAL" />
-      <updated>1722239439389</updated>
+      <updated>1722927168092</updated>
     </task>
-    <task id="LOCAL-00036" summary="modified web security request">
+    <task id="LOCAL-00098" summary="create comment post response">
       <option name="closed" value="true" />
-      <created>1722239497366</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
+      <created>1722927186347</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
       <option name="project" value="LOCAL" />
-      <updated>1722239497366</updated>
+      <updated>1722927186348</updated>
     </task>
-    <task id="LOCAL-00037" summary="add addressUser response and addressUser request">
+    <task id="LOCAL-00099" summary="resolve issue with findByReply using @Query in comment repository">
       <option name="closed" value="true" />
-      <created>1722239545283</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
+      <created>1722927241777</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
       <option name="project" value="LOCAL" />
-      <updated>1722239545283</updated>
+      <updated>1722927241777</updated>
     </task>
-    <task id="LOCAL-00038" summary="add address response and address request">
+    <task id="LOCAL-00100" summary="create comment posts in controller and service">
       <option name="closed" value="true" />
-      <created>1722239576299</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
+      <created>1722927279913</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
       <option name="project" value="LOCAL" />
-      <updated>1722239576299</updated>
+      <updated>1722927279913</updated>
     </task>
-    <task id="LOCAL-00039" summary="create addresses repository for findByUser and findByIsDefaultUser">
+    <task id="LOCAL-00101" summary="bug for LikedComment not mapped">
       <option name="closed" value="true" />
-      <created>1722239619639</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
+      <created>1722927321901</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
       <option name="project" value="LOCAL" />
-      <updated>1722239619639</updated>
+      <updated>1722927321901</updated>
     </task>
-    <task id="LOCAL-00040" summary="add controller for create addresses">
+    <task id="LOCAL-00102" summary="fix bug LikedComment not mapped and resolve problem with comment posts successfully">
       <option name="closed" value="true" />
-      <created>1722239668125</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
+      <created>1722929690664</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
       <option name="project" value="LOCAL" />
-      <updated>1722239668125</updated>
+      <updated>1722929690664</updated>
     </task>
-    <task id="LOCAL-00041" summary="create address successfully">
+    <task id="LOCAL-00103" summary="create like comment in controller and service">
       <option name="closed" value="true" />
-      <created>1722239698266</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
+      <created>1723023086576</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
       <option name="project" value="LOCAL" />
-      <updated>1722239698266</updated>
+      <updated>1723023086576</updated>
     </task>
-    <task id="LOCAL-00042" summary="create getUsernameAddresses successfully">
+    <task id="LOCAL-00104" summary="resolve problem with like comment successfully">
       <option name="closed" value="true" />
-      <created>1722243103803</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
+      <created>1723023116408</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
       <option name="project" value="LOCAL" />
-      <updated>1722243103803</updated>
+      <updated>1723023116408</updated>
     </task>
-    <task id="LOCAL-00043" summary="create controller and service for getAddressesByToken">
+    <task id="LOCAL-00105" summary="create findByPost repository using nativeQuery successfully">
       <option name="closed" value="true" />
-      <created>1722243747966</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
+      <created>1723024971481</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
       <option name="project" value="LOCAL" />
-      <updated>1722243747966</updated>
+      <updated>1723024971481</updated>
     </task>
-    <task id="LOCAL-00044" summary="complete add getAddressesByToken successfully">
+    <task id="LOCAL-00106" summary="create find by post controller and service">
       <option name="closed" value="true" />
-      <created>1722243814194</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
+      <created>1723024999114</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
       <option name="project" value="LOCAL" />
-      <updated>1722243814194</updated>
+      <updated>1723024999114</updated>
     </task>
-    <task id="LOCAL-00045" summary="add getAddressById service successfully">
+    <task id="LOCAL-00107" summary="resolve problem with find by post successfully">
       <option name="closed" value="true" />
-      <created>1722244898568</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
+      <created>1723025029580</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
       <option name="project" value="LOCAL" />
-      <updated>1722244898568</updated>
+      <updated>1723025029580</updated>
     </task>
-    <task id="LOCAL-00046" summary="add findDefault address service and controller">
+    <task id="LOCAL-00108" summary="create delete comment and reply comment controller and service">
       <option name="closed" value="true" />
-      <created>1722322604783</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
+      <created>1723025933153</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
       <option name="project" value="LOCAL" />
-      <updated>1722322604783</updated>
+      <updated>1723025933153</updated>
     </task>
-    <task id="LOCAL-00047" summary="complete findDefaultAddress service">
+    <task id="LOCAL-00109" summary="resolve problem with delete comment and reply comment successfully">
       <option name="closed" value="true" />
-      <created>1722322655058</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
+      <created>1723025980821</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
       <option name="project" value="LOCAL" />
-      <updated>1722322655058</updated>
+      <updated>1723025980821</updated>
     </task>
-    <task id="LOCAL-00048" summary="add updateAddress controller and service">
+    <task id="LOCAL-00110" summary="update security">
       <option name="closed" value="true" />
-      <created>1722324520376</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
+      <created>1723090910946</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
       <option name="project" value="LOCAL" />
-      <updated>1722324520376</updated>
+      <updated>1723090910947</updated>
     </task>
-    <task id="LOCAL-00049" summary="complete update address successfully">
+    <task id="LOCAL-00111" summary="fix bug">
       <option name="closed" value="true" />
-      <created>1722324565569</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
+      <created>1723090940162</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
       <option name="project" value="LOCAL" />
-      <updated>1722324565569</updated>
+      <updated>1723090940162</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create AuthServiceImpl to receive token and check email  verified" />
-    <MESSAGE value="add constant secret key" />
-    <MESSAGE value="fix bug error for query to findByUsername" />
-    <MESSAGE value="modified web security for login user" />
-    <MESSAGE value="create generateToken and implement findByUsername interface" />
-    <MESSAGE value="complete verify email base on token" />
-    <MESSAGE value="add findByToken in user repository" />
-    <MESSAGE value="verify email to login user successfully" />
-    <MESSAGE value="create full properties for Addresses" />
-    <MESSAGE value="modified Addresses by add timestamp" />
-    <MESSAGE value="add getUsername from token" />
-    <MESSAGE value="modified web security request" />
-    <MESSAGE value="add addressUser response and addressUser request" />
-    <MESSAGE value="add address response and address request" />
-    <MESSAGE value="create addresses repository for findByUser and findByIsDefaultUser" />
-    <MESSAGE value="add controller for create addresses" />
-    <MESSAGE value="create address successfully" />
-    <MESSAGE value="create getUsernameAddresses successfully" />
-    <MESSAGE value="create controller and service for getAddressesByToken" />
-    <MESSAGE value="complete add getAddressesByToken successfully" />
-    <MESSAGE value="add getAddressById service successfully" />
-    <MESSAGE value="add findDefault address service and controller" />
-    <MESSAGE value="complete findDefaultAddress service" />
-    <MESSAGE value="add updateAddress controller and service" />
-    <MESSAGE value="complete update address successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete update address successfully" />
+    <MESSAGE value="add highlight user controller and service" />
+    <MESSAGE value="resolve problem about highlight of user successfully" />
+    <MESSAGE value="resolve problem with detail post successfully" />
+    <MESSAGE value="create utils to check isURL" />
+    <MESSAGE value="create utils to return url for image" />
+    <MESSAGE value="create service build PostDetailResponse" />
+    <MESSAGE value="resolve problem with isAdmin with parameter token and buildUserProfile successfully" />
+    <MESSAGE value="modified success data with buildDetail response" />
+    <MESSAGE value="update buildPostHomePage response" />
+    <MESSAGE value="resolve problem with existByUserAndComment successfully" />
+    <MESSAGE value="create comment post request" />
+    <MESSAGE value="create comment post response" />
+    <MESSAGE value="resolve issue with findByReply using @Query in comment repository" />
+    <MESSAGE value="create comment posts in controller and service" />
+    <MESSAGE value="bug for LikedComment not mapped" />
+    <MESSAGE value="fix bug LikedComment not mapped and resolve problem with comment posts successfully" />
+    <MESSAGE value="create like comment in controller and service" />
+    <MESSAGE value="resolve problem with like comment successfully" />
+    <MESSAGE value="create findByPost repository using nativeQuery successfully" />
+    <MESSAGE value="create find by post controller and service" />
+    <MESSAGE value="resolve problem with find by post successfully" />
+    <MESSAGE value="create delete comment and reply comment controller and service" />
+    <MESSAGE value="update security" />
+    <MESSAGE value="resolve problem with delete comment and reply comment successfully" />
+    <MESSAGE value="fix bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
   </component>
 </project>

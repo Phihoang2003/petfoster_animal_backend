@@ -1,12 +1,8 @@
 package com.hoangphi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import jakarta.persistence.*;
+import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,5 +15,6 @@ public class Orders {
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "user_id")
+    @ToString.Exclude
     private User user;
 }

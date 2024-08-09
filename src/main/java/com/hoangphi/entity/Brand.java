@@ -28,7 +28,7 @@ public class Brand {
     private LocalDateTime createdAt;
 
     @JsonIgnore
-    private Boolean deleted;
+    private Boolean deleted=false;
 
     @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL)
     @JsonIgnore

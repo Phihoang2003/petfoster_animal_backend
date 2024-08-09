@@ -1,9 +1,7 @@
 package com.hoangphi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +13,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 public class ProductRepo {
+    @Id
+    @Column(name = "product_repo_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne
     @JoinColumn(name = "product_id")

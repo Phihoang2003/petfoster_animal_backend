@@ -23,8 +23,8 @@ public class CreateProductRequest {
     @NotBlank(message = "Product Type can't be blank!")
     private String type;
     @NotBlank(message = "Product Type can't be blank!")
-    private String brand;
+    private Integer brand;
     @Valid
-    private List<ProductRepo> productsRepo;
+    private List<ProductRepo> repo;
     private List<MultipartFile> images;
 }

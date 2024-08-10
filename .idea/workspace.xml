@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/brand/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/brand/BrandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/brands/BrandServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/brands/BrandServiceImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,14 +65,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00075" summary="create pagination response">
-      <option name="closed" value="true" />
-      <created>1722591967172</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1722591967172</updated>
     </task>
     <task id="LOCAL-00076" summary="create postOfUser and postLikeOfUser repository using @Query successfully">
       <option name="closed" value="true" />
@@ -462,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723275837749</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="resolve problem delete brand successfully">
+      <option name="closed" value="true" />
+      <created>1723276161190</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1723276161190</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -477,7 +473,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="resolve issue with findByReply using @Query in comment repository" />
     <MESSAGE value="create comment posts in controller and service" />
     <MESSAGE value="bug for LikedComment not mapped" />
     <MESSAGE value="fix bug LikedComment not mapped and resolve problem with comment posts successfully" />
@@ -502,6 +497,7 @@
     <MESSAGE value="resolve problem with update brand successfully" />
     <MESSAGE value="create getAll brand controller" />
     <MESSAGE value="resolve problem update brand successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem update brand successfully" />
+    <MESSAGE value="resolve problem delete brand successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem delete brand successfully" />
   </component>
 </project>

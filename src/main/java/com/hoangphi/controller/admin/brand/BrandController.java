@@ -26,4 +26,8 @@ public class BrandController {
     public ResponseEntity<ApiResponse> getAllBrand() {
         return ResponseEntity.ok(brandService.getAllBrand());
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> deleteBrand(@PathVariable("id") Integer id) {
+        return ResponseEntity.ok(brandService.deleteBrand(id));
+    }
 }

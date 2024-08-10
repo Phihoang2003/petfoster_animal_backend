@@ -115,6 +115,36 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public ApiResponse deleteBrand(Integer id) {
-        return null;
+        Map<String,String> errorsMap=new HashMap<>();
+        if(!brandRepository.existsById(id)){
+            errorsMap.put("id","id not found!");
+            return ApiResponse.builder()
+                    .message("id not found!")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(errorsMap)
+                    .build();
+        }
+        try{
+            Brand brand=brandRepository.findById(id).orElse(null);
+            assert brand != null;
+            brand.setDeleted(true);
+            brandRepository.save(brand);
+            return ApiResponse.builder()
+                    .message("Delete brand successfully!")
+                    .status(HttpStatus.OK.value())
+                    .errors(false)
+                    .data(brand)
+                    .build();
+        }catch(Exception e){
+            errorsMap.put("brand", "Can't delete Brand!");
+
+            return ApiResponse.builder()
+                    .message("Can't delete Brand!")
+                    .status(HttpStatus.NOT_MODIFIED.value())
+                    .errors(errorsMap)
+                    .data(null)
+                    .build();
+        }
+
     }
 }

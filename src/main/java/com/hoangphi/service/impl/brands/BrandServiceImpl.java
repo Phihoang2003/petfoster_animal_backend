@@ -13,7 +13,8 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 @Service
 @RequiredArgsConstructor
@@ -35,7 +36,6 @@ public class BrandServiceImpl implements BrandService {
                     .build();
         }
         List<Brand> listBrand=brandRepository.findByName(brand.getName()).orElse(null);
-        System.out.println("listBrand: "+listBrand);
         if(!listBrand.isEmpty()){
             errorsMap.put("brand", "brand already exits!");
             return ApiResponse.builder()
@@ -58,7 +58,48 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     public ApiResponse updateBrand(Integer id, BrandRequest brandRequest) {
-        return null;
+        Map<String,String>errorsMap=new HashMap<>();
+        if(!brandRequest.getId().equals(id)){
+            errorsMap.put("id","id not match!");
+            return ApiResponse.builder()
+                    .message("id not match!")
+                    .status(HttpStatus.CONFLICT.value())
+                    .errors(errorsMap)
+                    .build();
+        }
+        if(!brandRepository.existsById(brandRequest.getId())){
+            errorsMap.put("id","id not found!");
+            return ApiResponse.builder()
+                    .message("id not found!")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(errorsMap)
+                    .build();
+        }
+        AtomicBoolean check= new AtomicBoolean(false);
+        List<Brand> listBrand=brandRepository.findByName(brandRequest.getName()).orElse(null);
+        assert listBrand != null;
+        listBrand.stream().forEach(brand -> {
+            if(!Objects.equals(brand.getId(), brandRequest.getId())){
+                check.set(true);
+            }
+        });
+        if (check.get()) {
+            errorsMap.put("brand", "brand already exits!");
+            return ApiResponse.builder()
+                    .message("brand already exits!")
+                    .status(HttpStatus.FOUND.value())
+                    .errors(errorsMap).build();
+        }
+        Brand updateBrand=brandRepository.findById(id).get();
+        updateBrand.setBrand(brandRequest.getName());
+        brandRepository.save(updateBrand);
+        return ApiResponse.builder()
+                .message("Update brand successfully!")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(updateBrand)
+                .build();
+
     }
 
     @Override

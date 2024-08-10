@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Brand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/ProductRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/ProductRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/RecentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/RecentView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/brand/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/brand/BrandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/brands/BrandServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/brands/BrandServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,18 +37,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "hoangphi/handle-product",
-    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hoangphi/handle-brand&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.hoangphi.response.takeAction" />
@@ -71,46 +69,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00066" summary="bug for update post">
-      <option name="closed" value="true" />
-      <created>1722516508047</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1722516508047</updated>
-    </task>
-    <task id="LOCAL-00067" summary="create manageRoles repository">
-      <option name="closed" value="true" />
-      <created>1722518206528</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1722518206528</updated>
-    </task>
-    <task id="LOCAL-00068" summary="create isAdmin and resolve success for userRepository">
-      <option name="closed" value="true" />
-      <created>1722518265257</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1722518265257</updated>
-    </task>
-    <task id="LOCAL-00069" summary="add service delete posts">
-      <option name="closed" value="true" />
-      <created>1722518306922</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1722518306923</updated>
-    </task>
-    <task id="LOCAL-00070" summary="delete posts successfully">
-      <option name="closed" value="true" />
-      <created>1722518329065</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1722518329065</updated>
     </task>
     <task id="LOCAL-00071" summary="add images when create and update posts">
       <option name="closed" value="true" />
@@ -464,7 +422,47 @@
       <option name="project" value="LOCAL" />
       <updated>1723183500991</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="modified">
+      <option name="closed" value="true" />
+      <created>1723207228699</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1723207228699</updated>
+    </task>
+    <task id="LOCAL-00116" summary="fix bug error in controller">
+      <option name="closed" value="true" />
+      <created>1723207671507</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1723207671507</updated>
+    </task>
+    <task id="LOCAL-00117" summary="create brand request and response">
+      <option name="closed" value="true" />
+      <created>1723207700756</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1723207700756</updated>
+    </task>
+    <task id="LOCAL-00118" summary="create brand repository for create brand">
+      <option name="closed" value="true" />
+      <created>1723207740133</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1723207740133</updated>
+    </task>
+    <task id="LOCAL-00119" summary="resolve problem with create brand">
+      <option name="closed" value="true" />
+      <created>1723207772707</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1723207772708</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -479,11 +477,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create utils to check isURL" />
-    <MESSAGE value="create utils to return url for image" />
-    <MESSAGE value="create service build PostDetailResponse" />
-    <MESSAGE value="resolve problem with isAdmin with parameter token and buildUserProfile successfully" />
-    <MESSAGE value="modified success data with buildDetail response" />
     <MESSAGE value="update buildPostHomePage response" />
     <MESSAGE value="resolve problem with existByUserAndComment successfully" />
     <MESSAGE value="create comment post request" />
@@ -504,6 +497,11 @@
     <MESSAGE value="create entity product" />
     <MESSAGE value="create entity" />
     <MESSAGE value="create entities request and response" />
-    <option name="LAST_COMMIT_MESSAGE" value="create entities request and response" />
+    <MESSAGE value="modified" />
+    <MESSAGE value="fix bug error in controller" />
+    <MESSAGE value="create brand request and response" />
+    <MESSAGE value="create brand repository for create brand" />
+    <MESSAGE value="resolve problem with create brand" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with create brand" />
   </component>
 </project>

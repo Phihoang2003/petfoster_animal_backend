@@ -10,10 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Service
@@ -22,7 +19,21 @@ public class BrandServiceImpl implements BrandService {
     private final BrandRepository brandRepository;
     @Override
     public ApiResponse getAllBrand() {
-        return null;
+        List<Brand> listBrand = brandRepository.findAll();
+        if (listBrand.isEmpty()) {
+            return ApiResponse.builder()
+                    .message("No brands data available!")
+                    .status(200)
+                    .errors(false)
+                    .data(new ArrayList<>())
+                    .build();
+        } else
+            return ApiResponse.builder()
+                    .message("Successfully!!!")
+                    .status(200)
+                    .errors(false)
+                    .data(listBrand)
+                    .build();
     }
     @Override
     public ApiResponse createBrand(CreateBrandRequest brand) {

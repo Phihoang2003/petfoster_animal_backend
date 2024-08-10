@@ -22,4 +22,8 @@ public class BrandController {
     public ResponseEntity<ApiResponse> updateBrand(@PathVariable("id") Integer id, @Valid @RequestBody BrandRequest brandRequest ) {
         return ResponseEntity.ok(brandService.updateBrand(id, brandRequest));
     }
+    @GetMapping("")
+    public ResponseEntity<ApiResponse> getAllBrand() {
+        return ResponseEntity.ok(brandService.getAllBrand());
+    }
 }

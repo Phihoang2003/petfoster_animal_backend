@@ -7,23 +7,25 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-public class Review {
+public class ProductRepo {
     @Id
+    @Column(name = "product_repo_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @ManyToOne
     @JoinColumn(name = "product_id")
-    @JsonIgnore
     private Product product;
+
+    private Integer size;
+    private Double inPrice;
+    private Double outPrice;
+    private Integer quantity;
+    private Boolean inStock;
+    @JsonIgnore
+    private Boolean isActive;
 }

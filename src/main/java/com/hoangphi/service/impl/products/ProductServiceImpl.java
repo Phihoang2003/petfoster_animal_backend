@@ -368,6 +368,35 @@ public class ProductServiceImpl implements ProductService {
                 .data(productRepository.save(selectProduct))
                 .build();
     }
+
+    @Override
+    public ApiResponse deleteProduct(String id) {
+        if(!productRepository.existsById(id)){
+            return ApiResponse.builder()
+                    .message("Can't find Product ID")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        Product selectProduct=productRepository.findById(id).orElse(null);
+        if(selectProduct==null){
+            return ApiResponse.builder()
+                    .message("Can't find Product ID")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        selectProduct.setActive(false);
+        return ApiResponse.builder()
+                .message("Delete product Successfully")
+                .status(HttpStatus.OK.value())
+                .errors(null)
+                .data(productRepository.save(selectProduct))
+                .build();
+    }
+
     public ProductType getNewTypeForProduct(String idType, Product product) {
         //not need query database if type not change
         if (idType.equals(product.getProductType().getId())) {

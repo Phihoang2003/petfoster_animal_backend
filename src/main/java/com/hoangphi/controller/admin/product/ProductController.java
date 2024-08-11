@@ -50,4 +50,9 @@ public class ProductController {
         return ResponseEntity.ok(productService.updateProductWithInfo(id, productInfoRequest));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> DeleteProduct(@PathVariable("id") String id) {
+        return ResponseEntity.ok(productService.deleteProduct(id));
+    }
+
 }

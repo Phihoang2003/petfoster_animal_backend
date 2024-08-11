@@ -18,4 +18,6 @@ public interface ProductService {
 
     ApiResponse getAllProduct(Optional<Integer> page);
     ApiResponse updateProductWithInfo(String id, ProductInfoRequest productInfoRequest);
+    ApiResponse deleteProduct(String id);
+
 }

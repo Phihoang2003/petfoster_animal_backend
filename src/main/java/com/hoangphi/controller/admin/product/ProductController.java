@@ -1,6 +1,7 @@
 package com.hoangphi.controller.admin.product;
 
 import com.hoangphi.request.CreateProductRequest;
+import com.hoangphi.request.products.ProductInfoRequest;
 import com.hoangphi.request.products.ProductRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.admin.products.ProductService;
@@ -42,6 +43,11 @@ public class ProductController {
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse> getProduct(@PathVariable("id") String id) {
         return ResponseEntity.ok(productService.getProduct(id));
+    }
+    @PostMapping("/info/{id}")
+    public ResponseEntity<ApiResponse> updateProductWithInfo(@PathVariable("id") String id,
+                                                             @RequestBody ProductInfoRequest productInfoRequest) {
+        return ResponseEntity.ok(productService.updateProductWithInfo(id, productInfoRequest));
     }
 
 }

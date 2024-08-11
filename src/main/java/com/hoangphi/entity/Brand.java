@@ -26,7 +26,6 @@ public class Brand {
     @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
-
     @JsonIgnore
     private Boolean deleted=false;
 

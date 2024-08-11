@@ -1,5 +1,6 @@
 package com.hoangphi.request.products;
 
+import com.hoangphi.entity.Brand;
 import com.hoangphi.entity.ProductRepo;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -20,6 +21,6 @@ public class ProductRequest {
     private String desc;
     @NotBlank(message = "Product Type can't be blank!")
     private String productType;
-    private String brand;
+    private Brand brand;
     private List<ProductRepo> productsRepo;
 }

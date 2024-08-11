@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/request/CreateProductRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/request/CreateProductRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/ImageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/ImageUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ProductRepoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ProductRepoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/admin/products/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/admin/products/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/products/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/products/ProductServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,18 +39,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "hoangphi/handle-product",
-    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hoangphi/handle-product&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.hoangphi.response.takeAction" />
@@ -69,86 +71,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00077" summary="create service postOfUser and buildHomePageResponse">
-      <option name="closed" value="true" />
-      <created>1722592072058</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1722592072058</updated>
-    </task>
-    <task id="LOCAL-00078" summary="resolve problem with postOfUser and create pagination for response">
-      <option name="closed" value="true" />
-      <created>1722592116055</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1722592116055</updated>
-    </task>
-    <task id="LOCAL-00079" summary="add controller for postOfUser">
-      <option name="closed" value="true" />
-      <created>1722592143679</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1722592143679</updated>
-    </task>
-    <task id="LOCAL-00080" summary="create search posts with @Query repository">
-      <option name="closed" value="true" />
-      <created>1722665147865</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1722665147866</updated>
-    </task>
-    <task id="LOCAL-00081" summary="create controller and service with search posts">
-      <option name="closed" value="true" />
-      <created>1722665196821</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1722665196821</updated>
-    </task>
-    <task id="LOCAL-00082" summary="resolve problem with search posts and pagination successfully">
-      <option name="closed" value="true" />
-      <created>1722665236876</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1722665236876</updated>
-    </task>
-    <task id="LOCAL-00083" summary="add highlight posts using @Query repository">
-      <option name="closed" value="true" />
-      <created>1722666622527</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1722666622527</updated>
-    </task>
-    <task id="LOCAL-00084" summary="add highlight posts controller and service">
-      <option name="closed" value="true" />
-      <created>1722666656694</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1722666656694</updated>
-    </task>
-    <task id="LOCAL-00085" summary="resolve problem about highlight posts successfully">
-      <option name="closed" value="true" />
-      <created>1722666710489</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1722666710489</updated>
-    </task>
-    <task id="LOCAL-00086" summary="create highlight of user using @Query repository">
-      <option name="closed" value="true" />
-      <created>1722667643621</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1722667643622</updated>
     </task>
     <task id="LOCAL-00087" summary="add highlight user controller and service">
       <option name="closed" value="true" />
@@ -462,7 +384,87 @@
       <option name="project" value="LOCAL" />
       <updated>1723285189659</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="create Product success and save images">
+      <option name="closed" value="true" />
+      <created>1723285355469</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1723285355469</updated>
+    </task>
+    <task id="LOCAL-00127" summary="create productRepository with findAll and findAllNoActive">
+      <option name="closed" value="true" />
+      <created>1723285402737</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1723285402737</updated>
+    </task>
+    <task id="LOCAL-00128" summary="create productRepo and imageRepo">
+      <option name="closed" value="true" />
+      <created>1723285433601</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1723285433601</updated>
+    </task>
+    <task id="LOCAL-00129" summary="create utils createFileImages">
+      <option name="closed" value="true" />
+      <created>1723285467071</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1723285467071</updated>
+    </task>
+    <task id="LOCAL-00130" summary="modified product request">
+      <option name="closed" value="true" />
+      <created>1723285491652</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1723285491652</updated>
+    </task>
+    <task id="LOCAL-00131" summary="create createProduct controller and repository">
+      <option name="closed" value="true" />
+      <created>1723285537996</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1723285537996</updated>
+    </task>
+    <task id="LOCAL-00132" summary="resolve problem with create product successfully">
+      <option name="closed" value="true" />
+      <created>1723285568355</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1723285568355</updated>
+    </task>
+    <task id="LOCAL-00133" summary="modified product request">
+      <option name="closed" value="true" />
+      <created>1723350827903</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1723350827904</updated>
+    </task>
+    <task id="LOCAL-00134" summary="create controller and repository update product">
+      <option name="closed" value="true" />
+      <created>1723350892134</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1723350892134</updated>
+    </task>
+    <task id="LOCAL-00135" summary="resolve problem with update product successfully">
+      <option name="closed" value="true" />
+      <created>1723350928139</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1723350928140</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -477,17 +479,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bug for LikedComment not mapped" />
-    <MESSAGE value="fix bug LikedComment not mapped and resolve problem with comment posts successfully" />
-    <MESSAGE value="create like comment in controller and service" />
-    <MESSAGE value="resolve problem with like comment successfully" />
-    <MESSAGE value="create findByPost repository using nativeQuery successfully" />
-    <MESSAGE value="create find by post controller and service" />
-    <MESSAGE value="resolve problem with find by post successfully" />
-    <MESSAGE value="create delete comment and reply comment controller and service" />
-    <MESSAGE value="update security" />
-    <MESSAGE value="resolve problem with delete comment and reply comment successfully" />
-    <MESSAGE value="fix bug" />
     <MESSAGE value="create entity product" />
     <MESSAGE value="create entity" />
     <MESSAGE value="create entities request and response" />
@@ -502,6 +493,17 @@
     <MESSAGE value="resolve problem update brand successfully" />
     <MESSAGE value="resolve problem delete brand successfully" />
     <MESSAGE value="create Product Type repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="create Product Type repository" />
+    <MESSAGE value="create Product success and save images" />
+    <MESSAGE value="create productRepository with findAll and findAllNoActive" />
+    <MESSAGE value="create productRepo and imageRepo" />
+    <MESSAGE value="create utils createFileImages" />
+    <MESSAGE value="kcreate createProduct controller and repository" />
+    <MESSAGE value="create createProduct controller and repository" />
+    <MESSAGE value="resolve problem with create product successfully" />
+    <MESSAGE value="modified product request" />
+    <MESSAGE value="create controller and repository of update product" />
+    <MESSAGE value="create controller and repository update product" />
+    <MESSAGE value="resolve problem with update product successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with update product successfully" />
   </component>
 </project>

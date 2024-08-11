@@ -1,23 +1,30 @@
 package com.hoangphi.service.impl.products;
 
+import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.*;
 import com.hoangphi.repository.*;
 import com.hoangphi.request.CreateProductRequest;
 import com.hoangphi.request.products.ProductRequest;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.common.PaginationResponse;
+import com.hoangphi.response.products_manage.ProductDetailManageResponse;
+import com.hoangphi.response.products_manage.ProductInfoResponse;
+import com.hoangphi.response.products_manage.ProductManageResponse;
 import com.hoangphi.service.admin.products.ProductService;
 import com.hoangphi.utils.ImageUtils;
+import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +34,7 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepoRepository productRepoRepository;
     private final ImagesRepository imagesRepository;
     private final BrandRepository brandRepository;
+    private final PortUtils portUtils;
 
     @Override
     public ApiResponse createProduct(CreateProductRequest createProductRequest, List<MultipartFile> images) {
@@ -145,6 +153,36 @@ public class ProductServiceImpl implements ProductService {
             });
 
         }
+//        if (images != null && !images.isEmpty()) {
+//            // get old list images related to product
+//            List<Imgs> existingImgs = imagesRepository.findByProduct(selectProduct);
+//
+//
+//            if (!existingImgs.isEmpty()) {
+//                existingImgs.forEach(img -> {
+//                    ImageUtils.deleteImg(img.getNameImg());  // Xóa ảnh từ local storage
+//                });
+//                imagesRepository.deleteAll(existingImgs);  // Xóa bản ghi ảnh cũ khỏi cơ sở dữ liệu
+//            }
+//
+//            // add new images to product
+//            List<Imgs> imgsList = new ArrayList<>();
+//            images.forEach(image -> {
+//                try {
+//                    File file = ImageUtils.createFileImage();
+//                    image.transferTo(new File(file.getAbsolutePath()));
+//                    Imgs newImg = Imgs.builder()
+//                            .product(selectProduct)
+//                            .nameImg(file.getName())
+//                            .build();
+//                    imgsList.add(newImg);
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            });
+//            imagesRepository.saveAll(imgsList);
+//            selectProduct.setImgs(imgsList);
+//        }
         ProductType productType=productTypeRepository.findById(updateProductReq.getProductType()).orElse(null);
         if(productType==null){
             errorsMap.put("PRODUCT_TYPE_NOT_FOUND","Can't find Product Type ID");
@@ -166,6 +204,120 @@ public class ProductServiceImpl implements ProductService {
                 .data(productRepository.save(selectedProduct))
                 .build();
 
+    }
+
+    @Override
+    public ApiResponse getProductInfo(String id) {
+        if (id.isEmpty()) {
+            return ApiResponse.builder()
+                    .message("Id invalid")
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        Product selectProduct = productRepository.findById(id).orElse(null);
+
+        if (selectProduct == null) {
+            return ApiResponse.builder()
+                    .message("Can't found product by id")
+                    .status(404)
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        return ApiResponse.builder()
+                .message("Successfuly !")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(ProductInfoResponse.builder()
+                        .id(selectProduct.getId())
+                        .name(selectProduct.getName())
+                        .brand(selectProduct.getBrand().getId() + "")
+                        .type(selectProduct.getProductType().getId())
+                        .description(selectProduct.getDesc())
+                        .build())
+                .build();
+    }
+
+    @Override
+    public ApiResponse getProduct(String id) {
+        Product selectProduct = productRepository.findById(id).orElse(null);
+
+        if (selectProduct == null) {
+            return ApiResponse.builder()
+                    .message("Can't found Product ID")
+                    .status(HttpStatus.OK.value())
+                    .errors(null)
+                    .data(null)
+                    .build();
+        }
+        ProductDetailManageResponse data = ProductDetailManageResponse.builder()
+                .id(selectProduct.getId())
+                .name(selectProduct.getName())
+                .description(selectProduct.getDesc())
+                .brand(selectProduct.getBrand().getBrand())
+                .type(selectProduct.getProductType().getName())
+                .repo(selectProduct.getProductsRepo())
+                .images(selectProduct.getImgs().stream().map((image) -> {
+                    Map<String, String> imageObj = new HashMap<>();
+                    imageObj.put("image", portUtils.getUrlImage(image.getNameImg()));
+                    imageObj.put("id", image.getId().toString());
+                    return imageObj;
+                }))
+                .build();
+
+        return ApiResponse.builder()
+                .message("Query product Successfully")
+                .status(HttpStatus.OK.value())
+                .errors(null)
+                .data(data)
+                .build();
+    }
+
+    @Override
+    public ApiResponse getAllProduct(Optional<Integer> page) {
+        List<ProductManageResponse> productItems = new ArrayList<>();
+        List<Product> products = productRepository.findAll();
+
+        Pageable pageable = PageRequest.of(page.orElse(0), 10);
+        int startIndex = (int) pageable.getOffset();
+        int endIndex = Math.min(startIndex + pageable.getPageSize(), products.size());
+
+        if (startIndex >= endIndex) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+
+        List<Product> visibleProducts = products.subList(startIndex, endIndex);
+
+        visibleProducts.forEach(product -> {
+            productItems.add(ProductManageResponse.builder()
+                    .id(product.getId())
+                    .image(portUtils.getUrlImage(product.getImgs().get(0).getNameImg()))
+                    .brand(product.getBrand().getBrand())
+                    .name(product.getName())
+                    .type(product.getProductType().getName())
+                    .repo(productRepoRepository.findByProduct(product))
+                    .build());
+        });
+
+        Page<ProductManageResponse> pagination = new PageImpl<ProductManageResponse>(productItems, pageable,
+                products.size());
+
+        return ApiResponse.builder()
+                .message("Query product Successfully")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(PaginationResponse.builder().data(pagination.getContent())
+                        .pages(pagination.getTotalPages()).build())
+                .build();
     }
 
     public ProductType getNewTypeForProduct(String idType) {

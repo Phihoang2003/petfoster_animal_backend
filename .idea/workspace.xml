@@ -7,7 +7,6 @@
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ProductRepoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ProductRepoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/admin/products/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/admin/products/ProductService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/products/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/products/ProductServiceImpl.java" afterDir="false" />
     </list>
@@ -71,46 +70,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00087" summary="add highlight user controller and service">
-      <option name="closed" value="true" />
-      <created>1722667674289</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1722667674289</updated>
-    </task>
-    <task id="LOCAL-00088" summary="resolve problem about highlight of user successfully">
-      <option name="closed" value="true" />
-      <created>1722667715027</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1722667715027</updated>
-    </task>
-    <task id="LOCAL-00089" summary="resolve problem with detail post successfully">
-      <option name="closed" value="true" />
-      <created>1722911842395</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1722911842396</updated>
-    </task>
-    <task id="LOCAL-00090" summary="create utils to check isURL">
-      <option name="closed" value="true" />
-      <created>1722913400798</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1722913400798</updated>
-    </task>
-    <task id="LOCAL-00091" summary="create utils to return url for image">
-      <option name="closed" value="true" />
-      <created>1722913432822</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1722913432822</updated>
     </task>
     <task id="LOCAL-00092" summary="create service build PostDetailResponse">
       <option name="closed" value="true" />
@@ -464,7 +423,47 @@
       <option name="project" value="LOCAL" />
       <updated>1723350928140</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="create ProductDetailManageResponse">
+      <option name="closed" value="true" />
+      <created>1723360800962</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1723360800962</updated>
+    </task>
+    <task id="LOCAL-00137" summary="create ProductInfoResponse">
+      <option name="closed" value="true" />
+      <created>1723360825658</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1723360825658</updated>
+    </task>
+    <task id="LOCAL-00138" summary="create ProductManageResponse">
+      <option name="closed" value="true" />
+      <created>1723360842189</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1723360842189</updated>
+    </task>
+    <task id="LOCAL-00139" summary="add getProductById and getAllProduct">
+      <option name="closed" value="true" />
+      <created>1723360890808</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1723360890808</updated>
+    </task>
+    <task id="LOCAL-00140" summary="resolve problem with getALlProduct and getProductById">
+      <option name="closed" value="true" />
+      <created>1723360925473</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1723360925473</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -479,11 +478,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create entity product" />
-    <MESSAGE value="create entity" />
-    <MESSAGE value="create entities request and response" />
-    <MESSAGE value="modified" />
-    <MESSAGE value="fix bug error in controller" />
     <MESSAGE value="create brand request and response" />
     <MESSAGE value="create brand repository for create brand" />
     <MESSAGE value="resolve problem with create brand" />
@@ -504,6 +498,11 @@
     <MESSAGE value="create controller and repository of update product" />
     <MESSAGE value="create controller and repository update product" />
     <MESSAGE value="resolve problem with update product successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with update product successfully" />
+    <MESSAGE value="create ProductDetailManageResponse" />
+    <MESSAGE value="create ProductInfoResponse" />
+    <MESSAGE value="create ProductManageResponse" />
+    <MESSAGE value="add getProductById and getAllProduct" />
+    <MESSAGE value="resolve problem with getALlProduct and getProductById" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with getALlProduct and getProductById" />
   </component>
 </project>

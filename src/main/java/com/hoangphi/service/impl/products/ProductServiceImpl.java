@@ -4,6 +4,7 @@ import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.*;
 import com.hoangphi.repository.*;
 import com.hoangphi.request.CreateProductRequest;
+import com.hoangphi.request.products.ProductInfoRequest;
 import com.hoangphi.request.products.ProductRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.common.PaginationResponse;
@@ -229,7 +230,7 @@ public class ProductServiceImpl implements ProductService {
         }
 
         return ApiResponse.builder()
-                .message("Successfuly !")
+                .message("Successfully !")
                 .status(HttpStatus.OK.value())
                 .errors(false)
                 .data(ProductInfoResponse.builder()
@@ -320,7 +321,70 @@ public class ProductServiceImpl implements ProductService {
                 .build();
     }
 
+    @Override
+    public ApiResponse updateProductWithInfo(String id, ProductInfoRequest productInfoRequest) {
+        if (id.isEmpty() || !id.equals(productInfoRequest.getId())) {
+            return ApiResponse.builder()
+                    .message("Id invalid")
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        Product selectProduct = productRepository.findById(id).orElse(null);
+
+        if (selectProduct == null) {
+            return ApiResponse.builder()
+                    .message("Can't found product by id")
+                    .status(404)
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        // find brand
+        Brand brand = brandRepository.findById(productInfoRequest.getBrand()).orElse(null);
+
+        if (brand == null) {
+            return ApiResponse.builder()
+                    .message("Can't found brand by " + productInfoRequest.getBrand())
+                    .status(404)
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        // all good
+        selectProduct.setBrand(brand);
+        selectProduct.setProductType(getNewTypeForProduct(productInfoRequest.getType(), selectProduct));
+        selectProduct.setName(productInfoRequest.getName());
+        selectProduct.setDesc(productInfoRequest.getDescription());
+
+        return ApiResponse.builder()
+                .message("Update product successfully")
+                .status(HttpStatus.OK.value())
+                .errors(null)
+                .data(productRepository.save(selectProduct))
+                .build();
+    }
+    public ProductType getNewTypeForProduct(String idType, Product product) {
+        //not need query database if type not change
+        if (idType.equals(product.getProductType().getId())) {
+            return product.getProductType();
+        }
+
+        ProductType newType = productTypeRepository.findById(idType).orElse(null);
+
+        if (newType == null) {
+            return product.getProductType();
+        }
+
+        return newType;
+    }
+
     public ProductType getNewTypeForProduct(String idType) {
+        //must query database to get new type
         return productTypeRepository.findById(idType).orElse(null);
     }
     public String getNextId(String lastId){

@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/admin/products/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/admin/products/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/products/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/products/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ProductRepoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ProductRepoRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,22 +68,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00095" summary="update buildPostHomePage response">
-      <option name="closed" value="true" />
-      <created>1722922478804</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1722922478804</updated>
-    </task>
-    <task id="LOCAL-00096" summary="resolve problem with existByUserAndComment successfully">
-      <option name="closed" value="true" />
-      <created>1722927148783</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1722927148783</updated>
     </task>
     <task id="LOCAL-00097" summary="create comment post request">
       <option name="closed" value="true" />
@@ -463,7 +445,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723363034644</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="add delete product controller and service">
+      <option name="closed" value="true" />
+      <created>1723363419221</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1723363419221</updated>
+    </task>
+    <task id="LOCAL-00145" summary="resolve problem with delete product successfully(set active=false)">
+      <option name="closed" value="true" />
+      <created>1723363458507</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1723363458507</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -478,8 +476,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create update brand controller" />
-    <MESSAGE value="resolve problem with update brand successfully" />
     <MESSAGE value="create getAll brand controller" />
     <MESSAGE value="resolve problem update brand successfully" />
     <MESSAGE value="resolve problem delete brand successfully" />
@@ -503,6 +499,8 @@
     <MESSAGE value="add controller and service for update info product" />
     <MESSAGE value="resolve problem with update info product successfully" />
     <MESSAGE value="add product info request" />
-    <option name="LAST_COMMIT_MESSAGE" value="add product info request" />
+    <MESSAGE value="add delete product controller and service" />
+    <MESSAGE value="resolve problem with delete product successfully(set active=false)" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with delete product successfully(set active=false)" />
   </component>
 </project>

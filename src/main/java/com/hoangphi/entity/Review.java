@@ -22,6 +22,8 @@ public class Review {
     @JoinColumn(name = "user_id")
     private User user;
 
+    private Integer rate;
+
     @ManyToOne
     @JoinColumn(name = "product_id")
     @JsonIgnore

@@ -2,7 +2,6 @@ package com.hoangphi.controller.admin.product_repo;
 
 import com.hoangphi.request.variants.CreateRepoRequest;
 import com.hoangphi.response.ApiResponse;
-import com.hoangphi.service.admin.products.ProductService;
 import com.hoangphi.service.admin.products_repo.ProductRepoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ProductRepoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ProductRepoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product_repo/ProductRepoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product_repo/ProductRepoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Review.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,30 +69,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00097" summary="create comment post request">
-      <option name="closed" value="true" />
-      <created>1722927168092</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1722927168092</updated>
-    </task>
-    <task id="LOCAL-00098" summary="create comment post response">
-      <option name="closed" value="true" />
-      <created>1722927186347</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1722927186348</updated>
-    </task>
-    <task id="LOCAL-00099" summary="resolve issue with findByReply using @Query in comment repository">
-      <option name="closed" value="true" />
-      <created>1722927241777</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1722927241777</updated>
     </task>
     <task id="LOCAL-00100" summary="create comment posts in controller and service">
       <option name="closed" value="true" />
@@ -461,7 +438,31 @@
       <option name="project" value="LOCAL" />
       <updated>1723363458507</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="add create product repo">
+      <option name="closed" value="true" />
+      <created>1723370550094</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1723370550094</updated>
+    </task>
+    <task id="LOCAL-00147" summary="add delete, getProductRepo and createProductRepo">
+      <option name="closed" value="true" />
+      <created>1723370615978</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1723370615978</updated>
+    </task>
+    <task id="LOCAL-00148" summary="resolve problem with delete,getProductRepo and createProductRepo">
+      <option name="closed" value="true" />
+      <created>1723370656948</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1723370656948</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -476,9 +477,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create getAll brand controller" />
-    <MESSAGE value="resolve problem update brand successfully" />
-    <MESSAGE value="resolve problem delete brand successfully" />
     <MESSAGE value="create Product Type repository" />
     <MESSAGE value="create Product success and save images" />
     <MESSAGE value="create productRepository with findAll and findAllNoActive" />
@@ -501,6 +499,9 @@
     <MESSAGE value="add product info request" />
     <MESSAGE value="add delete product controller and service" />
     <MESSAGE value="resolve problem with delete product successfully(set active=false)" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with delete product successfully(set active=false)" />
+    <MESSAGE value="add create product repo" />
+    <MESSAGE value="add delete, getProductRepo and createProductRepo" />
+    <MESSAGE value="resolve problem with delete,getProductRepo and createProductRepo" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with delete,getProductRepo and createProductRepo" />
   </component>
 </project>

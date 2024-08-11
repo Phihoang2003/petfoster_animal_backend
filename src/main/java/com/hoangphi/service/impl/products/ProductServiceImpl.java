@@ -3,17 +3,21 @@ package com.hoangphi.service.impl.products;
 import com.hoangphi.entity.*;
 import com.hoangphi.repository.*;
 import com.hoangphi.request.CreateProductRequest;
+import com.hoangphi.request.products.ProductRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.admin.products.ProductService;
 import com.hoangphi.utils.ImageUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -102,6 +106,68 @@ public class ProductServiceImpl implements ProductService {
                 .data(product)
                 .build();
     }
+
+    @Override
+    public ApiResponse updateProduct(String id, ProductRequest updateProductReq) {
+        Map<String,String> errorsMap=new HashMap<>();
+        if (!productRepository.existsById(id)) {
+            errorsMap.put("PRODUCT_NOT_FOUND","Can't find Product ID");
+            return ApiResponse.builder()
+                    .message("Can't find Product ID")
+                    .status(404)
+                    .errors(errorsMap)
+                    .data(null)
+                    .build();
+        }
+        Product selectedProduct=productRepository.findById(id).orElse(null);
+        if(selectedProduct==null){
+            errorsMap.put("PRODUCT_NOT_FOUND","Can't find Product ID");
+            return ApiResponse.builder()
+                    .message("Can't find Product ID")
+                    .status(404)
+                    .errors(errorsMap)
+                    .data(null)
+                    .build();
+        }
+        if(!updateProductReq.getProductsRepo().isEmpty()){
+            selectedProduct.setProductsRepo(updateProductReq.getProductsRepo());
+            updateProductReq.getProductsRepo().forEach(item->{
+                item.setProduct(selectedProduct);
+            });
+            updateProductReq.getProductsRepo().forEach(item->{
+                if(item.getId()==null){
+                    productRepoRepository.save(item);
+                }else {
+                    if (!productRepoRepository.existsById(item.getId())) {
+                        productRepoRepository.save(item);
+                    }
+                }
+            });
+
+        }
+        ProductType productType=productTypeRepository.findById(updateProductReq.getProductType()).orElse(null);
+        if(productType==null){
+            errorsMap.put("PRODUCT_TYPE_NOT_FOUND","Can't find Product Type ID");
+            return ApiResponse.builder()
+                    .message("Can't find Product Type ID")
+                    .status(404)
+                    .errors(errorsMap)
+                    .data(null)
+                    .build();
+        }
+        selectedProduct.setProductType(productType);
+        selectedProduct.setName(updateProductReq.getName());
+        selectedProduct.setBrand(updateProductReq.getBrand());
+        selectedProduct.setDesc(updateProductReq.getDesc());
+        return ApiResponse.builder()
+                .message("Query product Successfully")
+                .status(HttpStatus.OK.value())
+                .errors(null)
+                .data(productRepository.save(selectedProduct))
+                .build();
+
+    }
+
     public ProductType getNewTypeForProduct(String idType) {
         return productTypeRepository.findById(idType).orElse(null);
     }

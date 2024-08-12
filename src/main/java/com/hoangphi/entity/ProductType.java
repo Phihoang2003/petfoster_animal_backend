@@ -2,10 +2,7 @@ package com.hoangphi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,5 +21,6 @@ public class ProductType {
 
     @OneToMany(mappedBy = "productType",cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Product> products=new ArrayList<>();
 }

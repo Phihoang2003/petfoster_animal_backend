@@ -2,10 +2,7 @@ package com.hoangphi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Nationalized;
 
@@ -35,6 +32,7 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "type_id")
     @JsonIgnore
+    @ToString.Exclude
     private ProductType productType;
     private boolean isActive;
 
@@ -44,23 +42,28 @@ public class Product {
 
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<ProductRepo> productsRepo;
 
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Imgs> imgs;
 
     @ManyToOne
     @JoinColumn(name = "brand_id")
     @JsonIgnore
+    @ToString.Exclude
     private Brand brand;
 
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Review> reviews;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<RecentView> recentViews;
 
 }

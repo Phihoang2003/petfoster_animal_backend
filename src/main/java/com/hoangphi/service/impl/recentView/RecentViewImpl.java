@@ -2,6 +2,7 @@ package com.hoangphi.service.impl.recentView;
 
 import com.hoangphi.config.JwtProvider;
 import com.hoangphi.entity.*;
+import com.hoangphi.repository.ProductRepository;
 import com.hoangphi.repository.RecentViewRepository;
 import com.hoangphi.repository.ReviewRepository;
 import com.hoangphi.repository.UserRepository;
@@ -12,11 +13,8 @@ import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -26,6 +24,7 @@ public class RecentViewImpl implements RecentViewService {
     private final PortUtils   portUtils;
     private final JwtProvider jwtProvider;
     private final ReviewRepository reviewRepository;
+    private final ProductRepository productRepository;
     @Override
     public ApiResponse getRecentView(String jwt) {
         User user=userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
@@ -83,5 +82,54 @@ public class RecentViewImpl implements RecentViewService {
                 .status(HttpStatus.OK.value())
                 .message("Successfully get_all_recent_view")
                 .build();
+    }
+
+    @Override
+    public ApiResponse putRecentView(String jwt, String productId) {
+        User user=userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        Map<String, String> errorsMap = new HashMap<>();
+        if(user==null){
+            errorsMap.put("user", "user not found");
+            return ApiResponse.builder()
+                    .message("Unauthorized")
+                    .status(HttpStatus.UNAUTHORIZED.value())
+                    .errors(errorsMap)
+                    .data(null)
+                    .build();
+        }
+        Product product=productRepository.findById(productId).orElse(null);
+        if(product==null){
+            errorsMap.put("product", "product not found");
+            return ApiResponse.builder()
+                    .message("Product not found")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(errorsMap)
+                    .data(null)
+                    .build();
+        }
+
+        List<RecentView> recentViews=recentViewRepository.findAll(user.getId());
+        RecentView existRecentView=recentViewRepository.existByProductId(user.getId(),productId);
+        if(recentViews.size()>=10){
+            int startIndex=existRecentView!=null?10:9;
+            for(int i=startIndex;i<recentViews.size();i++){
+                recentViewRepository.delete(recentViews.get(i));
+            }
+            recentViews=recentViewRepository.findAll(user.getId());
+        }
+        RecentView recentView=RecentView.builder()
+                .id(existRecentView!=null?existRecentView.getId():null)
+                .viewAt( LocalDateTime.now())
+                .user(user)
+                .product(product)
+                .build();
+        recentViews.add(recentView);
+        recentViewRepository.saveAll(recentViews);
+        return ApiResponse.builder()
+                .data(getRecentView(jwt).getData())
+                .status(HttpStatus.OK.value())
+                .message("Update recent view successfully!")
+                .build();
+
     }
 }

@@ -6,8 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product_repo/ProductRepoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product_repo/ProductRepoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/recent_view/RecentViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/recent_view/RecentViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Brand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Imgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Imgs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/ProductRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/ProductRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/ProductType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/ProductType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/RecentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/RecentView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/RecentViewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/RecentViewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/recentView/RecentViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/recentView/RecentViewImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/recent_view/RecentViewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/recent_view/RecentViewService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +35,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Phihoang2003&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Phihoang2003/petfoster_animal_backend.git&quot;,
+    &quot;accountId&quot;: &quot;89bb5881-e3a0-41ef-b818-83bc5bcabd59&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -37,18 +62,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;hoangphi/handle-product&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.PetFosterApplication.executor": "Run",
+    "git-widget-placeholder": "hoangphi/handle-product",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/pet-backend/petfoster-animal-back-end-2.0",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.hoangphi.response.takeAction" />
@@ -61,6 +98,28 @@
       <recent name="D:\Hocweb\Hocweb\ProjectWeb\petfoster_animal_backend\src\main\resources\templates" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PetFosterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="petfoster" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hoangphi.PetFosterApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.300" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.300" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -69,54 +128,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
-    </task>
-    <task id="LOCAL-00100" summary="create comment posts in controller and service">
-      <option name="closed" value="true" />
-      <created>1722927279913</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1722927279913</updated>
-    </task>
-    <task id="LOCAL-00101" summary="bug for LikedComment not mapped">
-      <option name="closed" value="true" />
-      <created>1722927321901</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1722927321901</updated>
-    </task>
-    <task id="LOCAL-00102" summary="fix bug LikedComment not mapped and resolve problem with comment posts successfully">
-      <option name="closed" value="true" />
-      <created>1722929690664</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1722929690664</updated>
-    </task>
-    <task id="LOCAL-00103" summary="create like comment in controller and service">
-      <option name="closed" value="true" />
-      <created>1723023086576</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1723023086576</updated>
-    </task>
-    <task id="LOCAL-00104" summary="resolve problem with like comment successfully">
-      <option name="closed" value="true" />
-      <created>1723023116408</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1723023116408</updated>
-    </task>
-    <task id="LOCAL-00105" summary="create findByPost repository using nativeQuery successfully">
-      <option name="closed" value="true" />
-      <created>1723024971481</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1723024971481</updated>
+      <workItem from="1723426581553" duration="861000" />
+      <workItem from="1723427705941" duration="6749000" />
     </task>
     <task id="LOCAL-00106" summary="create find by post controller and service">
       <option name="closed" value="true" />
@@ -462,27 +475,78 @@
       <option name="project" value="LOCAL" />
       <updated>1723370656948</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="create RecentViewResponse">
+      <option name="closed" value="true" />
+      <created>1723386051704</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1723386051705</updated>
+    </task>
+    <task id="LOCAL-00150" summary="modified Review entity">
+      <option name="closed" value="true" />
+      <created>1723386239625</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1723386239625</updated>
+    </task>
+    <task id="LOCAL-00151" summary="add findReview by user and product repository">
+      <option name="closed" value="true" />
+      <created>1723386270035</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1723386270035</updated>
+    </task>
+    <task id="LOCAL-00152" summary="add findAll for recent view">
+      <option name="closed" value="true" />
+      <created>1723386309266</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1723386309266</updated>
+    </task>
+    <task id="LOCAL-00153" summary="add get recent view controller and service">
+      <option name="closed" value="true" />
+      <created>1723386337525</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1723386337525</updated>
+    </task>
+    <task id="LOCAL-00154" summary="resolve problem with get recent view">
+      <option name="closed" value="true" />
+      <created>1723386365013</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1723386365013</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create Product Type repository" />
-    <MESSAGE value="create Product success and save images" />
-    <MESSAGE value="create productRepository with findAll and findAllNoActive" />
-    <MESSAGE value="create productRepo and imageRepo" />
-    <MESSAGE value="create utils createFileImages" />
-    <MESSAGE value="kcreate createProduct controller and repository" />
     <MESSAGE value="create createProduct controller and repository" />
     <MESSAGE value="resolve problem with create product successfully" />
     <MESSAGE value="modified product request" />
@@ -502,6 +566,12 @@
     <MESSAGE value="add create product repo" />
     <MESSAGE value="add delete, getProductRepo and createProductRepo" />
     <MESSAGE value="resolve problem with delete,getProductRepo and createProductRepo" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with delete,getProductRepo and createProductRepo" />
+    <MESSAGE value="create RecentViewResponse" />
+    <MESSAGE value="modified Review entity" />
+    <MESSAGE value="add findReview by user and product repository" />
+    <MESSAGE value="add findAll for recent view" />
+    <MESSAGE value="add get recent view controller and service" />
+    <MESSAGE value="resolve problem with get recent view" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with get recent view" />
   </component>
 </project>

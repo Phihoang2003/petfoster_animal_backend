@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/recent_view/RecentViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/recent_view/RecentViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Brand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Brand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Imgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Imgs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/ProductRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/ProductRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/ProductType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/ProductType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/RecentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/RecentView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/RecentViewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/RecentViewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/recentView/RecentViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/recentView/RecentViewImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/recent_view/RecentViewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/recent_view/RecentViewService.java" afterDir="false" />
-    </list>
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with put recent view successfully" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,39 +116,7 @@
       <option name="presentableId" value="Default" />
       <updated>1721979682185</updated>
       <workItem from="1723426581553" duration="861000" />
-      <workItem from="1723427705941" duration="6749000" />
-    </task>
-    <task id="LOCAL-00106" summary="create find by post controller and service">
-      <option name="closed" value="true" />
-      <created>1723024999114</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1723024999114</updated>
-    </task>
-    <task id="LOCAL-00107" summary="resolve problem with find by post successfully">
-      <option name="closed" value="true" />
-      <created>1723025029580</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1723025029580</updated>
-    </task>
-    <task id="LOCAL-00108" summary="create delete comment and reply comment controller and service">
-      <option name="closed" value="true" />
-      <created>1723025933153</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1723025933153</updated>
-    </task>
-    <task id="LOCAL-00109" summary="resolve problem with delete comment and reply comment successfully">
-      <option name="closed" value="true" />
-      <created>1723025980821</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1723025980821</updated>
+      <workItem from="1723427705941" duration="7093000" />
     </task>
     <task id="LOCAL-00110" summary="update security">
       <option name="closed" value="true" />
@@ -523,7 +478,39 @@
       <option name="project" value="LOCAL" />
       <updated>1723386365013</updated>
     </task>
-    <option name="localTasksCounter" value="155" />
+    <task id="LOCAL-00155" summary="modified entity">
+      <option name="closed" value="true" />
+      <created>1723434591027</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1723434591028</updated>
+    </task>
+    <task id="LOCAL-00156" summary="modified entity to fix loop">
+      <option name="closed" value="true" />
+      <created>1723434696753</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1723434696753</updated>
+    </task>
+    <task id="LOCAL-00157" summary="add put recent view controller and service">
+      <option name="closed" value="true" />
+      <created>1723434769461</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1723434769461</updated>
+    </task>
+    <task id="LOCAL-00158" summary="resolve problem with put recent view successfully">
+      <option name="closed" value="true" />
+      <created>1723434808931</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1723434808931</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,10 +534,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create createProduct controller and repository" />
-    <MESSAGE value="resolve problem with create product successfully" />
-    <MESSAGE value="modified product request" />
-    <MESSAGE value="create controller and repository of update product" />
     <MESSAGE value="create controller and repository update product" />
     <MESSAGE value="resolve problem with update product successfully" />
     <MESSAGE value="create ProductDetailManageResponse" />
@@ -572,6 +555,10 @@
     <MESSAGE value="add findAll for recent view" />
     <MESSAGE value="add get recent view controller and service" />
     <MESSAGE value="resolve problem with get recent view" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with get recent view" />
+    <MESSAGE value="modified entity" />
+    <MESSAGE value="modified entity to fix loop" />
+    <MESSAGE value="add put recent view controller and service" />
+    <MESSAGE value="resolve problem with put recent view successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with put recent view successfully" />
   </component>
 </project>

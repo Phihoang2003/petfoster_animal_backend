@@ -4,10 +4,7 @@ import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.recent_view.RecentViewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user/recent-views")
@@ -18,5 +15,10 @@ public class RecentViewController {
     @GetMapping("")
     public ResponseEntity<ApiResponse> getRecentView(@RequestHeader("Authorization") String jwt) {
         return ResponseEntity.ok(recentViewService.getRecentView(jwt));
+    }
+    @PutMapping("/{productId}")
+    public ResponseEntity<ApiResponse> putRecentView(@RequestHeader("Authorization") String jwt,
+                                                     @PathVariable("productId") String productId) {
+        return ResponseEntity.ok(recentViewService.putRecentView(jwt, productId));
     }
 }

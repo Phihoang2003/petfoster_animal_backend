@@ -32,4 +32,14 @@ public class ImagesController {
                                                    @PathVariable("idImage") Integer idImage) {
         return ResponseEntity.ok(imageService.deleteImage(id, idImage));
     }
+
+    @GetMapping("/image/{fileName}")
+    public byte[] getImage(@PathVariable("fileName") String fileName) {
+        return imageService.getImage(fileName);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> deleteImgs(@PathVariable("id") String id) {
+        return ResponseEntity.ok(imageService.deleteImgs(id));
+    }
 }

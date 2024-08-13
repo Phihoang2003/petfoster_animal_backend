@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,12 +29,44 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public byte[] getImage(String fileName) {
-        return new byte[0];
+        String filePath="images/"+fileName;
+        byte[] images;
+        try{
+            images= Files.readAllBytes(new File(filePath).toPath());
+        }catch(IOException e){
+            try{
+                images= Files.readAllBytes(new File("images/no-product-image.jpg").toPath());
+            }catch(IOException e1){
+                System.out.println("Error in getImage" + e.getMessage());
+                images = null;
+            }
+        }
+        return images;
     }
 
     @Override
     public ApiResponse deleteImgs(String id) {
-        return null;
+        Product product=productRepository.findById(id).orElse(null);
+        if (product==null){
+            return ApiResponse.builder()
+                    .message("Product not found")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        List<Imgs> images=imagesRepository.getImagesByProductId(id);
+        images.forEach(image->{
+            String filename=image.getNameImg();
+            deleteImage(filename);
+            imagesRepository.delete(image);
+        });
+        return ApiResponse.builder()
+                .message("Delete successfully")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(images)
+                .build();
     }
 
     @Override

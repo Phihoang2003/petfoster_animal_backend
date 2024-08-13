@@ -83,6 +83,7 @@ public class User {
     private List<SearchHistory> searchHistories;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<RecentView> recentViews;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore

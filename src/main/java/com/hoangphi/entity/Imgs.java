@@ -2,10 +2,7 @@ package com.hoangphi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
@@ -19,6 +16,7 @@ public class Imgs {
     @ManyToOne
     @JoinColumn(name = "product_id")
     @JsonIgnore
+    @ToString.Exclude
     private Product product;
 
     private String nameImg;

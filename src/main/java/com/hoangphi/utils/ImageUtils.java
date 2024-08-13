@@ -53,4 +53,8 @@ public class ImageUtils {
         if (imgFile.exists())
             imgFile.delete();
     }
+    public static File createFileImage() {
+        UUID uuid = UUID.randomUUID();
+        return new File("images\\" + uuid.toString() + ".jpg");
+    }
 }

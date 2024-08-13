@@ -18,4 +18,10 @@ public class Adopt {
     @JoinColumn(name = "user_id")
     @ToString.Exclude
     private User user;
+
+    @OneToOne
+    @JoinColumn(name = "pet_id")
+    private Pet pet;
+
+    private String status;
 }

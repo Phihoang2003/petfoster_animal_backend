@@ -6,6 +6,7 @@ import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Nationalized;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class Pet {
     @CreationTimestamp
     private LocalDateTime createAt;
 
-    private LocalDateTime fosterAt;
+    private LocalDate fosterAt;
 
     @Nationalized
     private String descriptions;

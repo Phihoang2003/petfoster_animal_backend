@@ -12,4 +12,7 @@ import java.util.List;
 public interface ImagesRepository extends JpaRepository<Imgs, Integer> {
     @Query(nativeQuery = true,value = "select * from imgs where product_id=:productId")
     public List<Imgs> getImagesByProductId(@Param("productId") String productId);
+
+    @Query("select image from Imgs image where image.product.id=:productId and image.id=:idImage")
+    public Imgs getImageByProductId(@Param("productId") String productId, @Param("idImage") Integer idImage);
 }

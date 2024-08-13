@@ -135,6 +135,35 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public ApiResponse deleteImage(String id, Integer idImage) {
-        return null;
+        Product product=productRepository.findById(id).orElse(null);
+        if (product==null){
+            return ApiResponse.builder()
+                    .message("Product not found")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        Imgs image=imagesRepository.getImageByProductId(id,idImage);
+        if (image==null){
+            return ApiResponse.builder()
+                    .message("Image not found")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        String filename=image.getNameImg();
+        deleteImage(filename);
+        imagesRepository.delete(image);
+        return ApiResponse.builder()
+                .message("Delete successfully")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(image)
+                .build();
+    }
+    public void deleteImage(String filename){
+        ImageUtils.deleteImg(filename);
     }
 }

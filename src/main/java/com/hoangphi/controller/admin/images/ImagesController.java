@@ -26,4 +26,10 @@ public class ImagesController {
                                                             @RequestPart("images") List<MultipartFile> images) {
         return ResponseEntity.ok(imageService.addImagesByIdProduct(id, images));
     }
+
+    @DeleteMapping("{id}/{idImage}")
+    public ResponseEntity<ApiResponse> deleteImage(@PathVariable("id") String id,
+                                                   @PathVariable("idImage") Integer idImage) {
+        return ResponseEntity.ok(imageService.deleteImage(id, idImage));
+    }
 }

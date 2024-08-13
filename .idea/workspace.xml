@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="fix bug">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with get images by productId">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ImagesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ImagesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/images/ImagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/images/ImagesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,30 +131,6 @@
       <workItem from="1723459267250" duration="54000" />
       <workItem from="1723477610501" duration="655000" />
       <workItem from="1723518471926" duration="125000" />
-    </task>
-    <task id="LOCAL-00111" summary="fix bug">
-      <option name="closed" value="true" />
-      <created>1723090940162</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1723090940162</updated>
-    </task>
-    <task id="LOCAL-00112" summary="create entity product">
-      <option name="closed" value="true" />
-      <created>1723106129390</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1723106129391</updated>
-    </task>
-    <task id="LOCAL-00113" summary="create entity">
-      <option name="closed" value="true" />
-      <created>1723106154600</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1723106154600</updated>
     </task>
     <task id="LOCAL-00114" summary="create entities request and response">
       <option name="closed" value="true" />
@@ -523,7 +500,31 @@
       <option name="project" value="LOCAL" />
       <updated>1723434932099</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="create images response">
+      <option name="closed" value="true" />
+      <created>1723522480468</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1723522480468</updated>
+    </task>
+    <task id="LOCAL-00161" summary="add getImages by productId controller and repository">
+      <option name="closed" value="true" />
+      <created>1723522535487</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1723522535487</updated>
+    </task>
+    <task id="LOCAL-00162" summary="resolve problem with get images by productId">
+      <option name="closed" value="true" />
+      <created>1723522606338</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1723522606338</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,9 +548,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="resolve problem with update product successfully" />
-    <MESSAGE value="create ProductDetailManageResponse" />
-    <MESSAGE value="create ProductInfoResponse" />
     <MESSAGE value="create ProductManageResponse" />
     <MESSAGE value="add getProductById and getAllProduct" />
     <MESSAGE value="resolve problem with getALlProduct and getProductById" />
@@ -572,7 +570,10 @@
     <MESSAGE value="add put recent view controller and service" />
     <MESSAGE value="resolve problem with put recent view successfully" />
     <MESSAGE value="fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
+    <MESSAGE value="create images response" />
+    <MESSAGE value="add getImages by productId controller and repository" />
+    <MESSAGE value="resolve problem with get images by productId" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with get images by productId" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -584,12 +585,12 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>50</line>
+          <line>56</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>41</line>
+          <line>47</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint type="java-method">

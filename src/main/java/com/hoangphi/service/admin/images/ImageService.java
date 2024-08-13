@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface ImageService {
     byte[] getImage(String fileName);
-
     ApiResponse deleteImgs(String id);
 
     ApiResponse getImagesByIdProduct(String id);

@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with delete Image by productId">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/images/ImagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/images/ImagesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java" afterDir="false" />
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with delete all images by productId">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/admin/images/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/admin/images/ImageService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +59,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.PetFosterApplication.executor": "Run",
+    "Spring Boot.PetFosterApplication.executor": "Debug",
     "git-widget-placeholder": "hoangphi/handle-product",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
@@ -131,15 +129,7 @@
       <workItem from="1723459267250" duration="54000" />
       <workItem from="1723477610501" duration="655000" />
       <workItem from="1723518471926" duration="125000" />
-      <workItem from="1723529607238" duration="2798000" />
-    </task>
-    <task id="LOCAL-00117" summary="create brand request and response">
-      <option name="closed" value="true" />
-      <created>1723207700756</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1723207700756</updated>
+      <workItem from="1723529607238" duration="3153000" />
     </task>
     <task id="LOCAL-00118" summary="create brand repository for create brand">
       <option name="closed" value="true" />
@@ -525,7 +515,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723530675080</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL-00166" summary="resolve problem with delete all images by productId">
+      <option name="closed" value="true" />
+      <created>1723532819744</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1723532819744</updated>
+    </task>
+    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +547,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add controller and service for update info product" />
     <MESSAGE value="resolve problem with update info product successfully" />
     <MESSAGE value="add product info request" />
     <MESSAGE value="add delete product controller and service" />
@@ -574,7 +571,8 @@
     <MESSAGE value="images for addImage by productId" />
     <MESSAGE value="resolve problem with update more images by productId" />
     <MESSAGE value="resolve problem with delete Image by productId" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with delete Image by productId" />
+    <MESSAGE value="resolve problem with delete all images by productId" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with delete all images by productId" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -603,21 +601,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
           <line>189</line>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ImagesRepository.java</url>

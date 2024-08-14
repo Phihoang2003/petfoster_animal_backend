@@ -21,6 +21,7 @@ public class Adopt {
 
     @OneToOne
     @JoinColumn(name = "pet_id")
+    @ToString.Exclude
     private Pet pet;
 
     private String status;

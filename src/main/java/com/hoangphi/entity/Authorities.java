@@ -23,5 +23,6 @@ public class Authorities {
     @ManyToOne
     @JoinColumn(name = "role_id")
     @JsonIgnore
+    @ToString.Exclude
     private Role role;
 }

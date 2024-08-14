@@ -1,8 +1,8 @@
 package com.hoangphi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Nationalized;
 
@@ -53,7 +53,7 @@ public class Pet {
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
     @JsonIgnore
     @ToString.Exclude
-    private List<Favorite> favorites;
+    private List<Favourite> favorites;
 
 
 }

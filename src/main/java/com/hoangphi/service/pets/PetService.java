@@ -10,4 +10,6 @@ public interface PetService {
     ApiResponse createPet(PetRequest petRequest, List<MultipartFile> images);
 
     ApiResponse updatePet(String id, PetRequest petRequest);
+
+    ApiResponse favourite(String id, String token);
 }

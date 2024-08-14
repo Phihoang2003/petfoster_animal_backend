@@ -1,8 +1,8 @@
 package com.hoangphi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-import net.minidev.json.annotate.JsonIgnore;
 
 @Data
 @Builder
@@ -16,8 +16,8 @@ public class PetImgs {
 
     @ManyToOne
     @JoinColumn(name = "pet_id")
-    @ToString.Exclude
     @JsonIgnore
+    @ToString.Exclude
     private Pet pet;
 
     private String nameImg;

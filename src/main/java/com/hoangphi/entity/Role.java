@@ -2,10 +2,7 @@ package com.hoangphi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Nationalized;
 
 import java.util.List;
@@ -25,5 +22,6 @@ public class Role {
     private String roleDesc;
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Authorities> authorities;
 }

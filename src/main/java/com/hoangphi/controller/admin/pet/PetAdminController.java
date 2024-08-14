@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/admin/pets")
 @RequiredArgsConstructor
-public class PetController {
+public class PetAdminController {
     private final PetService petService;
     @PostMapping("")
     public ResponseEntity<ApiResponse> createPet(@Valid @ModelAttribute PetRequest createPetRequest,

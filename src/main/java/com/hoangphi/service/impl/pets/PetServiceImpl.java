@@ -2,14 +2,12 @@ package com.hoangphi.service.impl.pets;
 
 import com.hoangphi.constant.PetStatus;
 import com.hoangphi.entity.*;
-import com.hoangphi.repository.AdoptRepository;
-import com.hoangphi.repository.PetBreedRepository;
-import com.hoangphi.repository.PetImageRepository;
-import com.hoangphi.repository.PetRepository;
+import com.hoangphi.repository.*;
 import com.hoangphi.request.pets.PetRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.pets.PetDetailResponse;
 import com.hoangphi.service.pets.PetService;
+import com.hoangphi.service.user.UserService;
 import com.hoangphi.utils.ImageUtils;
 import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +29,8 @@ public class PetServiceImpl implements PetService {
 
     private final AdoptRepository adoptRepository;
     private final PortUtils portUltils;
+    private final UserService userService;
+    private final FavouriteRepository favouriteRepository;
     @Override
     public ApiResponse createPet(PetRequest petRequest, List<MultipartFile> images) {
         PetBreed petBreed = petBreedRepository.findById(petRequest.getBreed()).orElse(null);
@@ -135,6 +135,46 @@ public class PetServiceImpl implements PetService {
                 .errors(false)
                 .data(buildPetResponse(pet))
                 .build();
+    }
+
+    @Override
+    public ApiResponse favourite(String id, String token) {
+        if(id.isEmpty()){
+            return ApiResponse.builder()
+                    .message("Pet ID can't be empty!")
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .build();
+        }
+        User user=userService.getUserFromToken(token);
+        Pet pet=petRepository.findById(id).orElse(null);
+        if(user==null||pet==null){
+            return ApiResponse.builder()
+                    .message("User or Pet not found!")
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+        Favourite isFavourite=favouriteRepository.existByUserAndPet(user.getId(),id);
+        Favourite favouriteResponse=isFavourite;
+        if(isFavourite==null){
+            favouriteResponse=Favourite.builder()
+                    .pet(pet)
+                    .user(user)
+                    .build();
+            favouriteRepository.save(favouriteResponse);
+        }else{
+            favouriteRepository.delete(isFavourite);
+        }
+        return ApiResponse.builder()
+                .data(favouriteResponse)
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .message(isFavourite == null ? "Favourite Successfully" : "Unfavourite Successfully")
+                .build();
+
     }
 
     public PetDetailResponse buildPetResponse(Pet pet){

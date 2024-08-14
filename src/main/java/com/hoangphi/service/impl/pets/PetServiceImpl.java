@@ -18,7 +18,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -54,7 +53,7 @@ public class PetServiceImpl implements PetService {
         }
         String newProductId;
         if (pets.isEmpty()) {
-            newProductId = "PD0001"; // Ví dụ: ID mặc định nếu không có sản phẩm nào
+            newProductId = "P0001"; // Ví dụ: ID mặc định nếu không có sản phẩm nào
         } else {
             newProductId = getNextId(pets.get(pets.size() - 1).getPetId());
         }
@@ -98,6 +97,46 @@ public class PetServiceImpl implements PetService {
 
 
     }
+
+    @Override
+    public ApiResponse updatePet(String id, PetRequest petRequest) {
+        PetBreed petBreed = petBreedRepository.findById(petRequest.getBreed()).orElse(null);
+        if(petBreed==null){
+            return ApiResponse.builder()
+                    .message("Breed not found!")
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+        Pet pet=petRepository.findById(id).orElse(null);
+        if(pet==null){
+            return ApiResponse.builder()
+                    .message("Pet not found!")
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+        pet.setAge(petRequest.getSize());
+        pet.setDescriptions(petRequest.getDescription());
+        pet.setFosterAt(petRequest.getFosterAt());
+        pet.setIsSpay(petRequest.getIsSpay());
+        pet.setPetBreed(petBreed);
+        pet.setPetColor(petRequest.getColor());
+        pet.setPetName(petRequest.getName());
+        pet.setSex(petRequest.getSex());
+        pet.setAdoptStatus(petRequest.getStatus());
+        petRepository.save(pet);
+
+        return ApiResponse.builder()
+                .status(200)
+                .message("Update Successfully!!!")
+                .errors(false)
+                .data(buildPetResponse(pet))
+                .build();
+    }
+
     public PetDetailResponse buildPetResponse(Pet pet){
         Integer fosterDate= (int)ChronoUnit.DAYS.between(pet.getFosterAt(), LocalDateTime.now());
         boolean canAdopt=isCanAdopt(pet,null);

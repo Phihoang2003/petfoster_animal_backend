@@ -21,4 +21,10 @@ public class PetController {
                                                  @RequestPart List<MultipartFile> images) {
         return ResponseEntity.ok(petService.createPet(createPetRequest, images));
     }
+
+    @PostMapping("/{id}")
+    public ResponseEntity<ApiResponse> updatePet(@PathVariable("id") String id,@Valid
+    @RequestBody PetRequest petRequest) {
+        return ResponseEntity.ok(petService.updatePet(id, petRequest));
+    }
 }

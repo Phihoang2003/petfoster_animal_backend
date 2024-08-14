@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum PetStatus {
-    HEALTHY("Healthy"),
-    SICK("Sick"),
-    DECEASED("Deceased");
+    AVAILABLE("Available"),
+    FOSTERED("Fostered"),
+    ADOPTED("Adopted");
 
     private final String state;
 

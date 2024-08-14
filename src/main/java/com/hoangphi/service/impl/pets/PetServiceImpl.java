@@ -5,6 +5,8 @@ import com.hoangphi.entity.*;
 import com.hoangphi.repository.*;
 import com.hoangphi.request.pets.PetRequest;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.pets.PetAttributeResponse;
+import com.hoangphi.response.pets.PetAttributesResponse;
 import com.hoangphi.response.pets.PetDetailResponse;
 import com.hoangphi.service.pets.PetService;
 import com.hoangphi.service.user.UserService;
@@ -19,6 +21,7 @@ import java.io.File;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -31,6 +34,7 @@ public class PetServiceImpl implements PetService {
     private final PortUtils portUltils;
     private final UserService userService;
     private final FavouriteRepository favouriteRepository;
+    private final PetTypeRepository petTypeRepository;
     @Override
     public ApiResponse createPet(PetRequest petRequest, List<MultipartFile> images) {
         PetBreed petBreed = petBreedRepository.findById(petRequest.getBreed()).orElse(null);
@@ -177,6 +181,50 @@ public class PetServiceImpl implements PetService {
 
     }
 
+    @Override
+    public ApiResponse getAttributes() {
+        List<Pet> pets=petRepository.findAll();
+        List<PetAttributeResponse> colors=pets.stream().map(pet->{
+            return new PetAttributeResponse(pet.getPetColor().toLowerCase(),pet.getPetColor());
+        }).distinct().toList();
+        List<PetAttributeResponse> states=pets
+                .stream()
+                .map(pet->{
+            String shortStatus=switch (pet.getAdoptStatus().toLowerCase()){
+                case "available"->"available";
+                case "fostered"->"fostered";
+                case "adopted"->"adopted";
+                default -> "unknown";
+            };
+            return new PetAttributeResponse(shortStatus,pet.getAdoptStatus());
+        }).distinct().toList();
+        List<PetAttributeResponse> breeds=petBreedRepository
+                .findAll()
+                .stream()
+                .map(petBreed-> new PetAttributeResponse(petBreed.getBreedId(),petBreed.getBreedName()))
+                .distinct()
+                .toList();
+        List<PetAttributeResponse> types=petTypeRepository.findAll()
+                .stream()
+                .map(petType -> new PetAttributeResponse(petType.getId(),petType.getName()))
+                .distinct()
+                .toList();
+        PetAttributesResponse attributes = PetAttributesResponse.builder()
+                .breeds(breeds)
+                .colors(colors)
+                .states(states)
+                .typies(types)
+                .build();
+
+        // Trả về kết quả dưới dạng ApiResponse
+        return ApiResponse.builder()
+                .message("Get attributes Successfully!")
+                .errors(false)
+                .status(HttpStatus.OK.value())
+                .data(attributes)
+                .build();
+    }
+
     public PetDetailResponse buildPetResponse(Pet pet){
         Integer fosterDate= (int)ChronoUnit.DAYS.between(pet.getFosterAt(), LocalDateTime.now());
         boolean canAdopt=isCanAdopt(pet,null);
@@ -209,8 +257,8 @@ public class PetServiceImpl implements PetService {
 
     }
     public Boolean isCanAdopt(Pet pet, User user){
-        if (pet.getAdoptStatus().equalsIgnoreCase(PetStatus.SICK.getValue())
-                || pet.getAdoptStatus().equalsIgnoreCase(PetStatus.DECEASED.getValue())) {
+        if (pet.getAdoptStatus().equalsIgnoreCase(PetStatus.FOSTERED.getValue())||
+                pet.getAdoptStatus().equalsIgnoreCase(PetStatus.ADOPTED.getValue())) {
             return false;
         }
         if (user == null) {
@@ -223,8 +271,8 @@ public class PetServiceImpl implements PetService {
     }
     public String getNextId(String lastId){
         String nextId="";
-        String first=lastId.substring(0,2);
-        String last=lastId.substring(2);
+        String first=lastId.substring(0,1);
+        String last=lastId.substring(1);
         int number=Integer.parseInt(last);
         double log=Math.log10(number);
 

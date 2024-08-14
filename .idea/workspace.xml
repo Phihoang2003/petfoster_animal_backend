@@ -4,28 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with update pet">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/10c39efa-8358-4df3-ab7d-6779aec10d3e.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/10c39efa-8358-4df3-ab7d-6779aec10d3e/storage_v2/_src_/database/petfoster_3.0.bC4_zg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/10c39efa-8358-4df3-ab7d-6779aec10d3e/storage_v2/_src_/database/petfoster_3.0.bC4_zg/schema/dbo.sYMBAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aa307cd9-4a87-435d-9bac-6ed470d105dd.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aa307cd9-4a87-435d-9bac-6ed470d105dd/storage_v2/_src_/database/petfoster_3.0.bC4_zg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/aa307cd9-4a87-435d-9bac-6ed470d105dd/storage_v2/_src_/database/petfoster_3.0.bC4_zg/schema/dbo.sYMBAA.meta" beforeDir="false" />
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with favourite">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/pet/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/pet/PetAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Adopt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Adopt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Authorities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Authorities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Favorite.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Favourite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Favourite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Pet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/PetImgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/PetImgs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/RecentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/RecentView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Medias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Medias.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Posts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/social/Posts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/PetStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/PetStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/pets/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/pets/PetService.java" afterDir="false" />
     </list>
@@ -37,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -81,7 +62,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.PetFosterApplication.executor": "Debug",
+    "Spring Boot.PetFosterApplication.executor": "Run",
     "data.sources.detected.do.not.suggest.again": "true",
     "git-widget-placeholder": "hoangphi/handle-pet",
     "ignore.virus.scanning.warn.message": "true",
@@ -160,23 +141,7 @@
       <workItem from="1723623579424" duration="8492000" />
       <workItem from="1723632241355" duration="106000" />
       <workItem from="1723632357428" duration="20000" />
-      <workItem from="1723637110362" duration="1083000" />
-    </task>
-    <task id="LOCAL-00132" summary="resolve problem with create product successfully">
-      <option name="closed" value="true" />
-      <created>1723285568355</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1723285568355</updated>
-    </task>
-    <task id="LOCAL-00133" summary="modified product request">
-      <option name="closed" value="true" />
-      <created>1723350827903</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1723350827904</updated>
+      <workItem from="1723637110362" duration="5684000" />
     </task>
     <task id="LOCAL-00134" summary="create controller and repository update product">
       <option name="closed" value="true" />
@@ -554,7 +519,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723626979881</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1723638292132</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1723638292132</updated>
+    </task>
+    <task id="LOCAL-00182" summary="resolve problem with favourite">
+      <option name="closed" value="true" />
+      <created>1723638325282</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1723638325282</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +559,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="modified entity" />
     <MESSAGE value="modified entity to fix loop" />
     <MESSAGE value="add put recent view controller and service" />
     <MESSAGE value="resolve problem with put recent view successfully" />
@@ -600,10 +580,11 @@
     <MESSAGE value="create pet image and bread repository" />
     <MESSAGE value="create post request and response" />
     <MESSAGE value="resolve problem with create pet successfully" />
-    <MESSAGE value="fix bug" />
     <MESSAGE value="add update pet controller and service" />
     <MESSAGE value="resolve problem with update pet" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with update pet" />
+    <MESSAGE value="fix bug" />
+    <MESSAGE value="resolve problem with favourite" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with favourite" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -635,17 +616,17 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>102</line>
+          <line>106</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>111</line>
+          <line>115</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>129</line>
+          <line>133</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint type="java-method">

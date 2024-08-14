@@ -12,4 +12,6 @@ public interface PetService {
     ApiResponse updatePet(String id, PetRequest petRequest);
 
     ApiResponse favourite(String id, String token);
+
+    ApiResponse getAttributes();
 }

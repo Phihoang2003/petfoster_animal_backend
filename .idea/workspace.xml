@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with favourite">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem get attributes successfully">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/PetStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/PetStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/pets/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/pets/PetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/FavouriteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/FavouriteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PetRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/pets/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/pets/PetService.java" afterDir="false" />
     </list>
@@ -64,10 +66,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.PetFosterApplication.executor": "Run",
     "data.sources.detected.do.not.suggest.again": "true",
+    "extract.method.default.visibility": "private",
     "git-widget-placeholder": "hoangphi/handle-pet",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/pet-backend/petfoster-animal-back-end-2.0",
+    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -141,47 +144,9 @@
       <workItem from="1723623579424" duration="8492000" />
       <workItem from="1723632241355" duration="106000" />
       <workItem from="1723632357428" duration="20000" />
-      <workItem from="1723637110362" duration="5684000" />
-    </task>
-    <task id="LOCAL-00134" summary="create controller and repository update product">
-      <option name="closed" value="true" />
-      <created>1723350892134</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1723350892134</updated>
-    </task>
-    <task id="LOCAL-00135" summary="resolve problem with update product successfully">
-      <option name="closed" value="true" />
-      <created>1723350928139</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1723350928140</updated>
-    </task>
-    <task id="LOCAL-00136" summary="create ProductDetailManageResponse">
-      <option name="closed" value="true" />
-      <created>1723360800962</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1723360800962</updated>
-    </task>
-    <task id="LOCAL-00137" summary="create ProductInfoResponse">
-      <option name="closed" value="true" />
-      <created>1723360825658</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1723360825658</updated>
-    </task>
-    <task id="LOCAL-00138" summary="create ProductManageResponse">
-      <option name="closed" value="true" />
-      <created>1723360842189</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1723360842189</updated>
+      <workItem from="1723637110362" duration="6376000" />
+      <workItem from="1723687356140" duration="1480000" />
+      <workItem from="1723691324550" duration="674000" />
     </task>
     <task id="LOCAL-00139" summary="add getProductById and getAllProduct">
       <option name="closed" value="true" />
@@ -535,7 +500,47 @@
       <option name="project" value="LOCAL" />
       <updated>1723638325282</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="create pet attribute response">
+      <option name="closed" value="true" />
+      <created>1723643292459</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1723643292459</updated>
+    </task>
+    <task id="LOCAL-00184" summary="create petType repository">
+      <option name="closed" value="true" />
+      <created>1723643318374</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1723643318374</updated>
+    </task>
+    <task id="LOCAL-00185" summary="modified">
+      <option name="closed" value="true" />
+      <created>1723643364441</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1723643364441</updated>
+    </task>
+    <task id="LOCAL-00186" summary="modified pet status">
+      <option name="closed" value="true" />
+      <created>1723643383621</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1723643383621</updated>
+    </task>
+    <task id="LOCAL-00187" summary="resolve problem get attributes successfully">
+      <option name="closed" value="true" />
+      <created>1723643415652</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1723643415652</updated>
+    </task>
+    <option name="localTasksCounter" value="188" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,11 +564,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="modified entity to fix loop" />
-    <MESSAGE value="add put recent view controller and service" />
-    <MESSAGE value="resolve problem with put recent view successfully" />
-    <MESSAGE value="create images response" />
-    <MESSAGE value="add getImages by productId controller and repository" />
     <MESSAGE value="resolve problem with get images by productId" />
     <MESSAGE value="images for addImage by productId" />
     <MESSAGE value="resolve problem with update more images by productId" />
@@ -584,7 +584,12 @@
     <MESSAGE value="resolve problem with update pet" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="resolve problem with favourite" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with favourite" />
+    <MESSAGE value="create pet attribute response" />
+    <MESSAGE value="create petType repository" />
+    <MESSAGE value="modified" />
+    <MESSAGE value="modified pet status" />
+    <MESSAGE value="resolve problem get attributes successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem get attributes successfully" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -616,17 +621,17 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>106</line>
+          <line>110</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>115</line>
+          <line>119</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>133</line>
+          <line>137</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint type="java-method">

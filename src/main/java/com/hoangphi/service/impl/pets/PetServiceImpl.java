@@ -5,6 +5,7 @@ import com.hoangphi.entity.*;
 import com.hoangphi.repository.*;
 import com.hoangphi.request.pets.PetRequest;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.response.pets.PetAttributeResponse;
 import com.hoangphi.response.pets.PetAttributesResponse;
 import com.hoangphi.response.pets.PetDetailResponse;
@@ -13,6 +14,8 @@ import com.hoangphi.service.user.UserService;
 import com.hoangphi.utils.ImageUtils;
 import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -225,9 +229,53 @@ public class PetServiceImpl implements PetService {
                 .build();
     }
 
+    @Override
+    public ApiResponse getFavorites(String token, int page) {
+        User user=userService.getUserFromToken(token);
+        List<Pet> list=petRepository.getFavoritePets(user.getId());
+        int pageSize = 10;
+        int totalPages = (list.size() + pageSize - 1) / pageSize;
+
+        if (page >= totalPages) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.NO_CONTENT.value())
+                    .message("Page is not exist!!!")
+                    .errors(false)
+                    .data(new ArrayList<>())
+                    .build();
+        }
+        Pageable pageable = PageRequest.of(page, pageSize);
+        int startIndex = (int) pageable.getOffset();
+        int endIndex = Math.min(startIndex + pageable.getPageSize(), list.size());
+        if (startIndex >= endIndex) {
+            return ApiResponse.builder()
+                    .status(200)
+                    .message("Successfully!!!")
+                    .errors(false)
+                    .data(PaginationResponse.builder().data(list).pages(0).build())
+                    .build();
+        }
+
+        List<Pet> visiblePets = list.subList(startIndex, endIndex);
+        List<PetDetailResponse> pets = new ArrayList<>();
+        visiblePets.forEach(pet -> pets.add(this.buildPetResponse(pet, user)));
+
+        return ApiResponse.builder()
+                .status(200)
+                .message("Successfully!!!")
+                .errors(false)
+                .data(PaginationResponse.builder().data(pets).pages(totalPages).build())
+                .build();
+
+    }
+
     public PetDetailResponse buildPetResponse(Pet pet){
+        return buildPetResponse(pet,null);
+    }
+    public PetDetailResponse buildPetResponse(Pet pet,User user){
         Integer fosterDate= (int)ChronoUnit.DAYS.between(pet.getFosterAt(), LocalDateTime.now());
         boolean canAdopt=isCanAdopt(pet,null);
+        boolean liked = user != null && favouriteRepository.existByUserAndPet(user.getId(), pet.getPetId()) != null;
         List<String> images = pet.getImgs().stream().map(image -> {
             return portUltils.getUrlImage(image.getNameImg());
         }).toList();
@@ -246,7 +294,7 @@ public class PetServiceImpl implements PetService {
                 .size(pet.getAge())
                 .sex(pet.getSex() ? "male" : "female")
                 .type(pet.getPetBreed().getPetType().getName())
-                .like(false)
+                .like(liked)
                 .fostered(pet.getFosterAt())
                 .sterilization(pet.getIsSpay() ? "sterilized" : "none")
                 .images(images)
@@ -254,7 +302,6 @@ public class PetServiceImpl implements PetService {
                 .canAdopt(canAdopt)
                 .status(pet.getAdoptStatus())
                 .build();
-
     }
     public Boolean isCanAdopt(Pet pet, User user){
         if (pet.getAdoptStatus().equalsIgnoreCase(PetStatus.FOSTERED.getValue())||

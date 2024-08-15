@@ -27,4 +27,13 @@ public class PetAdminController {
     @RequestBody PetRequest petRequest) {
         return ResponseEntity.ok(petService.updatePet(id, petRequest));
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<ApiResponse> getPetManagement(@PathVariable String id) {
+        return ResponseEntity.ok(petService.getPetManagement(id));
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> deletePet(@PathVariable("id") String id) {
+        return ResponseEntity.ok(petService.deletePet(id));
+    }
+
 }

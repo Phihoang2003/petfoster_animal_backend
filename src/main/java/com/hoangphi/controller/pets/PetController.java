@@ -23,4 +23,5 @@ public class PetController {
             @RequestParam(value = "page", defaultValue = "0", required = false) int page) {
         return ResponseEntity.ok(petService.getFavorites(token, page));
     }
+
 }

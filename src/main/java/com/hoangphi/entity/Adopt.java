@@ -3,6 +3,7 @@ package com.hoangphi.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Nationalized;
 
 import java.time.LocalDate;
 
@@ -27,5 +28,11 @@ public class Adopt {
     private Pet pet;
 
     private LocalDate adoptAt;
+    private LocalDate registerAt;
+    private LocalDate pickUpAt;
+    private String cancelReason;
+    private String phone;
+    @Nationalized
+    private String address;
     private String status;
 }

@@ -14,4 +14,6 @@ public interface PetService {
     ApiResponse favourite(String id, String token);
 
     ApiResponse getAttributes();
+
+    ApiResponse getFavorites(String token, int page);
 }

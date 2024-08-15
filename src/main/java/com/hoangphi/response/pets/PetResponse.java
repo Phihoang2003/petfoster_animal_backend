@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -19,7 +20,7 @@ public class PetResponse {
     private String image;
     private String description;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date fostered;
+    private LocalDate fostered;
     private String size;
     private String sex;
     private String type;
@@ -27,5 +28,5 @@ public class PetResponse {
     private Integer fosterDate;
     private Boolean like;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date adoptAt;
+    private LocalDate adoptAt;
 }

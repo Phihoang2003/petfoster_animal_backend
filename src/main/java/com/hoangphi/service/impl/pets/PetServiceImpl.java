@@ -6,9 +6,11 @@ import com.hoangphi.repository.*;
 import com.hoangphi.request.pets.PetRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.common.PaginationResponse;
+import com.hoangphi.response.pages.PetDetailPageResponse;
 import com.hoangphi.response.pets.PetAttributeResponse;
 import com.hoangphi.response.pets.PetAttributesResponse;
 import com.hoangphi.response.pets.PetDetailResponse;
+import com.hoangphi.response.pets.PetResponse;
 import com.hoangphi.service.pets.PetService;
 import com.hoangphi.service.user.UserService;
 import com.hoangphi.utils.ImageUtils;
@@ -18,13 +20,18 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 @Service
@@ -269,6 +276,109 @@ public class PetServiceImpl implements PetService {
 
     }
 
+    @Override
+    public ApiResponse getDetailPet(String id) {
+        if(id.isEmpty()){
+            return ApiResponse.builder()
+                    .message("Pet ID can't be empty!")
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .build();
+        }
+        String token = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest()
+                .getHeader("Authorization");
+        if (token == null) {
+            return ApiResponse.builder()
+                    .message("Token can't be empty!")
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.UNAUTHORIZED.value())
+                    .build();
+        }
+        Pet pet = petRepository.findById(id).orElse(null);
+        if (pet == null) {
+            return ApiResponse.builder()
+                    .message("Pet not found!")
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+        List<Pet> otherPetsRaw=petRepository.findByPetStyleAndIgnorePetId(pet.getPetBreed().getBreedId()
+                ,pet.getAge(),pet.getPetId());
+
+        if(!token.isEmpty()){
+
+            User user=userService.getUserFromToken(token);
+            if(user==null){
+                return ApiResponse.builder()
+                        .message("User not found!")
+                        .data(null)
+                        .errors(true)
+                        .status(HttpStatus.NOT_FOUND.value())
+                        .build();
+            }
+            PetDetailResponse petResponse=buildPetResponse(pet,user);
+            List<PetResponse> otherPets=buildPetResponse(otherPetsRaw,user);
+
+            PetDetailPageResponse petPageReponse=PetDetailPageResponse.builder()
+                    .pet(petResponse)
+                    .others(otherPets)
+                    .build();
+            return ApiResponse.builder()
+                    .status(HttpStatus.OK.value())
+                    .message("Successfully!!!")
+                    .errors(false)
+                    .data(petPageReponse)
+                    .build();
+
+        }else{
+            PetDetailResponse petResponse=buildPetResponse(pet);
+            List<PetResponse> otherPets=buildPetResponse(otherPetsRaw,null);
+
+            PetDetailPageResponse petPageReponse=PetDetailPageResponse.builder()
+                    .pet(petResponse)
+                    .others(otherPets)
+                    .build();
+            return ApiResponse.builder()
+                    .status(HttpStatus.OK.value())
+                    .message("Successfully!!!")
+                    .errors(false)
+                    .data(petPageReponse)
+                    .build();
+        }
+
+
+    }
+    public List<PetResponse> buildPetResponse(List<Pet> petsRaw, User user) {
+
+        return petsRaw.stream().map(pet -> {
+            boolean liked =user!=null && favouriteRepository.existByUserAndPet(user.getId(), pet.getPetId()) != null;
+
+            Integer fosterDate= (int)ChronoUnit.DAYS.between(pet.getFosterAt(), LocalDateTime.now());
+
+            return PetResponse.builder()
+                    .id(pet.getPetId())
+                    .breed(pet.getPetBreed().getBreedName())
+                    .name(pet.getPetName())
+                    .image(portUltils.getUrlImage(pet.getImgs()
+                            .stream()
+                            .findFirst()
+                            .map(PetImgs::getNameImg)
+                            .orElse(null)))
+                    .description(pet.getDescriptions() == null ? "" : pet.getDescriptions())
+                    .fosterDate(fosterDate)
+                    .size(pet.getAge())
+                    .sex(pet.getSex() ? "male" : "female")
+                    .type(pet.getPetBreed().getPetType().getName())
+                    .like(liked)
+                    .adoptAt(this.getAdoptAt(pet))
+                    .fostered(pet.getFosterAt())
+                    .build();
+        }).toList();
+    }
+
     public PetDetailResponse buildPetResponse(Pet pet){
         return buildPetResponse(pet,null);
     }
@@ -315,6 +425,16 @@ public class PetServiceImpl implements PetService {
                     && adoptRepository.exitsAdopted(pet.getPetId())==null;
         }
 
+    }
+    public LocalDate getAdoptAt(Pet pet) {
+
+        try {
+            Adopt adopt = adoptRepository.findByPetAdopted(pet);
+
+            return adopt.getAdoptAt();
+        } catch (Exception e) {
+            return null;
+        }
     }
     public String getNextId(String lastId){
         String nextId="";

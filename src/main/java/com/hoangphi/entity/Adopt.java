@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,5 +26,6 @@ public class Adopt {
     @ToString.Exclude
     private Pet pet;
 
+    private LocalDate adoptAt;
     private String status;
 }

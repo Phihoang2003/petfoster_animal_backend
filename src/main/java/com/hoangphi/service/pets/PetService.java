@@ -7,6 +7,8 @@ import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.pets.PetResponse;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,4 +34,8 @@ public interface PetService {
 
     ApiResponse filterPets(Optional<String> name, Optional<String> typeName, Optional<String> colors, Optional<String> age,
                            Optional<Boolean> gender, Optional<String> sort, Optional<Integer> page);
+
+    ApiResponse filterAdminPets(Optional<String> name, Optional<String> typeName, Optional<String> colors,
+                                Optional<String> age, Optional<Boolean> gender, Optional<String> status, Optional<LocalDate> minDate,
+                                Optional<LocalDate> maxDate, Optional<String> sort, Optional<Integer> page);
 }

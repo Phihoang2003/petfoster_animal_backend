@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with filter pet successfully">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with filter admin pet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/pet/PetAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/pet/PetAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PetRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/pets/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/pets/PetService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,23 +143,8 @@
       <workItem from="1723687356140" duration="1480000" />
       <workItem from="1723691324550" duration="4412000" />
       <workItem from="1723702888524" duration="4226000" />
-      <workItem from="1723707609666" duration="1298000" />
-    </task>
-    <task id="LOCAL-00148" summary="resolve problem with delete,getProductRepo and createProductRepo">
-      <option name="closed" value="true" />
-      <created>1723370656948</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1723370656948</updated>
-    </task>
-    <task id="LOCAL-00149" summary="create RecentViewResponse">
-      <option name="closed" value="true" />
-      <created>1723386051704</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1723386051705</updated>
+      <workItem from="1723707609666" duration="1552000" />
+      <workItem from="1723717021088" duration="602000" />
     </task>
     <task id="LOCAL-00150" summary="modified Review entity">
       <option name="closed" value="true" />
@@ -541,7 +522,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723707548474</updated>
     </task>
-    <option name="localTasksCounter" value="197" />
+    <task id="LOCAL-00197" summary="add filter admin pet using @Query">
+      <option name="closed" value="true" />
+      <created>1723709158016</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1723709158016</updated>
+    </task>
+    <task id="LOCAL-00198" summary="resolve problem with filter admin pet">
+      <option name="closed" value="true" />
+      <created>1723709186606</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1723709186606</updated>
+    </task>
+    <option name="localTasksCounter" value="199" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,8 +562,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create adopt and entity" />
-    <MESSAGE value="create adopt status" />
     <MESSAGE value="create exists adopt and existByPetIdAndUser" />
     <MESSAGE value="create pet details response" />
     <MESSAGE value="create pet image and bread repository" />
@@ -590,7 +585,9 @@
     <MESSAGE value="resolve problem with get manage pet" />
     <MESSAGE value="add filter pet repository and service" />
     <MESSAGE value="resolve problem with filter pet successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with filter pet successfully" />
+    <MESSAGE value="add filter admin pet using @Query" />
+    <MESSAGE value="resolve problem with filter admin pet" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with filter admin pet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

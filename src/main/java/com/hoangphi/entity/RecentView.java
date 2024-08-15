@@ -26,6 +26,7 @@ public class RecentView {
     @ManyToOne
     @JoinColumn(name = "product_id")
     @JsonIgnore
+    @ToString.Exclude
     private Product product;
 
     private LocalDateTime viewAt;

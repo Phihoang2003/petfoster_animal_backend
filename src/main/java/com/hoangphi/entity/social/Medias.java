@@ -21,6 +21,6 @@ public class Medias {
     @ManyToOne
     @JoinColumn(name = "post_id")
     @JsonIgnore
-    @ToString.Exclude
+    
     private Posts post;
 }

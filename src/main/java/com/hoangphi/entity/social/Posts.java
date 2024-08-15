@@ -41,9 +41,11 @@ public class Posts {
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Likes> likes;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Comments> comments;
 }

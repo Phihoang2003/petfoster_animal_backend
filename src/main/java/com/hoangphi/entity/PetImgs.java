@@ -4,28 +4,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
-
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
-public class Adopt {
+public class PetImgs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer adoptId;
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "user_id")
-    @ToString.Exclude
-    private User user;
+    private Integer id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "pet_id")
+    @JsonIgnore
     @ToString.Exclude
     private Pet pet;
 
-    private LocalDate adoptAt;
-    private String status;
+    private String nameImg;
 }

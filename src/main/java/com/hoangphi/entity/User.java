@@ -77,9 +77,11 @@ public class User {
     private List<Authorities> authorities;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Review> reviews;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<SearchHistory> searchHistories;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
@@ -91,12 +93,15 @@ public class User {
     private List<Posts> posts;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Likes> likes;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Comments> comments;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<LikedComments> likedComments;
 
 }

@@ -16,4 +16,11 @@ public class PetController {
                                                 @RequestHeader("Authorization") String token) {
         return ResponseEntity.ok(petService.favourite(id, token));
     }
+
+    @GetMapping("/favourites")
+    public ResponseEntity<ApiResponse> getFavorites(
+            @RequestHeader("Authorization") String token,
+            @RequestParam(value = "page", defaultValue = "0", required = false) int page) {
+        return ResponseEntity.ok(petService.getFavorites(token, page));
+    }
 }

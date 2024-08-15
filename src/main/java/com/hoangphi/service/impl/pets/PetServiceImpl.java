@@ -27,9 +27,7 @@ import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -253,12 +251,13 @@ public class PetServiceImpl implements PetService {
         int endIndex = Math.min(startIndex + pageable.getPageSize(), list.size());
         if (startIndex >= endIndex) {
             return ApiResponse.builder()
-                    .status(200)
-                    .message("Successfully!!!")
+                    .status(HttpStatus.NO_CONTENT.value())  // Trả về mã trạng thái 204 (No Content)
+                    .message("No data available!!!")
                     .errors(false)
-                    .data(PaginationResponse.builder().data(list).pages(0).build())
+                    .data(PaginationResponse.builder().data(Collections.emptyList()).pages(0).build())
                     .build();
         }
+
 
         List<Pet> visiblePets = list.subList(startIndex, endIndex);
         List<PetDetailResponse> pets = new ArrayList<>();
@@ -424,10 +423,10 @@ public class PetServiceImpl implements PetService {
         int endIndex = Math.min(startIndex + pageable.getPageSize(), filterPets.size());
         if (startIndex >= endIndex) {
             return ApiResponse.builder()
-                    .status(200)
-                    .message("Successfully!!!")
+                    .status(HttpStatus.NO_CONTENT.value())
+                    .message("No data available!!!")
                     .errors(false)
-                    .data(PaginationResponse.builder().data(filterPets).pages(0).build())
+                    .data(PaginationResponse.builder().data(Collections.emptyList()).pages(0).build())
                     .build();
         }
 
@@ -461,6 +460,71 @@ public class PetServiceImpl implements PetService {
                         .data(pets)
                         .pages(pagination.getTotalPages())
                         .build())
+                .build();
+    }
+
+    @Override
+    public ApiResponse filterAdminPets(Optional<String> name, Optional<String> typeName,
+                                       Optional<String> colors, Optional<String> age,
+                                       Optional<Boolean> gender, Optional<String> status,
+                                       Optional<LocalDate> minDate, Optional<LocalDate> maxDate,
+                                       Optional<String> sort, Optional<Integer> page) {
+        LocalDate minDateValue = minDate.orElse(null);
+        LocalDate maxDateValue = maxDate.orElse(null);
+        if (minDateValue == null && maxDateValue != null) {
+            minDateValue = maxDateValue;
+        }
+        if (maxDateValue == null && minDateValue != null) {
+            maxDateValue = minDateValue;
+        }
+        if (minDateValue != null && minDateValue.isAfter(maxDateValue)) {
+            return ApiResponse.builder()
+                    .message("The max date must be after the min date!")
+                    .status(HttpStatus.CONFLICT.value())
+                    .errors("The max date must be after the min date!")
+                    .build();
+        }
+        List<Pet> filterPets = petRepository.filterAdminPets(name.orElse(null), typeName.orElse(null),
+                colors.orElse(null),
+                age.orElse(null), gender.orElse(null), status.orElse(null), minDateValue, maxDateValue,
+                sort.orElse("latest"));
+
+        int pageSize = 10;
+        int pages = page.orElse(0);
+        int totalPages = (filterPets.size() + pageSize - 1) / pageSize;
+
+        if (pages >= totalPages) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.NO_CONTENT.value())
+                    .message("No data available!!!")
+                    .errors(false)
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .build();
+        }
+
+        Pageable pageable = PageRequest.of(pages, pageSize);
+        int startIndex = (int) pageable.getOffset();
+        int endIndex = Math.min(startIndex + pageable.getPageSize(), filterPets.size());
+        if (startIndex >= endIndex) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.NO_CONTENT.value())  // Trả về mã trạng thái 204 (No Content)
+                    .message("No data available!!!")
+                    .errors(false)
+                    .data(PaginationResponse.builder().data(Collections.emptyList()).pages(0).build())
+                    .build();
+        }
+
+
+        List<Pet> visiblePets = filterPets.subList(startIndex, endIndex);
+        Page<Pet> pagination = new PageImpl<Pet>(visiblePets, pageable, filterPets.size());
+        List<PetDetailResponse> pets = new ArrayList<>();
+        visiblePets.forEach(pet -> pets.add(buildPetResponse(pet)));
+
+        return ApiResponse.builder()
+                .status(200)
+                .message("Successfully!!!")
+                .errors(false)
+                .data(PaginationResponse.builder().data(pets).pages(totalPages).build())
                 .build();
     }
 

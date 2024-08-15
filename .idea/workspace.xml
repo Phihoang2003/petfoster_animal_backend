@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with get other pet relate current pet">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with filter pet successfully">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/pet/PetAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/pet/PetAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/pets/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/pets/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/pets/PetFiltersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/pets/PetFiltersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PetRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/PetRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/pets/PetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/pets/PetService.java" afterDir="false" />
@@ -57,39 +55,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.PetFosterApplication.executor": "Debug",
-    "data.sources.detected.do.not.suggest.again": "true",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "hoangphi/handle-pet",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PetFosterApplication.executor&quot;: &quot;Run&quot;,
+    &quot;data.sources.detected.do.not.suggest.again&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hoangphi/handle-pet&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver.localdb",
-      "sqlserver"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver.localdb&quot;,
+      &quot;sqlserver&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.hoangphi.entity" />
@@ -148,39 +146,8 @@
       <workItem from="1723637110362" duration="6376000" />
       <workItem from="1723687356140" duration="1480000" />
       <workItem from="1723691324550" duration="4412000" />
-      <workItem from="1723702888524" duration="3829000" />
-    </task>
-    <task id="LOCAL-00144" summary="add delete product controller and service">
-      <option name="closed" value="true" />
-      <created>1723363419221</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1723363419221</updated>
-    </task>
-    <task id="LOCAL-00145" summary="resolve problem with delete product successfully(set active=false)">
-      <option name="closed" value="true" />
-      <created>1723363458507</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1723363458507</updated>
-    </task>
-    <task id="LOCAL-00146" summary="add create product repo">
-      <option name="closed" value="true" />
-      <created>1723370550094</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1723370550094</updated>
-    </task>
-    <task id="LOCAL-00147" summary="add delete, getProductRepo and createProductRepo">
-      <option name="closed" value="true" />
-      <created>1723370615978</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1723370615978</updated>
+      <workItem from="1723702888524" duration="4226000" />
+      <workItem from="1723707609666" duration="1298000" />
     </task>
     <task id="LOCAL-00148" summary="resolve problem with delete,getProductRepo and createProductRepo">
       <option name="closed" value="true" />
@@ -542,7 +509,39 @@
       <option name="project" value="LOCAL" />
       <updated>1723694928722</updated>
     </task>
-    <option name="localTasksCounter" value="193" />
+    <task id="LOCAL-00193" summary="create pet manage response">
+      <option name="closed" value="true" />
+      <created>1723707421013</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1723707421013</updated>
+    </task>
+    <task id="LOCAL-00194" summary="resolve problem with get manage pet">
+      <option name="closed" value="true" />
+      <created>1723707465353</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1723707465353</updated>
+    </task>
+    <task id="LOCAL-00195" summary="add filter pet repository and service">
+      <option name="closed" value="true" />
+      <created>1723707512314</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1723707512314</updated>
+    </task>
+    <task id="LOCAL-00196" summary="resolve problem with filter pet successfully">
+      <option name="closed" value="true" />
+      <created>1723707548474</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1723707548474</updated>
+    </task>
+    <option name="localTasksCounter" value="197" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,10 +565,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create entity favourite" />
-    <MESSAGE value="create entity pet" />
-    <MESSAGE value="create entity pet breed,img,type" />
-    <MESSAGE value="create pet image successfully" />
     <MESSAGE value="create adopt and entity" />
     <MESSAGE value="create adopt status" />
     <MESSAGE value="create exists adopt and existByPetIdAndUser" />
@@ -591,7 +586,11 @@
     <MESSAGE value="resolve problem with get favourites successfully" />
     <MESSAGE value="add page detail page response and controller" />
     <MESSAGE value="resolve problem with get other pet relate current pet" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with get other pet relate current pet" />
+    <MESSAGE value="create pet manage response" />
+    <MESSAGE value="resolve problem with get manage pet" />
+    <MESSAGE value="add filter pet repository and service" />
+    <MESSAGE value="resolve problem with filter pet successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with filter pet successfully" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -623,23 +622,18 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>114</line>
+          <line>112</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>123</line>
+          <line>121</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>141</line>
+          <line>139</line>
           <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>435</line>
-          <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ImagesRepository.java</url>

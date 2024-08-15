@@ -7,15 +7,14 @@ import com.hoangphi.request.pets.PetRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.response.pages.PetDetailPageResponse;
-import com.hoangphi.response.pets.PetAttributeResponse;
-import com.hoangphi.response.pets.PetAttributesResponse;
-import com.hoangphi.response.pets.PetDetailResponse;
-import com.hoangphi.response.pets.PetResponse;
+import com.hoangphi.response.pets.*;
 import com.hoangphi.service.pets.PetService;
 import com.hoangphi.service.user.UserService;
 import com.hoangphi.utils.ImageUtils;
 import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -29,10 +28,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -351,6 +348,122 @@ public class PetServiceImpl implements PetService {
 
 
     }
+
+    @Override
+    public ApiResponse getPetManagement(String id) {
+        if (id == null || id.isEmpty()) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("Bad request")
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        Pet pet = petRepository.findById(id).orElse(null);
+
+        if (pet == null) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("Pet notfound")
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        return ApiResponse.builder()
+                .status(200)
+                .message("Successfully!!!")
+                .errors(false)
+                .data(buildPetManagementResponses(pet))
+                .build();
+    }
+
+    @Override
+    public ApiResponse deletePet(String id) {
+        Pet pet = petRepository.findById(id).orElse(null);
+        if (pet == null) {
+            return ApiResponse.builder()
+                    .message("Can't found Pet")
+                    .status(404)
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        pet.setAdoptStatus("Unavailable");
+        petRepository.save(pet);
+        return ApiResponse.builder()
+                .status(200)
+                .message("Successfully!!!")
+                .errors(false)
+                .data(null)
+                .build();
+    }
+
+    @Override
+    public ApiResponse filterPets(Optional<String> name, Optional<String> typeName,
+                                  Optional<String> colors, Optional<String> age,
+                                  Optional<Boolean> gender, Optional<String> sort, Optional<Integer> page) {
+        List<Pet> filterPets = petRepository.filterPets(name.orElse(null), typeName.orElse(null), colors.orElse(null),
+                age.orElse(null), gender.orElse(null), sort.orElse("latest"));
+        int pageSize = 9;
+        int pages = page.orElse(0);
+        int totalPages = (filterPets.size() + pageSize - 1) / pageSize;
+
+        if (pages >= totalPages) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.NO_CONTENT.value())
+                    .message("No data available!!!")
+                    .errors(false)
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .build();
+        }
+
+        Pageable pageable = PageRequest.of(pages, pageSize);
+        int startIndex = (int) pageable.getOffset();
+        int endIndex = Math.min(startIndex + pageable.getPageSize(), filterPets.size());
+        if (startIndex >= endIndex) {
+            return ApiResponse.builder()
+                    .status(200)
+                    .message("Successfully!!!")
+                    .errors(false)
+                    .data(PaginationResponse.builder().data(filterPets).pages(0).build())
+                    .build();
+        }
+
+        List<Pet> visiblePets = filterPets.subList(startIndex, endIndex);
+        Page<Pet> pagination = new PageImpl<Pet>(visiblePets, pageable, filterPets.size());
+        List<PetResponse> pets;
+
+        String token = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest()
+                .getHeader("Authorization");
+        if (token != null) {
+            User user=userService.getUserFromToken(token);
+            if(user==null){
+                return ApiResponse.builder()
+                        .message("User not found!")
+                        .data(null)
+                        .errors(true)
+                        .status(HttpStatus.UNAUTHORIZED.value())
+                        .build();
+            }
+            pets = buildPetResponse(visiblePets, user);
+
+        }
+        else {
+            pets = buildPetResponse(visiblePets, null);
+        }
+        return ApiResponse.builder()
+                .status(200)
+                .message("Successfully!!!")
+                .errors(false)
+                .data(PaginationResponse.builder()
+                        .data(pets)
+                        .pages(pagination.getTotalPages())
+                        .build())
+                .build();
+    }
+
     public List<PetResponse> buildPetResponse(List<Pet> petsRaw, User user) {
 
         return petsRaw.stream().map(pet -> {
@@ -381,6 +494,28 @@ public class PetServiceImpl implements PetService {
 
     public PetDetailResponse buildPetResponse(Pet pet){
         return buildPetResponse(pet,null);
+    }
+    public PetManageResponse buildPetManagementResponses(Pet pet) {
+        List<String> images = pet.getImgs().stream().map(image -> {
+
+            return portUltils.getUrlImage(image.getNameImg());
+        }).toList();
+
+        return PetManageResponse.builder()
+                .id(pet.getPetId())
+                .breed(pet.getPetBreed().getBreedId())
+                .name(pet.getPetName())
+                .description(pet.getDescriptions() == null ? "" : pet.getDescriptions())
+                .size(pet.getAge().toLowerCase().trim())
+                .sex(pet.getSex() ? "male" : "female")
+                .type(pet.getPetBreed().getPetType().getId())
+                .fostered(pet.getFosterAt())
+                .spay(pet.getIsSpay())
+                .images(images)
+                .color(pet.getPetColor())
+                .status(pet.getAdoptStatus().toLowerCase())
+                .build();
+
     }
     public PetDetailResponse buildPetResponse(Pet pet,User user){
         Integer fosterDate= (int)ChronoUnit.DAYS.between(pet.getFosterAt(), LocalDateTime.now());
@@ -436,6 +571,7 @@ public class PetServiceImpl implements PetService {
             return null;
         }
     }
+
     public String getNextId(String lastId){
         String nextId="";
         String first=lastId.substring(0,1);

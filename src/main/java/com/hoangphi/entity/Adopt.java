@@ -22,9 +22,8 @@ public class Adopt {
     @ToString.Exclude
     private User user;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "pet_id")
-    @ToString.Exclude
     private Pet pet;
 
     private LocalDate adoptAt;

@@ -12,6 +12,7 @@ import com.hoangphi.repository.AdoptRepository;
 import com.hoangphi.repository.PetRepository;
 import com.hoangphi.repository.UserRepository;
 import com.hoangphi.request.adopts.AdoptsRequest;
+import com.hoangphi.request.adopts.UpdatePickUpDateRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.adopts.AdoptsResponse;
 import com.hoangphi.service.adopt.AdoptService;
@@ -23,6 +24,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -193,13 +196,72 @@ public class AdoptServiceImpl implements AdoptService {
                     .build();
         }
         adopt.setStatus(AdoptStatus.ADOPTED.getValue());
-        adopt.setPickUpAt(LocalDate.now());
+        adopt.setAdoptAt(LocalDate.now());
         adoptRepository.save(adopt);
         return ApiResponse.builder()
                 .status(HttpStatus.OK.value())
                 .message("Successfully!!!")
                 .data(buildAdoptsResponse(adopt))
                 .errors(false)
+                .build();
+
+    }
+
+    @Override
+    public ApiResponse acceptAdoption(Integer id, UpdatePickUpDateRequest updatePickUpDateRequest) {
+        Adopt adopt=adoptRepository.findById(id).orElse(null);
+        if(adopt==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("Adopt not found!!!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        if(adopt.getStatus().equalsIgnoreCase(AdoptStatus.ADOPTED.getValue())||
+            adopt.getStatus().equalsIgnoreCase(AdoptStatus.REGISTERED.getValue())){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("This adoption was accepted!!!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        if(updatePickUpDateRequest.getPickUpDate().isBefore(LocalDate.now())){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("Pick up date must be greater than or equal to the current date!!!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        adopt.setStatus(AdoptStatus.REGISTERED.getValue());
+        adopt.setPickUpAt(updatePickUpDateRequest.getPickUpDate());
+        adoptRepository.save(adopt);
+
+        List<Adopt> rejectAdopts=adoptRepository.findByUserIgnoreUserId(adopt.getUser().getId(),
+                adopt.getPet().getPetId());
+
+        rejectAdopts.forEach(item -> {
+            item.setStatus(AdoptStatus.CANCELLED_BY_ADMIN.getValue());
+            item.setCancelReason("Thank you for your interest in " + adopt.getPet().getPetName()
+                    + ". We are very sorry that " + adopt.getPet().getPetName()
+                    + " has been adopted by someone else.");
+        });
+
+        adoptRepository.saveAll(rejectAdopts);
+
+        List<AdoptsResponse> reuslt = new ArrayList<>();
+
+        if (!rejectAdopts.isEmpty()) {
+            reuslt = rejectAdopts.stream().map(this::buildAdoptsResponse).toList();
+        }
+
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message("Successfully!!!")
+                .errors(false)
+                .data(reuslt)
                 .build();
 
     }

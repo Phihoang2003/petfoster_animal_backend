@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AdoptRepository extends JpaRepository<Adopt,Integer> {
     @Query(nativeQuery = true, value = "select * from adopt where pet_id = :petId and user_id = :userId and status like 'Waiting'")
@@ -18,4 +20,7 @@ public interface AdoptRepository extends JpaRepository<Adopt,Integer> {
 
     @Query("select a from Adopt a where a.status = 'Adopted' and a.pet = :pet")
     Adopt findByPetAdopted(@Param("pet") Pet pet);
+
+    @Query(nativeQuery = true,value="select * from adopt a where a.pet_id=:petId and a.status='Waiting' and a.user_id !=:userId")
+    List<Adopt> findByUserIgnoreUserId(@Param("userId") String userId, @Param("petId") String petId);
 }

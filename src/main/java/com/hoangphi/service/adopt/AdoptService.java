@@ -5,4 +5,6 @@ import com.hoangphi.response.ApiResponse;
 
 public interface AdoptService {
     ApiResponse adopt(String jwt, AdoptsRequest adoptsRequest);
+
+    ApiResponse doneAdoption(Integer id);
 }

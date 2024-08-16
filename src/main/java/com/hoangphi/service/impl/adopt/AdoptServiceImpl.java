@@ -144,6 +144,66 @@ public class AdoptServiceImpl implements AdoptService {
                 .build();
 
     }
+
+    @Override
+    public ApiResponse doneAdoption(Integer id) {
+        if(id==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("Adopt not found!!!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        Adopt adopt=adoptRepository.findById(id).orElse(null);
+        if(adopt==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("Adopt not found!!!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        //was adopted
+        if(adopt.getStatus().equalsIgnoreCase(AdoptStatus.ADOPTED.getValue())){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("Adopt has been done!!!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        //has register yet
+        if(adopt.getStatus().equalsIgnoreCase(AdoptStatus.WAITING.getValue())){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("The adoption hasn't accepted yet!!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        //was canceled
+        if(adopt.getStatus().equalsIgnoreCase(AdoptStatus.CANCELLED_BY_CUSTOMER.getValue())||
+            adopt.getStatus().equalsIgnoreCase(AdoptStatus.CANCELLED_BY_ADMIN.getValue())){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("The adoption was canceled!!!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        adopt.setStatus(AdoptStatus.ADOPTED.getValue());
+        adopt.setPickUpAt(LocalDate.now());
+        adoptRepository.save(adopt);
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message("Successfully!!!")
+                .data(buildAdoptsResponse(adopt))
+                .errors(false)
+                .build();
+
+    }
+
     public AdoptsResponse buildAdoptsResponse(Adopt adopt) {
         return AdoptsResponse.builder()
                 .id(adopt.getAdoptId())

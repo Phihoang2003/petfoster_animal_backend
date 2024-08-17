@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -32,4 +34,33 @@ public interface AdoptRepository extends JpaRepository<Adopt,Integer> {
 
     @Query("select a from Adopt a where a.user.id=:userId and a.status=:status order by a.registerAt desc")
     List<Adopt> findByUser(@Param("userId") String userId,@Param("status") String status);
+
+    @Query("SELECT a FROM Adopt a " +
+            "INNER JOIN a.user u " +
+            "INNER JOIN a.pet p " +
+            "WHERE (:name IS NULL OR u.displayName like %:name%) " +
+            "AND (:petName IS NULL OR p.petName like %:petName%) " +
+            "AND ((:registerStart IS NULL AND :registerEnd IS NULL) OR (a.registerAt BETWEEN :registerStart AND :registerEnd)) "
+            +
+            "AND ((:adoptStart IS NULL AND :adoptEnd IS NULL) OR (a.adoptAt BETWEEN :adoptStart AND :adoptEnd)) "
+            +
+            "AND (:status IS NULL OR a.status LIKE :status) " +
+            "ORDER BY " +
+            "CASE WHEN :sort = 'id-asc' THEN a.adoptId END ASC, " +
+            "CASE WHEN :sort = 'id-desc' THEN a.adoptId END DESC, " +
+            "CASE WHEN :sort = 'pet-asc' THEN p.petId END ASC, " +
+            "CASE WHEN :sort = 'pet-desc' THEN p.petId END DESC, " +
+            "CASE WHEN :sort = 'adopt-asc' THEN a.adoptAt END ASC, " +
+            "CASE WHEN :sort = 'adopt-desc' THEN a.adoptAt END DESC ")
+    public List<Adopt> filterAdopts(
+            @Param("name") String name,
+            @Param("petName") String petName,
+            @Param("status") String status,
+            @Param("registerStart") LocalDate registerStart,
+            @Param("registerEnd") LocalDate registerEnd,
+            @Param("adoptStart") LocalDate adoptStart,
+            @Param("adoptEnd") LocalDate adoptEnd,
+            @Param("sort") String sort);
+
+
 }

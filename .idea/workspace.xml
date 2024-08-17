@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done filter adopt by admin">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="bug for statistical">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/adopt/AdoptAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/adopt/AdoptAdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/AdoptRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/AdoptRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/adopt/AdoptService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/adopt/AdoptService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/FormatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/FormatUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +61,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.PetFosterApplication.executor": "Debug",
+    "Spring Boot.PetFosterApplication.executor": "Run",
     "data.sources.detected.do.not.suggest.again": "true",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "hoangphi/handle-adopt",
@@ -154,15 +151,7 @@
       <workItem from="1723808372581" duration="5936000" />
       <workItem from="1723879132295" duration="5555000" />
       <workItem from="1723887673124" duration="1216000" />
-      <workItem from="1723895794615" duration="4851000" />
-    </task>
-    <task id="LOCAL-00166" summary="resolve problem with delete all images by productId">
-      <option name="closed" value="true" />
-      <created>1723532819744</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1723532819744</updated>
+      <workItem from="1723895794615" duration="6950000" />
     </task>
     <task id="LOCAL-00167" summary="create entity favourite">
       <option name="closed" value="true" />
@@ -548,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723888908355</updated>
     </task>
-    <option name="localTasksCounter" value="215" />
+    <task id="LOCAL-00215" summary="bug for statistical">
+      <option name="closed" value="true" />
+      <created>1723900901648</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1723900901648</updated>
+    </task>
+    <option name="localTasksCounter" value="216" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +569,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add page detail page response and controller" />
     <MESSAGE value="resolve problem with get other pet relate current pet" />
     <MESSAGE value="create pet manage response" />
     <MESSAGE value="resolve problem with get manage pet" />
@@ -597,7 +593,8 @@
     <MESSAGE value="add filter adopt" />
     <MESSAGE value="add changeDateArrange" />
     <MESSAGE value="done filter adopt by admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="done filter adopt by admin" />
+    <MESSAGE value="bug for statistical" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug for statistical" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -691,16 +688,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
           <line>148</line>
           <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>567</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>579</line>
-          <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ImagesRepository.java</url>

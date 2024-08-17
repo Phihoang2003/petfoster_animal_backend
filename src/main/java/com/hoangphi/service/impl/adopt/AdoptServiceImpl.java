@@ -569,30 +569,30 @@ public class AdoptServiceImpl implements AdoptService {
 
         reportsResponse.add(ReportResponse.builder()
                 .title("Registrations")
-                .day(adoptRepository.reportByDateRange(false, true, false, false, date, date))
-                .month(adoptRepository.reportByMonth(false, true, false, false, date))
-                .year(adoptRepository.reportByYear(false, true, false, false, date))
+                .day(adoptRepository.reportByDateRange(null, true, null, null, date, date))
+                .month(adoptRepository.reportByMonth(null, true, null, null, date))
+                .year(adoptRepository.reportByYear(null, true, null, null, date))
                 .build());
 
         reportsResponse.add(ReportResponse.builder()
                 .title("Waiting")
-                .day(adoptRepository.reportByDateRange(false, false, true, false, date, date))
-                .month(adoptRepository.reportByMonth(false, false, true, false, date))
-                .year(adoptRepository.reportByYear(false, false, true, false, date))
+                .day(adoptRepository.reportByDateRange(null, null, true, null, date, date))
+                .month(adoptRepository.reportByMonth(null, null, true, null, date))
+                .year(adoptRepository.reportByYear(null, null, true, null, date))
                 .build());
 
         reportsResponse.add(ReportResponse.builder()
                 .title("Cancelled")
-                .day(adoptRepository.reportByDateRange(false, false, false, true, date, date))
-                .month(adoptRepository.reportByMonth(false, false, false, true, date))
-                .year(adoptRepository.reportByYear(false, false, false, true, date))
+                .day(adoptRepository.reportByDateRange(null, null, null, true, date, date))
+                .month(adoptRepository.reportByMonth(null, null, null, true, date))
+                .year(adoptRepository.reportByYear(null, null, null, true, date))
                 .build());
 
         reportsResponse.add(ReportResponse.builder()
                 .title("Adopted")
-                .day(adoptRepository.reportByDateRange(true, false, false, false, date, date))
-                .month(adoptRepository.reportByMonth(true, false, false, false, date))
-                .year(adoptRepository.reportByYear(true, false, false, false, date))
+                .day(adoptRepository.reportByDateRange(true, null, null, null, date, date))
+                .month(adoptRepository.reportByMonth(true, null, null, null, date))
+                .year(adoptRepository.reportByYear(true, null, null, null, date))
                 .build());
 
         return ApiResponse.builder()

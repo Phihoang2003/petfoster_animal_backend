@@ -64,11 +64,11 @@ public interface AdoptRepository extends JpaRepository<Adopt,Integer> {
 
     //query by dates with dynamic condition
     @Query("select COUNT(a.adoptId) from Adopt a where " +
-            "(:status IS NULL OR a.adoptAt is not null AND a.cancelReason is null) " +
-            "AND (:registerAtCondition IS NULL OR a.registerAt is not null AND a.pickUpAt is not null AND a.adoptAt is null AND a.cancelReason is null) " +
-            "AND (:waitingCondition IS NULL OR a.registerAt is not null AND a.pickUpAt is null AND a.adoptAt is null AND a.cancelReason is null) " +
-            "AND (:deletedCondition IS NULL OR a.cancelReason is not null) " +
-            "AND (:minDate IS NULL AND :maxDate IS NULL OR (a.registerAt BETWEEN :minDate AND :maxDate))")
+            "( (:status IS NULL OR (a.adoptAt is not null AND a.cancelReason is null)) ) " +
+            "AND ( (:registerAtCondition IS NULL OR (a.registerAt is not null AND a.pickUpAt is not null AND a.adoptAt is null AND a.cancelReason is null)) ) " +
+            "AND ( (:waitingCondition IS NULL OR (a.registerAt is not null AND a.pickUpAt is null AND a.adoptAt is null AND a.cancelReason is null)) ) " +
+            "AND ( (:deletedCondition IS NULL OR a.cancelReason is not null) ) " +
+            "AND ( (:minDate IS NULL AND :maxDate IS NULL) OR (a.registerAt BETWEEN :minDate AND :maxDate))")
     public Double reportByDateRange(
             @Param("status") Boolean AdoptStatus,
             @Param("registerAtCondition") Boolean registerAtCondition,
@@ -77,13 +77,14 @@ public interface AdoptRepository extends JpaRepository<Adopt,Integer> {
             @Param("minDate") LocalDate minDate,
             @Param("maxDate") LocalDate maxDate);
 
+
     //query by month with dynamic condition
     @Query(value = "select COUNT(*) from adopt where " +
-            "(:status IS NULL OR adopt_at is not null AND cancel_reason is null) " +
-            "AND (:registerAtCondition IS NULL OR register_at is not null AND pick_up_at is not null AND adopt_at is null AND cancel_reason is null) " +
-            "AND (:waitingCondition IS NULL OR register_at is not null AND pick_up_at is null AND adopt_at is null AND cancel_reason is null) " +
-            "AND (:deletedCondition IS NULL OR cancel_reason is not null) " +
-            "AND MONTH(register_at) = MONTH(:date)", nativeQuery = true)
+            "( (:status IS NULL OR (adopt_at is not null AND cancel_reason is null)) ) " +
+            "AND ( (:registerAtCondition IS NULL OR (register_at is not null AND pick_up_at is not null AND adopt_at is null AND cancel_reason is null)) ) " +
+            "AND ( (:waitingCondition IS NULL OR (register_at is not null AND pick_up_at is null AND adopt_at is null AND cancel_reason is null)) ) " +
+            "AND ( (:deletedCondition IS NULL OR cancel_reason is not null) ) " +
+            "AND MONTH(register_at) = MONTH(:#{#date})", nativeQuery = true)
     public Double reportByMonth(
             @Param("status") Boolean AdoptStatus,
             @Param("registerAtCondition") Boolean registerAtCondition,
@@ -91,19 +92,19 @@ public interface AdoptRepository extends JpaRepository<Adopt,Integer> {
             @Param("deletedCondition") Boolean deletedCondition,
             @Param("date") LocalDate date);
 
+
     //query by year with dynamic condition
     @Query(value = "select COUNT(*) from adopt where " +
-            "(:status IS NULL OR adopt_at is not null AND cancel_reason is null) " +
-            "AND (:registerAtCondition IS NULL OR register_at is not null AND pick_up_at is null AND adopt_at is null AND cancel_reason is null) " +
-            "AND (:waitingCondition IS NULL OR register_at is not null AND pick_up_at is not null AND adopt_at is null AND cancel_reason is null) " +
-            "AND (:deletedCondition IS NULL OR cancel_reason is not null) " +
-            "AND YEAR(register_at) = YEAR(:date)", nativeQuery = true)
+            "( (:status IS NULL OR (adopt_at is not null AND cancel_reason is null)) ) " +
+            "AND ( (:registerAtCondition IS NULL OR (register_at is not null AND pick_up_at is not null AND adopt_at is null AND cancel_reason is null)) ) " +
+            "AND ( (:waitingCondition IS NULL OR (register_at is not null AND pick_up_at is null AND adopt_at is null AND cancel_reason is null)) ) " +
+            "AND ( (:deletedCondition IS NULL OR cancel_reason is not null) ) " +
+            "AND YEAR(register_at) = YEAR(:#{#date})", nativeQuery = true)
     public Double reportByYear(
             @Param("status") Boolean AdoptStatus,
             @Param("registerAtCondition") Boolean registerAtCondition,
             @Param("waitingCondition") Boolean waitingCondition,
             @Param("deletedCondition") Boolean deletedCondition,
             @Param("date") LocalDate date);
-
 
 }

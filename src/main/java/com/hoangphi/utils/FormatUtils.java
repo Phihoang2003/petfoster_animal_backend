@@ -4,6 +4,7 @@ import org.hibernate.annotations.Comment;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -34,6 +35,10 @@ public class FormatUtils {
 
         return results;
 
+    }
+    public LocalDate dateToDateFormat(LocalDate date, String pattern) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+        return LocalDate.parse(date.format(formatter), formatter);
     }
 
 }

@@ -18,6 +18,7 @@ import com.hoangphi.request.adopts.UpdatePickUpDateRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.adopts.AdoptsResponse;
 import com.hoangphi.response.common.PaginationResponse;
+import com.hoangphi.response.common.ReportResponse;
 import com.hoangphi.service.adopt.AdoptService;
 import com.hoangphi.service.impl.pets.PetServiceImpl;
 import com.hoangphi.service.impl.users.UserServiceImpl;
@@ -557,6 +558,50 @@ public class AdoptServiceImpl implements AdoptService {
                         .pages(pagination.getTotalPages())
                         .build())
                 .build();
+    }
+
+    @Override
+    public ApiResponse reports() {
+        List<ReportResponse> reportsResponse = new ArrayList<>();
+//        LocalDate startDate = LocalDate.now().withDayOfMonth(1); // first day of the month
+//        LocalDate endDate = LocalDate.now(); // current date
+        LocalDate date=formatUtils.dateToDateFormat(LocalDate.now(),"yyyy-MM-dd");
+
+        reportsResponse.add(ReportResponse.builder()
+                .title("Registrations")
+                .day(adoptRepository.reportByDateRange(false, true, false, false, date, date))
+                .month(adoptRepository.reportByMonth(false, true, false, false, date))
+                .year(adoptRepository.reportByYear(false, true, false, false, date))
+                .build());
+
+        reportsResponse.add(ReportResponse.builder()
+                .title("Waiting")
+                .day(adoptRepository.reportByDateRange(false, false, true, false, date, date))
+                .month(adoptRepository.reportByMonth(false, false, true, false, date))
+                .year(adoptRepository.reportByYear(false, false, true, false, date))
+                .build());
+
+        reportsResponse.add(ReportResponse.builder()
+                .title("Cancelled")
+                .day(adoptRepository.reportByDateRange(false, false, false, true, date, date))
+                .month(adoptRepository.reportByMonth(false, false, false, true, date))
+                .year(adoptRepository.reportByYear(false, false, false, true, date))
+                .build());
+
+        reportsResponse.add(ReportResponse.builder()
+                .title("Adopted")
+                .day(adoptRepository.reportByDateRange(true, false, false, false, date, date))
+                .month(adoptRepository.reportByMonth(true, false, false, false, date))
+                .year(adoptRepository.reportByYear(true, false, false, false, date))
+                .build());
+
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message("Successfully!!!")
+                .errors(false)
+                .data(reportsResponse)
+                .build();
+
     }
 
     public AdoptsResponse buildAdoptsResponse(Adopt adopt) {

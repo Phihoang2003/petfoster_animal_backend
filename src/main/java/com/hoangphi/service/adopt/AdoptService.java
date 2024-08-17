@@ -35,4 +35,7 @@ public interface AdoptService {
             Optional<String> sort,
             Optional<Integer> page);
 
+    ApiResponse reports();
+
+
 }

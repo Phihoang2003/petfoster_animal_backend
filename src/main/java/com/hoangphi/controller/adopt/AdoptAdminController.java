@@ -55,4 +55,10 @@ public class AdoptAdminController {
                 adoptStart, adoptEnd, sort, page));
     }
 
+    @GetMapping("/report")
+    public ResponseEntity<ApiResponse> report() {
+        return ResponseEntity.ok(adoptService.reports());
+
+    }
+
 }

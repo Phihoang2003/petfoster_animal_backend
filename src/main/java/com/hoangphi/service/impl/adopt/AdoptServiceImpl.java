@@ -2,6 +2,7 @@ package com.hoangphi.service.impl.adopt;
 
 import com.hoangphi.config.JwtProvider;
 import com.hoangphi.constant.AdoptStatus;
+import com.hoangphi.constant.Constant;
 import com.hoangphi.constant.PetStatus;
 import com.hoangphi.entity.Addresses;
 import com.hoangphi.entity.Adopt;
@@ -15,17 +16,25 @@ import com.hoangphi.request.adopts.AdoptsRequest;
 import com.hoangphi.request.adopts.UpdatePickUpDateRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.adopts.AdoptsResponse;
+import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.service.adopt.AdoptService;
 import com.hoangphi.service.impl.pets.PetServiceImpl;
 import com.hoangphi.service.impl.users.UserServiceImpl;
 import com.hoangphi.utils.FormatUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -262,6 +271,87 @@ public class AdoptServiceImpl implements AdoptService {
                 .message("Successfully!!!")
                 .errors(false)
                 .data(reuslt)
+                .build();
+
+    }
+
+    @Override
+    public ApiResponse getAdopts(String jwt, Optional<Integer> page, Optional<String> status) {
+        String username = jwtProvider.getUsernameFromToken(jwt);
+        if (username == null || username.isEmpty()) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("User not found!!!")
+                    .errors(true)
+                    .build();
+        }
+        User user = userRepository.findByUsername(username).orElse(null);
+        if (user == null) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("User not found!!!")
+                    .errors(true)
+                    .build();
+        }
+        String unWrapStatus= status.orElse("all");
+        List<Adopt> adopts;
+        if(!unWrapStatus.equalsIgnoreCase("all")){
+            adopts=adoptRepository.findByUser(user.getId(),unWrapStatus);
+        }else{
+            adopts=adoptRepository.findByUser(user.getId());
+        }
+        if (adopts.isEmpty()) {
+            return ApiResponse.builder().status(HttpStatus.BAD_REQUEST.value())
+                    .message("No data available!!!").errors(false)
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .build();
+        }
+        int pageSize = 10;
+        int pages = page.orElse(0);
+        int totalPages = (adopts.size() + pageSize - 1) / pageSize;
+
+        if (pages >= totalPages) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.NO_CONTENT.value())
+                    .message("No data available!!!")
+                    .errors(false)
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .build();
+        }
+
+        Pageable pageable = PageRequest.of(pages, pageSize);
+        int startIndex = (int) pageable.getOffset();
+        int endIndex = Math.min(startIndex + pageable.getPageSize(), adopts.size());
+        if (startIndex >= endIndex) {
+            return ApiResponse.builder()
+                    .status(200)
+                    .message("Successfully!!!")
+                    .errors(false)
+                    .data(PaginationResponse.builder().data(adopts).pages(0).build())
+                    .build();
+        }
+
+        List<Adopt> visibleAdopts = adopts.subList(startIndex, endIndex);
+
+        Page<Adopt> pagination = new PageImpl<Adopt>(visibleAdopts, pageable, adopts.size());
+
+        // get adopts response & sort
+        List<AdoptsResponse> adoptsResponse = visibleAdopts.stream()
+                .map(this::buildAdoptsResponse)
+                .collect(Collectors.toList());
+
+        adoptsResponse.sort(Comparator
+                .comparing((AdoptsResponse adoptResponse) -> adoptResponse.getRegisterAt() != null
+                        ? adoptResponse.getRegisterAt()
+                        : Constant.MIN_DATE)
+                .reversed());
+
+        return ApiResponse.builder()
+                .status(200)
+                .message("Successfully!!!")
+                .errors(false)
+                .data(PaginationResponse.builder().data(adoptsResponse)
+                        .pages(pagination.getTotalPages()).build())
                 .build();
 
     }

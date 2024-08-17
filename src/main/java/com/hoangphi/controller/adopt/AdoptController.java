@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/user/adopts")
@@ -18,4 +20,11 @@ public class AdoptController {
                                              @Valid @RequestBody AdoptsRequest adoptsRequest) {
         return ResponseEntity.ok(adoptService.adopt(jwt, adoptsRequest));
     }
+
+    @GetMapping("")
+    public ResponseEntity<ApiResponse> getAdopts(@RequestHeader("Authorization") String jwt, Optional<Integer> page,
+                                                 Optional<String> status) {
+        return ResponseEntity.ok(adoptService.getAdopts(jwt, page, status));
+    }
+
 }

@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done get adopts">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done get other adopt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/adopt/AdoptAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/adopt/AdoptAdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/adopt/AdoptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/adopt/AdoptController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/AdoptRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/AdoptRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/adopt/AdoptService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/adopt/AdoptService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java" afterDir="false" />
     </list>
@@ -150,15 +152,7 @@
       <workItem from="1723717021088" duration="602000" />
       <workItem from="1723730104082" duration="3242000" />
       <workItem from="1723808372581" duration="5936000" />
-      <workItem from="1723879132295" duration="3511000" />
-    </task>
-    <task id="LOCAL-00159" summary="fix bug">
-      <option name="closed" value="true" />
-      <created>1723434932099</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434932099</updated>
+      <workItem from="1723879132295" duration="5380000" />
     </task>
     <task id="LOCAL-00160" summary="create images response">
       <option name="closed" value="true" />
@@ -544,7 +538,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723881631849</updated>
     </task>
-    <option name="localTasksCounter" value="208" />
+    <task id="LOCAL-00208" summary="done get other adopt">
+      <option name="closed" value="true" />
+      <created>1723882880198</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1723882880198</updated>
+    </task>
+    <option name="localTasksCounter" value="209" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,7 +570,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create petType repository" />
     <MESSAGE value="modified" />
     <MESSAGE value="modified pet status" />
     <MESSAGE value="resolve problem get attributes successfully" />
@@ -593,7 +594,8 @@
     <MESSAGE value="resolve problem with accepts adoption successfully" />
     <MESSAGE value="add get adopts by user" />
     <MESSAGE value="done get adopts" />
-    <option name="LAST_COMMIT_MESSAGE" value="done get adopts" />
+    <MESSAGE value="done get other adopt" />
+    <option name="LAST_COMMIT_MESSAGE" value="done get other adopt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -640,52 +642,52 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>62</line>
+          <line>63</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>53</line>
+          <line>54</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>70</line>
+          <line>71</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>78</line>
+          <line>79</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>85</line>
+          <line>86</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>101</line>
+          <line>102</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>122</line>
+          <line>123</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>129</line>
+          <line>130</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>136</line>
+          <line>137</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>149</line>
+          <line>150</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint type="java-method">

@@ -1,5 +1,6 @@
 package com.hoangphi.controller.adopt;
 
+import com.hoangphi.request.adopts.CancelAdoptRequest;
 import com.hoangphi.request.adopts.UpdatePickUpDateRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.adopt.AdoptService;
@@ -28,4 +29,11 @@ public class AdoptAdminController {
             @PathVariable Integer adoptId) {
         return ResponseEntity.ok(adoptService.getAdoptOtherUser(adoptId));
     }
+
+    @PutMapping("/cancel/{id}")
+    public ResponseEntity<ApiResponse> cancelAdopt(@PathVariable Integer id,
+                                                   @Valid @RequestBody CancelAdoptRequest cancelAdoptRequest) {
+        return ResponseEntity.ok(adoptService.cancelAdopt(id, cancelAdoptRequest));
+    }
+
 }

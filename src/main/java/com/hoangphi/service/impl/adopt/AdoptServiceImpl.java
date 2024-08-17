@@ -13,6 +13,7 @@ import com.hoangphi.repository.AdoptRepository;
 import com.hoangphi.repository.PetRepository;
 import com.hoangphi.repository.UserRepository;
 import com.hoangphi.request.adopts.AdoptsRequest;
+import com.hoangphi.request.adopts.CancelAdoptRequest;
 import com.hoangphi.request.adopts.UpdatePickUpDateRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.adopts.AdoptsResponse;
@@ -390,6 +391,97 @@ public class AdoptServiceImpl implements AdoptService {
                 .message("Successfully!!!")
                 .errors(false)
                 .data(reuslt)
+                .build();
+    }
+
+    @Override
+    public ApiResponse cancelAdopt(Integer id, CancelAdoptRequest cancelAdoptRequest) {
+        Adopt adopt=adoptRepository.findById(id).orElse(null);
+        if(adopt==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("Adopt not found!!!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        if(adopt.getStatus().equalsIgnoreCase(AdoptStatus.ADOPTED.getValue())){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("This adoption was accepted.Cannot cancel!!!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        if(adopt.getStatus().equalsIgnoreCase(AdoptStatus.CANCELLED_BY_CUSTOMER.getValue())||
+            adopt.getStatus().equalsIgnoreCase(AdoptStatus.CANCELLED_BY_ADMIN.getValue())){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .message("This adoption was canceled.Can't cancel again!!!")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        adopt.setStatus(AdoptStatus.CANCELLED_BY_ADMIN.getValue());
+        adopt.setCancelReason(cancelAdoptRequest.getCancelReason());
+        adoptRepository.save(adopt);
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message("Successfully!!!")
+                .data(buildAdoptsResponse(adopt))
+                .errors(false)
+                .build();
+    }
+
+    @Override
+    public ApiResponse cancelAdoptByUser(Integer id, String jwt, CancelAdoptRequest cancelAdoptRequest) {
+        Adopt adopt = adoptRepository.findById(id).orElse(null);
+        if (adopt == null) {
+            return ApiResponse.builder().status(HttpStatus.BAD_REQUEST.value())
+                    .message("Adopt not found!!!").errors(true).build();
+        }
+
+        String username = jwtProvider.getUsernameFromToken(jwt);
+        if (username == null || username.isEmpty()) {
+            return ApiResponse.builder().status(HttpStatus.BAD_REQUEST.value())
+                    .message("Username is not exists!!!").errors(true).build();
+        }
+
+        User user = userRepository.findByUsername(username).orElse(null);
+        if (user == null) {
+            return ApiResponse.builder().status(HttpStatus.BAD_REQUEST.value()).message("User not found!!!")
+                    .errors(true).build();
+        }
+
+        if (adoptRepository.existsByUser(user.getId(), id) == null) {
+            return ApiResponse.builder().status(HttpStatus.BAD_REQUEST.value())
+                    .message("You don't have permission to cancel!!!").errors(true).build();
+        }
+
+        // check adoption status was adopted or not
+        if (adopt.getStatus().equalsIgnoreCase(AdoptStatus.ADOPTED.getValue())) {
+            return ApiResponse.builder().status(HttpStatus.BAD_REQUEST.value())
+                    .message("The pet was adopted. Cannot cancel!!!").errors(true).build();
+        }
+
+        // check adoption status was cancel or not
+        if (adopt.getStatus().equalsIgnoreCase(AdoptStatus.CANCELLED_BY_ADMIN.getValue())
+                || adopt.getStatus().equalsIgnoreCase(AdoptStatus.CANCELLED_BY_CUSTOMER.getValue())) {
+            return ApiResponse.builder().status(HttpStatus.BAD_REQUEST.value())
+                    .message("The adoption was cancel. Cannot cancel again!!!").errors(true)
+                    .build();
+        }
+
+        // reject the adoption
+        adopt.setStatus(AdoptStatus.CANCELLED_BY_CUSTOMER.getValue());
+        adopt.setCancelReason(cancelAdoptRequest.getCancelReason());
+        adoptRepository.save(adopt);
+
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message("Successfully!!!")
+                .errors(false)
+                .data(this.buildAdoptsResponse(adopt))
                 .build();
     }
 

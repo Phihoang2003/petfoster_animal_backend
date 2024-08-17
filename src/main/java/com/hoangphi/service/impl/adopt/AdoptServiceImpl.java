@@ -31,10 +31,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -482,6 +479,83 @@ public class AdoptServiceImpl implements AdoptService {
                 .message("Successfully!!!")
                 .errors(false)
                 .data(this.buildAdoptsResponse(adopt))
+                .build();
+    }
+
+    @Override
+    public ApiResponse filterAdopts(Optional<String> name, Optional<String> petName,
+                                    Optional<String> status, Optional<LocalDate> registerStart,
+                                    Optional<LocalDate> registerEnd, Optional<LocalDate> adoptStart,
+                                    Optional<LocalDate> adoptEnd, Optional<String> sort,
+                                    Optional<Integer> page) {
+        LocalDate registerStartValue = formatUtils.changeDateRange(registerStart, registerEnd).get("minDateValue");
+        LocalDate registerEndValue = formatUtils.changeDateRange(registerStart, registerEnd).get("maxDateValue");
+        LocalDate adoptStartValue = formatUtils.changeDateRange(adoptStart, adoptEnd).get("minDateValue");
+        LocalDate adoptEndValue = formatUtils.changeDateRange(adoptStart, adoptEnd).get("maxDateValue");
+
+        if (registerStartValue != null && registerEndValue != null) {
+            if (registerStartValue.isAfter(registerEndValue)) {
+                return ApiResponse.builder()
+                        .message("The max date must after the min date!!!")
+                        .status(HttpStatus.CONFLICT.value())
+                        .errors("The max date must after the min date!!!")
+                        .build();
+            }
+        }
+
+        if (adoptStartValue != null && adoptEndValue != null) {
+            if (adoptStartValue.isAfter(adoptEndValue)) {
+                return ApiResponse.builder()
+                        .message("The max date must after the min date!!!")
+                        .status(HttpStatus.CONFLICT.value())
+                        .errors("The max date must after the min date!!!")
+                        .build();
+            }
+        }
+
+        List<Adopt> filterAdopts = adoptRepository.filterAdopts(
+                name.orElse(null), petName.orElse(null), status.orElse(null),
+                registerStartValue, registerEndValue, adoptStartValue, adoptEndValue,
+                sort.orElse("id-desc"));
+
+        int pageSize = 10;
+        int pages = page.orElse(0);
+        int totalPages = (filterAdopts.size() + pageSize - 1) / pageSize;
+
+        if (pages >= totalPages) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.NO_CONTENT.value())
+                    .message("No data available!!!")
+                    .errors(false)
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .build();
+        }
+
+        Pageable pageable = PageRequest.of(pages, pageSize);
+        int startIndex = (int) pageable.getOffset();
+        int endIndex = Math.min(startIndex + pageable.getPageSize(), filterAdopts.size());
+        if (startIndex >= endIndex) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.NO_CONTENT.value())
+                    .message("No data available!!!")
+                    .errors(true)
+                    .data(PaginationResponse.builder().data(filterAdopts).pages(0).build())
+                    .build();
+        }
+
+        List<Adopt> visibleAdopts = filterAdopts.subList(startIndex, endIndex);
+        Page<Adopt> pagination = new PageImpl<Adopt>(visibleAdopts, pageable, filterAdopts.size());
+        List<AdoptsResponse> adopts = new ArrayList<>();
+        visibleAdopts.forEach(adopt -> adopts.add(this.buildAdoptsResponse(adopt)));
+
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message("Successfully!!!")
+                .errors(false)
+                .data(PaginationResponse.builder()
+                        .data(adopts)
+                        .pages(pagination.getTotalPages())
+                        .build())
                 .build();
     }
 

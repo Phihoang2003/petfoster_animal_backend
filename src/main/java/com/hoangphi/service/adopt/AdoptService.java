@@ -14,4 +14,8 @@ public interface AdoptService {
     ApiResponse acceptAdoption(Integer id, UpdatePickUpDateRequest updatePickUpDateRequest);
 
     ApiResponse getAdopts(String jwt, Optional<Integer> page,Optional<String> status);
+
+    ApiResponse getAdoptOtherUser(Integer adoptId);
+
+
 }

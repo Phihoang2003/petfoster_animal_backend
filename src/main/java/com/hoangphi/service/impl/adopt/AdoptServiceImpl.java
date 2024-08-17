@@ -324,9 +324,9 @@ public class AdoptServiceImpl implements AdoptService {
         int endIndex = Math.min(startIndex + pageable.getPageSize(), adopts.size());
         if (startIndex >= endIndex) {
             return ApiResponse.builder()
-                    .status(200)
-                    .message("Successfully!!!")
-                    .errors(false)
+                    .status(HttpStatus.NO_CONTENT.value())
+                    .message("No data available!!!")
+                    .errors(true)
                     .data(PaginationResponse.builder().data(adopts).pages(0).build())
                     .build();
         }
@@ -347,13 +347,50 @@ public class AdoptServiceImpl implements AdoptService {
                 .reversed());
 
         return ApiResponse.builder()
-                .status(200)
+                .status(HttpStatus.OK.value())
                 .message("Successfully!!!")
                 .errors(false)
                 .data(PaginationResponse.builder().data(adoptsResponse)
                         .pages(pagination.getTotalPages()).build())
                 .build();
 
+    }
+
+    @Override
+    public ApiResponse getAdoptOtherUser(Integer adoptId) {
+        if (adoptId == null) {
+            return ApiResponse.builder().status(HttpStatus.BAD_REQUEST.value())
+                    .message("Adopt not found!!!").errors(true).build();
+        }
+
+        Adopt adopt = adoptRepository.findById(adoptId).orElse(null);
+
+        if (adopt == null) {
+            return ApiResponse.builder().status(HttpStatus.BAD_REQUEST.value())
+                    .message("Adopt not found!!!").errors(true).build();
+        }
+
+
+        List<Adopt> adopts = adoptRepository.findByUserIgnoreUserId(adopt.getUser().getId(),
+                adopt.getPet().getPetId());
+
+        if (adopts == null || adopts.isEmpty()) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("No data available!!!")
+                    .errors(true)
+                    .data(new ArrayList<>())
+                    .build();
+        }
+
+        List<AdoptsResponse> reuslt = adopts.stream().map(this::buildAdoptsResponse).toList();
+
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .message("Successfully!!!")
+                .errors(false)
+                .data(reuslt)
+                .build();
     }
 
     public AdoptsResponse buildAdoptsResponse(Adopt adopt) {

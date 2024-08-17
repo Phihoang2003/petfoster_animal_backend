@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with accepts adoption successfully">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done get adopts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/adopt/AdoptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/adopt/AdoptController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/AdoptRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/AdoptRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/adopt/AdoptAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/adopt/AdoptAdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/adopt/AdoptService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/adopt/AdoptService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java" afterDir="false" />
     </list>
@@ -152,23 +150,7 @@
       <workItem from="1723717021088" duration="602000" />
       <workItem from="1723730104082" duration="3242000" />
       <workItem from="1723808372581" duration="5936000" />
-      <workItem from="1723879132295" duration="2280000" />
-    </task>
-    <task id="LOCAL-00157" summary="add put recent view controller and service">
-      <option name="closed" value="true" />
-      <created>1723434769461</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434769461</updated>
-    </task>
-    <task id="LOCAL-00158" summary="resolve problem with put recent view successfully">
-      <option name="closed" value="true" />
-      <created>1723434808931</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434808931</updated>
+      <workItem from="1723879132295" duration="3511000" />
     </task>
     <task id="LOCAL-00159" summary="fix bug">
       <option name="closed" value="true" />
@@ -546,7 +528,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723814373954</updated>
     </task>
-    <option name="localTasksCounter" value="206" />
+    <task id="LOCAL-00206" summary="add get adopts by user">
+      <option name="closed" value="true" />
+      <created>1723881604441</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1723881604441</updated>
+    </task>
+    <task id="LOCAL-00207" summary="done get adopts">
+      <option name="closed" value="true" />
+      <created>1723881631849</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1723881631849</updated>
+    </task>
+    <option name="localTasksCounter" value="208" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,8 +568,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="resolve problem with favourite" />
-    <MESSAGE value="create pet attribute response" />
     <MESSAGE value="create petType repository" />
     <MESSAGE value="modified" />
     <MESSAGE value="modified pet status" />
@@ -595,7 +591,9 @@
     <MESSAGE value="create update pick up date request" />
     <MESSAGE value="fix bug duplicate key" />
     <MESSAGE value="resolve problem with accepts adoption successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with accepts adoption successfully" />
+    <MESSAGE value="add get adopts by user" />
+    <MESSAGE value="done get adopts" />
+    <option name="LAST_COMMIT_MESSAGE" value="done get adopts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -703,7 +701,7 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="user" />
+        <watch expression="user" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

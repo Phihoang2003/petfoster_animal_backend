@@ -23,4 +23,9 @@ public class AdoptAdminController {
                                                       @Valid @RequestBody UpdatePickUpDateRequest updatePickUpDateRequest) {
         return ResponseEntity.ok(adoptService.acceptAdoption(id, updatePickUpDateRequest));
     }
+    @GetMapping("/{adoptId}")
+    public ResponseEntity<ApiResponse> getAdoptionOtherUser(
+            @PathVariable Integer adoptId) {
+        return ResponseEntity.ok(adoptService.getAdoptOtherUser(adoptId));
+    }
 }

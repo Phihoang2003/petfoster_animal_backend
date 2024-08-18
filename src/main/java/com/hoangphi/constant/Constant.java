@@ -1,5 +1,6 @@
 package com.hoangphi.constant;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,4 +12,6 @@ public class Constant {
     public static List<String> ACCEPT_EXTENTION = new ArrayList<>(Arrays.asList(
             "svg",
             "webp", "jpg", "png", "mp4"));
+
+    public static LocalDate MIN_DATE = LocalDate.ofEpochDay(0);
 }

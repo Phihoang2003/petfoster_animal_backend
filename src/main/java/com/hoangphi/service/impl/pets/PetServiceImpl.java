@@ -28,6 +28,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @RequiredArgsConstructor
@@ -581,6 +582,27 @@ public class PetServiceImpl implements PetService {
                 .build();
 
     }
+    public PetResponse buildPetResponses(Pet pet, User user) {
+        boolean liked = favouriteRepository.existByUserAndPet(user.getId(), pet.getPetId()) != null;
+
+        Integer fosterDate= (int)ChronoUnit.DAYS.between(pet.getFosterAt(), LocalDateTime.now());
+
+        return PetResponse.builder()
+                .id(pet.getPetId())
+                .breed(pet.getPetBreed().getBreedName())
+                .name(pet.getPetName())
+                .image(portUltils.getUrlImage(pet.getImgs().get(0).getNameImg()))
+                .description(pet.getDescriptions() == null ? "" : pet.getDescriptions())
+                .fosterDate(fosterDate)
+                .size(pet.getAge())
+                .sex(pet.getSex() ? "male" : "female")
+                .type(pet.getPetBreed().getPetType().getName())
+                .like(liked)
+                .fostered(pet.getFosterAt())
+                .build();
+    }
+
+
     public PetDetailResponse buildPetResponse(Pet pet,User user){
         Integer fosterDate= (int)ChronoUnit.DAYS.between(pet.getFosterAt(), LocalDateTime.now());
         boolean canAdopt=isCanAdopt(pet,null);

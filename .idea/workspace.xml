@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with filter admin pet">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="fix bug" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +60,7 @@
     &quot;Spring Boot.PetFosterApplication.executor&quot;: &quot;Run&quot;,
     &quot;data.sources.detected.do.not.suggest.again&quot;: &quot;true&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;hoangphi/handle-pet&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hoangphi/handle-adopt&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend&quot;,
@@ -145,158 +143,12 @@
       <workItem from="1723702888524" duration="4226000" />
       <workItem from="1723707609666" duration="1552000" />
       <workItem from="1723717021088" duration="602000" />
-    </task>
-    <task id="LOCAL-00150" summary="modified Review entity">
-      <option name="closed" value="true" />
-      <created>1723386239625</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1723386239625</updated>
-    </task>
-    <task id="LOCAL-00151" summary="add findReview by user and product repository">
-      <option name="closed" value="true" />
-      <created>1723386270035</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1723386270035</updated>
-    </task>
-    <task id="LOCAL-00152" summary="add findAll for recent view">
-      <option name="closed" value="true" />
-      <created>1723386309266</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1723386309266</updated>
-    </task>
-    <task id="LOCAL-00153" summary="add get recent view controller and service">
-      <option name="closed" value="true" />
-      <created>1723386337525</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1723386337525</updated>
-    </task>
-    <task id="LOCAL-00154" summary="resolve problem with get recent view">
-      <option name="closed" value="true" />
-      <created>1723386365013</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1723386365013</updated>
-    </task>
-    <task id="LOCAL-00155" summary="modified entity">
-      <option name="closed" value="true" />
-      <created>1723434591027</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434591028</updated>
-    </task>
-    <task id="LOCAL-00156" summary="modified entity to fix loop">
-      <option name="closed" value="true" />
-      <created>1723434696753</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434696753</updated>
-    </task>
-    <task id="LOCAL-00157" summary="add put recent view controller and service">
-      <option name="closed" value="true" />
-      <created>1723434769461</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434769461</updated>
-    </task>
-    <task id="LOCAL-00158" summary="resolve problem with put recent view successfully">
-      <option name="closed" value="true" />
-      <created>1723434808931</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434808931</updated>
-    </task>
-    <task id="LOCAL-00159" summary="fix bug">
-      <option name="closed" value="true" />
-      <created>1723434932099</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434932099</updated>
-    </task>
-    <task id="LOCAL-00160" summary="create images response">
-      <option name="closed" value="true" />
-      <created>1723522480468</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1723522480468</updated>
-    </task>
-    <task id="LOCAL-00161" summary="add getImages by productId controller and repository">
-      <option name="closed" value="true" />
-      <created>1723522535487</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1723522535487</updated>
-    </task>
-    <task id="LOCAL-00162" summary="resolve problem with get images by productId">
-      <option name="closed" value="true" />
-      <created>1723522606338</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1723522606338</updated>
-    </task>
-    <task id="LOCAL-00163" summary="images for addImage by productId">
-      <option name="closed" value="true" />
-      <created>1723525092224</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1723525092224</updated>
-    </task>
-    <task id="LOCAL-00164" summary="resolve problem with update more images by productId">
-      <option name="closed" value="true" />
-      <created>1723525162556</created>
-      <option name="number" value="00164" />
-      <option name="presentableId" value="LOCAL-00164" />
-      <option name="project" value="LOCAL" />
-      <updated>1723525162556</updated>
-    </task>
-    <task id="LOCAL-00165" summary="resolve problem with delete Image by productId">
-      <option name="closed" value="true" />
-      <created>1723530675080</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1723530675080</updated>
-    </task>
-    <task id="LOCAL-00166" summary="resolve problem with delete all images by productId">
-      <option name="closed" value="true" />
-      <created>1723532819744</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1723532819744</updated>
-    </task>
-    <task id="LOCAL-00167" summary="create entity favourite">
-      <option name="closed" value="true" />
-      <created>1723551290600</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1723551290608</updated>
-    </task>
-    <task id="LOCAL-00168" summary="fix bug">
-      <option name="closed" value="true" />
-      <created>1723551300428</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL-00168" />
-      <option name="project" value="LOCAL" />
-      <updated>1723551300428</updated>
+      <workItem from="1723730104082" duration="3242000" />
+      <workItem from="1723808372581" duration="5936000" />
+      <workItem from="1723879132295" duration="5555000" />
+      <workItem from="1723887673124" duration="1216000" />
+      <workItem from="1723895794615" duration="7052000" />
+      <workItem from="1723949604288" duration="643000" />
     </task>
     <task id="LOCAL-00169" summary="create entity pet breed,img,type">
       <option name="closed" value="true" />
@@ -538,7 +390,159 @@
       <option name="project" value="LOCAL" />
       <updated>1723709186606</updated>
     </task>
-    <option name="localTasksCounter" value="199" />
+    <task id="LOCAL-00199" summary="create format utils to format address">
+      <option name="closed" value="true" />
+      <created>1723732972055</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1723732972056</updated>
+    </task>
+    <task id="LOCAL-00200" summary="create adopt request and response">
+      <option name="closed" value="true" />
+      <created>1723733001434</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1723733001434</updated>
+    </task>
+    <task id="LOCAL-00201" summary="resolve problem with register adopt pet successfully">
+      <option name="closed" value="true" />
+      <created>1723733039169</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1723733039169</updated>
+    </task>
+    <task id="LOCAL-00202" summary="done">
+      <option name="closed" value="true" />
+      <created>1723809975052</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1723809975053</updated>
+    </task>
+    <task id="LOCAL-00203" summary="create update pick up date request">
+      <option name="closed" value="true" />
+      <created>1723814310495</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1723814310495</updated>
+    </task>
+    <task id="LOCAL-00204" summary="fix bug duplicate key">
+      <option name="closed" value="true" />
+      <created>1723814334325</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1723814334325</updated>
+    </task>
+    <task id="LOCAL-00205" summary="resolve problem with accepts adoption successfully">
+      <option name="closed" value="true" />
+      <created>1723814373954</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1723814373954</updated>
+    </task>
+    <task id="LOCAL-00206" summary="add get adopts by user">
+      <option name="closed" value="true" />
+      <created>1723881604441</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1723881604441</updated>
+    </task>
+    <task id="LOCAL-00207" summary="done get adopts">
+      <option name="closed" value="true" />
+      <created>1723881631849</created>
+      <option name="number" value="00207" />
+      <option name="presentableId" value="LOCAL-00207" />
+      <option name="project" value="LOCAL" />
+      <updated>1723881631849</updated>
+    </task>
+    <task id="LOCAL-00208" summary="done get other adopt">
+      <option name="closed" value="true" />
+      <created>1723882880198</created>
+      <option name="number" value="00208" />
+      <option name="presentableId" value="LOCAL-00208" />
+      <option name="project" value="LOCAL" />
+      <updated>1723882880198</updated>
+    </task>
+    <task id="LOCAL-00209" summary="create cancel adopt request">
+      <option name="closed" value="true" />
+      <created>1723884724163</created>
+      <option name="number" value="00209" />
+      <option name="presentableId" value="LOCAL-00209" />
+      <option name="project" value="LOCAL" />
+      <updated>1723884724163</updated>
+    </task>
+    <task id="LOCAL-00210" summary="done cancel adopt by customer">
+      <option name="closed" value="true" />
+      <created>1723884769613</created>
+      <option name="number" value="00210" />
+      <option name="presentableId" value="LOCAL-00210" />
+      <option name="project" value="LOCAL" />
+      <updated>1723884769613</updated>
+    </task>
+    <task id="LOCAL-00211" summary="done cancel adopt by admin">
+      <option name="closed" value="true" />
+      <created>1723884788416</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1723884788416</updated>
+    </task>
+    <task id="LOCAL-00212" summary="add filter adopt">
+      <option name="closed" value="true" />
+      <created>1723888861023</created>
+      <option name="number" value="00212" />
+      <option name="presentableId" value="LOCAL-00212" />
+      <option name="project" value="LOCAL" />
+      <updated>1723888861032</updated>
+    </task>
+    <task id="LOCAL-00213" summary="add changeDateArrange">
+      <option name="closed" value="true" />
+      <created>1723888884781</created>
+      <option name="number" value="00213" />
+      <option name="presentableId" value="LOCAL-00213" />
+      <option name="project" value="LOCAL" />
+      <updated>1723888884781</updated>
+    </task>
+    <task id="LOCAL-00214" summary="done filter adopt by admin">
+      <option name="closed" value="true" />
+      <created>1723888908355</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1723888908355</updated>
+    </task>
+    <task id="LOCAL-00215" summary="bug for statistical">
+      <option name="closed" value="true" />
+      <created>1723900901648</created>
+      <option name="number" value="00215" />
+      <option name="presentableId" value="LOCAL-00215" />
+      <option name="project" value="LOCAL" />
+      <updated>1723900901648</updated>
+    </task>
+    <task id="LOCAL-00216" summary="fix bug done">
+      <option name="closed" value="true" />
+      <created>1723902987301</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1723902987301</updated>
+    </task>
+    <task id="LOCAL-00217" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1723950162723</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1723950162723</updated>
+    </task>
+    <option name="localTasksCounter" value="218" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,32 +566,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create exists adopt and existByPetIdAndUser" />
-    <MESSAGE value="create pet details response" />
-    <MESSAGE value="create pet image and bread repository" />
-    <MESSAGE value="create post request and response" />
-    <MESSAGE value="resolve problem with create pet successfully" />
-    <MESSAGE value="add update pet controller and service" />
-    <MESSAGE value="resolve problem with update pet" />
-    <MESSAGE value="fix bug" />
-    <MESSAGE value="resolve problem with favourite" />
-    <MESSAGE value="create pet attribute response" />
-    <MESSAGE value="create petType repository" />
-    <MESSAGE value="modified" />
-    <MESSAGE value="modified pet status" />
-    <MESSAGE value="resolve problem get attributes successfully" />
-    <MESSAGE value="add getFavourites in pet service" />
-    <MESSAGE value="add get favourites in service and repository" />
-    <MESSAGE value="resolve problem with get favourites successfully" />
-    <MESSAGE value="add page detail page response and controller" />
-    <MESSAGE value="resolve problem with get other pet relate current pet" />
     <MESSAGE value="create pet manage response" />
     <MESSAGE value="resolve problem with get manage pet" />
     <MESSAGE value="add filter pet repository and service" />
     <MESSAGE value="resolve problem with filter pet successfully" />
     <MESSAGE value="add filter admin pet using @Query" />
     <MESSAGE value="resolve problem with filter admin pet" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with filter admin pet" />
+    <MESSAGE value="create format utils to format address" />
+    <MESSAGE value="create adopt request and response" />
+    <MESSAGE value="resolve problem with register adopt pet successfully" />
+    <MESSAGE value="done" />
+    <MESSAGE value="create update pick up date request" />
+    <MESSAGE value="fix bug duplicate key" />
+    <MESSAGE value="resolve problem with accepts adoption successfully" />
+    <MESSAGE value="add get adopts by user" />
+    <MESSAGE value="done get adopts" />
+    <MESSAGE value="done get other adopt" />
+    <MESSAGE value="create cancel adopt request" />
+    <MESSAGE value="done cancel adopt by customer" />
+    <MESSAGE value="done cancel adopt by admin" />
+    <MESSAGE value="add filter adopt" />
+    <MESSAGE value="add changeDateArrange" />
+    <MESSAGE value="done filter adopt by admin" />
+    <MESSAGE value="bug for statistical" />
+    <MESSAGE value="fix bug done" />
+    <MESSAGE value="fix bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -619,18 +623,68 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>112</line>
+          <line>113</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>121</line>
+          <line>122</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>139</line>
+          <line>140</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
+          <line>135</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ImagesRepository.java</url>
@@ -643,5 +697,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="user" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

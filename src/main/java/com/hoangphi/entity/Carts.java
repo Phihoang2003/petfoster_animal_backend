@@ -17,7 +17,7 @@ import java.util.List;
 public class Carts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer cardId;
+    private Integer cartId;
 
     @OneToOne
     @JoinColumn(name = "user_id")

@@ -140,32 +140,31 @@ public class CartServiceImpl implements CartService {
                     .status(HttpStatus.BAD_REQUEST.value())
                     .errors(true)
                     .data(null)
-                    .message("Cart is empty!!!")
+                    .message("Cart Item is empty!!!")
+                    .build();
+        }
+
+        List<CartItem> newItems=new ArrayList<>();
+        try{
+            newItems=cartRequests.stream().map(item->{
+                ProductRepo productRepo=productRepoRepository.findProductRepoByIdAndSize(item.getProductId(),item.getSize());
+                if(productRepo==null){
+                    throw new RuntimeException("Product not found!!!");
+                }
+                if(item.getQuantity()>productRepo.getQuantity()){
+                    throw new RuntimeException("Product out of stock!!!");
+                }
+                return buildCartItem(item,carts,productRepo);
+            }).toList();
+        }catch (RuntimeException e){
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .errors(true)
+                    .data(null)
+                    .message(e.getMessage())
                     .build();
         }
         cartItemRepository.deleteAll(cartItems);
-        List<CartItem> newItems=new ArrayList<>();
-        for(CartRequest item:cartRequests){
-            ProductRepo productRepo=productRepoRepository.findProductRepoByIdAndSize(item.getProductId(),item.getSize());
-            if(productRepo==null){
-                return ApiResponse.builder()
-                        .message("Product not found!!!")
-                        .status(HttpStatus.BAD_REQUEST.value())
-                        .data(null)
-                        .errors(true)
-                        .build();
-            }
-            if(item.getQuantity()>productRepo.getQuantity()){
-                return ApiResponse.builder()
-                        .message("Product out of stock!!!")
-                        .status(HttpStatus.BAD_REQUEST.value())
-                        .data(null)
-                        .errors(true)
-                        .build();
-            }
-            CartItem newItem=buildCartItem(item,carts,productRepo);
-            newItems.add(newItem);
-        }
         if (!newItems.isEmpty()) {
             cartItemRepository.saveAll(newItems);
         }
@@ -181,6 +180,52 @@ public class CartServiceImpl implements CartService {
                 .errors(false)
                 .data(cartResponses)
                 .message("Update Successfully!")
+                .build();
+
+    }
+
+    @Override
+    public ApiResponse getCarts(String jwt) {
+        User user=userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        if(user==null){
+            return ApiResponse.builder()
+                    .message("Invalid Token!!!")
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        Carts carts = cartRepository.findCart(user.getId()).orElse(null);
+        if (carts==null){
+            Carts createCart=Carts.builder()
+                    .user(user)
+                    .build();
+            cartRepository.save(createCart);
+            return ApiResponse.builder()
+                    .status(HttpStatus.OK.value())
+                    .errors(false)
+                    .data(new ArrayList<>())
+                    .message("No data available")
+                    .build();
+        }
+        List<CartItem> cartItems = cartItemRepository.findByCartsId(carts.getCartId());
+
+        if (cartItems.isEmpty()) {
+            return ApiResponse.builder()
+                    .message("No data available")
+                    .status(HttpStatus.NO_CONTENT.value())
+                    .errors(false)
+                    .data(cartItems)
+                    .build();
+        }
+        List<CartResponse> cartResponses = new ArrayList<>();
+        cartResponses=cartItems.stream().map(item->{
+            return buildCartResponse(item.getProductRepo(),item.getQuantity());
+        }).toList();
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(cartResponses)
                 .build();
 
     }

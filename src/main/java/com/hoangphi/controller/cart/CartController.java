@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
@@ -17,5 +19,11 @@ public class CartController {
     public ResponseEntity<ApiResponse> createCart(@RequestHeader("Authorization") String jwt,
                                                   @RequestBody CartRequest cartRequest) {
         return ResponseEntity.ok(cartService.createCart(jwt, cartRequest));
+    }
+
+    @PutMapping("/carts")
+    public ResponseEntity<ApiResponse> updateCarts(@RequestHeader("Authorization") String jwt,
+                                                   @RequestBody List<CartRequest> cartRequests) {
+        return ResponseEntity.ok(cartService.updateCarts(jwt, cartRequests));
     }
 }

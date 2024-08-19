@@ -16,6 +16,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CartServiceImpl implements CartService {
@@ -98,6 +101,90 @@ public class CartServiceImpl implements CartService {
                 .build();
 
     }
+
+    @Override
+    public ApiResponse updateCarts(String jwt, List<CartRequest> cartRequests) {
+        if (cartRequests.isEmpty()) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .errors(true)
+                    .data(null)
+                    .message("Cart is empty!!!")
+                    .build();
+        }
+        User user = userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+
+        // if user null
+        if (user == null) {
+            return ApiResponse.builder()
+                    .message("Invalid Token!!!")
+                    .status(400)
+                    .errors("Invalid token")
+                    .build();
+        }
+
+        Carts carts = cartRepository.findCart(user.getId()).orElse(null);
+
+        if (carts == null) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                    .errors(true)
+                    .data(null)
+                    .message(RespMessage.INTERNAL_SERVER_ERROR.getValue())
+                    .build();
+        }
+        List<CartItem> cartItems = cartItemRepository.findByCartsId(carts.getCartId());
+
+        if (cartItems.isEmpty()) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .errors(true)
+                    .data(null)
+                    .message("Cart is empty!!!")
+                    .build();
+        }
+        cartItemRepository.deleteAll(cartItems);
+        List<CartItem> newItems=new ArrayList<>();
+        for(CartRequest item:cartRequests){
+            ProductRepo productRepo=productRepoRepository.findProductRepoByIdAndSize(item.getProductId(),item.getSize());
+            if(productRepo==null){
+                return ApiResponse.builder()
+                        .message("Product not found!!!")
+                        .status(HttpStatus.BAD_REQUEST.value())
+                        .data(null)
+                        .errors(true)
+                        .build();
+            }
+            if(item.getQuantity()>productRepo.getQuantity()){
+                return ApiResponse.builder()
+                        .message("Product out of stock!!!")
+                        .status(HttpStatus.BAD_REQUEST.value())
+                        .data(null)
+                        .errors(true)
+                        .build();
+            }
+            CartItem newItem=buildCartItem(item,carts,productRepo);
+            newItems.add(newItem);
+        }
+        if (!newItems.isEmpty()) {
+            cartItemRepository.saveAll(newItems);
+        }
+
+        List<CartResponse> cartResponses = new ArrayList<>();
+
+        newItems.forEach((item) -> {
+            cartResponses.add(buildCartResponse(item.getProductRepo(), item.getQuantity()));
+        });
+
+        return ApiResponse.builder()
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(cartResponses)
+                .message("Update Successfully!")
+                .build();
+
+    }
+
     private CartResponse buildCartResponse(ProductRepo productRepo, int newQuantity) {
 
         return CartResponse.builder()
@@ -112,6 +199,14 @@ public class CartServiceImpl implements CartService {
                 .price(productRepo.getOutPrice())
                 .quantity(newQuantity)
                 .repo(productRepo.getQuantity())
+                .build();
+    }
+    private CartItem buildCartItem(CartRequest cartRequest, Carts carts, ProductRepo productRepo) {
+
+        return CartItem.builder()
+                .cart(carts)
+                .quantity(cartRequest.getQuantity())
+                .productRepo(productRepo)
                 .build();
     }
 }

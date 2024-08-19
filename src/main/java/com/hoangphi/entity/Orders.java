@@ -3,6 +3,11 @@ package com.hoangphi.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDate;
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,4 +22,7 @@ public class Orders {
     @JoinColumn(name = "user_id")
     @ToString.Exclude
     private User user;
+
+    @CreationTimestamp
+    private LocalDate createAt;
 }

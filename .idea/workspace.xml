@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with update or create product repo set price change">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Orders.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +155,7 @@
       <workItem from="1723982000421" duration="1688000" />
       <workItem from="1724035431567" duration="5710000" />
       <workItem from="1724050831899" duration="5850000" />
-      <workItem from="1724059713524" duration="678000" />
+      <workItem from="1724059713524" duration="952000" />
     </task>
     <task id="LOCAL-00180" summary="resolve problem with update pet">
       <option name="closed" value="true" />

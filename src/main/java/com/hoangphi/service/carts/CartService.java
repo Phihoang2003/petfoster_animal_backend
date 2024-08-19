@@ -9,4 +9,6 @@ public interface CartService {
     ApiResponse createCart(String jwt, CartRequest cartRequest);
 
     ApiResponse updateCarts(String jwt, List<CartRequest> cartRequests);
+
+    ApiResponse getCarts(String jwt);
 }

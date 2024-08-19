@@ -26,4 +26,9 @@ public class CartController {
                                                    @RequestBody List<CartRequest> cartRequests) {
         return ResponseEntity.ok(cartService.updateCarts(jwt, cartRequests));
     }
+
+    @GetMapping("carts")
+    public ResponseEntity<ApiResponse> getCarts(@RequestHeader("Authorization") String jwt) {
+        return ResponseEntity.ok(cartService.getCarts(jwt));
+    }
 }

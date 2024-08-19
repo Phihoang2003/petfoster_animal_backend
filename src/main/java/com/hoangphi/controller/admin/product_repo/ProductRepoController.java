@@ -1,6 +1,7 @@
 package com.hoangphi.controller.admin.product_repo;
 
 import com.hoangphi.request.variants.CreateRepoRequest;
+import com.hoangphi.request.variants.UpdateRepoRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.admin.products_repo.ProductRepoService;
 import lombok.RequiredArgsConstructor;
@@ -28,5 +29,10 @@ public class ProductRepoController {
                                                          @RequestBody CreateRepoRequest createRepoRequest) {
         return ResponseEntity.ok(productRepoService.addAProductRepository(id, createRepoRequest));
 
+    }
+    @PostMapping("{id}/update")
+    public ResponseEntity<ApiResponse> updateProductRepo(@PathVariable("id") Integer id,
+                                                         @RequestBody UpdateRepoRequest updateRepoRequest, @RequestHeader("Authorization") String token) {
+        return ResponseEntity.ok(productRepoService.updateOrCreateRepo(id, updateRepoRequest, token));
     }
 }

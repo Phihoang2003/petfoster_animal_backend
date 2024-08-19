@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="fix bug" />
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with get carts successfully">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product_repo/ProductRepoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product_repo/ProductRepoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/admin/products_repo/ProductRepoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/admin/products_repo/ProductRepoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/products_repo/ProductRepoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/products_repo/ProductRepoServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -60,7 +65,11 @@
     "Spring Boot.PetFosterApplication.executor": "Run",
     "data.sources.detected.do.not.suggest.again": "true",
     "extract.method.default.visibility": "private",
+<<<<<<< HEAD
     "git-widget-placeholder": "development",
+=======
+    "git-widget-placeholder": "hoangphi/handle-cart",
+>>>>>>> hoangphi/handle-cart
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
@@ -149,94 +158,10 @@
       <workItem from="1723887673124" duration="1216000" />
       <workItem from="1723895794615" duration="7052000" />
       <workItem from="1723949604288" duration="643000" />
-    </task>
-    <task id="LOCAL-00169" summary="create entity pet breed,img,type">
-      <option name="closed" value="true" />
-      <created>1723551376223</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1723551376223</updated>
-    </task>
-    <task id="LOCAL-00170" summary="create pet image successfully">
-      <option name="closed" value="true" />
-      <created>1723561567451</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL-00170" />
-      <option name="project" value="LOCAL" />
-      <updated>1723561567451</updated>
-    </task>
-    <task id="LOCAL-00171" summary="create adopt and entity">
-      <option name="closed" value="true" />
-      <created>1723561596925</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1723561596925</updated>
-    </task>
-    <task id="LOCAL-00172" summary="create adopt status">
-      <option name="closed" value="true" />
-      <created>1723561615163</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1723561615163</updated>
-    </task>
-    <task id="LOCAL-00173" summary="create exists adopt and existByPetIdAndUser">
-      <option name="closed" value="true" />
-      <created>1723561697229</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1723561697229</updated>
-    </task>
-    <task id="LOCAL-00174" summary="create pet details response">
-      <option name="closed" value="true" />
-      <created>1723561714927</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1723561714927</updated>
-    </task>
-    <task id="LOCAL-00175" summary="create pet image and bread repository">
-      <option name="closed" value="true" />
-      <created>1723561741862</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1723561741862</updated>
-    </task>
-    <task id="LOCAL-00176" summary="create post request and response">
-      <option name="closed" value="true" />
-      <created>1723561779822</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1723561779822</updated>
-    </task>
-    <task id="LOCAL-00177" summary="resolve problem with create pet successfully">
-      <option name="closed" value="true" />
-      <created>1723561811901</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1723561811901</updated>
-    </task>
-    <task id="LOCAL-00178" summary="fix bug">
-      <option name="closed" value="true" />
-      <created>1723626917395</created>
-      <option name="number" value="00178" />
-      <option name="presentableId" value="LOCAL-00178" />
-      <option name="project" value="LOCAL" />
-      <updated>1723626917396</updated>
-    </task>
-    <task id="LOCAL-00179" summary="add update pet controller and service">
-      <option name="closed" value="true" />
-      <created>1723626956196</created>
-      <option name="number" value="00179" />
-      <option name="presentableId" value="LOCAL-00179" />
-      <option name="project" value="LOCAL" />
-      <updated>1723626956196</updated>
+      <workItem from="1723965365878" duration="3685000" />
+      <workItem from="1723982000421" duration="1688000" />
+      <workItem from="1724035431567" duration="5710000" />
+      <workItem from="1724050831899" duration="5850000" />
     </task>
     <task id="LOCAL-00180" summary="resolve problem with update pet">
       <option name="closed" value="true" />
@@ -542,7 +467,95 @@
       <option name="project" value="LOCAL" />
       <updated>1723950162723</updated>
     </task>
-    <option name="localTasksCounter" value="218" />
+    <task id="LOCAL-00218" summary="create cart request and response">
+      <option name="closed" value="true" />
+      <created>1723952119529</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1723952119529</updated>
+    </task>
+    <task id="LOCAL-00219" summary="create cart item và cart">
+      <option name="closed" value="true" />
+      <created>1723952147320</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1723952147320</updated>
+    </task>
+    <task id="LOCAL-00220" summary="initial repository and service cart">
+      <option name="closed" value="true" />
+      <created>1723952177129</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1723952177129</updated>
+    </task>
+    <task id="LOCAL-00221" summary="create cart and cart request">
+      <option name="closed" value="true" />
+      <created>1723983413955</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1723983413955</updated>
+    </task>
+    <task id="LOCAL-00222" summary="add findBySizeAndProductId repo">
+      <option name="closed" value="true" />
+      <created>1723983462019</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1723983462019</updated>
+    </task>
+    <task id="LOCAL-00223" summary="add findBySizeAndProductId repo">
+      <option name="closed" value="true" />
+      <created>1723983501151</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1723983501151</updated>
+    </task>
+    <task id="LOCAL-00224" summary="resolve problem with create cart">
+      <option name="closed" value="true" />
+      <created>1723983567216</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1723983567216</updated>
+    </task>
+    <task id="LOCAL-00225" summary="add update cart">
+      <option name="closed" value="true" />
+      <created>1724041471653</created>
+      <option name="number" value="00225" />
+      <option name="presentableId" value="LOCAL-00225" />
+      <option name="project" value="LOCAL" />
+      <updated>1724041471653</updated>
+    </task>
+    <task id="LOCAL-00226" summary="resolve problem with update cart">
+      <option name="closed" value="true" />
+      <created>1724041497025</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1724041497025</updated>
+    </task>
+    <task id="LOCAL-00227" summary="add get carts">
+      <option name="closed" value="true" />
+      <created>1724052680271</created>
+      <option name="number" value="00227" />
+      <option name="presentableId" value="LOCAL-00227" />
+      <option name="project" value="LOCAL" />
+      <updated>1724052680272</updated>
+    </task>
+    <task id="LOCAL-00228" summary="resolve problem with get carts successfully">
+      <option name="closed" value="true" />
+      <created>1724052714219</created>
+      <option name="number" value="00228" />
+      <option name="presentableId" value="LOCAL-00228" />
+      <option name="project" value="LOCAL" />
+      <updated>1724052714219</updated>
+    </task>
+    <option name="localTasksCounter" value="229" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,16 +579,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create pet manage response" />
-    <MESSAGE value="resolve problem with get manage pet" />
-    <MESSAGE value="add filter pet repository and service" />
-    <MESSAGE value="resolve problem with filter pet successfully" />
-    <MESSAGE value="add filter admin pet using @Query" />
-    <MESSAGE value="resolve problem with filter admin pet" />
-    <MESSAGE value="create format utils to format address" />
-    <MESSAGE value="create adopt request and response" />
-    <MESSAGE value="resolve problem with register adopt pet successfully" />
-    <MESSAGE value="done" />
     <MESSAGE value="create update pick up date request" />
     <MESSAGE value="fix bug duplicate key" />
     <MESSAGE value="resolve problem with accepts adoption successfully" />
@@ -591,7 +594,17 @@
     <MESSAGE value="bug for statistical" />
     <MESSAGE value="fix bug done" />
     <MESSAGE value="fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug" />
+    <MESSAGE value="create cart request and response" />
+    <MESSAGE value="create cart item và cart" />
+    <MESSAGE value="initial repository and service cart" />
+    <MESSAGE value="create cart and cart request" />
+    <MESSAGE value="add findBySizeAndProductId repo" />
+    <MESSAGE value="resolve problem with create cart" />
+    <MESSAGE value="add update cart" />
+    <MESSAGE value="resolve problem with update cart" />
+    <MESSAGE value="add get carts" />
+    <MESSAGE value="resolve problem with get carts successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with get carts successfully" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -685,6 +698,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
           <line>148</line>
           <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/price_chages/PriceChangeImpl.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ImagesRepository.java</url>

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.Nationalized;
 
 import java.util.List;
@@ -21,5 +22,6 @@ public class PaymentMethod {
     private String method;
     @OneToMany(mappedBy = "paymentMethod", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Payment> payments;
 }

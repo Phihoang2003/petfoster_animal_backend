@@ -2,10 +2,7 @@ package com.hoangphi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
@@ -20,6 +17,7 @@ public class OrderDetail {
     @ManyToOne
     @JoinColumn(name = "order_id")
     @JsonIgnore
+    @ToString.Exclude
     private Orders order;
 
     private Integer quantity;
@@ -30,6 +28,7 @@ public class OrderDetail {
 
     @OneToOne
     @JoinColumn(name = "product_repo_id")
+    @ToString.Exclude
     private ProductRepo productRepo;
 
 }

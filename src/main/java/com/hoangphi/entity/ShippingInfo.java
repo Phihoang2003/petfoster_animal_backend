@@ -2,10 +2,7 @@ package com.hoangphi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Nationalized;
 
 import java.util.List;
@@ -36,10 +33,12 @@ public class ShippingInfo {
 
     @OneToMany(mappedBy = "shippingInfo", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Orders> orders;
 
     @ManyToOne
     @JoinColumn(name = "delivery_company_id")
     @JsonIgnore
+    @ToString.Exclude
     private DeliveryCompany deliveryCompany;
 }

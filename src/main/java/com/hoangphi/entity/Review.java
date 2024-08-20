@@ -28,4 +28,9 @@ public class Review {
     @JoinColumn(name = "product_id")
     @JsonIgnore
     private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    @JsonIgnore
+    private Orders order;
 }

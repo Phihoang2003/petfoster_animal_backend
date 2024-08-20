@@ -7,7 +7,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Nationalized;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -19,12 +18,6 @@ public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "user_id")
-    @ToString.Exclude
-    private User user;
 
     @CreationTimestamp
     private LocalDate createAt;
@@ -46,15 +39,24 @@ public class Orders {
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<OrderDetail> orderDetails;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     @JsonIgnore
+    @ToString.Exclude
     private List<Review> reviews;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    @ToString.Exclude
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "payment_id")
     @JsonIgnore
+    @ToString.Exclude
     private Payment payment;
 
     @Column(name = "[read]")

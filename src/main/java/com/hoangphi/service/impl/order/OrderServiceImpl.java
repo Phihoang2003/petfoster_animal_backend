@@ -1,18 +1,21 @@
 package com.hoangphi.service.impl.order;
 
 import com.hoangphi.config.JwtProvider;
-import com.hoangphi.entity.Addresses;
-import com.hoangphi.entity.ShippingInfo;
-import com.hoangphi.entity.User;
+import com.hoangphi.entity.*;
 import com.hoangphi.repository.*;
+import com.hoangphi.request.order.OrderItem;
 import com.hoangphi.request.order.OrderRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.order.OrderService;
+import com.hoangphi.utils.GiaoHangNhanhUtils;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.query.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -25,6 +28,10 @@ public class OrderServiceImpl implements OrderService {
     private final ProductRepoRepository productRepoRepository;
     private final ShippingInfoRepository shippingInfoRepository;
     private final DeliveryCompanyRepository deliveryCompanyRepository;
+    private final PaymentMethodRepository paymentMethodRepository;
+    private final PaymentRepository paymentRepository;
+    private final OrderDetailRepository orderDetailRepository;
+    private final GiaoHangNhanhUtils giaoHangNhanhUltils;
     @Override
     public ApiResponse order(String jwt, OrderRequest orderRequest) {
         Double total=0.0;
@@ -58,8 +65,60 @@ public class OrderServiceImpl implements OrderService {
                     .errors(errorsMap)
                     .build();
         }
+        ShippingInfo shippingInfo=createShippingInfo(addresses,orderRequest);
+        PaymentMethod paymentMethod=paymentMethodRepository.findById(orderRequest.getMethodId()).orElse(null);
+        if(paymentMethod==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("Payment method not found")
+                    .data(null)
+                    .errors(errorsMap)
+                    .build();
+        }
+        DeliveryCompany deliveryCompany=deliveryCompanyRepository.findById(orderRequest.getDeliveryId()).orElse(null);
+        if(deliveryCompany==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("Delivery company not found")
+                    .data(null)
+                    .errors(errorsMap)
+                    .build();
+        }
+        Payment payment=createPayment(orderRequest);
+        Orders orders=createOrder(addresses,payment,shippingInfo);
+        List<OrderDetail> orderDetails=new ArrayList<>();
+        for (OrderItem orderItem : orderRequest.getOrderItems()) {
+            ProductRepo productRepo = productRepoRepository.findProductRepoByIdAndSize(orderItem.getProductId(),
+                    orderItem.getSize());
 
+            if (orderItem.getQuantity() <= 0) {
+                errorsMap.put("quantity", "quantity must larger than 0");
+                return ApiResponse.builder()
+                        .status(HttpStatus.BAD_REQUEST.value())
+                        .message("quantity must larger than 0")
+                        .errors(errorsMap)
+                        .build();
+            }
 
+            if (productRepo.getQuantity() < orderItem.getQuantity()) {
+                errorsMap.put("quantity", "quantity are not enought, please try another one!!!");
+                return ApiResponse.builder()
+                        .message(HttpStatus.BAD_REQUEST.toString())
+                        .errors(errorsMap)
+                        .build();
+            }
+
+            OrderDetail orderDetail = this.createOrderDetail(productRepo, orderItem, orders);
+            orderDetails.add(orderDetail);
+            total += orderDetail.getTotal();
+        }
+        orders.setTotal(total);
+        orders.setOrderDetails(orderDetails);
+        orderRepository.save(orders);
+
+        payment.setAmount(orders.getTotal()+shippingInfo.getShipFee());
+        paymentRepository.save(payment);
+        ApiResponse apiResponse = giaoHangNhanhUltils.create(orders);
         return null;
     }
     private ShippingInfo createShippingInfo(Addresses addresses,OrderRequest orderRequest){
@@ -73,5 +132,33 @@ public class OrderServiceImpl implements OrderService {
                 .shipFee(orderRequest.getShip())
                 .deliveryCompany(deliveryCompanyRepository.findById(orderRequest.getDeliveryId()).get())
                 .build());
+    }
+    private Payment createPayment(OrderRequest orderRequest){
+        return paymentRepository.save(Payment.builder()
+                .isPaid(false)
+                .paymentMethod(paymentMethodRepository.findById(orderRequest.getMethodId()).get())
+                .build());
+    }
+    private Orders createOrder(Addresses addresses,Payment payment,ShippingInfo shippingInfo){
+        return orderRepository.save(Orders.builder()
+                .user(addresses.getUser())
+                .payment(payment)
+                .read(false)
+                .print(0)
+                .shippingInfo(shippingInfo)
+                .build());
+    }
+    private OrderDetail createOrderDetail(ProductRepo productRepo, OrderItem orderItem,Orders orders){
+        return orderDetailRepository.save(OrderDetail.builder()
+                .price(productRepo.getOutPrice())
+                .quantity(orderItem.getQuantity())
+                .total(productRepo.getOutPrice()*orderItem.getQuantity())
+                .productRepo(productRepo)
+                .order(orders)
+                .build());
+    }
+    private ProductRepo updateQuantity(ProductRepo productRepo,Integer quantity){
+        productRepo.setQuantity(productRepo.getQuantity()-quantity);
+        return productRepoRepository.save(productRepo);
     }
 }

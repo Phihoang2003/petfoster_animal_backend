@@ -14,4 +14,7 @@ public class Constant {
             "webp", "jpg", "png", "mp4"));
 
     public static LocalDate MIN_DATE = LocalDate.ofEpochDay(0);
+    public static String GHN_TOKEN="f970798b-5efb-11ef-8e53-0a00184fe694";
+    public static String GHN_SHOPID="194360";
+    public static String GHN_GETPROVINCE = "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/province";
 }

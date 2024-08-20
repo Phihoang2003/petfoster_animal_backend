@@ -18,7 +18,7 @@ import java.util.List;
 public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer adoptId;
+    private Integer id;
 
     @ManyToOne
     @JsonIgnore

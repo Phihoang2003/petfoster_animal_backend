@@ -59,6 +59,38 @@ public class GiaoHangNhanhUtils {
         }
         return null;
     }
+    public Integer getDistrictId(Integer provinceId,String districtName){ {
+        RestTemplate restTemplate = new RestTemplate();
+
+        HttpEntity<Map<String, Object>> request = createRequest("province_id", provinceId);
+        ResponseEntity<String> response = restTemplate.exchange(Constant.GHN_GETDISCTRICT, HttpMethod.POST, request,
+                String.class);
+
+        JSONArray dataArray = getData(response);
+
+        for (int i = 0; i < dataArray.length(); i++) {
+            JSONObject object = dataArray.getJSONObject(i);
+
+            List<Object> names;
+            try {
+                names = object.getJSONArray("NameExtension").toList();
+            } catch (Exception e) {
+                continue;
+            }
+
+            if(object.getString("DistrictName").equalsIgnoreCase(districtName)) {
+                return object.getInt("DistrictID");
+            }
+
+            for(Object name : names) {
+                if(name.toString().equalsIgnoreCase(districtName)) {
+                    return object.getInt("DistrictID");
+                }
+            }
+        }
+
+        return null;
+    }
 
     public JSONArray getData(ResponseEntity<String> response) {
         String responseBody = response.getBody();
@@ -86,3 +118,5 @@ public class GiaoHangNhanhUtils {
     }
 
 }
+
+

@@ -1,9 +1,13 @@
 package com.hoangphi.utils;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hoangphi.constant.Constant;
 import com.hoangphi.entity.OrderDetail;
 import com.hoangphi.entity.Orders;
 import com.hoangphi.entity.ShippingInfo;
+import com.hoangphi.repository.OrderRepository;
+import com.hoangphi.request.shipping.GHNPostRequest;
 import com.hoangphi.request.shipping.ShippingProductRequest;
 import com.hoangphi.response.ApiResponse;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
@@ -18,6 +23,7 @@ import java.util.*;
 @Component
 @RequiredArgsConstructor
 public class GiaoHangNhanhUtils {
+    private final OrderRepository ordersRepository;
     public ApiResponse create(Orders orderRequest) {
         ShippingInfo shippingInfo = orderRequest.getShippingInfo();
         ArrayList<ShippingProductRequest> list = new ArrayList<>();
@@ -40,7 +46,69 @@ public class GiaoHangNhanhUtils {
             return ApiResponse.builder().message("Ward name not found").status(404).errors(true).build();
         }
 
-        return null;
+        GHNPostRequest post = GHNPostRequest.builder()
+                .to_name(shippingInfo.getFullName())
+                .to_phone(shippingInfo.getPhone())
+                .to_address(shippingInfo.getAddress())
+                .to_ward_code(wardId)
+                .to_district_id(districtId)
+                .payment_type_id(orderRequest.getPayment().getPaymentMethod().getId() == 2 ? 1 : 2)
+                .cod_amount(orderRequest.getPayment().getPaymentMethod().getId() == 2 ? 0 : orderRequest.getTotal().intValue())
+                .items(list)
+                .weight(totalWeight)
+                .build();
+
+        String url = Constant.GHN_CREATE;
+        // create an instance of RestTemplate
+        RestTemplate restTemplate = new RestTemplate();
+        // create headers
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        headers.set("Token", Constant.GHN_TOKEN);
+        headers.set("ShopId", Constant.GHN_SHOPID);
+
+        // create a request
+        HttpEntity<GHNPostRequest> request = new HttpEntity<>(post, headers);
+
+        ResponseEntity<String> response = null;
+        try {
+            // send POST request
+            response = restTemplate.postForEntity(url,
+                    request, String.class);
+        } catch (HttpClientErrorException.BadRequest e) {
+            return ApiResponse.builder().message("This province is not support").status(400).errors(true).build();
+        } catch (HttpClientErrorException e) {
+            // Handle other HttpClientErrorException types if needed
+            System.out.println("Caught an HttpClientErrorException: " + e.getMessage());
+        } catch (Exception e) {
+            // Handle other types of exceptions
+            System.out.println("Caught an exception: " + e.getMessage());
+        }
+        ObjectMapper mapper = new ObjectMapper();
+        String code=null;
+        try{
+            assert response != null;
+            JsonNode jsonNode=mapper.readTree(response.getBody());
+            String expectedDeliveryTime=jsonNode.path("data").path("expected_delivery_time").asText();
+            String ghnCode = jsonNode.path("data").path("order_code").asText();
+            // code = jsonNode.path("data").path("code").asInt();
+
+            orderRequest.setExpectedDeliveryTime(expectedDeliveryTime);
+            orderRequest.setGhnCode(ghnCode);
+            ordersRepository.save(orderRequest);
+            code=ghnCode;
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return ApiResponse.builder()
+                .message("Create order success")
+                .status(HttpStatus.CREATED.value())
+                .errors(false)
+                .data(code)
+                .build();
     }
 
     public Integer getProvinceId(String provinceName) {

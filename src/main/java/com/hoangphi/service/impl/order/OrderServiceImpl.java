@@ -1,6 +1,7 @@
 package com.hoangphi.service.impl.order;
 
 import com.hoangphi.config.JwtProvider;
+import com.hoangphi.constant.OrderStatus;
 import com.hoangphi.entity.*;
 import com.hoangphi.repository.*;
 import com.hoangphi.request.order.OrderItem;
@@ -9,6 +10,7 @@ import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.order.OrderService;
 import com.hoangphi.utils.GiaoHangNhanhUtils;
 import lombok.RequiredArgsConstructor;
+import org.apache.tomcat.util.http.parser.HttpParser;
 import org.hibernate.query.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -118,7 +120,32 @@ public class OrderServiceImpl implements OrderService {
 
         payment.setAmount(orders.getTotal()+shippingInfo.getShipFee());
         paymentRepository.save(payment);
-        ApiResponse apiResponse = giaoHangNhanhUltils.create(orders);
+        if (orderRequest.getMethodId() == 1) {
+            orders.setStatus(OrderStatus.PLACED.getValue());
+
+            for (OrderDetail orderDetail : orderDetails) {
+                ProductRepo productRepo = orderDetail.getProductRepo();
+                updateQuantity(productRepo, orderDetail.getQuantity());
+            }
+
+            if (deliveryCompany.getId() == 2) {
+                ApiResponse apiResponse = giaoHangNhanhUltils.create(orders);
+                if (apiResponse.getErrors().equals(true)) {
+                    return apiResponse;
+                }
+
+                if (apiResponse.getStatus() == 400) {
+                    return apiResponse;
+                }
+            }
+
+            return ApiResponse.builder()
+                    .message("Order successfully!!!")
+                    .status(HttpStatus.CREATED.value())
+                    .errors(false)
+                    .data(orders.getId())
+                    .build();
+        }
         return null;
     }
     private ShippingInfo createShippingInfo(Addresses addresses,OrderRequest orderRequest){

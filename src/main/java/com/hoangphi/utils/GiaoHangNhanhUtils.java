@@ -35,6 +35,11 @@ public class GiaoHangNhanhUtils {
         if (districtId == null) {
             return ApiResponse.builder().message("District name not found").status(404).errors(true).build();
         }
+        String wardId = this.getWardId(shippingInfo.getWard(), districtId);
+        if (wardId == null) {
+            return ApiResponse.builder().message("Ward name not found").status(404).errors(true).build();
+        }
+
         return null;
     }
 
@@ -106,10 +111,9 @@ public class GiaoHangNhanhUtils {
                 String.class);
 
         // get data
-        org.json.JSONArray data = this.getData(response);
-        for (int i = 0; i < data.length(); i++) {
-            JSONObject object = data.getJSONObject(i);
-
+        JSONArray data = this.getData(response);
+        for (Object item : data) {
+            JSONObject object = (JSONObject) item;
             List<Object> names;
             try {
                 names = object.getJSONArray("NameExtension").toList();

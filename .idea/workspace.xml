@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="bug for get districtId">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done get districtId for third GHN API">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +60,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.PetFosterApplication.executor": "Run",
+    "Spring Boot.PetFosterApplication.executor": "Debug",
     "data.sources.detected.do.not.suggest.again": "true",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "hoangphi/handle-order",
@@ -162,23 +161,7 @@
       <workItem from="1724073972801" duration="51000" />
       <workItem from="1724134506243" duration="5665000" />
       <workItem from="1724158633906" duration="6937000" />
-      <workItem from="1724223297996" duration="3361000" />
-    </task>
-    <task id="LOCAL-00193" summary="create pet manage response">
-      <option name="closed" value="true" />
-      <created>1723707421013</created>
-      <option name="number" value="00193" />
-      <option name="presentableId" value="LOCAL-00193" />
-      <option name="project" value="LOCAL" />
-      <updated>1723707421013</updated>
-    </task>
-    <task id="LOCAL-00194" summary="resolve problem with get manage pet">
-      <option name="closed" value="true" />
-      <created>1723707465353</created>
-      <option name="number" value="00194" />
-      <option name="presentableId" value="LOCAL-00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1723707465353</updated>
+      <workItem from="1724223297996" duration="4158000" />
     </task>
     <task id="LOCAL-00195" summary="add filter pet repository and service">
       <option name="closed" value="true" />
@@ -556,7 +539,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724226423236</updated>
     </task>
-    <option name="localTasksCounter" value="242" />
+    <task id="LOCAL-00242" summary="fix bug for get districtId">
+      <option name="closed" value="true" />
+      <created>1724226741655</created>
+      <option name="number" value="00242" />
+      <option name="presentableId" value="LOCAL-00242" />
+      <option name="project" value="LOCAL" />
+      <updated>1724226741655</updated>
+    </task>
+    <task id="LOCAL-00243" summary="done get districtId for third GHN API">
+      <option name="closed" value="true" />
+      <created>1724226793570</created>
+      <option name="number" value="00243" />
+      <option name="presentableId" value="LOCAL-00243" />
+      <option name="project" value="LOCAL" />
+      <updated>1724226793570</updated>
+    </task>
+    <option name="localTasksCounter" value="244" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,8 +579,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bug for statistical" />
-    <MESSAGE value="fix bug done" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="create cart request and response" />
     <MESSAGE value="create cart item và cart" />
@@ -605,7 +602,9 @@
     <MESSAGE value="create getProvinceId" />
     <MESSAGE value="done get provinceId using config GHN API" />
     <MESSAGE value="bug for get districtId" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug for get districtId" />
+    <MESSAGE value="fix bug for get districtId" />
+    <MESSAGE value="done get districtId for third GHN API" />
+    <option name="LAST_COMMIT_MESSAGE" value="done get districtId for third GHN API" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -618,6 +617,26 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

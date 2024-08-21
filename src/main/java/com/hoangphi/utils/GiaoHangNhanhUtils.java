@@ -31,6 +31,10 @@ public class GiaoHangNhanhUtils {
         if (provinceId == null) {
             return ApiResponse.builder().message("Province name not found").status(404).errors(true).build();
         }
+        Integer districtId = getDistrictId(provinceId, shippingInfo.getDistrict());
+        if (districtId == null) {
+            return ApiResponse.builder().message("District name not found").status(404).errors(true).build();
+        }
         return null;
     }
 
@@ -59,7 +63,7 @@ public class GiaoHangNhanhUtils {
         }
         return null;
     }
-    public Integer getDistrictId(Integer provinceId,String districtName){ {
+    public Integer getDistrictId(Integer provinceId,String districtName){
         RestTemplate restTemplate = new RestTemplate();
 
         HttpEntity<Map<String, Object>> request = createRequest("province_id", provinceId);
@@ -68,9 +72,8 @@ public class GiaoHangNhanhUtils {
 
         JSONArray dataArray = getData(response);
 
-        for (int i = 0; i < dataArray.length(); i++) {
-            JSONObject object = dataArray.getJSONObject(i);
-
+        for (Object item : dataArray) {
+            JSONObject object = (JSONObject) item;
             List<Object> names;
             try {
                 names = object.getJSONArray("NameExtension").toList();
@@ -85,6 +88,42 @@ public class GiaoHangNhanhUtils {
             for(Object name : names) {
                 if(name.toString().equalsIgnoreCase(districtName)) {
                     return object.getInt("DistrictID");
+                }
+            }
+        }
+
+        return null;
+    }
+    public String getWardId(String wardName, Integer districtId) {
+
+        // build a request
+        HttpEntity<Map<String, Object>> request = this.createRequest("district_id", districtId);
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        // send request
+        ResponseEntity<String> response = restTemplate.exchange(Constant.GHN_GETWARD, HttpMethod.POST, request,
+                String.class);
+
+        // get data
+        org.json.JSONArray data = this.getData(response);
+        for (int i = 0; i < data.length(); i++) {
+            JSONObject object = data.getJSONObject(i);
+
+            List<Object> names;
+            try {
+                names = object.getJSONArray("NameExtension").toList();
+            } catch (Exception e) {
+                continue;
+            }
+
+            if(object.getString("WardName").equalsIgnoreCase(wardName)) {
+                return object.getString("WardCode");
+            }
+
+            for(Object name : names) {
+                if(name.toString().equalsIgnoreCase(wardName)) {
+                    return object.getString("WardCode");
                 }
             }
         }

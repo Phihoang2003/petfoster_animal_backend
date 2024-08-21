@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="create getProvinceId">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="bug for get districtId">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java" afterDir="false" />
@@ -76,7 +76,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "vcs.Git",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -162,23 +162,7 @@
       <workItem from="1724073972801" duration="51000" />
       <workItem from="1724134506243" duration="5665000" />
       <workItem from="1724158633906" duration="6937000" />
-      <workItem from="1724223297996" duration="2885000" />
-    </task>
-    <task id="LOCAL-00191" summary="add page detail page response and controller">
-      <option name="closed" value="true" />
-      <created>1723694875342</created>
-      <option name="number" value="00191" />
-      <option name="presentableId" value="LOCAL-00191" />
-      <option name="project" value="LOCAL" />
-      <updated>1723694875342</updated>
-    </task>
-    <task id="LOCAL-00192" summary="resolve problem with get other pet relate current pet">
-      <option name="closed" value="true" />
-      <created>1723694928722</created>
-      <option name="number" value="00192" />
-      <option name="presentableId" value="LOCAL-00192" />
-      <option name="project" value="LOCAL" />
-      <updated>1723694928722</updated>
+      <workItem from="1724223297996" duration="3361000" />
     </task>
     <task id="LOCAL-00193" summary="create pet manage response">
       <option name="closed" value="true" />
@@ -556,7 +540,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724166570021</updated>
     </task>
-    <option name="localTasksCounter" value="240" />
+    <task id="LOCAL-00240" summary="done get provinceId using config GHN API">
+      <option name="closed" value="true" />
+      <created>1724226399461</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL-00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1724226399462</updated>
+    </task>
+    <task id="LOCAL-00241" summary="bug for get districtId">
+      <option name="closed" value="true" />
+      <created>1724226423236</created>
+      <option name="number" value="00241" />
+      <option name="presentableId" value="LOCAL-00241" />
+      <option name="project" value="LOCAL" />
+      <updated>1724226423236</updated>
+    </task>
+    <option name="localTasksCounter" value="242" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,8 +580,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add changeDateArrange" />
-    <MESSAGE value="done filter adopt by admin" />
     <MESSAGE value="bug for statistical" />
     <MESSAGE value="fix bug done" />
     <MESSAGE value="fix bug" />
@@ -605,7 +603,9 @@
     <MESSAGE value="modified" />
     <MESSAGE value="create request to access third api" />
     <MESSAGE value="create getProvinceId" />
-    <option name="LAST_COMMIT_MESSAGE" value="create getProvinceId" />
+    <MESSAGE value="done get provinceId using config GHN API" />
+    <MESSAGE value="bug for get districtId" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug for get districtId" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="modified">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="create getProvinceId">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -66,7 +67,7 @@
     "git-widget-placeholder": "hoangphi/handle-order",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
+    "last_opened_file_path": "D:/pet-backend/petfoster-animal-back-end-2.0",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,7 +76,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -159,79 +160,9 @@
       <workItem from="1724059713524" duration="1128000" />
       <workItem from="1724065678084" duration="1382000" />
       <workItem from="1724073972801" duration="51000" />
-      <workItem from="1724134506243" duration="2669000" />
-    </task>
-    <task id="LOCAL-00182" summary="resolve problem with favourite">
-      <option name="closed" value="true" />
-      <created>1723638325282</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL-00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1723638325282</updated>
-    </task>
-    <task id="LOCAL-00183" summary="create pet attribute response">
-      <option name="closed" value="true" />
-      <created>1723643292459</created>
-      <option name="number" value="00183" />
-      <option name="presentableId" value="LOCAL-00183" />
-      <option name="project" value="LOCAL" />
-      <updated>1723643292459</updated>
-    </task>
-    <task id="LOCAL-00184" summary="create petType repository">
-      <option name="closed" value="true" />
-      <created>1723643318374</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL-00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1723643318374</updated>
-    </task>
-    <task id="LOCAL-00185" summary="modified">
-      <option name="closed" value="true" />
-      <created>1723643364441</created>
-      <option name="number" value="00185" />
-      <option name="presentableId" value="LOCAL-00185" />
-      <option name="project" value="LOCAL" />
-      <updated>1723643364441</updated>
-    </task>
-    <task id="LOCAL-00186" summary="modified pet status">
-      <option name="closed" value="true" />
-      <created>1723643383621</created>
-      <option name="number" value="00186" />
-      <option name="presentableId" value="LOCAL-00186" />
-      <option name="project" value="LOCAL" />
-      <updated>1723643383621</updated>
-    </task>
-    <task id="LOCAL-00187" summary="resolve problem get attributes successfully">
-      <option name="closed" value="true" />
-      <created>1723643415652</created>
-      <option name="number" value="00187" />
-      <option name="presentableId" value="LOCAL-00187" />
-      <option name="project" value="LOCAL" />
-      <updated>1723643415652</updated>
-    </task>
-    <task id="LOCAL-00188" summary="add getFavourites in pet service">
-      <option name="closed" value="true" />
-      <created>1723692099922</created>
-      <option name="number" value="00188" />
-      <option name="presentableId" value="LOCAL-00188" />
-      <option name="project" value="LOCAL" />
-      <updated>1723692099922</updated>
-    </task>
-    <task id="LOCAL-00189" summary="add get favourites in service and repository">
-      <option name="closed" value="true" />
-      <created>1723692135105</created>
-      <option name="number" value="00189" />
-      <option name="presentableId" value="LOCAL-00189" />
-      <option name="project" value="LOCAL" />
-      <updated>1723692135109</updated>
-    </task>
-    <task id="LOCAL-00190" summary="resolve problem with get favourites successfully">
-      <option name="closed" value="true" />
-      <created>1723692165645</created>
-      <option name="number" value="00190" />
-      <option name="presentableId" value="LOCAL-00190" />
-      <option name="project" value="LOCAL" />
-      <updated>1723692165645</updated>
+      <workItem from="1724134506243" duration="5665000" />
+      <workItem from="1724158633906" duration="6937000" />
+      <workItem from="1724223297996" duration="2885000" />
     </task>
     <task id="LOCAL-00191" summary="add page detail page response and controller">
       <option name="closed" value="true" />
@@ -553,7 +484,79 @@
       <option name="project" value="LOCAL" />
       <updated>1724134889774</updated>
     </task>
-    <option name="localTasksCounter" value="231" />
+    <task id="LOCAL-00231" summary="create order detail and order item">
+      <option name="closed" value="true" />
+      <created>1724137355379</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1724137355379</updated>
+    </task>
+    <task id="LOCAL-00232" summary="create order request and response">
+      <option name="closed" value="true" />
+      <created>1724137434349</created>
+      <option name="number" value="00232" />
+      <option name="presentableId" value="LOCAL-00232" />
+      <option name="project" value="LOCAL" />
+      <updated>1724137434349</updated>
+    </task>
+    <task id="LOCAL-00233" summary="create payment and payment method">
+      <option name="closed" value="true" />
+      <created>1724137465788</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1724137465788</updated>
+    </task>
+    <task id="LOCAL-00234" summary="initial repository">
+      <option name="closed" value="true" />
+      <created>1724137504083</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1724137504083</updated>
+    </task>
+    <task id="LOCAL-00235" summary="create order service implement">
+      <option name="closed" value="true" />
+      <created>1724137533822</created>
+      <option name="number" value="00235" />
+      <option name="presentableId" value="LOCAL-00235" />
+      <option name="project" value="LOCAL" />
+      <updated>1724137533822</updated>
+    </task>
+    <task id="LOCAL-00236" summary="create order detail,payment method and payment repository">
+      <option name="closed" value="true" />
+      <created>1724161372963</created>
+      <option name="number" value="00236" />
+      <option name="presentableId" value="LOCAL-00236" />
+      <option name="project" value="LOCAL" />
+      <updated>1724161372963</updated>
+    </task>
+    <task id="LOCAL-00237" summary="modified">
+      <option name="closed" value="true" />
+      <created>1724166438735</created>
+      <option name="number" value="00237" />
+      <option name="presentableId" value="LOCAL-00237" />
+      <option name="project" value="LOCAL" />
+      <updated>1724166438735</updated>
+    </task>
+    <task id="LOCAL-00238" summary="create request to access third api">
+      <option name="closed" value="true" />
+      <created>1724166536741</created>
+      <option name="number" value="00238" />
+      <option name="presentableId" value="LOCAL-00238" />
+      <option name="project" value="LOCAL" />
+      <updated>1724166536741</updated>
+    </task>
+    <task id="LOCAL-00239" summary="create getProvinceId">
+      <option name="closed" value="true" />
+      <created>1724166570021</created>
+      <option name="number" value="00239" />
+      <option name="presentableId" value="LOCAL-00239" />
+      <option name="project" value="LOCAL" />
+      <updated>1724166570021</updated>
+    </task>
+    <option name="localTasksCounter" value="240" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,14 +580,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="resolve problem with accepts adoption successfully" />
-    <MESSAGE value="add get adopts by user" />
-    <MESSAGE value="done get adopts" />
-    <MESSAGE value="done get other adopt" />
-    <MESSAGE value="create cancel adopt request" />
-    <MESSAGE value="done cancel adopt by customer" />
-    <MESSAGE value="done cancel adopt by admin" />
-    <MESSAGE value="add filter adopt" />
     <MESSAGE value="add changeDateArrange" />
     <MESSAGE value="done filter adopt by admin" />
     <MESSAGE value="bug for statistical" />
@@ -601,111 +596,24 @@
     <MESSAGE value="add get carts" />
     <MESSAGE value="resolve problem with get carts successfully" />
     <MESSAGE value="create delivery company" />
+    <MESSAGE value="create order detail and order item" />
+    <MESSAGE value="create order request and response" />
+    <MESSAGE value="create payment and payment method" />
+    <MESSAGE value="initial repository" />
+    <MESSAGE value="create order service implement" />
+    <MESSAGE value="create order detail,payment method and payment repository" />
     <MESSAGE value="modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified" />
+    <MESSAGE value="create request to access third api" />
+    <MESSAGE value="create getProvinceId" />
+    <option name="LAST_COMMIT_MESSAGE" value="create getProvinceId" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/recentView/RecentViewImpl.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>171</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>180</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>189</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>113</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>122</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/pets/PetServiceImpl.java</url>
-          <line>140</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>121</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>128</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>135</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/adopt/AdoptServiceImpl.java</url>
-          <line>148</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/price_chages/PriceChangeImpl.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ImagesRepository.java</url>
           <line>13</line>
-          <properties class="com.hoangphi.repository.ImagesRepository">
+          <properties class="com.hoangphi.repository.ImagesRepository" method="getImagesByProductId">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -716,6 +624,7 @@
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="user" language="JAVA" />
+        <watch expression="shippingInfo" />
       </configuration>
     </watches-manager>
   </component>

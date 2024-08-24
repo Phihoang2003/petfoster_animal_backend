@@ -6,12 +6,14 @@ import com.hoangphi.entity.*;
 import com.hoangphi.repository.*;
 import com.hoangphi.request.order.OrderItem;
 import com.hoangphi.request.order.OrderRequest;
+import com.hoangphi.request.payments.VnPaymentRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.order.OrderService;
 import com.hoangphi.utils.GiaoHangNhanhUtils;
+import com.hoangphi.utils.VnPayUtils;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.apache.tomcat.util.http.parser.HttpParser;
-import org.hibernate.query.Order;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,10 @@ public class OrderServiceImpl implements OrderService {
     private final PaymentRepository paymentRepository;
     private final OrderDetailRepository orderDetailRepository;
     private final GiaoHangNhanhUtils giaoHangNhanhUltils;
+
+    @Autowired
+    private HttpServletRequest httpServletRequest;
+
     @Override
     public ApiResponse order(String jwt, OrderRequest orderRequest) {
         Double total=0.0;
@@ -120,6 +126,7 @@ public class OrderServiceImpl implements OrderService {
 
         payment.setAmount(orders.getTotal()+shippingInfo.getShipFee());
         paymentRepository.save(payment);
+        String paymentUrl;
         if (orderRequest.getMethodId() == 1) {
             orders.setStatus(OrderStatus.PLACED.getValue());
 
@@ -138,15 +145,37 @@ public class OrderServiceImpl implements OrderService {
                     return apiResponse;
                 }
             }
-
             return ApiResponse.builder()
                     .message("Order successfully!!!")
                     .status(HttpStatus.CREATED.value())
                     .errors(false)
                     .data(orders.getId())
                     .build();
+        }else{
+            try{
+                paymentUrl= VnPayUtils.getVnPayPayment(VnPaymentRequest.builder()
+                        .amounts(payment.getAmount().intValue())
+                        .idOrder(orders.getId().toString())
+                        .orderInfo("Thanh toan don hang:"+orders.getId())
+                        .httpServletRequest(httpServletRequest)
+                        .build());
+                orders.setStatus(OrderStatus.WAITING.getValue());
+                orderRepository.save(orders);
+
+            }catch(Exception e){
+                return ApiResponse.builder()
+                        .message("Unsupported encoding exception")
+                        .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                        .errors(true)
+                        .build();
+            }
+            return ApiResponse.builder()
+                    .message("Order successfully!!!")
+                    .status(HttpStatus.OK.value())
+                    .errors(false)
+                    .data(paymentUrl)
+                    .build();
         }
-        return null;
     }
     private ShippingInfo createShippingInfo(Addresses addresses,OrderRequest orderRequest){
         return shippingInfoRepository.save(ShippingInfo.builder()

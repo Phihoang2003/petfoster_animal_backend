@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="create VNPayUtils,hmacSHA512,getIpAdress">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem payment with VNPay">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/VnPayUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/VnPayUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +67,7 @@
     "git-widget-placeholder": "hoangphi/handle-order",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/pet-backend/petfoster-animal-back-end-2.0",
+    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -167,23 +166,8 @@
       <workItem from="1724241116649" duration="113000" />
       <workItem from="1724312071316" duration="19000" />
       <workItem from="1724344655982" duration="27000" />
-      <workItem from="1724477637630" duration="7050000" />
-    </task>
-    <task id="LOCAL-00201" summary="resolve problem with register adopt pet successfully">
-      <option name="closed" value="true" />
-      <created>1723733039169</created>
-      <option name="number" value="00201" />
-      <option name="presentableId" value="LOCAL-00201" />
-      <option name="project" value="LOCAL" />
-      <updated>1723733039169</updated>
-    </task>
-    <task id="LOCAL-00202" summary="done">
-      <option name="closed" value="true" />
-      <created>1723809975052</created>
-      <option name="number" value="00202" />
-      <option name="presentableId" value="LOCAL-00202" />
-      <option name="project" value="LOCAL" />
-      <updated>1723809975053</updated>
+      <workItem from="1724477637630" duration="7253000" />
+      <workItem from="1724493094060" duration="2884000" />
     </task>
     <task id="LOCAL-00203" summary="create update pick up date request">
       <option name="closed" value="true" />
@@ -561,7 +545,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724480542707</updated>
     </task>
-    <option name="localTasksCounter" value="250" />
+    <task id="LOCAL-00250" summary="create vnpay payment request">
+      <option name="closed" value="true" />
+      <created>1724487485183</created>
+      <option name="number" value="00250" />
+      <option name="presentableId" value="LOCAL-00250" />
+      <option name="project" value="LOCAL" />
+      <updated>1724487485183</updated>
+    </task>
+    <task id="LOCAL-00251" summary="resolve problem payment with VNPay">
+      <option name="closed" value="true" />
+      <created>1724487550477</created>
+      <option name="number" value="00251" />
+      <option name="presentableId" value="LOCAL-00251" />
+      <option name="project" value="LOCAL" />
+      <updated>1724487550477</updated>
+    </task>
+    <option name="localTasksCounter" value="252" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -585,8 +585,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="resolve problem with create cart" />
-    <MESSAGE value="add update cart" />
     <MESSAGE value="resolve problem with update cart" />
     <MESSAGE value="add get carts" />
     <MESSAGE value="resolve problem with get carts successfully" />
@@ -610,7 +608,9 @@
     <MESSAGE value="resolve problem get delivery_time and order code from third GHN API" />
     <MESSAGE value="bug" />
     <MESSAGE value="create VNPayUtils,hmacSHA512,getIpAdress" />
-    <option name="LAST_COMMIT_MESSAGE" value="create VNPayUtils,hmacSHA512,getIpAdress" />
+    <MESSAGE value="create vnpay payment request" />
+    <MESSAGE value="resolve problem payment with VNPay" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolve problem payment with VNPay" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

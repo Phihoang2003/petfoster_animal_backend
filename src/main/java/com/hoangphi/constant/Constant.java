@@ -25,6 +25,21 @@ public class Constant {
     public static String VNP_SECRET_KEY = "RK367TRZDMPVP4NRZ3S5P8TQRBNVJGR1";
     public static String VNP_PAY_URL = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
 
+    public static String MOMO_ACCESS_KEY="F8BBA842ECF85";
+    public static String MOMO_SECRET_KEY="K951B6PE1waDMi640xX08PD3vg6EkVlz";
+    public static String MOMO_PARTNER_CODE="MOMO";
+    public static String MOMO_RETURN_URL = "http://localhost:8019/payment";
+    public static String MOMO_IPN_URL = "http://localhost:8019/payment";
+    public static String MOMO_REQUEST_TYPE="payWithMethod";
+    public static String MOMO_URL = "https://test-payment.momo.vn/v2/gateway/api/create";
+
+
+
+
+
+
+
+
 
 
 }

@@ -5,11 +5,9 @@ import com.hoangphi.request.payments.MoMoPaymentRequest;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -19,31 +17,28 @@ public class MoMoUtils {
     public static String getMoMoPayment(MoMoPaymentRequest data)  {
         Map<String, String> result = new HashMap<>();
 //        String baseOrderId = "ORDER" + System.currentTimeMillis();
-//        String orderId =baseOrderId+"_"+ data.getOrderId();
+        String orderId ="ORDER"+ data.getOrderId();
         String amount=String.valueOf(data.getAmount());
+        String orderGroupId = "";
         try{
             String extraData = "";
             String rawSignature = "accessKey=" + Constant.MOMO_ACCESS_KEY +
                     "&amount=" + amount +
                     "&extraData=" + extraData +
                     "&ipnUrl=" + Constant.MOMO_IPN_URL +
-                    "&orderId=" + data.getOrderId() +
+                    "&orderId=" + orderId +
                     "&orderInfo=" + data.getOrderInfo() +
                     "&partnerCode=" + Constant.MOMO_PARTNER_CODE +
                     "&redirectUrl=" + Constant.MOMO_RETURN_URL +
-                    "&requestId=" + data.getOrderId() +
+                    "&requestId=" + orderId +
                     "&requestType=" + Constant.MOMO_REQUEST_TYPE;
             String signature = generateSignature(rawSignature, Constant.MOMO_SECRET_KEY);
-            Map<String, Object> requestBody = getStringObjectMap(data, extraData, signature);
+            Map<String, Object> requestBody = getStringObjectMap(data,orderId, extraData,orderGroupId, signature);
             RestTemplate restTemplate = new RestTemplate();
-
-            // Set up headers
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
             HttpEntity<Map<String, Object>> entity = new HttpEntity<>(requestBody, headers);
-
             ResponseEntity<Map> response = restTemplate.postForEntity(Constant.MOMO_URL, entity, Map.class);
-
             result = response.getBody();
         }
         catch (Exception ex){
@@ -54,14 +49,15 @@ public class MoMoUtils {
         return result.get("payUrl");
     }
 
-    private static Map<String, Object> getStringObjectMap(MoMoPaymentRequest data, String extraData, String signature) {
+    private static Map<String, Object> getStringObjectMap(MoMoPaymentRequest data,String orderId,
+                                                          String extraData,String orderGroupId, String signature) {
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("partnerCode", Constant.MOMO_PARTNER_CODE);
         requestBody.put("partnerName", "Test");
         requestBody.put("storeId", "MomoTestStore");
-        requestBody.put("requestId", data.getOrderId());
+        requestBody.put("requestId", orderId);
         requestBody.put("amount", String.valueOf(data.getAmount()));
-        requestBody.put("orderId", data.getOrderId());
+        requestBody.put("orderId", orderId);
         requestBody.put("orderInfo",  data.getOrderInfo());
         requestBody.put("redirectUrl", Constant.MOMO_RETURN_URL);
         requestBody.put("ipnUrl", Constant.MOMO_IPN_URL);
@@ -69,6 +65,7 @@ public class MoMoUtils {
         requestBody.put("requestType",  Constant.MOMO_REQUEST_TYPE);
         requestBody.put("autoCapture", true);
         requestBody.put("extraData", extraData);
+        requestBody.put("orderGroupId",orderGroupId);
         requestBody.put("signature", signature);
         return requestBody;
     }

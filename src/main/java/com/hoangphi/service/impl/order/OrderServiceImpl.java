@@ -182,7 +182,7 @@ public class OrderServiceImpl implements OrderService {
                 paymentUrl= MoMoUtils.getMoMoPayment(MoMoPaymentRequest.builder()
                         .amount(payment.getAmount().intValue())
                         .orderId(orders.getId().toString())
-                        .orderInfo("Thanh toan don hang:"+orders.getId())
+                        .orderInfo("Thanh toan don hang: "+orders.getId())
                         .build());
                 orders.setStatus(OrderStatus.WAITING.getValue());
                 orderRepository.save(orders);

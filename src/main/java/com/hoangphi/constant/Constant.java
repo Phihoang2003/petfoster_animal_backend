@@ -28,10 +28,18 @@ public class Constant {
     public static String MOMO_ACCESS_KEY="F8BBA842ECF85";
     public static String MOMO_SECRET_KEY="K951B6PE1waDMi640xX08PD3vg6EkVlz";
     public static String MOMO_PARTNER_CODE="MOMO";
-    public static String MOMO_RETURN_URL = "http://localhost:8019/payment";
-    public static String MOMO_IPN_URL = "http://localhost:8019/payment";
+    public static String MOMO_RETURN_URL = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
+    public static String MOMO_IPN_URL = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
     public static String MOMO_REQUEST_TYPE="payWithMethod";
     public static String MOMO_URL = "https://test-payment.momo.vn/v2/gateway/api/create";
+
+//    public static String MOMO_ACCESS_KEY="klm05TvNBzhg7h7j";
+//    public static String MOMO_SECRET_KEY="at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa";
+//    public static String MOMO_PARTNER_CODE="MOMOBKUN20180529";
+//    public static String MOMO_RETURN_URL = "http://localhost:8019/payment";
+//    public static String MOMO_IPN_URL = "http://localhost:8019/payment";
+//    public static String MOMO_REQUEST_TYPE="payWithMethod";
+//    public static String MOMO_URL = "https://test-payment.momo.vn/v2/gateway/api/create";
 
 
 

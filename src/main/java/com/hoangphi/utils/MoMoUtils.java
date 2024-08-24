@@ -5,18 +5,26 @@ import com.hoangphi.request.payments.MoMoPaymentRequest;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 @Component
 public class MoMoUtils {
     public static String getMoMoPayment(MoMoPaymentRequest data)  {
-        String getUrl = "";
+        Map<String, String> result = new HashMap<>();
+//        String baseOrderId = "ORDER" + System.currentTimeMillis();
+//        String orderId =baseOrderId+"_"+ data.getOrderId();
+        String amount=String.valueOf(data.getAmount());
         try{
             String extraData = "";
             String rawSignature = "accessKey=" + Constant.MOMO_ACCESS_KEY +
-                    "&amount=" + String.valueOf(data.getAmount()) +
+                    "&amount=" + amount +
                     "&extraData=" + extraData +
                     "&ipnUrl=" + Constant.MOMO_IPN_URL +
                     "&orderId=" + data.getOrderId() +
@@ -25,26 +33,25 @@ public class MoMoUtils {
                     "&redirectUrl=" + Constant.MOMO_RETURN_URL +
                     "&requestId=" + data.getOrderId() +
                     "&requestType=" + Constant.MOMO_REQUEST_TYPE;
-            String signature = HmacSHA512.hmacSHA512(Constant.SECRET_KEY, rawSignature);
+            String signature = generateSignature(rawSignature, Constant.MOMO_SECRET_KEY);
             Map<String, Object> requestBody = getStringObjectMap(data, extraData, signature);
             RestTemplate restTemplate = new RestTemplate();
 
             // Set up headers
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-            headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-
-            // Create HTTP entity
             HttpEntity<Map<String, Object>> entity = new HttpEntity<>(requestBody, headers);
 
-            // Send request using RestTemplate
-            ResponseEntity<String> response = restTemplate.exchange(Constant.MOMO_URL, HttpMethod.POST, entity, String.class);
-            getUrl = response.getBody();
+            ResponseEntity<Map> response = restTemplate.postForEntity(Constant.MOMO_URL, entity, Map.class);
+
+            result = response.getBody();
         }
         catch (Exception ex){
             ex.printStackTrace();
         }
-        return getUrl;
+
+        assert result != null;
+        return result.get("payUrl");
     }
 
     private static Map<String, Object> getStringObjectMap(MoMoPaymentRequest data, String extraData, String signature) {
@@ -64,5 +71,22 @@ public class MoMoUtils {
         requestBody.put("extraData", extraData);
         requestBody.put("signature", signature);
         return requestBody;
+    }
+    public static String generateSignature(String data, String key) {
+        try {
+            Mac sha256Hmac = Mac.getInstance("HmacSHA256");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(key.getBytes(StandardCharsets.UTF_8), "HmacSHA256");
+            sha256Hmac.init(secretKeySpec);
+            byte[] signedBytes = sha256Hmac.doFinal(data.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hash = new StringBuilder();
+            for (byte b : signedBytes) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hash.append('0');
+                hash.append(hex);
+            }
+            return hash.toString();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to generate HMAC SHA256 signature", e);
+        }
     }
 }

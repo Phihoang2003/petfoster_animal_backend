@@ -6,10 +6,12 @@ import com.hoangphi.entity.*;
 import com.hoangphi.repository.*;
 import com.hoangphi.request.order.OrderItem;
 import com.hoangphi.request.order.OrderRequest;
+import com.hoangphi.request.payments.MoMoPaymentRequest;
 import com.hoangphi.request.payments.VnPaymentRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.order.OrderService;
 import com.hoangphi.utils.GiaoHangNhanhUtils;
+import com.hoangphi.utils.MoMoUtils;
 import com.hoangphi.utils.VnPayUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -151,13 +153,36 @@ public class OrderServiceImpl implements OrderService {
                     .errors(false)
                     .data(orders.getId())
                     .build();
-        }else{
+        }else if(orderRequest.getMethodId()==2){
             try{
                 paymentUrl= VnPayUtils.getVnPayPayment(VnPaymentRequest.builder()
                         .amounts(payment.getAmount().intValue())
                         .idOrder(orders.getId().toString())
                         .orderInfo("Thanh toan don hang:"+orders.getId())
                         .httpServletRequest(httpServletRequest)
+                        .build());
+                orders.setStatus(OrderStatus.WAITING.getValue());
+                orderRepository.save(orders);
+
+            }catch(Exception e){
+                return ApiResponse.builder()
+                        .message("Unsupported encoding exception")
+                        .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                        .errors(true)
+                        .build();
+            }
+            return ApiResponse.builder()
+                    .message("Order successfully!!!")
+                    .status(HttpStatus.OK.value())
+                    .errors(false)
+                    .data(paymentUrl)
+                    .build();
+        }else{
+            try{
+                paymentUrl= MoMoUtils.getMoMoPayment(MoMoPaymentRequest.builder()
+                        .amount(payment.getAmount().intValue())
+                        .orderId(orders.getId().toString())
+                        .orderInfo("Thanh toan don hang:"+orders.getId())
                         .build());
                 orders.setStatus(OrderStatus.WAITING.getValue());
                 orderRepository.save(orders);

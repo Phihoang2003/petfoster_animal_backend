@@ -4,8 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Nationalized;
-
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -25,7 +24,7 @@ public class Payment {
 
     private Boolean isPaid;
 
-    private Date payAt;
+    private LocalDate payAt;
 
     @OneToMany(mappedBy = "payment", cascade = CascadeType.ALL)
     @JsonIgnore

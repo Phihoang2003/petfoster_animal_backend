@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="bug for payment with momo">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="create payment request">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/order/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/order/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/Payment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/MoMoUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/MoMoUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/order/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/order/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/FormatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/FormatUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,23 +172,9 @@
       <workItem from="1724477637630" duration="7253000" />
       <workItem from="1724493094060" duration="8926000" />
       <workItem from="1724502196997" duration="31000" />
-      <workItem from="1724507793337" duration="1802000" />
-    </task>
-    <task id="LOCAL-00207" summary="done get adopts">
-      <option name="closed" value="true" />
-      <created>1723881631849</created>
-      <option name="number" value="00207" />
-      <option name="presentableId" value="LOCAL-00207" />
-      <option name="project" value="LOCAL" />
-      <updated>1723881631849</updated>
-    </task>
-    <task id="LOCAL-00208" summary="done get other adopt">
-      <option name="closed" value="true" />
-      <created>1723882880198</created>
-      <option name="number" value="00208" />
-      <option name="presentableId" value="LOCAL-00208" />
-      <option name="project" value="LOCAL" />
-      <updated>1723882880198</updated>
+      <workItem from="1724507793337" duration="3424000" />
+      <workItem from="1724549630674" duration="911000" />
+      <workItem from="1724556763909" duration="3794000" />
     </task>
     <task id="LOCAL-00209" summary="create cancel adopt request">
       <option name="closed" value="true" />
@@ -563,7 +552,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724502218498</updated>
     </task>
-    <option name="localTasksCounter" value="256" />
+    <task id="LOCAL-00256" summary="fix bug for payment with momo successfully">
+      <option name="closed" value="true" />
+      <created>1724510441801</created>
+      <option name="number" value="00256" />
+      <option name="presentableId" value="LOCAL-00256" />
+      <option name="project" value="LOCAL" />
+      <updated>1724510441801</updated>
+    </task>
+    <task id="LOCAL-00257" summary="create payment request">
+      <option name="closed" value="true" />
+      <created>1724560579511</created>
+      <option name="number" value="00257" />
+      <option name="presentableId" value="LOCAL-00257" />
+      <option name="project" value="LOCAL" />
+      <updated>1724560579512</updated>
+    </task>
+    <option name="localTasksCounter" value="258" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,8 +592,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create order detail and order item" />
-    <MESSAGE value="create order request and response" />
     <MESSAGE value="create payment and payment method" />
     <MESSAGE value="initial repository" />
     <MESSAGE value="create order service implement" />
@@ -612,7 +615,9 @@
     <MESSAGE value="create MomoPaymentRequest" />
     <MESSAGE value="develop payment with Momo" />
     <MESSAGE value="bug for payment with momo" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug for payment with momo" />
+    <MESSAGE value="fix bug for payment with momo successfully" />
+    <MESSAGE value="create payment request" />
+    <option name="LAST_COMMIT_MESSAGE" value="create payment request" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -628,7 +633,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
-          <line>240</line>
+          <line>313</line>
           <properties class="com.hoangphi.service.impl.order.OrderServiceImpl" method="updateQuantity">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -652,12 +657,12 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
-          <line>136</line>
+          <line>138</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
-          <line>131</line>
+          <line>133</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -680,12 +685,18 @@
           <line>48</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
+          <line>225</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="user" language="JAVA" />
         <watch expression="shippingInfo" />
+        <watch expression="watch=formatUtils.convertMillisecondsToLocalDate(paymentRequest.getPayAt())" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

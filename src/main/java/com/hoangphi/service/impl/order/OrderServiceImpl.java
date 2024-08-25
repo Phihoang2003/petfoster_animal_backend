@@ -7,12 +7,12 @@ import com.hoangphi.repository.*;
 import com.hoangphi.request.order.OrderItem;
 import com.hoangphi.request.order.OrderRequest;
 import com.hoangphi.request.payments.MoMoPaymentRequest;
+import com.hoangphi.request.payments.PaymentRequest;
 import com.hoangphi.request.payments.VnPaymentRequest;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.orders.OrderResponse;
 import com.hoangphi.service.order.OrderService;
-import com.hoangphi.utils.GiaoHangNhanhUtils;
-import com.hoangphi.utils.MoMoUtils;
-import com.hoangphi.utils.VnPayUtils;
+import com.hoangphi.utils.*;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +38,8 @@ public class OrderServiceImpl implements OrderService {
     private final PaymentRepository paymentRepository;
     private final OrderDetailRepository orderDetailRepository;
     private final GiaoHangNhanhUtils giaoHangNhanhUltils;
+    private final FormatUtils formatUtils;
+    private final PortUtils portUtils;
 
     @Autowired
     private HttpServletRequest httpServletRequest;
@@ -202,6 +204,77 @@ public class OrderServiceImpl implements OrderService {
                     .build();
         }
     }
+
+    @Override
+    public ApiResponse payment(PaymentRequest paymentRequest) {
+        Map<String,String> errorsMap=new HashMap<>();
+        Orders orders=orderRepository.findById(paymentRequest.getOrderId()).orElse(null);
+        if(orders==null){
+            errorsMap.put("order","Order not found");
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("Order not found")
+                    .data(null)
+                    .errors(errorsMap)
+                    .build();
+        }
+        Payment payment=orders.getPayment();
+        if(paymentRequest.getIsPaid()){
+            payment.setAmount(paymentRequest.getAmount().doubleValue());
+            payment.setIsPaid(paymentRequest.getIsPaid());
+            try{
+                payment.setPayAt(formatUtils.convertStringToLocalDate(paymentRequest.getPayAt(),"yyyyMMdd"));
+            }catch(Exception e){
+                errorsMap.put("payAt", "Number Format Exception");
+                return ApiResponse.builder()
+                        .message("Number Format Exception")
+                        .status(HttpStatus.CONFLICT.value())
+                        .errors(errorsMap)
+                        .data(null).build();
+            }
+            payment.setTransactionNumber(paymentRequest.getTransactionNumber().toString());
+            paymentRepository.save(payment);
+            orders.setStatus(OrderStatus.PLACED.getValue());
+            orderRepository.save(orders);
+            List<OrderDetail> orderDetails=orders.getOrderDetails();
+            orderDetails.forEach(orderDetail -> {
+                ProductRepo productRepo=orderDetail.getProductRepo();
+                updateQuantity(productRepo,orderDetail.getQuantity());
+            });
+            if (orders.getShippingInfo().getDeliveryCompany().getId() == 2) {
+                ApiResponse apiResponse = giaoHangNhanhUltils.create(orders);
+                if (apiResponse.getErrors().equals(true)) {
+                    return apiResponse;
+                }
+            }
+            return ApiResponse.builder()
+                    .message("Order successfully!!!")
+                    .status(HttpStatus.CREATED.value())
+                    .errors(false)
+                    .data(OrderResponse.builder()
+                            .orderId(orders.getId())
+                            .photoUrl(portUtils.getUrlImage(
+                                    orders.getOrderDetails()
+                                            .get(0)
+                                            .getProductRepo()
+                                            .getProduct()
+                                            .getImgs()
+                                            .stream()
+                                            .findFirst()
+                                            .map(Imgs::getNameImg)
+                                            .orElse("defaultImageName")))
+                            .build())
+                    .build();
+        }
+
+        return ApiResponse.builder()
+                .message("Transaction failure!!! Please try again")
+                .status(HttpStatus.FAILED_DEPENDENCY.value())
+                .errors(true)
+                .data(null)
+                .build();
+    }
+
     private ShippingInfo createShippingInfo(Addresses addresses,OrderRequest orderRequest){
         return shippingInfoRepository.save(ShippingInfo.builder()
                 .fullName(addresses.getRecipient())

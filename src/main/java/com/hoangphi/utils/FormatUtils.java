@@ -17,6 +17,17 @@ public class FormatUtils {
     public String getAddress(String street, String ward, String district, String province) {
         return String.join(", ", street, ward, district, province);
     }
+    public String dateToString(LocalDate date, String pattern) {
+        DateTimeFormatter formatter = null;
+        try {
+            formatter = DateTimeFormatter.ofPattern(pattern);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        assert formatter != null;
+        return date.format(formatter);
+    }
 
     public Map<String,LocalDate> changeDateRange(Optional<LocalDate> minDate,Optional<LocalDate> maxDate){
         LocalDate minDateValue=minDate.orElse(null);

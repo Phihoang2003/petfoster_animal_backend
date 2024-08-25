@@ -3,8 +3,11 @@ package com.hoangphi.utils;
 import org.hibernate.annotations.Comment;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -39,6 +42,10 @@ public class FormatUtils {
     public LocalDate dateToDateFormat(LocalDate date, String pattern) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
         return LocalDate.parse(date.format(formatter), formatter);
+    }
+    public LocalDate convertStringToLocalDate(String dateString, String pattern) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+        return LocalDate.parse(dateString, formatter);
     }
 
 }

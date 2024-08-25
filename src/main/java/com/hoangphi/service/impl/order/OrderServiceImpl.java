@@ -11,6 +11,8 @@ import com.hoangphi.request.payments.PaymentRequest;
 import com.hoangphi.request.payments.VnPaymentRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.orders.OrderResponse;
+import com.hoangphi.response.orders_history.OrderDetailsResponse;
+import com.hoangphi.response.orders_history.OrderProductItem;
 import com.hoangphi.service.order.OrderService;
 import com.hoangphi.utils.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -40,6 +42,7 @@ public class OrderServiceImpl implements OrderService {
     private final GiaoHangNhanhUtils giaoHangNhanhUltils;
     private final FormatUtils formatUtils;
     private final PortUtils portUtils;
+    private final ReviewRepository reviewRepository;
 
     @Autowired
     private HttpServletRequest httpServletRequest;
@@ -275,6 +278,68 @@ public class OrderServiceImpl implements OrderService {
                 .build();
     }
 
+    @Override
+    public ApiResponse orderDetails(String jwt, Integer id) {
+        User user=userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        if(user==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.UNAUTHORIZED.value())
+                    .message("Unauthenticated")
+                    .data(null)
+                    .errors(null)
+                    .build();
+        }
+        Orders orders=orderRepository.findById(id).orElse(null);
+        if(orders==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("Order not found")
+                    .data(null)
+                    .errors(null)
+                    .build();
+        }
+        if(!user.getOrders().contains(orders)){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("This order not found in order list of this user")
+                    .data(null)
+                    .errors(null)
+                    .build();
+        }
+        ShippingInfo shippingInfo = orders.getShippingInfo();
+        Payment payment = orders.getPayment();
+
+        List<OrderDetail> details = orders.getOrderDetails();
+        List<OrderProductItem> products = new ArrayList<>();
+        details.forEach(item -> {
+            products.add(this.createOrderProductItem(item));
+        });
+        OrderDetailsResponse orderDetailsResponse=OrderDetailsResponse.builder()
+                .id(id)
+                .address(formatUtils.getAddress(shippingInfo.getAddress(), shippingInfo.getWard(),
+                        shippingInfo.getDistrict(),
+                        shippingInfo.getProvince()))
+                .placedDate(formatUtils.dateToString(orders.getCreateAt(), "MMM d, yyyy"))
+                .deliveryMethod(shippingInfo.getDeliveryCompany().getCompany())
+                .name(shippingInfo.getFullName())
+                .paymentMethod(payment.getPaymentMethod().getMethod())
+                .phone(shippingInfo.getPhone())
+                .products(products)
+                .shippingFee(shippingInfo.getShipFee())
+                .subTotal(orders.getTotal().intValue())
+                .total(orders.getTotal().intValue() + shippingInfo.getShipFee())
+                .state(orders.getStatus())
+                .expectedTime(orders.getExpectedDeliveryTime())
+                .build();
+
+        return ApiResponse.builder()
+                .message("Successfully")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(orderDetailsResponse)
+                .build();
+    }
+
     private ShippingInfo createShippingInfo(Addresses addresses,OrderRequest orderRequest){
         return shippingInfoRepository.save(ShippingInfo.builder()
                 .fullName(addresses.getRecipient())
@@ -301,6 +366,28 @@ public class OrderServiceImpl implements OrderService {
                 .print(0)
                 .shippingInfo(shippingInfo)
                 .build());
+    }
+    public OrderProductItem createOrderProductItem(OrderDetail orderDetail){
+        String image = "";
+
+        if (!orderDetail.getProductRepo().getProduct().getImgs().isEmpty()) {
+            image = orderDetail.getProductRepo().getProduct().getImgs().get(0).getNameImg();
+        }
+
+        Review review = reviewRepository.findReviewByUserAndProduct(orderDetail.getOrder().getUser().getId(),
+                orderDetail.getProductRepo().getProduct().getId(), orderDetail.getOrder().getId()).orElse(null);
+
+        return OrderProductItem.builder()
+                .id(orderDetail.getProductRepo().getProduct().getId())
+                .size(orderDetail.getProductRepo().getSize())
+                .image(portUtils.getUrlImage(image))
+                .name(orderDetail.getProductRepo().getProduct().getName())
+                .brand(orderDetail.getProductRepo().getProduct().getBrand().getBrand())
+                .price(orderDetail.getProductRepo().getOutPrice().intValue())
+                .quantity(orderDetail.getQuantity())
+                .isRate(review != null)
+                .repo(orderDetail.getProductRepo().getQuantity())
+                .build();
     }
     private OrderDetail createOrderDetail(ProductRepo productRepo, OrderItem orderItem,Orders orders){
         return orderDetailRepository.save(OrderDetail.builder()

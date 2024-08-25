@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
@@ -29,5 +31,13 @@ public class OrderController {
     @GetMapping("/order/history/{id}")
     public ResponseEntity<ApiResponse> orderDetails(@RequestHeader("Authorization") String jwt, @PathVariable Integer id) {
         return ResponseEntity.ok(orderService.orderDetails(jwt, id));
+    }
+
+    @GetMapping("order/history")
+    public ResponseEntity<ApiResponse> ordersHistory(
+            @RequestHeader("Authorization") String jwt,
+            @RequestParam("page") Optional<Integer> page,
+            @RequestParam("status") Optional<String> status) {
+        return ResponseEntity.ok(orderService.orderHistory(jwt, page, status));
     }
 }

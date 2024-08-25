@@ -2,6 +2,7 @@ package com.hoangphi.service.impl.order;
 
 import com.hoangphi.config.JwtProvider;
 import com.hoangphi.constant.OrderStatus;
+import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.*;
 import com.hoangphi.repository.*;
 import com.hoangphi.request.order.OrderItem;
@@ -12,19 +13,23 @@ import com.hoangphi.request.payments.VnPaymentRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.orders.OrderResponse;
 import com.hoangphi.response.orders_history.OrderDetailsResponse;
+import com.hoangphi.response.orders_history.OrderHistory;
+import com.hoangphi.response.orders_history.OrderHistoryResponse;
 import com.hoangphi.response.orders_history.OrderProductItem;
 import com.hoangphi.service.order.OrderService;
 import com.hoangphi.utils.*;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 @RequiredArgsConstructor
@@ -308,7 +313,6 @@ public class OrderServiceImpl implements OrderService {
         }
         ShippingInfo shippingInfo = orders.getShippingInfo();
         Payment payment = orders.getPayment();
-
         List<OrderDetail> details = orders.getOrderDetails();
         List<OrderProductItem> products = new ArrayList<>();
         details.forEach(item -> {
@@ -337,6 +341,74 @@ public class OrderServiceImpl implements OrderService {
                 .status(HttpStatus.OK.value())
                 .errors(false)
                 .data(orderDetailsResponse)
+                .build();
+    }
+
+    @Override
+    public ApiResponse orderHistory(String jwt, Optional<Integer> page, Optional<String> status) {
+        User user=userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        if(user==null){
+            return ApiResponse.builder()
+                    .status(HttpStatus.UNAUTHORIZED.value())
+                    .message("Unauthenticated")
+                    .data(null)
+                    .errors(null)
+                    .build();
+        }
+        List<Orders> orders_history=orderRepository.orderHistory(user.getId(),status.orElse(""));
+        if(orders_history.isEmpty()){
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("No data available")
+                    .data(null)
+                    .errors(null)
+                    .build();
+        }
+        List<OrderHistory> data = new ArrayList<>();
+        data=orders_history.stream().map(order->{
+            List<OrderDetail> orderDetails=order.getOrderDetails();
+            List<OrderProductItem> products=new ArrayList<>();
+            AtomicReference<Boolean> isTotalRate= new AtomicReference<>(true);
+            orderDetails.forEach(orderDetail->{
+                OrderProductItem orderProductItem=createOrderProductItem(orderDetail);
+                products.add(orderProductItem);
+                isTotalRate.set(isTotalRate.get() && orderProductItem.getIsRate());
+            });
+            return  OrderHistory.builder()
+                    .id(order.getId())
+                    .datePlace(formatUtils.dateToString(order.getCreateAt(), "MMM d, yyyy"))
+                    .state(order.getStatus())
+                    .stateMessage(order.getStatus())
+                    .total(order.getTotal() + order.getShippingInfo().getShipFee())
+                    .products(products)
+                    .isTotalRate(isTotalRate.get())
+                    .build();
+        }).toList();
+
+        Pageable pageable = PageRequest.of(page.orElse(0), 8);
+        int startIndex = (int) pageable.getOffset();
+        int endIndex = Math.min(startIndex + pageable.getPageSize(), data.size());
+
+        if (startIndex >= endIndex) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+
+        List<OrderHistory> visibleProducts = data.subList(startIndex, endIndex);
+        Page<OrderHistory> pagination = new PageImpl<OrderHistory>(visibleProducts, pageable, data.size());
+
+        return ApiResponse.builder()
+                .message("Successfully")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(OrderHistoryResponse.builder()
+                        .data(pagination.getContent())
+                        .pages(pagination.getTotalPages())
+                        .build())
                 .build();
     }
 

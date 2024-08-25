@@ -8,4 +8,6 @@ public interface OrderService {
     public ApiResponse order(String jwt, OrderRequest orderRequest);
 
     public ApiResponse payment(PaymentRequest paymentRequest);
+
+    public ApiResponse orderDetails(String jwt, Integer id);
 }

@@ -25,4 +25,9 @@ public class OrderController {
     public ResponseEntity<ApiResponse> payment(@Valid @RequestBody PaymentRequest paymentRequest) {
         return ResponseEntity.ok(orderService.payment(paymentRequest));
     }
+
+    @GetMapping("/order/history/{id}")
+    public ResponseEntity<ApiResponse> orderDetails(@RequestHeader("Authorization") String jwt, @PathVariable Integer id) {
+        return ResponseEntity.ok(orderService.orderDetails(jwt, id));
+    }
 }

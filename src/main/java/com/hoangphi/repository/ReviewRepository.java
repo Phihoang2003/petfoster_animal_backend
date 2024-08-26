@@ -18,4 +18,8 @@ public interface ReviewRepository extends JpaRepository<Review, Integer>{
     public Optional<Review> findReviewByUserAndProduct(@Param("userId") String userId,
                                                        @Param("productId") String productId, @Param("orderId") Integer orderId);
 
+    @Query(nativeQuery = true, value = "select* from review where order_id= :orderId and product_id =:productId ")
+    public Optional<Review> findByOrderIdAndProductId(@Param("orderId") Integer orderId,
+                                                      @Param("productId") String productId);
+
 }

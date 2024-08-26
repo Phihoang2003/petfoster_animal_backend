@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.*;
 public class SearchHistoryController {
     private final SearchHistoryService searchHistoryService;
     @GetMapping("")
-    public ResponseEntity<ApiResponse> getSearchHistopry(@RequestHeader("Authorization") String jwt) {
+    public ResponseEntity<ApiResponse> getSearchHistory(@RequestHeader("Authorization") String jwt) {
         return ResponseEntity.ok(searchHistoryService.getSearchHistory(jwt));
     }
 
     @PutMapping("")
-    public ResponseEntity<ApiResponse> updateSearchHistopry(@RequestHeader("Authorization") String jwt,
+    public ResponseEntity<ApiResponse> updateSearchHistory(@RequestHeader("Authorization") String jwt,
                                                            @RequestParam String keyword) {
         return ResponseEntity.ok(searchHistoryService.updateSearchHistory(jwt, keyword));
     }

@@ -5,23 +5,21 @@ import com.hoangphi.response.orders_history.OrderDetailsResponse;
 import com.hoangphi.service.order.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/api/admin/orders")
 @RequiredArgsConstructor
 public class OrdersController {
     private final OrderService orderService;
-    @GetMapping("/{username}")
-    public ResponseEntity<ApiResponse> getOrderTable(Model model, @PathVariable("username") String username) {
-        List<OrderDetailsResponse> orderDetailsList = orderService.orderDetailsTable(username);
+    @GetMapping("")
+    public String getOrderTable(Model model) {
+        List<OrderDetailsResponse> orderDetailsList = orderService.orderDetailsTable("All");
         model.addAttribute("list", orderDetailsList);
-        return ResponseEntity.ok(ApiResponse.builder().data(model).build());
+        return "orders";
     }
 }

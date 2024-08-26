@@ -536,6 +536,45 @@ public class OrderServiceImpl implements OrderService {
                 .build();
     }
 
+    @Override
+    public OrderDetailsResponse printInvoice(Integer id) {
+        Orders orders = orderRepository.findById(id).orElse(null);
+        if (orders == null)
+            return null;
+        // set print
+        orders.setPrint(orders.getPrint() + 1);
+
+        orderRepository.save(orders);
+
+        ShippingInfo shippingInfo = orders.getShippingInfo();
+
+        Payment payment = orders.getPayment();
+        List<OrderDetail> details = orders.getOrderDetails();
+        List<OrderProductItem> products = new ArrayList<>();
+        details.forEach(item -> {
+            products.add(this.createOrderProductItem(item));
+        });
+
+        OrderDetailsResponse orderDetailsResponse = new OrderDetailsResponse();
+        orderDetailsResponse.setId(orders.getId());
+        orderDetailsResponse.setAddress(formatUtils.getAddress(shippingInfo.getAddress(), shippingInfo.getWard(),
+                shippingInfo.getDistrict(), shippingInfo.getProvince()));
+        orderDetailsResponse.setPlacedDate(formatUtils.dateToString(orders.getCreateAt(), "dd/MM/yyyy"));
+        orderDetailsResponse.setDeliveryMethod(shippingInfo.getDeliveryCompany().getCompany());
+        orderDetailsResponse.setName(shippingInfo.getFullName());
+        orderDetailsResponse.setPaymentMethod(payment.getPaymentMethod().getMethod());
+        orderDetailsResponse.setPhone(shippingInfo.getPhone());
+        orderDetailsResponse.setProducts(products);
+        orderDetailsResponse.setShippingFee(shippingInfo.getShipFee());
+        orderDetailsResponse.setSubTotal(orders.getTotal().intValue());
+        orderDetailsResponse.setTotal(orders.getTotal().intValue() + shippingInfo.getShipFee());
+        orderDetailsResponse.setState(orders.getStatus());
+        orderDetailsResponse.setQuantity(orders.getOrderDetails().get(0).getQuantity());
+        orderDetailsResponse.setDisplayName(orders.getUser().getFullname() == null ? orders.getUser().getDisplayName()
+                : orders.getUser().getFullname());
+        return orderDetailsResponse;
+    }
+
     private ShippingInfo createShippingInfo(Addresses addresses,OrderRequest orderRequest){
         return shippingInfoRepository.save(ShippingInfo.builder()
                 .fullName(addresses.getRecipient())

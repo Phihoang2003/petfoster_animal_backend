@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="create update status request">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done cancel order by customer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/constant/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/order/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/order/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/order/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/order/OrdersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/order/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/order/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/FormatUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/FormatUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,31 +176,7 @@
       <workItem from="1724549630674" duration="911000" />
       <workItem from="1724556763909" duration="4234000" />
       <workItem from="1724581378889" duration="4548000" />
-      <workItem from="1724635729398" duration="3174000" />
-    </task>
-    <task id="LOCAL-00223" summary="add findBySizeAndProductId repo">
-      <option name="closed" value="true" />
-      <created>1723983501151</created>
-      <option name="number" value="00223" />
-      <option name="presentableId" value="LOCAL-00223" />
-      <option name="project" value="LOCAL" />
-      <updated>1723983501151</updated>
-    </task>
-    <task id="LOCAL-00224" summary="resolve problem with create cart">
-      <option name="closed" value="true" />
-      <created>1723983567216</created>
-      <option name="number" value="00224" />
-      <option name="presentableId" value="LOCAL-00224" />
-      <option name="project" value="LOCAL" />
-      <updated>1723983567216</updated>
-    </task>
-    <task id="LOCAL-00225" summary="add update cart">
-      <option name="closed" value="true" />
-      <created>1724041471653</created>
-      <option name="number" value="00225" />
-      <option name="presentableId" value="LOCAL-00225" />
-      <option name="project" value="LOCAL" />
-      <updated>1724041471653</updated>
+      <workItem from="1724635729398" duration="5513000" />
     </task>
     <task id="LOCAL-00226" summary="resolve problem with update cart">
       <option name="closed" value="true" />
@@ -569,7 +546,31 @@
       <option name="project" value="LOCAL" />
       <updated>1724638869318</updated>
     </task>
-    <option name="localTasksCounter" value="272" />
+    <task id="LOCAL-00272" summary="add GHN_CANCEL">
+      <option name="closed" value="true" />
+      <created>1724638991153</created>
+      <option name="number" value="00272" />
+      <option name="presentableId" value="LOCAL-00272" />
+      <option name="project" value="LOCAL" />
+      <updated>1724638991153</updated>
+    </task>
+    <task id="LOCAL-00273" summary="create cancel order by customer controller and service">
+      <option name="closed" value="true" />
+      <created>1724639028000</created>
+      <option name="number" value="00273" />
+      <option name="presentableId" value="LOCAL-00273" />
+      <option name="project" value="LOCAL" />
+      <updated>1724639028000</updated>
+    </task>
+    <task id="LOCAL-00274" summary="done cancel order by customer">
+      <option name="closed" value="true" />
+      <created>1724639046375</created>
+      <option name="number" value="00274" />
+      <option name="presentableId" value="LOCAL-00274" />
+      <option name="project" value="LOCAL" />
+      <updated>1724639046375</updated>
+    </task>
+    <option name="localTasksCounter" value="275" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,9 +594,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="resolve problem get delivery_time and order code from third GHN API" />
-    <MESSAGE value="bug" />
-    <MESSAGE value="create VNPayUtils,hmacSHA512,getIpAdress" />
     <MESSAGE value="create vnpay payment request" />
     <MESSAGE value="resolve problem payment with VNPay" />
     <MESSAGE value="separate HmacSHA512" />
@@ -618,7 +616,10 @@
     <MESSAGE value="done order history" />
     <MESSAGE value="done order detail table for admin" />
     <MESSAGE value="create update status request" />
-    <option name="LAST_COMMIT_MESSAGE" value="create update status request" />
+    <MESSAGE value="add GHN_CANCEL" />
+    <MESSAGE value="create cancel order by customer controller and service" />
+    <MESSAGE value="done cancel order by customer" />
+    <option name="LAST_COMMIT_MESSAGE" value="done cancel order by customer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -634,8 +635,8 @@
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
-          <line>596</line>
-          <properties class="com.hoangphi.service.impl.order.OrderServiceImpl">
+          <line>635</line>
+          <properties class="com.hoangphi.service.impl.order.OrderServiceImpl" method="updateQuantity">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

@@ -21,4 +21,6 @@ public interface OrderService {
     public List<OrderDetailsResponse> orderDetailsTable(String username);
 
     public ApiResponse cancelOrder(String jwt, Integer id, UpdateStatusRequest updateStatusRequest);
+
+    public OrderDetailsResponse printInvoice(Integer id);
 }

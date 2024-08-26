@@ -48,4 +48,9 @@ public class AdminOrderController {
         return ResponseEntity
                 .ok(orderFilterService.filterOrders(username, orderId, status, minDate, maxDate, sort, page, read));
     }
+
+    @GetMapping("/details/{id}")
+    public ResponseEntity<ApiResponse> orderDetails(@PathVariable Integer id) {
+        return ResponseEntity.ok(orderFilterService.orderDetails(id));
+    }
 }

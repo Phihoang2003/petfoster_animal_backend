@@ -1,10 +1,15 @@
 package com.hoangphi.service.impl.order;
 
 import com.hoangphi.constant.RespMessage;
+import com.hoangphi.entity.OrderDetail;
 import com.hoangphi.entity.Orders;
+import com.hoangphi.entity.Payment;
+import com.hoangphi.entity.ShippingInfo;
 import com.hoangphi.repository.OrderRepository;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.orders_history.OrderDetailsResponse;
 import com.hoangphi.response.orders_history.OrderFilterResponse;
+import com.hoangphi.response.orders_history.OrderProductItem;
 import com.hoangphi.response.orders_history.OrdersFilterResponse;
 import com.hoangphi.service.admin.order.OrderFilterService;
 import com.hoangphi.utils.FormatUtils;
@@ -108,6 +113,53 @@ public class OrderFilterServiceImpl implements OrderFilterService {
 
     @Override
     public ApiResponse orderDetails(Integer id) {
-        return null;
+        Orders order = orderRepository.findById(id).orElse(null);
+        if (order == null) {
+            return ApiResponse.builder()
+                    .message("Order not found")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors("Order not found")
+                    .build();
+        }
+
+        ShippingInfo shippingInfo = order.getShippingInfo();
+        Payment payment = order.getPayment();
+
+        List<OrderDetail> details = order.getOrderDetails();
+        List<OrderProductItem> products = new ArrayList<>();
+        details.forEach(item -> {
+            products.add(orderServiceImpl.createOrderProductItem(item));
+        });
+
+        OrderDetailsResponse orderDetails = OrderDetailsResponse.builder()
+                .id(id)
+                .address(formatUtils.getAddress(shippingInfo.getAddress(), shippingInfo.getWard(),
+                        shippingInfo.getDistrict(),
+                        shippingInfo.getProvince()))
+                .placedDate(formatUtils.dateToString(order.getCreateAt(), "MMM d, yyyy"))
+                .deliveryMethod(shippingInfo.getDeliveryCompany().getCompany())
+                .name(shippingInfo.getFullName())
+                .paymentMethod(payment.getPaymentMethod().getMethod())
+                .phone(shippingInfo.getPhone())
+                .products(products)
+                .shippingFee(shippingInfo.getShipFee())
+                .subTotal(order.getTotal().intValue())
+                .description(order.getDescriptions() == null ? "" : order.getDescriptions())
+                .total(order.getTotal().intValue() + shippingInfo.getShipFee())
+                .state(order.getStatus())
+                .expectedTime(order.getExpectedDeliveryTime())
+                .username(order.getUser().getUsername())
+                .displayName(order.getUser().getDisplayName())
+                .print(order.getPrint())
+                .read(order.getRead())
+                .token(order.getGhnCode())
+                .build();
+
+        return ApiResponse.builder()
+                .message("Successfully")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(orderDetails)
+                .build();
     }
 }

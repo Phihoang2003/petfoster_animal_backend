@@ -20,6 +20,8 @@ public class Constant {
     public static String GHN_GETDISCTRICT = "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/district";
     public static String GHN_GETWARD = "https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/ward?district_id";
     public static String GHN_CREATE = "https://dev-online-gateway.ghn.vn/shiip/public-api/v2/shipping-order/create";
+    public static String GHN_CANCEL = "https://dev-online-gateway.ghn.vn/shiip/public-api/v2/switch-status/cancel";
+
     public static String VNP_TMN_CODE = "1ULMXVXE";
     public static String VNP_RETURN_URL = "http://localhost:8019/payment";
     public static String VNP_SECRET_KEY = "RK367TRZDMPVP4NRZ3S5P8TQRBNVJGR1";

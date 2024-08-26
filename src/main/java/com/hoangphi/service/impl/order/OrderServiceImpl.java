@@ -1,12 +1,14 @@
 package com.hoangphi.service.impl.order;
 
 import com.hoangphi.config.JwtProvider;
+import com.hoangphi.constant.Constant;
 import com.hoangphi.constant.OrderStatus;
 import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.*;
 import com.hoangphi.repository.*;
 import com.hoangphi.request.order.OrderItem;
 import com.hoangphi.request.order.OrderRequest;
+import com.hoangphi.request.order.UpdateStatusRequest;
 import com.hoangphi.request.payments.MoMoPaymentRequest;
 import com.hoangphi.request.payments.PaymentRequest;
 import com.hoangphi.request.payments.VnPaymentRequest;
@@ -25,8 +27,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
@@ -456,6 +461,81 @@ public class OrderServiceImpl implements OrderService {
         return oDetailsList;
     }
 
+    @Override
+    public ApiResponse cancelOrder(String jwt, Integer id, UpdateStatusRequest updateStatusRequest) {
+        User user = userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        if (user == null) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.UNAUTHORIZED.value())
+                    .message("Unauthenticated")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        Orders orders = orderRepository.findById(id).orElse(null);
+        if (orders == null) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("Order not found")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        if (!user.getOrders().contains(orders)) {
+            return ApiResponse.builder()
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .message("This order not found in order list of this user")
+                    .data(null)
+                    .errors(true)
+                    .build();
+        }
+        String updateStatus;
+        try {
+            updateStatus = OrderStatus.valueOf(updateStatusRequest.getStatus()).getValue();
+        } catch (Exception e) {
+            return ApiResponse.builder()
+                    .message(updateStatusRequest.getStatus() + " doesn't exists in the enum")
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .errors(true)
+                    .build();
+        }
+        if (!updateStatus.equalsIgnoreCase(OrderStatus.CANCELLED_BY_CUSTOMER.getValue())) {
+            return ApiResponse.builder()
+                    .message("You cannot update the order!!!")
+                    .status(HttpStatus.FAILED_DEPENDENCY.value())
+                    .errors(true)
+                    .build();
+        }
+        if (orders.getStatus().equalsIgnoreCase(OrderStatus.SHIPPING.getValue()) ||
+                orders.getStatus().equalsIgnoreCase(OrderStatus.DELIVERED.getValue())) {
+            return ApiResponse.builder()
+                    .message("You cannot cancel the order!!!")
+                    .status(HttpStatus.FAILED_DEPENDENCY.value())
+                    .errors(true)
+                    .build();
+        }
+        orders.setStatus(updateStatus);
+        orders.setDescriptions(updateStatusRequest.getReason() != null ? updateStatusRequest.getReason() : "");
+        orderRepository.save(orders);
+        if (orders.getGhnCode() != null) {
+            List<String> orderCodes = new ArrayList<>();
+            RestTemplate restTemplate = new RestTemplate();
+            orderCodes.add(orders.getGhnCode());
+            HttpEntity<Map<String, Object>> request = giaoHangNhanhUltils.createRequest("order_codes", orderCodes);
+            ResponseEntity<String> response = restTemplate.postForEntity(Constant.GHN_CANCEL, request, String.class);
+        }
+        orders.getOrderDetails().forEach(orderDetail -> {
+            ProductRepo productRepo = orderDetail.getProductRepo();
+            returnQuantity(productRepo, orderDetail.getQuantity());
+        });
+        return ApiResponse.builder()
+                .message("Successfully!!!")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(null)
+                .build();
+    }
+
     private ShippingInfo createShippingInfo(Addresses addresses,OrderRequest orderRequest){
         return shippingInfoRepository.save(ShippingInfo.builder()
                 .fullName(addresses.getRecipient())
@@ -516,6 +596,10 @@ public class OrderServiceImpl implements OrderService {
     }
     private ProductRepo updateQuantity(ProductRepo productRepo,Integer quantity){
         productRepo.setQuantity(productRepo.getQuantity()-quantity);
+        return productRepoRepository.save(productRepo);
+    }
+    public ProductRepo returnQuantity(ProductRepo productRepo, Integer quantity) {
+        productRepo.setQuantity(productRepo.getQuantity() + quantity);
         return productRepoRepository.save(productRepo);
     }
 }

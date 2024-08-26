@@ -1,0 +1,31 @@
+<table style="table-layout: auto; width: 100%">
+    <style>
+        tbody tr {
+            cursor: pointer;
+        }
+
+        tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <thead>
+    <tr style="height: 60px">
+        <th>ID</th>
+        <th>Total</th>
+        <th>Quantity</th>
+        <th>Name Customer</th>
+        <th>Phone Customer</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${list}" style="height: 60px; text-align: center">
+        <td><span th:text="${order.id}"></span></td>
+        <td><span th:text="${order.total}"></span></td>
+        <td><span th:text="${order.quantity}"></span></td>
+        <td><span th:text="${order.name}"></span></td>
+        <td><span th:text="${order.phone}"></span></td>
+        <td><span th:text="${order.state}"></span></td>
+    </tr>
+    </tbody>
+</table>

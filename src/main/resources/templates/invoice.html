@@ -1,0 +1,229 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Phiếu In 80x80</title>
+
+    <style type="text/css">
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
+        @media print {
+            @page {
+                size: 148mm 210mm;
+                margin-top: 0;
+                margin-right: 1rem;
+                margin-bottom: 0;
+                margin-left: 0;
+                min-height: auto;
+            }
+        }
+
+        body {
+            font-family: 'Arial';
+        }
+
+        .container {
+            width: 148mm;
+            height: 210mm;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .content-header {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            gap: 20px;
+        }
+        .content-logo {
+            width: 60px;
+        }
+
+        .content-sesion {
+            display: flex;
+            flex-direction: column;
+            margin-top: 40px;
+            gap: 2px;
+            align-items: center;
+        }
+
+        .content-sesion span {
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        .content {
+            display: flex;
+            margin-top: 20px;
+            font-size: 14px;
+            justify-content: space-between;
+        }
+
+        .content-status {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 13px;
+        }
+
+        #customers td,
+        #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .border {
+            width: 100%;
+            height: 1px;
+            background: #000;
+            margin-top: 20px;
+        }
+
+        .signature {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .signature span {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .signature div {
+            width: 100%;
+            height: 50px;
+        }
+
+        .signature p {
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        .signature .name {
+            font-size: 12px;
+        }
+
+        .container-signature {
+            display: flex;
+            align-items: center;
+            gap: 100px;
+            justify-content: flex-end;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<script>
+    function processBar() {
+        window.print();
+    }
+</script>
+
+<div class="container">
+    <div class="content-header">
+        <img onload="processBar()" class="content-logo" src="http://localhost:8019/images/logo.jpg" alt="logo" />
+        <div class="">
+            <div><b>Store:</b> <span>288 Dang Thuc Vinh, Thoi Tam Thon, Hoc Mon, Thanh Pho Ho Chi Minh</span></div>
+            <div><b>Hotline:</b> <span>0913842870</span></div>
+            <div><b>Website:</b> <span>http://localhost:3000</span></div>
+        </div>
+    </div>
+
+    <div class="content-sesion">
+        <h2>INVOICE</h2>
+        <span th:text="|(id: ${data.id} - ${data.placedDate})|">(id: - 21/02/2024 14:40)</span>
+    </div>
+
+    <div class="content">
+        <div class="content-status">
+            <div><b>Customer:</b> <span th:text="${data.name}">Dang Hoang Phi</span></div>
+            <div><b>Phone:</b> <span th:text="${data.phone}">Dang Hoang Phi</span></div>
+            <div><b>Address:</b> <span th:text="${data.address}">Dang Hoang Phi</span></div>
+        </div>
+    </div>
+
+    <table id="customers">
+        <tr>
+            <th>No</th>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Commodity money</th>
+        </tr>
+        <!-- <tr>
+            <td style="text-align: center">1</td>
+            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus laborum delectus et, at impedit iste explicabo suscipit libero aperiam nostrum.</td>
+            <td style="text-align: center">Maria Anders</td>
+            <td style="text-align: center">Germany</td>
+            <td style="text-align: center">Germany</td>
+        </tr> -->
+        <tr th:each="order, index : ${data.products}" style="height: 60px; text-align: center">
+            <td th:text="${index.index + 1}" style="text-align: center">1</td>
+            <td th:text="${order.id}">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus laborum delectus et, at impedit iste explicabo suscipit libero aperiam nostrum.
+            </td>
+            <td th:text="${order.name}" style="text-align: center">Maria Anders</td>
+            <td th:text="${order.quantity}" style="text-align: center">Germany</td>
+            <td th:text="|${#numbers.formatDecimal(order.price, 0, 'COMMA', 0, 'POINT')} VND|" style="text-align: center">Germany</td>
+        </tr>
+    </table>
+
+    <div style="margin-top: 20px; display: flex; justify-content: flex-end">
+        <div style="width: 50%">
+            <div style="display: flex; justify-content: space-between; font-size: 14px; margin-top: 10px">
+                <b>Shipping fee:</b> <span th:text="|${#numbers.formatDecimal(data.shippingFee, 0, 'COMMA', 0, 'POINT')} VND|">1241241 VND</span>
+                <!-- <b>Shipping fee:</b> <span th:text="|${data.shippingFee} VND|">1241241 VND</span> -->
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 14px; margin-top: 10px">
+                <!-- <b>Sub total:</b> <span th:text="|${data.subTotal} VND|">1241241 VND</span> -->
+                <b>Sub total:</b> <span th:text="|${#numbers.formatDecimal(data.subTotal, 0, 'COMMA', 0, 'POINT')} VND|">1241241 VND</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 14px; margin-top: 10px">
+                <b>Total:</b> <span th:text="|${#numbers.formatDecimal(data.total, 0, 'COMMA', 0, 'POINT')} VND|">1241241 VND</span>
+            </div>
+            <!-- <div style="display: flex; justify-content: space-between; font-size: 14px; margin-top: 10px"><b>Total:</b> <span th:text="|${data.total} VND|">1241241 VND</span></div> -->
+        </div>
+    </div>
+
+    <div class="border"></div>
+
+    <div class="container-signature">
+        <div class="signature">
+            <span>Customer</span>
+            <p>(signature, full name)</p>
+            <div></div>
+            <span class="name" th:text="${data.name}">Dang Hoang Phi</span>
+        </div>
+        <div class="signature">
+            <span>Staff</span>
+            <p>(signature, full name)</p>
+            <div></div>
+            <span class="name" th:text="${data.displayName}">Dang Hoang Phi</span>
+        </div>
+    </div>
+
+    <div style="display: flex; align-items: center; justify-content: center; font-size: 12px; margin-top: 100px; font-weight: bold">
+        <span> Thank you for your purchase</span>
+    </div>
+</div>

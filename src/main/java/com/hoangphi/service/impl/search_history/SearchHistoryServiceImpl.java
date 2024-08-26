@@ -95,7 +95,30 @@ public class SearchHistoryServiceImpl implements SearchHistoryService {
 
     @Override
     public ApiResponse deleteSearchHistory(String jwt, String keyword) {
-        return null;
+        Map<String, String> errorsMap = new HashMap<>();
+        User user = userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+
+        if (user == null) {
+            errorsMap.put("user", "user not found");
+            return ApiResponse.builder()
+                    .message("Unauthenticated")
+                    .status(HttpStatus.UNAUTHORIZED.value())
+                    .errors(errorsMap)
+                    .build();
+        }
+        List<SearchHistory> listSearch = searchHistoryRepository.findByUserIdAndKeyword(user.getId(), keyword)
+                .orElse(null);
+        assert listSearch != null;
+        searchHistoryRepository.deleteAll(listSearch);
+
+        List<SearchHistoryResponse> listResponse = getListResponse(user.getId());
+
+        return ApiResponse.builder()
+                .message("Query product Successfully")
+                .status(HttpStatus.OK.value())
+                .errors(null)
+                .data(listResponse)
+                .build();
     }
 
     public List<SearchHistoryResponse>  getListResponse(String userId){

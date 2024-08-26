@@ -6,6 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Nationalized;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 
 @Data
@@ -17,17 +22,25 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "user_id")
-    private User user;
+
+    @Nationalized
+    private String comment;
+
+    private Integer repliedId;
 
     private Integer rate;
+    @CreationTimestamp
+    private LocalDate createAt;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     @JsonIgnore
     private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "order_id")

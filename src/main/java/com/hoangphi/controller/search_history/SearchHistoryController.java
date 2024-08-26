@@ -21,4 +21,10 @@ public class SearchHistoryController {
                                                            @RequestParam String keyword) {
         return ResponseEntity.ok(searchHistoryService.updateSearchHistory(jwt, keyword));
     }
+
+    @DeleteMapping("")
+    public ResponseEntity<ApiResponse> deleteSearchHistory(@RequestHeader("Authorization") String jwt,
+                                                           @RequestParam String keyword) {
+        return ResponseEntity.ok(searchHistoryService.deleteSearchHistory(jwt, keyword));
+    }
 }

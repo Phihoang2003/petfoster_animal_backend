@@ -9,6 +9,7 @@ import com.hoangphi.repository.PaymentRepository;
 import com.hoangphi.repository.ProductRepoRepository;
 import com.hoangphi.request.order.UpdateStatusRequest;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.orders_history.OrderFilterResponse;
 import com.hoangphi.service.order.AdminOrderService;
 import com.hoangphi.utils.FormatUtils;
 import com.hoangphi.utils.GiaoHangNhanhUtils;
@@ -117,7 +118,45 @@ public class AdminOrderServiceImpl implements AdminOrderService {
 
     @Override
     public ApiResponse updateReadForOrder(Integer id) {
-        return null;
+        if (id == null) {
+            return ApiResponse.builder()
+                    .message("ID invalid !")
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        Orders order = orderRepository.findById(id).orElse(null);
+
+        if (order == null) {
+            return ApiResponse.builder()
+                    .message("Not found !")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        order.setRead(true);
+
+        orderRepository.save(order);
+
+        return ApiResponse.builder()
+                .message("Successfully!!!")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(OrderFilterResponse.builder()
+                        .orderId(order.getId())
+                        .username(order.getUser().getUsername())
+                        .total(order.getTotal().intValue())
+                        .placedDate(formatUtils.dateToString(order.getCreateAt(), "yyyy-MM-dd"))
+                        .status(order.getStatus())
+                        .read(order.getRead())
+                        .print(order.getPrint())
+                        .token(order.getGhnCode())
+                        .build())
+                .build();
     }
 
     @Override

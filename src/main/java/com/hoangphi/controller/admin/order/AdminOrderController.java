@@ -17,4 +17,9 @@ public class AdminOrderController {
                                                          @RequestBody UpdateStatusRequest updateStatusRequest) {
         return ResponseEntity.ok(adminOrderService.updateOrderStatus(id, updateStatusRequest));
     }
+
+    @PutMapping("/read/{id}")
+    public ResponseEntity<ApiResponse> updateReadForOrder(@PathVariable Integer id) {
+        return ResponseEntity.ok(adminOrderService.updateReadForOrder(id));
+    }
 }

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done print invoice">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done update status order for admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/order/AdminOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/order/AdminOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/AdminOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/AdminOrderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,23 +174,7 @@
       <workItem from="1724556763909" duration="4234000" />
       <workItem from="1724581378889" duration="4548000" />
       <workItem from="1724635729398" duration="5780000" />
-      <workItem from="1724655079173" duration="1603000" />
-    </task>
-    <task id="LOCAL-00229" summary="create delivery company">
-      <option name="closed" value="true" />
-      <created>1724134792816</created>
-      <option name="number" value="00229" />
-      <option name="presentableId" value="LOCAL-00229" />
-      <option name="project" value="LOCAL" />
-      <updated>1724134792816</updated>
-    </task>
-    <task id="LOCAL-00230" summary="modified">
-      <option name="closed" value="true" />
-      <created>1724134889774</created>
-      <option name="number" value="00230" />
-      <option name="presentableId" value="LOCAL-00230" />
-      <option name="project" value="LOCAL" />
-      <updated>1724134889774</updated>
+      <workItem from="1724655079173" duration="2531000" />
     </task>
     <task id="LOCAL-00231" summary="create order detail and order item">
       <option name="closed" value="true" />
@@ -567,7 +552,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724641512725</updated>
     </task>
-    <option name="localTasksCounter" value="278" />
+    <task id="LOCAL-00278" summary="create admin order service">
+      <option name="closed" value="true" />
+      <created>1724656828046</created>
+      <option name="number" value="00278" />
+      <option name="presentableId" value="LOCAL-00278" />
+      <option name="project" value="LOCAL" />
+      <updated>1724656828046</updated>
+    </task>
+    <task id="LOCAL-00279" summary="done update status order for admin">
+      <option name="closed" value="true" />
+      <created>1724656936097</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1724656936097</updated>
+    </task>
+    <option name="localTasksCounter" value="280" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,8 +592,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create MomoPaymentRequest" />
-    <MESSAGE value="develop payment with Momo" />
     <MESSAGE value="bug for payment with momo" />
     <MESSAGE value="fix bug for payment with momo successfully" />
     <MESSAGE value="create payment request" />
@@ -616,7 +615,9 @@
     <MESSAGE value="create invoice.html" />
     <MESSAGE value="modified convert date to string" />
     <MESSAGE value="done print invoice" />
-    <option name="LAST_COMMIT_MESSAGE" value="done print invoice" />
+    <MESSAGE value="create admin order service" />
+    <MESSAGE value="done update status order for admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="done update status order for admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

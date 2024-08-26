@@ -633,7 +633,7 @@ public class OrderServiceImpl implements OrderService {
                 .order(orders)
                 .build());
     }
-    private ProductRepo updateQuantity(ProductRepo productRepo,Integer quantity){
+    public ProductRepo updateQuantity(ProductRepo productRepo,Integer quantity){
         productRepo.setQuantity(productRepo.getQuantity()-quantity);
         return productRepoRepository.save(productRepo);
     }

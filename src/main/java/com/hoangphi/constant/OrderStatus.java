@@ -12,7 +12,6 @@ public enum OrderStatus {
     WAITING("Waiting");
 
     private final String state;
-
     public String getValue() {
         return state;
     }

@@ -1,6 +1,7 @@
 package com.hoangphi.controller.order;
 
 import com.hoangphi.request.order.OrderRequest;
+import com.hoangphi.request.order.UpdateStatusRequest;
 import com.hoangphi.request.payments.PaymentRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.order.OrderService;
@@ -29,15 +30,22 @@ public class OrderController {
     }
 
     @GetMapping("/order/history/{id}")
-    public ResponseEntity<ApiResponse> orderDetails(@RequestHeader("Authorization") String jwt, @PathVariable Integer id) {
+    public ResponseEntity<ApiResponse> orderDetails(@RequestHeader("Authorization") String jwt,
+                                                    @PathVariable Integer id) {
         return ResponseEntity.ok(orderService.orderDetails(jwt, id));
     }
 
-    @GetMapping("order/history")
+    @GetMapping("/order/history")
     public ResponseEntity<ApiResponse> ordersHistory(
             @RequestHeader("Authorization") String jwt,
             @RequestParam("page") Optional<Integer> page,
             @RequestParam("status") Optional<String> status) {
         return ResponseEntity.ok(orderService.orderHistory(jwt, page, status));
+    }
+
+    @PostMapping("/order/cancel/{id}")
+    public ResponseEntity<ApiResponse> cancelOrder(@RequestHeader("Authorization") String jwt, @PathVariable Integer id,
+                                                   @RequestBody UpdateStatusRequest updateStatusRequest) {
+        return ResponseEntity.ok(orderService.cancelOrder(jwt, id, updateStatusRequest));
     }
 }

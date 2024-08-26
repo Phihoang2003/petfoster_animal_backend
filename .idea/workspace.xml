@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with get carts successfully">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product_repo/ProductRepoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/product_repo/ProductRepoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/admin/products_repo/ProductRepoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/admin/products_repo/ProductRepoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/products_repo/ProductRepoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/products_repo/ProductRepoServiceImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done get order detail for admin" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,14 +60,10 @@
     "Spring Boot.PetFosterApplication.executor": "Run",
     "data.sources.detected.do.not.suggest.again": "true",
     "extract.method.default.visibility": "private",
-<<<<<<< HEAD
     "git-widget-placeholder": "development",
-=======
-    "git-widget-placeholder": "hoangphi/handle-cart",
->>>>>>> hoangphi/handle-cart
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
+    "last_opened_file_path": "D:/pet-backend/petfoster-animal-back-end-2.0",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,7 +72,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "vcs.Git",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -707,7 +698,7 @@
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ImagesRepository.java</url>
           <line>13</line>
-          <properties class="com.hoangphi.repository.ImagesRepository" method="getImagesByProductId">
+          <properties class="com.hoangphi.repository.ImagesRepository">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

@@ -161,7 +161,44 @@ public class AdminOrderServiceImpl implements AdminOrderService {
 
     @Override
     public ApiResponse updatePrintForOrder(Integer id) {
-        return null;
-    }
+        if (id == null) {
+            return ApiResponse.builder()
+                    .message("ID invalid !")
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
 
+        Orders order = orderRepository.findById(id).orElse(null);
+
+        if (order == null) {
+            return ApiResponse.builder()
+                    .message("Not found !")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        order.setPrint(order.getPrint() + 1);
+
+        orderRepository.save(order);
+
+        return ApiResponse.builder()
+                .message("Successfully!!!")
+                .status(200)
+                .errors(false)
+                .data(OrderFilterResponse.builder()
+                        .orderId(order.getId())
+                        .username(order.getUser().getUsername())
+                        .total(order.getTotal().intValue())
+                        .placedDate(formatUtils.dateToString(order.getCreateAt(), "yyyy-MM-dd"))
+                        .status(order.getStatus())
+                        .read(order.getRead())
+                        .print(order.getPrint())
+                        .token(order.getGhnCode())
+                        .build())
+                .build();
+    }
 }

@@ -22,4 +22,9 @@ public class AdminOrderController {
     public ResponseEntity<ApiResponse> updateReadForOrder(@PathVariable Integer id) {
         return ResponseEntity.ok(adminOrderService.updateReadForOrder(id));
     }
+
+    @PutMapping("print/{id}")
+    public ResponseEntity<ApiResponse> updatePrintForOrder(@PathVariable Integer id) {
+        return ResponseEntity.ok(adminOrderService.updatePrintForOrder(id));
+    }
 }

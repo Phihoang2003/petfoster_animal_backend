@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done filter order for admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/order/AdminOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/order/AdminOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderFilterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderFilterServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/SearchHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/SearchHistory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,10 +63,10 @@
     "Spring Boot.PetFosterApplication.executor": "Run",
     "data.sources.detected.do.not.suggest.again": "true",
     "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "hoangphi/handle-order",
+    "git-widget-placeholder": "hoangphi/handle-search-history",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/pet-backend/petfoster-animal-back-end-2.0",
+    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -175,6 +174,7 @@
       <workItem from="1724581378889" duration="4548000" />
       <workItem from="1724635729398" duration="5780000" />
       <workItem from="1724655079173" duration="4807000" />
+      <workItem from="1724664224969" duration="1887000" />
     </task>
     <task id="LOCAL-00237" summary="modified">
       <option name="closed" value="true" />
@@ -592,7 +592,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create order detail response" />
     <MESSAGE value="create product item" />
     <MESSAGE value="convert date to string" />
     <MESSAGE value="done findByUserProductAndOrder repository" />
@@ -617,7 +616,8 @@
     <MESSAGE value="done filter order repository for admin" />
     <MESSAGE value="create filter order response" />
     <MESSAGE value="done filter order for admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="done filter order for admin" />
+    <MESSAGE value="done get order detail for admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="done get order detail for admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

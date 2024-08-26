@@ -16,4 +16,9 @@ public interface OrderRepository extends JpaRepository<Orders, Integer> {
             "order by " +
             "create_at desc")
     public List<Orders> orderHistory(@Param("userId") String userId, @Param("status") String status);
+
+    @Query(nativeQuery = true, value = "select * from orders " +
+            "where [user_id] = :userId")
+    public List<Orders> getOrderListByUserID(@Param("userId") String userId);
+
 }

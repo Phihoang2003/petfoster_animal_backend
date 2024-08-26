@@ -2,35 +2,33 @@ package com.hoangphi.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import lombok.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-public class Review {
+public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    private Integer rate;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    @JsonIgnore
-    private Product product;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
     @JsonIgnore
+    @ToString.Exclude
     private Orders order;
+
+    private Integer quantity;
+
+    private Double price;
+
+    private Double total;
+
+    @OneToOne
+    @JoinColumn(name = "product_repo_id")
+    @ToString.Exclude
+    private ProductRepo productRepo;
+
 }

@@ -3,34 +3,25 @@ package com.hoangphi.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.hibernate.annotations.Nationalized;
 
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
-public class Review {
+public class PaymentMethod {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
+    @Nationalized
+    private String method;
+    @OneToMany(mappedBy = "paymentMethod", cascade = CascadeType.ALL)
     @JsonIgnore
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    private Integer rate;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    @JsonIgnore
-    private Product product;
-
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    @JsonIgnore
-    private Orders order;
+    @ToString.Exclude
+    private List<Payment> payments;
 }

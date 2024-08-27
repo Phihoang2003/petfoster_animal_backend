@@ -22,4 +22,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 
     @Query("select p from Product p where p.id = :id")
     public Optional<Product> findById(@Param("id") String id);
+
+    @Query(nativeQuery = true, value = "select * from product " +
+            "where product_name like %:name%")
+    public List<Product> getProductsByNameInReview(@Param("name") String name);
 }

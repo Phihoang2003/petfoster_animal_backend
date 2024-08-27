@@ -1,0 +1,8 @@
+{
+  "message": "product not found!",
+  "status": 404,
+  "errors": {
+    "product": "product not found!"
+  },
+  "data": null
+}

@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done get order detail for admin" />
 =======
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done filter order for admin">
@@ -13,6 +14,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderFilterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderFilterServiceImpl.java" afterDir="false" />
     </list>
 >>>>>>> hoangphi/handle-order
+=======
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="fix bug for modifiable list using List and done filter review for admin" />
+>>>>>>> hoangphi/handle-search-history
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +61,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RequestMappingsPanelOrder0": "0",
@@ -86,14 +91,44 @@
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "vcs.Git",
     "vue.rearranger.settings.migration": "true"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;HTTP Request.test | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | (dòng trống)#2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | (dòng trống).executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PetFosterApplication.executor&quot;: &quot;Run&quot;,
+    &quot;data.sources.detected.do.not.suggest.again&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;hoangphi/handle-search-history&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/pet-backend/petfoster-animal-back-end-2.0&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+>>>>>>> hoangphi/handle-search-history
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver.localdb",
-      "sqlserver"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver.localdb&quot;,
+      &quot;sqlserver&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.hoangphi.entity" />
@@ -106,7 +141,23 @@
       <recent name="D:\Hocweb\Hocweb\ProjectWeb\petfoster_animal_backend\src\main\resources\templates" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunDashboard">
+    <option name="excludedTypes">
+      <set>
+        <option value="HttpClient.HttpRequestRunConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.PetFosterApplication">
+    <configuration name="test | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/test/java/test.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="test | (dòng trống)" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/test/java/test.http" requestIdentifier="(dòng trống)" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="test | (dòng trống)#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/test/java/test.http" index="2" requestIdentifier="(dòng trống)#2" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -119,6 +170,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.test | (dòng trống)" />
+        <item itemvalue="HTTP Request.test | (dòng trống)#2" />
+        <item itemvalue="HTTP Request.test | #1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -183,150 +241,11 @@
       <workItem from="1724581378889" duration="4548000" />
       <workItem from="1724635729398" duration="5780000" />
       <workItem from="1724655079173" duration="4807000" />
-    </task>
-    <task id="LOCAL-00237" summary="modified">
-      <option name="closed" value="true" />
-      <created>1724166438735</created>
-      <option name="number" value="00237" />
-      <option name="presentableId" value="LOCAL-00237" />
-      <option name="project" value="LOCAL" />
-      <updated>1724166438735</updated>
-    </task>
-    <task id="LOCAL-00238" summary="create request to access third api">
-      <option name="closed" value="true" />
-      <created>1724166536741</created>
-      <option name="number" value="00238" />
-      <option name="presentableId" value="LOCAL-00238" />
-      <option name="project" value="LOCAL" />
-      <updated>1724166536741</updated>
-    </task>
-    <task id="LOCAL-00239" summary="create getProvinceId">
-      <option name="closed" value="true" />
-      <created>1724166570021</created>
-      <option name="number" value="00239" />
-      <option name="presentableId" value="LOCAL-00239" />
-      <option name="project" value="LOCAL" />
-      <updated>1724166570021</updated>
-    </task>
-    <task id="LOCAL-00240" summary="done get provinceId using config GHN API">
-      <option name="closed" value="true" />
-      <created>1724226399461</created>
-      <option name="number" value="00240" />
-      <option name="presentableId" value="LOCAL-00240" />
-      <option name="project" value="LOCAL" />
-      <updated>1724226399462</updated>
-    </task>
-    <task id="LOCAL-00241" summary="bug for get districtId">
-      <option name="closed" value="true" />
-      <created>1724226423236</created>
-      <option name="number" value="00241" />
-      <option name="presentableId" value="LOCAL-00241" />
-      <option name="project" value="LOCAL" />
-      <updated>1724226423236</updated>
-    </task>
-    <task id="LOCAL-00242" summary="fix bug for get districtId">
-      <option name="closed" value="true" />
-      <created>1724226741655</created>
-      <option name="number" value="00242" />
-      <option name="presentableId" value="LOCAL-00242" />
-      <option name="project" value="LOCAL" />
-      <updated>1724226741655</updated>
-    </task>
-    <task id="LOCAL-00243" summary="done get districtId for third GHN API">
-      <option name="closed" value="true" />
-      <created>1724226793570</created>
-      <option name="number" value="00243" />
-      <option name="presentableId" value="LOCAL-00243" />
-      <option name="project" value="LOCAL" />
-      <updated>1724226793570</updated>
-    </task>
-    <task id="LOCAL-00244" summary="done get wardId for third GHN API">
-      <option name="closed" value="true" />
-      <created>1724227976029</created>
-      <option name="number" value="00244" />
-      <option name="presentableId" value="LOCAL-00244" />
-      <option name="project" value="LOCAL" />
-      <updated>1724227976029</updated>
-    </task>
-    <task id="LOCAL-00245" summary="create order status request">
-      <option name="closed" value="true" />
-      <created>1724241145362</created>
-      <option name="number" value="00245" />
-      <option name="presentableId" value="LOCAL-00245" />
-      <option name="project" value="LOCAL" />
-      <updated>1724241145362</updated>
-    </task>
-    <task id="LOCAL-00246" summary="create GHNPostRequest">
-      <option name="closed" value="true" />
-      <created>1724241163221</created>
-      <option name="number" value="00246" />
-      <option name="presentableId" value="LOCAL-00246" />
-      <option name="project" value="LOCAL" />
-      <updated>1724241163221</updated>
-    </task>
-    <task id="LOCAL-00247" summary="resolve problem get delivery_time and order code from third GHN API">
-      <option name="closed" value="true" />
-      <created>1724241222180</created>
-      <option name="number" value="00247" />
-      <option name="presentableId" value="LOCAL-00247" />
-      <option name="project" value="LOCAL" />
-      <updated>1724241222180</updated>
-    </task>
-    <task id="LOCAL-00248" summary="bug">
-      <option name="closed" value="true" />
-      <created>1724344671062</created>
-      <option name="number" value="00248" />
-      <option name="presentableId" value="LOCAL-00248" />
-      <option name="project" value="LOCAL" />
-      <updated>1724344671063</updated>
-    </task>
-    <task id="LOCAL-00249" summary="create VNPayUtils,hmacSHA512,getIpAdress">
-      <option name="closed" value="true" />
-      <created>1724480542707</created>
-      <option name="number" value="00249" />
-      <option name="presentableId" value="LOCAL-00249" />
-      <option name="project" value="LOCAL" />
-      <updated>1724480542707</updated>
-    </task>
-    <task id="LOCAL-00250" summary="create vnpay payment request">
-      <option name="closed" value="true" />
-      <created>1724487485183</created>
-      <option name="number" value="00250" />
-      <option name="presentableId" value="LOCAL-00250" />
-      <option name="project" value="LOCAL" />
-      <updated>1724487485183</updated>
-    </task>
-    <task id="LOCAL-00251" summary="resolve problem payment with VNPay">
-      <option name="closed" value="true" />
-      <created>1724487550477</created>
-      <option name="number" value="00251" />
-      <option name="presentableId" value="LOCAL-00251" />
-      <option name="project" value="LOCAL" />
-      <updated>1724487550477</updated>
-    </task>
-    <task id="LOCAL-00252" summary="separate HmacSHA512">
-      <option name="closed" value="true" />
-      <created>1724496158882</created>
-      <option name="number" value="00252" />
-      <option name="presentableId" value="LOCAL-00252" />
-      <option name="project" value="LOCAL" />
-      <updated>1724496158882</updated>
-    </task>
-    <task id="LOCAL-00253" summary="create MomoPaymentRequest">
-      <option name="closed" value="true" />
-      <created>1724496177133</created>
-      <option name="number" value="00253" />
-      <option name="presentableId" value="LOCAL-00253" />
-      <option name="project" value="LOCAL" />
-      <updated>1724496177133</updated>
-    </task>
-    <task id="LOCAL-00254" summary="develop payment with Momo">
-      <option name="closed" value="true" />
-      <created>1724496246918</created>
-      <option name="number" value="00254" />
-      <option name="presentableId" value="LOCAL-00254" />
-      <option name="project" value="LOCAL" />
-      <updated>1724496246918</updated>
+      <workItem from="1724664224969" duration="2557000" />
+      <workItem from="1724667150760" duration="580000" />
+      <workItem from="1724668095121" duration="630000" />
+      <workItem from="1724672247624" duration="3204000" />
+      <workItem from="1724721217805" duration="10747000" />
     </task>
     <task id="LOCAL-00255" summary="bug for payment with momo">
       <option name="closed" value="true" />
@@ -576,7 +495,151 @@
       <option name="project" value="LOCAL" />
       <updated>1724659832809</updated>
     </task>
-    <option name="localTasksCounter" value="286" />
+    <task id="LOCAL-00286" summary="create search history and response">
+      <option name="closed" value="true" />
+      <created>1724666474456</created>
+      <option name="number" value="00286" />
+      <option name="presentableId" value="LOCAL-00286" />
+      <option name="project" value="LOCAL" />
+      <updated>1724666474456</updated>
+    </task>
+    <task id="LOCAL-00287" summary="done get and update search history">
+      <option name="closed" value="true" />
+      <created>1724666509198</created>
+      <option name="number" value="00287" />
+      <option name="presentableId" value="LOCAL-00287" />
+      <option name="project" value="LOCAL" />
+      <updated>1724666509198</updated>
+    </task>
+    <task id="LOCAL-00288" summary="done delete search history">
+      <option name="closed" value="true" />
+      <created>1724667672711</created>
+      <option name="number" value="00288" />
+      <option name="presentableId" value="LOCAL-00288" />
+      <option name="project" value="LOCAL" />
+      <updated>1724667672711</updated>
+    </task>
+    <task id="LOCAL-00289" summary="create review and review reply request">
+      <option name="closed" value="true" />
+      <created>1724667711797</created>
+      <option name="number" value="00289" />
+      <option name="presentableId" value="LOCAL-00289" />
+      <option name="project" value="LOCAL" />
+      <updated>1724667711797</updated>
+    </task>
+    <task id="LOCAL-00290" summary="create find userId and keyword repository">
+      <option name="closed" value="true" />
+      <created>1724667738131</created>
+      <option name="number" value="00290" />
+      <option name="presentableId" value="LOCAL-00290" />
+      <option name="project" value="LOCAL" />
+      <updated>1724667738131</updated>
+    </task>
+    <task id="LOCAL-00291" summary="done create review when order success">
+      <option name="closed" value="true" />
+      <created>1724675212465</created>
+      <option name="number" value="00291" />
+      <option name="presentableId" value="LOCAL-00291" />
+      <option name="project" value="LOCAL" />
+      <updated>1724675212465</updated>
+    </task>
+    <task id="LOCAL-00292" summary="done getReviewItems">
+      <option name="closed" value="true" />
+      <created>1724726747797</created>
+      <option name="number" value="00292" />
+      <option name="presentableId" value="LOCAL-00292" />
+      <option name="project" value="LOCAL" />
+      <updated>1724726747798</updated>
+    </task>
+    <task id="LOCAL-00293" summary="create findSizeByProduct and min price">
+      <option name="closed" value="true" />
+      <created>1724726888618</created>
+      <option name="number" value="00293" />
+      <option name="presentableId" value="LOCAL-00293" />
+      <option name="project" value="LOCAL" />
+      <updated>1724726888618</updated>
+    </task>
+    <task id="LOCAL-00294" summary="create detail rate and review detail">
+      <option name="closed" value="true" />
+      <created>1724728331581</created>
+      <option name="number" value="00294" />
+      <option name="presentableId" value="LOCAL-00294" />
+      <option name="project" value="LOCAL" />
+      <updated>1724728331581</updated>
+    </task>
+    <task id="LOCAL-00295" summary="create getReplyReview and findProduct">
+      <option name="closed" value="true" />
+      <created>1724728421723</created>
+      <option name="number" value="00295" />
+      <option name="presentableId" value="LOCAL-00295" />
+      <option name="project" value="LOCAL" />
+      <updated>1724728421723</updated>
+    </task>
+    <task id="LOCAL-00296" summary="done create product take action">
+      <option name="closed" value="true" />
+      <created>1724728531809</created>
+      <option name="number" value="00296" />
+      <option name="presentableId" value="LOCAL-00296" />
+      <option name="project" value="LOCAL" />
+      <updated>1724728531809</updated>
+    </task>
+    <task id="LOCAL-00297" summary="done get detail review">
+      <option name="closed" value="true" />
+      <created>1724728559139</created>
+      <option name="number" value="00297" />
+      <option name="presentableId" value="LOCAL-00297" />
+      <option name="project" value="LOCAL" />
+      <updated>1724728559139</updated>
+    </task>
+    <task id="LOCAL-00298" summary="done delete review for admin">
+      <option name="closed" value="true" />
+      <created>1724729280047</created>
+      <option name="number" value="00298" />
+      <option name="presentableId" value="LOCAL-00298" />
+      <option name="project" value="LOCAL" />
+      <updated>1724729280047</updated>
+    </task>
+    <task id="LOCAL-00299" summary="done findReview with not reply">
+      <option name="closed" value="true" />
+      <created>1724730435558</created>
+      <option name="number" value="00299" />
+      <option name="presentableId" value="LOCAL-00299" />
+      <option name="project" value="LOCAL" />
+      <updated>1724730435558</updated>
+    </task>
+    <task id="LOCAL-00300" summary="done filter review detail for admin">
+      <option name="closed" value="true" />
+      <created>1724730458413</created>
+      <option name="number" value="00300" />
+      <option name="presentableId" value="LOCAL-00300" />
+      <option name="project" value="LOCAL" />
+      <updated>1724730458413</updated>
+    </task>
+    <task id="LOCAL-00301" summary="create get latest review">
+      <option name="closed" value="true" />
+      <created>1724732287519</created>
+      <option name="number" value="00301" />
+      <option name="presentableId" value="LOCAL-00301" />
+      <option name="project" value="LOCAL" />
+      <updated>1724732287519</updated>
+    </task>
+    <task id="LOCAL-00302" summary="create getProductByName in review">
+      <option name="closed" value="true" />
+      <created>1724732370137</created>
+      <option name="number" value="00302" />
+      <option name="presentableId" value="LOCAL-00302" />
+      <option name="project" value="LOCAL" />
+      <updated>1724732370137</updated>
+    </task>
+    <task id="LOCAL-00303" summary="fix bug for modifiable list using List and done filter review for admin">
+      <option name="closed" value="true" />
+      <created>1724732449199</created>
+      <option name="number" value="00303" />
+      <option name="presentableId" value="LOCAL-00303" />
+      <option name="project" value="LOCAL" />
+      <updated>1724732449199</updated>
+    </task>
+    <option name="localTasksCounter" value="304" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -600,32 +663,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create order detail response" />
-    <MESSAGE value="create product item" />
-    <MESSAGE value="convert date to string" />
-    <MESSAGE value="done findByUserProductAndOrder repository" />
-    <MESSAGE value="create orderdetail history controler and service" />
-    <MESSAGE value="done order detail history" />
-    <MESSAGE value="create order history and order history response" />
-    <MESSAGE value="fix bug for duplicate [id] in order history" />
-    <MESSAGE value="done order history" />
-    <MESSAGE value="done order detail table for admin" />
-    <MESSAGE value="create update status request" />
-    <MESSAGE value="add GHN_CANCEL" />
-    <MESSAGE value="create cancel order by customer controller and service" />
-    <MESSAGE value="done cancel order by customer" />
-    <MESSAGE value="create invoice.html" />
-    <MESSAGE value="modified convert date to string" />
-    <MESSAGE value="done print invoice" />
-    <MESSAGE value="create admin order service" />
-    <MESSAGE value="done update status order for admin" />
-    <MESSAGE value="create order filter response" />
-    <MESSAGE value="done update read order for admin" />
     <MESSAGE value="done update print order for admin" />
     <MESSAGE value="done filter order repository for admin" />
     <MESSAGE value="create filter order response" />
     <MESSAGE value="done filter order for admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="done filter order for admin" />
+    <MESSAGE value="done get order detail for admin" />
+    <MESSAGE value="create search history and response" />
+    <MESSAGE value="done get and update search history" />
+    <MESSAGE value="done delete search history" />
+    <MESSAGE value="create review and review reply request" />
+    <MESSAGE value="create find userId and keyword repository" />
+    <MESSAGE value="done create review when order success" />
+    <MESSAGE value="done getReviewItems" />
+    <MESSAGE value="create findSizeByProduct and min price" />
+    <MESSAGE value="create detail rate and review detail" />
+    <MESSAGE value="create getReplyReview and findProduct" />
+    <MESSAGE value="done getReview Item" />
+    <MESSAGE value="done create product take action" />
+    <MESSAGE value="done get detail review" />
+    <MESSAGE value="done delete review for admin" />
+    <MESSAGE value="done findReview with not reply" />
+    <MESSAGE value="done filter review detail for admin" />
+    <MESSAGE value="create get latest review" />
+    <MESSAGE value="create getProductByName for review" />
+    <MESSAGE value="create getProductByName in review" />
+    <MESSAGE value="fix bug for modifiable list using List and done filter review for admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug for modifiable list using List and done filter review for admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

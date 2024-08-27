@@ -1,7 +1,7 @@
 package com.hoangphi.service.impl;
 
 import com.hoangphi.constant.Constant;
-import com.hoangphi.service.EmailService;
+import com.hoangphi.service.email.EmailService;
 import com.hoangphi.utils.MailUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;

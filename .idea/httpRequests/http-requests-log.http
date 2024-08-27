@@ -1,0 +1,151 @@
+POST http://localhost:8019/api/user/reviews
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjQ2NzQ2MDEsImV4cCI6MTcyNDY3ODIwMSwidXNlcm5hbWUiOiJhbmRyZXciLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9VU0VSIn1dfQ.hYogu-vnQYeSTk3Jt5C_yj4LDI8niVyGfEBbBGJrpNGxl_BbPJczJc7GwyWnqqZ2MFvvNp5aGMpCF670Ggqf2Q
+Content-Length: 90
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=28FB154B297A29D17D9C96980231C619
+
+{
+  "orderId": 48,
+  "productId": "PD0009",
+  "comment": "San pham rat tot",
+  "rate": 5
+}
+
+<> 2024-08-26T192234.200.json
+
+###
+
+POST http://localhost:8019/api/user/reviews
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjQ2NzQ2MDEsImV4cCI6MTcyNDY3ODIwMSwidXNlcm5hbWUiOiJhbmRyZXciLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9VU0VSIn1dfQ.hYogu-vnQYeSTk3Jt5C_yj4LDI8niVyGfEBbBGJrpNGxl_BbPJczJc7GwyWnqqZ2MFvvNp5aGMpCF670Ggqf2Q
+Content-Length: 91
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=28FB154B297A29D17D9C96980231C619
+
+{
+  "orderId": 48,
+  "productId": "PD0009",
+  "comment": "San pham rat tot",
+  "rate": 10
+}
+
+###
+
+POST http://localhost:8019/api/user/reviews
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjQ2NzQ2MDEsImV4cCI6MTcyNDY3ODIwMSwidXNlcm5hbWUiOiJhbmRyZXciLCJhdXRob3JpdGllcyI6W3siYXV0aG9yaXR5IjoiUk9MRV9VU0VSIn1dfQ.hYogu-vnQYeSTk3Jt5C_yj4LDI8niVyGfEBbBGJrpNGxl_BbPJczJc7GwyWnqqZ2MFvvNp5aGMpCF670Ggqf2Q
+Content-Length: 91
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=28FB154B297A29D17D9C96980231C619
+
+{
+  "orderId": 49,
+  "productId": "PD0002",
+  "comment": "San pham rat tot",
+  "rate": 10
+}
+
+###
+
+POST http://localhost:8019/api/login
+Content-Type: application/json
+Content-Length: 50
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=28FB154B297A29D17D9C96980231C619
+
+{
+  "username": "andrew",
+  "password": "123123"
+}
+
+<> 2024-08-26T191641.200.json
+
+###
+
+POST http://localhost:8019/api/user/reviews
+Content-Type: application/json
+Content-Length: 50
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=28FB154B297A29D17D9C96980231C619
+
+{
+  "username": "andrew",
+  "password": "123123"
+}
+
+###
+
+POST http://localhost:8019/api/user/reviews
+Content-Type: application/json
+Content-Length: 50
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=28FB154B297A29D17D9C96980231C619
+
+{
+  "username": "andrew",
+  "password": "123123"
+}
+
+###
+
+POST http://localhost:8019/api/user/reviews
+Content-Type: application/json
+Content-Length: 50
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=28FB154B297A29D17D9C96980231C619
+
+{
+  "username": "andrew",
+  "password": "123123"
+}
+
+###
+
+POST http://localhost:8019/api/user/reviews
+Content-Type: application/json
+Content-Length: 91
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=28FB154B297A29D17D9C96980231C619
+
+{
+  "orderId": 49,
+  "productId": "PD0002",
+  "comment": "San pham rat tot",
+  "rate": 10
+}
+
+###
+
+POST http://localhost:8019/api/user/reviews
+Content-Type: application/json
+Content-Length: 91
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.2
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "orderId": 49,
+  "productId": "PD0002",
+  "comment": "San pham rat tot",
+  "rate": 10
+}
+
+###
+

@@ -1,5 +1,6 @@
 package com.hoangphi.repository;
 
+import com.hoangphi.entity.Product;
 import com.hoangphi.entity.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -21,5 +22,11 @@ public interface ReviewRepository extends JpaRepository<Review, Integer>{
     @Query(nativeQuery = true, value = "select* from review where order_id= :orderId and product_id =:productId ")
     public Optional<Review> findByOrderIdAndProductId(@Param("orderId") Integer orderId,
                                                       @Param("productId") String productId);
+
+    @Query("select r from Review r where r.product = :product order by r.createAt DESC")
+    List<Review> findByProduct(@Param("product") Product product);
+
+    @Query(nativeQuery = true, value = "select * from review where replied_id = :reviewId")
+    public List<Review> getReplyReviews(@Param("reviewId") Integer reviewId);
 
 }

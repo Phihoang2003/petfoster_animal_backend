@@ -1,4 +1,4 @@
-package com.hoangphi.service;
+package com.hoangphi.service.email;
 
 import jakarta.servlet.http.HttpServletRequest;
 

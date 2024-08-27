@@ -24,6 +24,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
@@ -107,7 +110,7 @@ public class AuthServiceImpl implements AuthService {
                     .errors(true)
                     .build();
         }
-        if(new Date().getTime()-user.getTokenCreatedAt().getTime()> Constant.TOKEN_EXPIRE_LIMIT){
+        if (Duration.between(user.getTokenCreatedAt(), LocalDateTime.now()).toMillis() > Constant.TOKEN_EXPIRE_LIMIT) {
             return ApiResponse.builder()
                     .message("Token is expired")
                     .status(HttpStatus.BANDWIDTH_LIMIT_EXCEEDED.value())
@@ -164,7 +167,7 @@ public class AuthServiceImpl implements AuthService {
                 .password(passwordEncoder.encode(registerReq.getPassword()))
                 .gender(registerReq.getGender())
                 .fullname(registerReq.getFullname())
-                .createdAt(new Date())
+                .createdAt(LocalDate.now())
                 .isActive(true)
                 .provider("local")
                 .isEmailVerified(false)

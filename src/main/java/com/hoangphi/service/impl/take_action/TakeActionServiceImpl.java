@@ -2,6 +2,7 @@ package com.hoangphi.service.impl.take_action;
 
 import com.hoangphi.entity.OrderDetail;
 import com.hoangphi.entity.Product;
+import com.hoangphi.entity.ProductRepo;
 import com.hoangphi.entity.Review;
 import com.hoangphi.repository.ProductRepoRepository;
 import com.hoangphi.repository.ReviewRepository;
@@ -32,7 +33,23 @@ public class TakeActionServiceImpl implements TakeActionService {
         if (!product.getImgs().isEmpty()) {
             image = product.getImgs().get(0).getNameImg();
         }
-
+        List<ReviewItem> reviewItems=getReviewItems(reviews,product);
+        List<Integer> sizes=productRepoRepository.findSizeByProduct(product.getId());
+        ProductRepo minRepo=productRepoRepository.findByProductMinPrice(product.getId());
+        return ProductItem
+                .builder()
+                .id(product.getId())
+                .size(sizes)
+                .discount(discount)
+                .image(portUtils.getUrlImage(image))
+                .name(product.getName())
+                .brand(product.getBrand().getBrand())
+                .price(minRepo.getOutPrice().intValue())
+                .oldPrice((int) (minRepo.getOutPrice() + (minRepo.getOutPrice() * (discount / 100.0))))
+                .rating(rating)
+                .reviews(reviews.size())
+                .reviewItems(reviewItems)
+                .build();
     }
 
     public List<ReviewItem> getReviewItems(List<Review> reviews,Product product){

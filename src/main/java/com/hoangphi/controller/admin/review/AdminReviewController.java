@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/admin/reviews")
 @RequiredArgsConstructor
@@ -27,5 +29,11 @@ public class AdminReviewController {
     public ResponseEntity<ApiResponse> delete(
             @PathVariable("id") Integer id) {
         return ResponseEntity.ok(reviewService.delete(id));
+    }
+
+    @GetMapping("/details")
+    public ResponseEntity<ApiResponse> reviewDetailsFilter(@RequestParam("id") String id,
+                                                           @RequestParam("notReply") Optional<Boolean> notReply) {
+        return ResponseEntity.ok(reviewService.reviewDetailsFilter(id, notReply));
     }
 }

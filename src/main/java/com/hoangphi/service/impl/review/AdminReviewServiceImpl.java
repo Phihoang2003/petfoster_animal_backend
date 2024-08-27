@@ -19,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -73,7 +74,29 @@ public class AdminReviewServiceImpl implements AdminReviewService {
 
     @Override
     public ApiResponse reviewDetailsFilter(String productId, Optional<Boolean> notReply) {
-        return null;
+        Product product = productRepository.findById(productId).orElse(null);
+        Boolean notReplyYet = notReply.orElse(false);
+
+        if (product == null) {
+            return ApiResponse.builder()
+                    .message("Product not found")
+                    .status(404)
+                    .errors("Product not found")
+                    .build();
+        }
+
+        List<Review> reviews = new ArrayList<>();
+        reviews = notReplyYet ? reviewRepository.getNoReplyReviewByProduct(product.getId())
+                : product.getReviews();
+
+        List<ReviewItem> reviewItems = takeActionServiceImpl.getReviewItems(reviews, product);
+
+        return ApiResponse.builder()
+                .message("Successfully")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(reviewItems)
+                .build();
     }
 
     @Override

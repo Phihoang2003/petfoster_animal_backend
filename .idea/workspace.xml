@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done delete review for admin">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="create get latest review">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/review/AdminReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/review/AdminReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/review/AdminReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/review/AdminReviewServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,31 +206,7 @@
       <workItem from="1724667150760" duration="580000" />
       <workItem from="1724668095121" duration="630000" />
       <workItem from="1724672247624" duration="3204000" />
-      <workItem from="1724721217805" duration="8511000" />
-    </task>
-    <task id="LOCAL-00250" summary="create vnpay payment request">
-      <option name="closed" value="true" />
-      <created>1724487485183</created>
-      <option name="number" value="00250" />
-      <option name="presentableId" value="LOCAL-00250" />
-      <option name="project" value="LOCAL" />
-      <updated>1724487485183</updated>
-    </task>
-    <task id="LOCAL-00251" summary="resolve problem payment with VNPay">
-      <option name="closed" value="true" />
-      <created>1724487550477</created>
-      <option name="number" value="00251" />
-      <option name="presentableId" value="LOCAL-00251" />
-      <option name="project" value="LOCAL" />
-      <updated>1724487550477</updated>
-    </task>
-    <task id="LOCAL-00252" summary="separate HmacSHA512">
-      <option name="closed" value="true" />
-      <created>1724496158882</created>
-      <option name="number" value="00252" />
-      <option name="presentableId" value="LOCAL-00252" />
-      <option name="project" value="LOCAL" />
-      <updated>1724496158882</updated>
+      <workItem from="1724721217805" duration="10617000" />
     </task>
     <task id="LOCAL-00253" summary="create MomoPaymentRequest">
       <option name="closed" value="true" />
@@ -600,7 +576,31 @@
       <option name="project" value="LOCAL" />
       <updated>1724729280047</updated>
     </task>
-    <option name="localTasksCounter" value="299" />
+    <task id="LOCAL-00299" summary="done findReview with not reply">
+      <option name="closed" value="true" />
+      <created>1724730435558</created>
+      <option name="number" value="00299" />
+      <option name="presentableId" value="LOCAL-00299" />
+      <option name="project" value="LOCAL" />
+      <updated>1724730435558</updated>
+    </task>
+    <task id="LOCAL-00300" summary="done filter review detail for admin">
+      <option name="closed" value="true" />
+      <created>1724730458413</created>
+      <option name="number" value="00300" />
+      <option name="presentableId" value="LOCAL-00300" />
+      <option name="project" value="LOCAL" />
+      <updated>1724730458413</updated>
+    </task>
+    <task id="LOCAL-00301" summary="create get latest review">
+      <option name="closed" value="true" />
+      <created>1724732287519</created>
+      <option name="number" value="00301" />
+      <option name="presentableId" value="LOCAL-00301" />
+      <option name="project" value="LOCAL" />
+      <updated>1724732287519</updated>
+    </task>
+    <option name="localTasksCounter" value="302" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,9 +624,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="modified convert date to string" />
-    <MESSAGE value="done print invoice" />
-    <MESSAGE value="create admin order service" />
     <MESSAGE value="done update status order for admin" />
     <MESSAGE value="create order filter response" />
     <MESSAGE value="done update read order for admin" />
@@ -649,7 +646,10 @@
     <MESSAGE value="done create product take action" />
     <MESSAGE value="done get detail review" />
     <MESSAGE value="done delete review for admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="done delete review for admin" />
+    <MESSAGE value="done findReview with not reply" />
+    <MESSAGE value="done filter review detail for admin" />
+    <MESSAGE value="create get latest review" />
+    <option name="LAST_COMMIT_MESSAGE" value="create get latest review" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -14,6 +14,17 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AdminReviewController {
     private final AdminReviewService reviewService;
+
+    @GetMapping("")
+    public ResponseEntity<ApiResponse> filterReviews(
+            @RequestParam("productName") Optional<String> productName,
+            @RequestParam("minStar") Optional<Integer> minStar,
+            @RequestParam("maxStar") Optional<Integer> maxStar,
+            @RequestParam("sort") Optional<String> sort,
+            @RequestParam("page") Optional<Integer> page) {
+        return ResponseEntity.ok(reviewService.filterReviews(productName, minStar, maxStar, sort, page));
+    }
+
     @PostMapping("")
     public ResponseEntity<ApiResponse> replay(@RequestHeader("Authorization") String token,
                                               @RequestBody ReviewReplyRequest replayRequest) {
@@ -36,4 +47,6 @@ public class AdminReviewController {
                                                            @RequestParam("notReply") Optional<Boolean> notReply) {
         return ResponseEntity.ok(reviewService.reviewDetailsFilter(id, notReply));
     }
+
+
 }

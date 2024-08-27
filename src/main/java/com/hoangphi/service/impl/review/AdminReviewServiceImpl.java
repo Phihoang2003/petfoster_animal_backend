@@ -1,6 +1,8 @@
 package com.hoangphi.service.impl.review;
 
 import com.hoangphi.config.JwtProvider;
+import com.hoangphi.constant.Constant;
+import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.Product;
 import com.hoangphi.entity.Review;
 import com.hoangphi.entity.User;
@@ -9,17 +11,24 @@ import com.hoangphi.repository.ReviewRepository;
 import com.hoangphi.repository.UserRepository;
 import com.hoangphi.request.review.ReviewReplyRequest;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.response.review.DetailRate;
 import com.hoangphi.response.review.ReviewDetailsResponse;
+import com.hoangphi.response.review.ReviewFilterResponse;
 import com.hoangphi.response.takeAction.ProductItem;
 import com.hoangphi.response.takeAction.ReviewItem;
 import com.hoangphi.service.admin.review.AdminReviewService;
 import com.hoangphi.service.impl.take_action.TakeActionServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,8 +41,102 @@ public class AdminReviewServiceImpl implements AdminReviewService {
     private final ProductRepository productRepository;
     private final TakeActionServiceImpl takeActionServiceImpl;
     @Override
-    public ApiResponse filterReviews(Optional<String> name, Optional<Integer> minStar, Optional<Integer> maxStar, Optional<String> sort, Optional<Integer> page) {
-        return null;
+    public ApiResponse filterReviews(Optional<String> productName, Optional<Integer> minStar, Optional<Integer> maxStar, Optional<String> sort, Optional<Integer> page) {
+        String name = productName.orElse(null);
+        Integer min = minStar.orElse(0);
+        Integer max = maxStar.orElse(5);
+        String customSort = sort.orElse("");
+
+        List<Product> products = productRepository.findAll();
+
+        if (name != null) {
+            products = productRepository.getProductsByNameInReview(name);
+        }
+        List<ReviewFilterResponse> reviewFilterResponses = new ArrayList<>();
+        products.forEach(product->{
+            List<Review> noReplyReviews=reviewRepository.getNoReplyReviewByProduct(product.getId());
+            ProductItem productItem = takeActionServiceImpl.createProductTakeAction(product);
+
+            reviewFilterResponses.add(
+                    ReviewFilterResponse.builder()
+                            .productId(productItem.getId())
+                            .productName(productItem.getName())
+                            .image(productItem.getImage())
+                            .rate(productItem.getRating() != null ? productItem.getRating() : 0)
+                            .latest(reviewRepository.getLatestReviewByProduct(product.getId()) != null
+                                    ? reviewRepository.getLatestReviewByProduct(product.getId()).getCreateAt()
+                                    : null)
+                            .reviews(productItem.getReviews())
+                            .commentNoRep(noReplyReviews.size())
+                            .build());
+        });
+        if (min >= max) {
+            return ApiResponse.builder()
+                    .message("Max star must larger than Min star")
+                    .status(HttpStatus.FAILED_DEPENDENCY.value())
+                    .errors("Max star must larger than Min star")
+                    .build();
+        }
+        List<ReviewFilterResponse> filterReviews = new ArrayList<>(reviewFilterResponses.stream()
+                .filter(item -> item.getRate() > min && item.getRate() <= max)
+                .toList());
+
+        switch (customSort) {
+            case "rate-asc":
+                filterReviews.sort(Comparator.comparingDouble(ReviewFilterResponse::getRate));
+                break;
+            case "rate-desc":
+                filterReviews.sort(Comparator.comparingDouble(ReviewFilterResponse::getRate).reversed());
+                break;
+            case "review-asc":
+                filterReviews.sort(Comparator.comparingDouble(ReviewFilterResponse::getReviews));
+                break;
+            case "review-desc":
+                filterReviews.sort(Comparator.comparingDouble(ReviewFilterResponse::getReviews).reversed());
+                break;
+            case "latest-asc":
+                filterReviews.sort(Comparator
+                        .comparing(review -> review.getLatest() != null ?
+                                review.getLatest() : Constant.MIN_DATE));
+                break;
+            case "latest-desc":
+                filterReviews.sort(Comparator
+                        .comparing((ReviewFilterResponse review) -> review.getLatest() != null
+                                ? review.getLatest()
+                                : Constant.MIN_DATE)
+                        .reversed());
+                break;
+            default:
+                break;
+        }
+
+        Pageable pageable = PageRequest.of(page.orElse(0), 10);
+        int startIndex = (int) pageable.getOffset();
+        int endIndex = Math.min(startIndex + pageable.getPageSize(), filterReviews.size());
+
+        if (startIndex >= endIndex) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+
+        List<ReviewFilterResponse> visibleReviews = filterReviews.subList(startIndex, endIndex);
+
+        Page<ReviewFilterResponse> pagination = new PageImpl<ReviewFilterResponse>(visibleReviews, pageable,
+                filterReviews.size());
+
+        return ApiResponse.builder()
+                .message("Successfully")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(PaginationResponse.builder()
+                        .data(visibleReviews)
+                        .pages(pagination.getTotalPages())
+                        .build())
+                .build();
     }
 
     @Override

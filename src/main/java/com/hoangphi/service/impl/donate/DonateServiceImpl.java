@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +29,9 @@ public class DonateServiceImpl implements DonateService {
     }
 
     @Override
-    public ApiResponse filterTransaction(Optional<String> search, Optional<Date> minDate, Optional<Date> maxDate, Optional<String> sort, Optional<Integer> page) {
+    public ApiResponse filterTransaction(Optional<String> search, Optional<LocalDate> minDate,
+                                         Optional<LocalDate> maxDate, Optional<String> sort,
+                                         Optional<Integer> page) {
         return null;
     }
 
@@ -41,7 +43,6 @@ public class DonateServiceImpl implements DonateService {
                     .status(HttpStatus.BAD_REQUEST.value())
                     .errors(true)
                     .build();
-
         }
 
         List<Donate> donates = this.buildDonates(transactionRequest);

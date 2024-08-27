@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="create get latest review">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/review/AdminReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/review/AdminReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/review/AdminReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/review/AdminReviewServiceImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="fix bug for modifiable list using List and done filter review for admin" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,23 +201,7 @@
       <workItem from="1724667150760" duration="580000" />
       <workItem from="1724668095121" duration="630000" />
       <workItem from="1724672247624" duration="3204000" />
-      <workItem from="1724721217805" duration="10617000" />
-    </task>
-    <task id="LOCAL-00253" summary="create MomoPaymentRequest">
-      <option name="closed" value="true" />
-      <created>1724496177133</created>
-      <option name="number" value="00253" />
-      <option name="presentableId" value="LOCAL-00253" />
-      <option name="project" value="LOCAL" />
-      <updated>1724496177133</updated>
-    </task>
-    <task id="LOCAL-00254" summary="develop payment with Momo">
-      <option name="closed" value="true" />
-      <created>1724496246918</created>
-      <option name="number" value="00254" />
-      <option name="presentableId" value="LOCAL-00254" />
-      <option name="project" value="LOCAL" />
-      <updated>1724496246918</updated>
+      <workItem from="1724721217805" duration="10747000" />
     </task>
     <task id="LOCAL-00255" summary="bug for payment with momo">
       <option name="closed" value="true" />
@@ -600,7 +579,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724732287519</updated>
     </task>
-    <option name="localTasksCounter" value="302" />
+    <task id="LOCAL-00302" summary="create getProductByName in review">
+      <option name="closed" value="true" />
+      <created>1724732370137</created>
+      <option name="number" value="00302" />
+      <option name="presentableId" value="LOCAL-00302" />
+      <option name="project" value="LOCAL" />
+      <updated>1724732370137</updated>
+    </task>
+    <task id="LOCAL-00303" summary="fix bug for modifiable list using List and done filter review for admin">
+      <option name="closed" value="true" />
+      <created>1724732449199</created>
+      <option name="number" value="00303" />
+      <option name="presentableId" value="LOCAL-00303" />
+      <option name="project" value="LOCAL" />
+      <updated>1724732449199</updated>
+    </task>
+    <option name="localTasksCounter" value="304" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,9 +619,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="done update status order for admin" />
-    <MESSAGE value="create order filter response" />
-    <MESSAGE value="done update read order for admin" />
     <MESSAGE value="done update print order for admin" />
     <MESSAGE value="done filter order repository for admin" />
     <MESSAGE value="create filter order response" />
@@ -649,7 +641,10 @@
     <MESSAGE value="done findReview with not reply" />
     <MESSAGE value="done filter review detail for admin" />
     <MESSAGE value="create get latest review" />
-    <option name="LAST_COMMIT_MESSAGE" value="create get latest review" />
+    <MESSAGE value="create getProductByName for review" />
+    <MESSAGE value="create getProductByName in review" />
+    <MESSAGE value="fix bug for modifiable list using List and done filter review for admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug for modifiable list using List and done filter review for admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

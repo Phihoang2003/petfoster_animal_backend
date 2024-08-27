@@ -29,4 +29,7 @@ public interface ReviewRepository extends JpaRepository<Review, Integer>{
     @Query(nativeQuery = true, value = "select * from review where replied_id = :reviewId")
     public List<Review> getReplyReviews(@Param("reviewId") Integer reviewId);
 
+    @Query(nativeQuery = true,value="select * from review where product_id=:productId and id not in (select distinct replied_id from review where replied_id is not null) and replied_id is null")
+    public List<Review> getNoReplyReviewByProduct(@Param("productId") String productId);
+
 }

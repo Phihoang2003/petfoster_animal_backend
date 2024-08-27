@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -14,8 +13,8 @@ import java.util.Date;
 public class UserProfileResponse {
     private String id;
     private String username;
-    private String fullname;
-    private Date birthday;
+    private String fullName;
+    private LocalDate birthday;
     private boolean gender;
     private String phone;
     private String email;
@@ -23,6 +22,6 @@ public class UserProfileResponse {
     private String role;
     private String displayName;
     private String provider;
-    private Date createAt;
+    private LocalDate createAt;
 
 }

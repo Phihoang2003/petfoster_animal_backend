@@ -11,7 +11,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Nationalized;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -28,7 +28,7 @@ public class User {
     private String username;
     @Nationalized
     private String fullname;
-    private Date birthday;
+    private LocalDate birthday;
     private Boolean gender;
     private String phone;
     private String avatar;
@@ -36,7 +36,7 @@ public class User {
     @JsonIgnore
     private String password;
     @JsonIgnore
-    private Date createdAt;
+    private LocalDate createdAt;
     @JsonIgnore
     private Boolean isActive;
     @JsonIgnore
@@ -45,7 +45,7 @@ public class User {
     private String token;
     @JsonIgnore
     @CreationTimestamp
-    private Date tokenCreatedAt;
+    private LocalDate tokenCreatedAt;
     @JsonIgnore
     @Column(name = "uuid")
     private String uuid;

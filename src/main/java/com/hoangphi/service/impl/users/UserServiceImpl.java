@@ -1,23 +1,30 @@
 package com.hoangphi.service.impl.users;
 
 import com.hoangphi.config.JwtProvider;
+import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.Authorities;
 import com.hoangphi.entity.Role;
 import com.hoangphi.entity.User;
 import com.hoangphi.repository.AuthoritiesRepository;
 import com.hoangphi.repository.RoleRepository;
 import com.hoangphi.repository.UserRepository;
+import com.hoangphi.request.users.CreateUserManageRequest;
+import com.hoangphi.request.users.UpdateUserRequest;
+import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.users.UserProfileResponse;
 import com.hoangphi.service.user.UserService;
+import com.hoangphi.utils.ImageUtils;
 import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.util.*;
 
 @RequiredArgsConstructor
 @Service
@@ -27,6 +34,7 @@ public class UserServiceImpl implements UserService {
     private final RoleRepository roleRepository;
     private final AuthoritiesRepository authoritiesRepository;
     private final PortUtils portUtils;
+    private final PasswordEncoder passwordEncoder;
     @Override
     public UserDetails findByUsername(String username) {
         User exitsUser=userRepository.findByUsername(username).get();
@@ -87,6 +95,119 @@ public class UserServiceImpl implements UserService {
         return admin;
 
     }
+
+    @Override
+    public ApiResponse updateUser(UpdateUserRequest updateUserRequest) {
+        return null;
+    }
+
+    @Override
+    public ApiResponse createUser(CreateUserManageRequest createUserManageRequest) {
+        Map<String, String> errorsMap = new HashMap<>();
+        // start validate
+
+        if (createUserManageRequest.getEmail().isEmpty()) {
+            errorsMap.put("email", "Can't update email !");
+        }
+
+        if (userRepository.existsByUsername(createUserManageRequest.getUsername())) {
+            errorsMap.put("username", "Username " + RespMessage.EXISTS);
+        }
+
+        if (userRepository.existsByEmail(createUserManageRequest.getEmail())) {
+            errorsMap.put("email", "Email " + RespMessage.EXISTS);
+        }
+
+        if (createUserManageRequest.getFullName().isEmpty()) {
+            errorsMap.put("fullName", "Fullname can't be blank");
+        }
+
+        if (createUserManageRequest.getPhone().isEmpty()) {
+            errorsMap.put("phone", "Phone can't be blank");
+        }
+
+        if (createUserManageRequest.getBirthday().orElse(null) == null) {
+            errorsMap.put("birthday", "Birthday can't be blank");
+        }
+
+        if (!errorsMap.isEmpty()) {
+            return ApiResponse.builder()
+                    .message("Update fail !")
+                    .errors(errorsMap)
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .data(null)
+                    .build();
+        }
+
+        User newUser = User.builder()
+                .birthday(createUserManageRequest.getBirthday().orElse(null))
+                .email(createUserManageRequest.getEmail())
+                .fullname(createUserManageRequest.getFullName())
+                .gender(createUserManageRequest.getGender())
+                .isActive(true)
+                .password(passwordEncoder.encode(createUserManageRequest.getPassword()))
+                .phone(createUserManageRequest.getPhone())
+                .username(createUserManageRequest.getUsername())
+                .isEmailVerified(true)
+                .build();
+
+        // set role and authorization
+        List<Authorities> authoritiesList = new ArrayList<>();
+        Authorities authorities = Authorities.builder().user(newUser).role(roleRepository.getRoleUser()).build();
+        authoritiesList.add(authorities);
+
+        newUser.setAuthorities(authoritiesList);
+
+        if (createUserManageRequest.getAvatar() != null) {
+            if (createUserManageRequest.getAvatar().getSize() > 500000) {
+                errorsMap.put("avatar", "Image size is too large");
+            } else {
+                try {
+                    File file = ImageUtils.createFileImage();
+
+                    createUserManageRequest.getAvatar().transferTo(new File(file.getAbsolutePath()));
+                    newUser.setAvatar(file.getName());
+                } catch (Exception e) {
+                    System.out.println("Error in update avatar in Profile service impl");
+                    e.printStackTrace();
+                    return ApiResponse.builder()
+                            .message(RespMessage.INTERNAL_SERVER_ERROR.getValue())
+                            .errors(true)
+                            .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                            .data(null)
+                            .build();
+                }
+            }
+        }
+
+        return ApiResponse.builder()
+                .message("Create succssefully !")
+                .errors(false)
+                .status(HttpStatus.OK.value())
+                .data(userRepository.save(newUser))
+                .build();
+    }
+
+    @Override
+    public ApiResponse deleteUser(String id) {
+        return null;
+    }
+
+    @Override
+    public ApiResponse getAllUser(String jwt, Optional<String> keyword, Optional<String> sort, Optional<String> role, Optional<Integer> pages) {
+        return null;
+    }
+
+    @Override
+    public ApiResponse getUserWithUsername(String username) {
+        return null;
+    }
+
+    @Override
+    public ApiResponse getChart(String userID) {
+        return null;
+    }
+
     public UserProfileResponse buildUserProfileResponse(User user){
         List<Authorities> roles=authoritiesRepository.findByUser(user);
         Role role=null;
@@ -97,7 +218,7 @@ public class UserServiceImpl implements UserService {
         return UserProfileResponse.builder()
                 .id(user.getId())
                 .username(user.getUsername())
-                .fullname(user.getFullname())
+                .fullName(user.getFullname())
                 .birthday(user.getBirthday())
                 .gender(user.getGender() != null)
                 .phone(user.getPhone())

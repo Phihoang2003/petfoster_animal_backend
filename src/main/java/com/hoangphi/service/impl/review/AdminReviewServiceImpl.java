@@ -107,7 +107,31 @@ public class AdminReviewServiceImpl implements AdminReviewService {
 
     @Override
     public ApiResponse delete(Integer id) {
-        return null;
+        Review curReview = reviewRepository.findById(id).orElse(null);
+
+        if (curReview == null) {
+            return ApiResponse.builder()
+                    .message("Review not found")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        List<Review> reviews = reviewRepository.getReplyReviews(curReview.getId());
+
+        if (!reviews.isEmpty()) {
+            reviewRepository.deleteAll(reviews);
+        }
+
+        reviewRepository.delete(curReview);
+
+        return ApiResponse.builder()
+                .message("Successfully")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(curReview)
+                .build();
     }
     private DetailRate createDetailRate(List<Review> reviews) {
 

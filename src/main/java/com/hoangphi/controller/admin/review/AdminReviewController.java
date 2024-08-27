@@ -22,4 +22,10 @@ public class AdminReviewController {
     public ResponseEntity<ApiResponse> reviewDetails(@PathVariable String id) {
         return ResponseEntity.ok(reviewService.reviewDetails(id));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> delete(
+            @PathVariable("id") Integer id) {
+        return ResponseEntity.ok(reviewService.delete(id));
+    }
 }

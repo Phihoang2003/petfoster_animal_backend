@@ -4,10 +4,9 @@ import com.hoangphi.request.transaction.TransactionBaseRequest;
 import com.hoangphi.service.donate.DonateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,5 +16,10 @@ public class DonateController {
     @PostMapping("")
     public ResponseEntity<Object> setTransactionToDB(@RequestBody TransactionBaseRequest transactionBaseRequest) {
         return ResponseEntity.ok(donateService.setTransactionToDB(transactionBaseRequest.getData()));
+    }
+
+    @GetMapping("")
+    public ResponseEntity<Object> getTransactions(@RequestParam(value = "page") Optional<Integer> page) {
+        return ResponseEntity.ok(donateService.getTransaction((page)));
     }
 }

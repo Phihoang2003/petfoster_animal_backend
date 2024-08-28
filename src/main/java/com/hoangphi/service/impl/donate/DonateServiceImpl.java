@@ -1,16 +1,23 @@
 package com.hoangphi.service.impl.donate;
 
+import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.Donate;
 import com.hoangphi.repository.DonateRepository;
 import com.hoangphi.request.transaction.TransactionRequest;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.response.transaction.TransactionResponse;
 import com.hoangphi.service.donate.DonateService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +27,49 @@ public class DonateServiceImpl implements DonateService {
     private final DonateRepository donateRepository;
     @Override
     public ApiResponse getTransaction(Optional<Integer> page) {
-        return null;
+        List<Donate> donates = donateRepository.findAllReverse();
+
+        if (donates.isEmpty()) {
+            return ApiResponse.builder().message("Something wen't wrong")
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .errors(false)
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .build();
+        }
+
+        Pageable pageable = PageRequest.of(page.orElse(0), 10);
+        int startIndex = (int) pageable.getOffset();
+        int endIndex = Math.min(startIndex + pageable.getPageSize(), donates.size());
+
+        if (startIndex >= endIndex) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .errors(false)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+
+        List<Donate> visibleDonation = donates.subList(startIndex, endIndex);
+
+        if (visibleDonation.isEmpty()) {
+            return ApiResponse.builder().message("Something wen't wrong")
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .errors(false)
+                    .data(PaginationResponse.builder().data(new ArrayList<>()).pages(0).build())
+                    .build();
+        }
+
+        Page<Donate> pagination = new PageImpl<Donate>(visibleDonation, pageable,
+                donates.size());
+
+        return ApiResponse.builder()
+                .message("Successfully!")
+                .errors(false)
+                .status(HttpStatus.OK.value())
+                .data(PaginationResponse.builder().data(visibleDonation)
+                        .pages(pagination.getTotalPages()).build())
+                .build();
     }
 
     @Override

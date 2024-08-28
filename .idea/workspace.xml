@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done filter donate for admin">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done feedback and send email when feedback successfully">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/donate/ManagementDonate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/donate/ManagementDonate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/FeedbackRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/FeedbackRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/feedback/FeedbackServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/feedback/FeedbackServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,23 +209,8 @@
       <workItem from="1724721217805" duration="10747000" />
       <workItem from="1724758945443" duration="3763000" />
       <workItem from="1724778974291" duration="1709000" />
-      <workItem from="1724824312998" duration="4833000" />
-    </task>
-    <task id="LOCAL-00265" summary="create orderdetail history controler and service">
-      <option name="closed" value="true" />
-      <created>1724583655735</created>
-      <option name="number" value="00265" />
-      <option name="presentableId" value="LOCAL-00265" />
-      <option name="project" value="LOCAL" />
-      <updated>1724583655735</updated>
-    </task>
-    <task id="LOCAL-00266" summary="done order detail history">
-      <option name="closed" value="true" />
-      <created>1724583677843</created>
-      <option name="number" value="00266" />
-      <option name="presentableId" value="LOCAL-00266" />
-      <option name="project" value="LOCAL" />
-      <updated>1724583677843</updated>
+      <workItem from="1724824312998" duration="4988000" />
+      <workItem from="1724830863026" duration="957000" />
     </task>
     <task id="LOCAL-00267" summary="create order history and order history response">
       <option name="closed" value="true" />
@@ -600,7 +588,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724827468377</updated>
     </task>
-    <option name="localTasksCounter" value="314" />
+    <task id="LOCAL-00314" summary="add feedback request and response">
+      <option name="closed" value="true" />
+      <created>1724829333035</created>
+      <option name="number" value="00314" />
+      <option name="presentableId" value="LOCAL-00314" />
+      <option name="project" value="LOCAL" />
+      <updated>1724829333035</updated>
+    </task>
+    <task id="LOCAL-00315" summary="done feedback and send email when feedback successfully">
+      <option name="closed" value="true" />
+      <created>1724829367232</created>
+      <option name="number" value="00315" />
+      <option name="presentableId" value="LOCAL-00315" />
+      <option name="project" value="LOCAL" />
+      <updated>1724829367232</updated>
+    </task>
+    <option name="localTasksCounter" value="316" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,8 +628,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="done create review when order success" />
-    <MESSAGE value="done getReviewItems" />
     <MESSAGE value="create findSizeByProduct and min price" />
     <MESSAGE value="create detail rate and review detail" />
     <MESSAGE value="create getReplyReview and findProduct" />
@@ -649,7 +651,9 @@
     <MESSAGE value="add transaction filter" />
     <MESSAGE value="create filter and get total amount donate repository" />
     <MESSAGE value="done filter donate for admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="done filter donate for admin" />
+    <MESSAGE value="add feedback request and response" />
+    <MESSAGE value="done feedback and send email when feedback successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="done feedback and send email when feedback successfully" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -6,8 +6,10 @@ import com.hoangphi.repository.DonateRepository;
 import com.hoangphi.request.transaction.TransactionRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.common.PaginationResponse;
+import com.hoangphi.response.transaction.TransactionReportResponse;
 import com.hoangphi.response.transaction.TransactionResponse;
 import com.hoangphi.service.donate.DonateService;
+import com.hoangphi.utils.FormatUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +28,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class DonateServiceImpl implements DonateService {
     private final DonateRepository donateRepository;
+    private final FormatUtils formatUtils;
     @Override
     public ApiResponse getTransaction(Optional<Integer> page) {
         List<Donate> donates = donateRepository.findAllReverse();
@@ -74,7 +78,25 @@ public class DonateServiceImpl implements DonateService {
 
     @Override
     public ApiResponse report() {
-        return null;
+        LocalDate date = LocalDate.now();
+
+        Double day = donateRepository.report(formatUtils.dateToDateFormat(date, "yyyy-MM-dd"),
+                formatUtils.dateToDateFormat(date, "yyyy-MM-dd"),date, "day");
+
+        Double month = donateRepository.report(null,null,formatUtils.dateToDateFormat(date, "yyyy-MM-dd"), "month");
+
+        Double year = donateRepository.report(null,null,formatUtils.dateToDateFormat(date, "yyyy-MM-dd"), "year");
+
+        return ApiResponse.builder()
+                .message("Successfully!")
+                .errors(false)
+                .status(HttpStatus.OK.value())
+                .data(TransactionReportResponse.builder()
+                        .day(day)
+                        .month(month)
+                        .year(year)
+                        .build())
+                .build();
     }
 
     @Override

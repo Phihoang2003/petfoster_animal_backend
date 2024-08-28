@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done set donate for db">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="add management donate and transaction report">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/donate/ManagementDonate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/donate/DonateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/donate/DonateController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/DonateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/DonateRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/donate/DonateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/donate/DonateServiceImpl.java" afterDir="false" />
     </list>
@@ -209,15 +209,7 @@
       <workItem from="1724721217805" duration="10747000" />
       <workItem from="1724758945443" duration="3763000" />
       <workItem from="1724778974291" duration="1709000" />
-      <workItem from="1724824312998" duration="212000" />
-    </task>
-    <task id="LOCAL-00259" summary="create payment controller and service">
-      <option name="closed" value="true" />
-      <created>1724560670558</created>
-      <option name="number" value="00259" />
-      <option name="presentableId" value="LOCAL-00259" />
-      <option name="project" value="LOCAL" />
-      <updated>1724560670558</updated>
+      <workItem from="1724824312998" duration="2344000" />
     </task>
     <task id="LOCAL-00260" summary="done payment">
       <option name="closed" value="true" />
@@ -603,7 +595,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724780703270</updated>
     </task>
-    <option name="localTasksCounter" value="308" />
+    <task id="LOCAL-00308" summary="done get donate">
+      <option name="closed" value="true" />
+      <created>1724824631320</created>
+      <option name="number" value="00308" />
+      <option name="presentableId" value="LOCAL-00308" />
+      <option name="project" value="LOCAL" />
+      <updated>1724824631321</updated>
+    </task>
+    <option name="localTasksCounter" value="309" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,8 +627,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="done get order detail for admin" />
-    <MESSAGE value="create search history and response" />
     <MESSAGE value="done get and update search history" />
     <MESSAGE value="done delete search history" />
     <MESSAGE value="create review and review reply request" />
@@ -652,7 +650,9 @@
     <MESSAGE value="done set transaction for db" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="done set donate for db" />
-    <option name="LAST_COMMIT_MESSAGE" value="done set donate for db" />
+    <MESSAGE value="done get donate" />
+    <MESSAGE value="add management donate and transaction report" />
+    <option name="LAST_COMMIT_MESSAGE" value="add management donate and transaction report" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

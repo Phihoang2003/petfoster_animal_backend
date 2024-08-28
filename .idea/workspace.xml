@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done report donate for admin">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done filter donate for admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/donate/ManagementDonate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/donate/ManagementDonate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/donate/DonateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/donate/DonateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/DonateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/DonateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/donate/DonateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/donate/DonateServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,31 +206,7 @@
       <workItem from="1724721217805" duration="10747000" />
       <workItem from="1724758945443" duration="3763000" />
       <workItem from="1724778974291" duration="1709000" />
-      <workItem from="1724824312998" duration="2827000" />
-    </task>
-    <task id="LOCAL-00262" summary="create product item">
-      <option name="closed" value="true" />
-      <created>1724583551316</created>
-      <option name="number" value="00262" />
-      <option name="presentableId" value="LOCAL-00262" />
-      <option name="project" value="LOCAL" />
-      <updated>1724583551316</updated>
-    </task>
-    <task id="LOCAL-00263" summary="convert date to string">
-      <option name="closed" value="true" />
-      <created>1724583574231</created>
-      <option name="number" value="00263" />
-      <option name="presentableId" value="LOCAL-00263" />
-      <option name="project" value="LOCAL" />
-      <updated>1724583574232</updated>
-    </task>
-    <task id="LOCAL-00264" summary="done findByUserProductAndOrder repository">
-      <option name="closed" value="true" />
-      <created>1724583620025</created>
-      <option name="number" value="00264" />
-      <option name="presentableId" value="LOCAL-00264" />
-      <option name="project" value="LOCAL" />
-      <updated>1724583620025</updated>
+      <workItem from="1724824312998" duration="4833000" />
     </task>
     <task id="LOCAL-00265" summary="create orderdetail history controler and service">
       <option name="closed" value="true" />
@@ -604,7 +576,31 @@
       <option name="project" value="LOCAL" />
       <updated>1724826728080</updated>
     </task>
-    <option name="localTasksCounter" value="311" />
+    <task id="LOCAL-00311" summary="add transaction filter">
+      <option name="closed" value="true" />
+      <created>1724827406701</created>
+      <option name="number" value="00311" />
+      <option name="presentableId" value="LOCAL-00311" />
+      <option name="project" value="LOCAL" />
+      <updated>1724827406701</updated>
+    </task>
+    <task id="LOCAL-00312" summary="create filter and get total amount donate repository">
+      <option name="closed" value="true" />
+      <created>1724827443223</created>
+      <option name="number" value="00312" />
+      <option name="presentableId" value="LOCAL-00312" />
+      <option name="project" value="LOCAL" />
+      <updated>1724827443223</updated>
+    </task>
+    <task id="LOCAL-00313" summary="done filter donate for admin">
+      <option name="closed" value="true" />
+      <created>1724827468377</created>
+      <option name="number" value="00313" />
+      <option name="presentableId" value="LOCAL-00313" />
+      <option name="project" value="LOCAL" />
+      <updated>1724827468377</updated>
+    </task>
+    <option name="localTasksCounter" value="314" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,9 +624,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="done delete search history" />
-    <MESSAGE value="create review and review reply request" />
-    <MESSAGE value="create find userId and keyword repository" />
     <MESSAGE value="done create review when order success" />
     <MESSAGE value="done getReviewItems" />
     <MESSAGE value="create findSizeByProduct and min price" />
@@ -653,7 +646,10 @@
     <MESSAGE value="done get donate" />
     <MESSAGE value="add management donate and transaction report" />
     <MESSAGE value="done report donate for admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="done report donate for admin" />
+    <MESSAGE value="add transaction filter" />
+    <MESSAGE value="create filter and get total amount donate repository" />
+    <MESSAGE value="done filter donate for admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="done filter donate for admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done feedback and send email when feedback successfully">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done get feedback for admin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/donate/ManagementDonate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/donate/ManagementDonate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/FeedbackRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/FeedbackRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/feedback/ManageFeedbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/feedback/ManageFeedbackController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/feedback/FeedbackServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/feedback/FeedbackServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -210,15 +209,7 @@
       <workItem from="1724758945443" duration="3763000" />
       <workItem from="1724778974291" duration="1709000" />
       <workItem from="1724824312998" duration="4988000" />
-      <workItem from="1724830863026" duration="957000" />
-    </task>
-    <task id="LOCAL-00267" summary="create order history and order history response">
-      <option name="closed" value="true" />
-      <created>1724585940683</created>
-      <option name="number" value="00267" />
-      <option name="presentableId" value="LOCAL-00267" />
-      <option name="project" value="LOCAL" />
-      <updated>1724585940683</updated>
+      <workItem from="1724830863026" duration="1304000" />
     </task>
     <task id="LOCAL-00268" summary="fix bug for duplicate [id] in order history">
       <option name="closed" value="true" />
@@ -604,7 +595,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724829367232</updated>
     </task>
-    <option name="localTasksCounter" value="316" />
+    <task id="LOCAL-00316" summary="done get feedback for admin">
+      <option name="closed" value="true" />
+      <created>1724832107368</created>
+      <option name="number" value="00316" />
+      <option name="presentableId" value="LOCAL-00316" />
+      <option name="project" value="LOCAL" />
+      <updated>1724832107369</updated>
+    </task>
+    <option name="localTasksCounter" value="317" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,7 +627,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create findSizeByProduct and min price" />
     <MESSAGE value="create detail rate and review detail" />
     <MESSAGE value="create getReplyReview and findProduct" />
     <MESSAGE value="done getReview Item" />
@@ -653,7 +651,8 @@
     <MESSAGE value="done filter donate for admin" />
     <MESSAGE value="add feedback request and response" />
     <MESSAGE value="done feedback and send email when feedback successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="done feedback and send email when feedback successfully" />
+    <MESSAGE value="done get feedback for admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="done get feedback for admin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

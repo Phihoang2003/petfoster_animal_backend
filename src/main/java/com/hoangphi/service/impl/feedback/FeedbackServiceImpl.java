@@ -111,6 +111,22 @@ public class FeedbackServiceImpl implements FeedbackService {
 
     @Override
     public ApiResponse seen(Integer id) {
-        return null;
+        Feedback f = feedbackRepository.findById(id).orElse(null);
+        if (f != null) {
+            f.setSeen(Boolean.TRUE);
+            feedbackRepository.save(f);
+            return ApiResponse.builder()
+                    .message("Successfully!")
+                    .status(HttpStatus.OK.value())
+                    .errors(Boolean.FALSE)
+                    .data(f)
+                    .build();
+        }
+        return ApiResponse.builder()
+                .message("Failed!")
+                .status(HttpStatus.BAD_REQUEST.value())
+                .errors(Boolean.TRUE)
+                .data(new ArrayList<>())
+                .build();
     }
 }

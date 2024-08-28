@@ -4,10 +4,7 @@ import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.feedback.FeedbackService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -21,5 +18,10 @@ public class ManageFeedbackController {
     public ResponseEntity<ApiResponse> getFeedback(
             @RequestParam(value = "page", defaultValue = "0", required = false) Optional<Integer> page) {
         return ResponseEntity.ok(feedbackService.getFeedback(page));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse> seen(@PathVariable("id") Integer id) {
+        return ResponseEntity.ok(feedbackService.seen(id));
     }
 }

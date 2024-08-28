@@ -22,4 +22,6 @@ public class DonateController {
     public ResponseEntity<Object> getTransactions(@RequestParam(value = "page") Optional<Integer> page) {
         return ResponseEntity.ok(donateService.getTransaction((page)));
     }
+
+
 }

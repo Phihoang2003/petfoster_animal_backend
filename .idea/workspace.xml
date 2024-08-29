@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done change password for user">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done for verify and send email for reset password">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/RandomPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/utils/RandomPassword.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,23 +215,7 @@
       <workItem from="1724903032991" duration="5492000" />
       <workItem from="1724912223366" duration="2264000" />
       <workItem from="1724917048387" duration="5180000" />
-      <workItem from="1724924907223" duration="1989000" />
-    </task>
-    <task id="LOCAL-00279" summary="done update status order for admin">
-      <option name="closed" value="true" />
-      <created>1724656936097</created>
-      <option name="number" value="00279" />
-      <option name="presentableId" value="LOCAL-00279" />
-      <option name="project" value="LOCAL" />
-      <updated>1724656936097</updated>
-    </task>
-    <task id="LOCAL-00280" summary="create order filter response">
-      <option name="closed" value="true" />
-      <created>1724657693109</created>
-      <option name="number" value="00280" />
-      <option name="presentableId" value="LOCAL-00280" />
-      <option name="project" value="LOCAL" />
-      <updated>1724657693109</updated>
+      <workItem from="1724924907223" duration="2238000" />
     </task>
     <task id="LOCAL-00281" summary="done update read order for admin">
       <option name="closed" value="true" />
@@ -608,7 +593,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724925590764</updated>
     </task>
-    <option name="localTasksCounter" value="328" />
+    <task id="LOCAL-00328" summary="create random for reset">
+      <option name="closed" value="true" />
+      <created>1724926962830</created>
+      <option name="number" value="00328" />
+      <option name="presentableId" value="LOCAL-00328" />
+      <option name="project" value="LOCAL" />
+      <updated>1724926962830</updated>
+    </task>
+    <task id="LOCAL-00329" summary="done for verify and send email for reset password">
+      <option name="closed" value="true" />
+      <created>1724927013150</created>
+      <option name="number" value="00329" />
+      <option name="presentableId" value="LOCAL-00329" />
+      <option name="project" value="LOCAL" />
+      <updated>1724927013150</updated>
+    </task>
+    <option name="localTasksCounter" value="330" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,8 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix bug for modifiable list using List and done filter review for admin" />
-    <MESSAGE value="done create user" />
     <MESSAGE value="done set transaction for db" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="done set donate for db" />
@@ -657,7 +656,9 @@
     <MESSAGE value="done get profile user" />
     <MESSAGE value="done update profile" />
     <MESSAGE value="done change password for user" />
-    <option name="LAST_COMMIT_MESSAGE" value="done change password for user" />
+    <MESSAGE value="create random for reset" />
+    <MESSAGE value="done for verify and send email for reset password" />
+    <option name="LAST_COMMIT_MESSAGE" value="done for verify and send email for reset password" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

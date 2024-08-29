@@ -1,13 +1,11 @@
 package com.hoangphi.controller.user;
 
+import com.hoangphi.request.profile.UserProfileRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.profile.ProfileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user")
@@ -18,5 +16,10 @@ public class UserProfileController {
     @GetMapping("/profile")
     public ResponseEntity<ApiResponse> getProfile() {
         return ResponseEntity.ok(profileService.getProfile());
+    }
+
+    @PostMapping("/profile")
+    public ResponseEntity<ApiResponse> updateProfile(@ModelAttribute("user") UserProfileRequest profileRequest) {
+        return ResponseEntity.ok(profileService.updateProfile(profileRequest));
     }
 }

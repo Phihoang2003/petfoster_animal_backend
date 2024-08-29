@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done get user by username for admin">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done get profile user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/user/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/user/AdminUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/user/UserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/user/UserProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/profile/ProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/profile/ProfileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/profile/ProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/profile/ProfileService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +71,7 @@
     "git-widget-placeholder": "hoangphi/handle-search-history",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
+    "last_opened_file_path": "D:/pet-backend/petfoster-animal-back-end-2.0",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -214,23 +216,8 @@
       <workItem from="1724859378024" duration="5187000" />
       <workItem from="1724903032991" duration="5492000" />
       <workItem from="1724912223366" duration="2264000" />
-      <workItem from="1724917048387" duration="5030000" />
-    </task>
-    <task id="LOCAL-00275" summary="create invoice.html">
-      <option name="closed" value="true" />
-      <created>1724641464352</created>
-      <option name="number" value="00275" />
-      <option name="presentableId" value="LOCAL-00275" />
-      <option name="project" value="LOCAL" />
-      <updated>1724641464352</updated>
-    </task>
-    <task id="LOCAL-00276" summary="modified convert date to string">
-      <option name="closed" value="true" />
-      <created>1724641492303</created>
-      <option name="number" value="00276" />
-      <option name="presentableId" value="LOCAL-00276" />
-      <option name="project" value="LOCAL" />
-      <updated>1724641492303</updated>
+      <workItem from="1724917048387" duration="5180000" />
+      <workItem from="1724924907223" duration="417000" />
     </task>
     <task id="LOCAL-00277" summary="done print invoice">
       <option name="closed" value="true" />
@@ -608,7 +595,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724920962974</updated>
     </task>
-    <option name="localTasksCounter" value="324" />
+    <task id="LOCAL-00324" summary="create user request and response">
+      <option name="closed" value="true" />
+      <created>1724922230256</created>
+      <option name="number" value="00324" />
+      <option name="presentableId" value="LOCAL-00324" />
+      <option name="project" value="LOCAL" />
+      <updated>1724922230256</updated>
+    </task>
+    <task id="LOCAL-00325" summary="done get profile user">
+      <option name="closed" value="true" />
+      <created>1724922264247</created>
+      <option name="number" value="00325" />
+      <option name="presentableId" value="LOCAL-00325" />
+      <option name="project" value="LOCAL" />
+      <updated>1724922264247</updated>
+    </task>
+    <option name="localTasksCounter" value="326" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,8 +635,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="done filter review detail for admin" />
-    <MESSAGE value="create get latest review" />
     <MESSAGE value="create getProductByName for review" />
     <MESSAGE value="create getProductByName in review" />
     <MESSAGE value="fix bug for modifiable list using List and done filter review for admin" />
@@ -657,7 +658,9 @@
     <MESSAGE value="filter user" />
     <MESSAGE value="done find all with filter user" />
     <MESSAGE value="done get user by username for admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="done get user by username for admin" />
+    <MESSAGE value="create user request and response" />
+    <MESSAGE value="done get profile user" />
+    <option name="LAST_COMMIT_MESSAGE" value="done get profile user" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

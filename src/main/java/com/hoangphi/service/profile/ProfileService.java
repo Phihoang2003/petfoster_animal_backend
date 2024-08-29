@@ -7,7 +7,7 @@ import com.hoangphi.response.users.ChangePasswordRequest;
 public interface ProfileService {
     ApiResponse getProfile();
 
-    ApiResponse updateProfile(UserProfileRequest profileRepuest, String token);
+    ApiResponse updateProfile(UserProfileRequest profileRequest);
 
     ApiResponse changePassword(ChangePasswordRequest changePasswordRequest, String token);
 }

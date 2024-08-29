@@ -2,9 +2,11 @@ package com.hoangphi.service.impl.users;
 
 import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.constant.RespMessage;
+import com.hoangphi.entity.Addresses;
 import com.hoangphi.entity.Authorities;
 import com.hoangphi.entity.Role;
 import com.hoangphi.entity.User;
+import com.hoangphi.repository.AddressRepository;
 import com.hoangphi.repository.AuthoritiesRepository;
 import com.hoangphi.repository.RoleRepository;
 import com.hoangphi.repository.UserRepository;
@@ -12,6 +14,7 @@ import com.hoangphi.request.users.CreateUserManageRequest;
 import com.hoangphi.request.users.UpdateUserRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.common.PaginationResponse;
+import com.hoangphi.response.users.UserProfileMessageResponse;
 import com.hoangphi.response.users.UserProfileResponse;
 import com.hoangphi.service.user.UserService;
 import com.hoangphi.utils.ImageUtils;
@@ -41,6 +44,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private final AuthoritiesRepository authoritiesRepository;
     private final PortUtils portUtils;
     private final PasswordEncoder passwordEncoder;
+    private final AddressRepository addressRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) {
@@ -272,7 +276,47 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public ApiResponse getUserWithUsername(String username) {
-        return null;
+        User user = userRepository.findByUsername(username).orElse(null);
+
+        if (user == null) {
+            return ApiResponse.builder()
+                    .message("User not found !")
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .data(null)
+                    .build();
+        }
+
+        Addresses addresses = addressRepository.findByIsDefaultWithUser(username);
+
+        if (addresses == null) {
+            if (!user.getAddresses().isEmpty()) {
+                addresses = user.getAddresses().get(0);
+            }
+        }
+
+        UserProfileMessageResponse userManageResponse = UserProfileMessageResponse.builder()
+                .id(user.getId())
+                .username(user.getUsername())
+                .email(user.getEmail())
+                .phone(user.getPhone())
+                .avatar(portUtils.getUrlImage(user.getAvatar()))
+                .address(buildAddress(addresses))
+                .fullName(user.getFullname()).build();
+
+        return ApiResponse.builder()
+                .message("Get user success!")
+                .errors(false)
+                .status(HttpStatus.OK.value())
+                .data(userManageResponse)
+                .build();
+    }
+    private String buildAddress(Addresses addresses) {
+        if (addresses == null)
+            return null;
+
+        return addresses.getAddress() + ", " + addresses.getWard() + ", " + addresses.getDistrict() + ", "
+                + addresses.getProvince();
     }
 
     @Override

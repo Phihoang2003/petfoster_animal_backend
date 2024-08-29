@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="modified">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done find all with filter user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/config/SecurityUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/management/SecurityMetersService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/user/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/admin/user/AdminUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/users/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/users/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,31 +216,7 @@
       <workItem from="1724859378024" duration="5187000" />
       <workItem from="1724903032991" duration="5492000" />
       <workItem from="1724912223366" duration="2264000" />
-      <workItem from="1724917048387" duration="3228000" />
-    </task>
-    <task id="LOCAL-00271" summary="create update status request">
-      <option name="closed" value="true" />
-      <created>1724638869318</created>
-      <option name="number" value="00271" />
-      <option name="presentableId" value="LOCAL-00271" />
-      <option name="project" value="LOCAL" />
-      <updated>1724638869318</updated>
-    </task>
-    <task id="LOCAL-00272" summary="add GHN_CANCEL">
-      <option name="closed" value="true" />
-      <created>1724638991153</created>
-      <option name="number" value="00272" />
-      <option name="presentableId" value="LOCAL-00272" />
-      <option name="project" value="LOCAL" />
-      <updated>1724638991153</updated>
-    </task>
-    <task id="LOCAL-00273" summary="create cancel order by customer controller and service">
-      <option name="closed" value="true" />
-      <created>1724639028000</created>
-      <option name="number" value="00273" />
-      <option name="presentableId" value="LOCAL-00273" />
-      <option name="project" value="LOCAL" />
-      <updated>1724639028000</updated>
+      <workItem from="1724917048387" duration="3739000" />
     </task>
     <task id="LOCAL-00274" summary="done cancel order by customer">
       <option name="closed" value="true" />
@@ -614,7 +586,31 @@
       <option name="project" value="LOCAL" />
       <updated>1724914364234</updated>
     </task>
-    <option name="localTasksCounter" value="320" />
+    <task id="LOCAL-00320" summary="fix bug role user">
+      <option name="closed" value="true" />
+      <created>1724920397898</created>
+      <option name="number" value="00320" />
+      <option name="presentableId" value="LOCAL-00320" />
+      <option name="project" value="LOCAL" />
+      <updated>1724920397899</updated>
+    </task>
+    <task id="LOCAL-00321" summary="filter user">
+      <option name="closed" value="true" />
+      <created>1724920437797</created>
+      <option name="number" value="00321" />
+      <option name="presentableId" value="LOCAL-00321" />
+      <option name="project" value="LOCAL" />
+      <updated>1724920437797</updated>
+    </task>
+    <task id="LOCAL-00322" summary="done find all with filter user">
+      <option name="closed" value="true" />
+      <created>1724920464112</created>
+      <option name="number" value="00322" />
+      <option name="presentableId" value="LOCAL-00322" />
+      <option name="project" value="LOCAL" />
+      <updated>1724920464112</updated>
+    </task>
+    <option name="localTasksCounter" value="323" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,9 +634,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="done create product take action" />
-    <MESSAGE value="done get detail review" />
-    <MESSAGE value="done delete review for admin" />
     <MESSAGE value="done findReview with not reply" />
     <MESSAGE value="done filter review detail for admin" />
     <MESSAGE value="create get latest review" />
@@ -663,7 +656,10 @@
     <MESSAGE value="done set seen feedback in admin" />
     <MESSAGE value="fix bug oauth2 resource server" />
     <MESSAGE value="modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified" />
+    <MESSAGE value="fix bug role user" />
+    <MESSAGE value="filter user" />
+    <MESSAGE value="done find all with filter user" />
+    <option name="LAST_COMMIT_MESSAGE" value="done find all with filter user" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -730,11 +726,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java</url>
           <line>48</line>
           <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AuthServiceImpl.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="61" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

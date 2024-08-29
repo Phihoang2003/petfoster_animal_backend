@@ -21,4 +21,9 @@ public class AdminUserController {
                                                   @RequestParam("role") Optional<String> roles) {
         return ResponseEntity.ok(userService.getAllUser(jwt, keyword, sort, roles, pages));
     }
+
+    @GetMapping("/username/{username}")
+    public ResponseEntity<ApiResponse> getUserWithUsername(@PathVariable("username") String username) {
+        return ResponseEntity.ok(userService.getUserWithUsername(username));
+    }
 }

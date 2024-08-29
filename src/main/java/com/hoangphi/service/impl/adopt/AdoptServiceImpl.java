@@ -1,6 +1,6 @@
 package com.hoangphi.service.impl.adopt;
 
-import com.hoangphi.config.JwtProvider;
+import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.constant.AdoptStatus;
 import com.hoangphi.constant.Constant;
 import com.hoangphi.constant.PetStatus;
@@ -41,16 +41,16 @@ public class AdoptServiceImpl implements AdoptService {
     private final AdoptRepository adoptRepository;
     private final PetRepository petRepository;
     private final AddressRepository addressRepository;
-    private final JwtProvider jwtProvider;
     private final UserRepository userRepository;
     private final FormatUtils formatUtils;
     private final UserServiceImpl userServiceImpl;
     private final PetServiceImpl petServiceImpl;
+    private final SecurityUtils securityUtils;
 
 
     @Override
     public ApiResponse adopt(String jwt, AdoptsRequest adoptsRequest) {
-        String username = jwtProvider.getUsernameFromToken(jwt);
+        String username = securityUtils.getCurrentUsername();
         if (username == null || username.isEmpty()) {
             return ApiResponse.builder()
                     .status(HttpStatus.BAD_REQUEST.value())
@@ -276,7 +276,7 @@ public class AdoptServiceImpl implements AdoptService {
 
     @Override
     public ApiResponse getAdopts(String jwt, Optional<Integer> page, Optional<String> status) {
-        String username = jwtProvider.getUsernameFromToken(jwt);
+        String username = securityUtils.getCurrentUsername();
         if (username == null || username.isEmpty()) {
             return ApiResponse.builder()
                     .status(HttpStatus.BAD_REQUEST.value())
@@ -439,7 +439,7 @@ public class AdoptServiceImpl implements AdoptService {
                     .message("Adopt not found!!!").errors(true).build();
         }
 
-        String username = jwtProvider.getUsernameFromToken(jwt);
+        String username = securityUtils.getCurrentUsername();
         if (username == null || username.isEmpty()) {
             return ApiResponse.builder().status(HttpStatus.BAD_REQUEST.value())
                     .message("Username is not exists!!!").errors(true).build();

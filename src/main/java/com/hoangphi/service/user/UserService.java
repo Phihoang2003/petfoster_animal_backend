@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Optional;
 
 public interface UserService {
-    public UserDetails findByUsername(String username);
+    public UserDetails loadUserByUsername(String username);
     public User getUserFromToken(String token);
 
     public Boolean isAdmin(User user);

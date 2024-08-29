@@ -1,6 +1,6 @@
 package com.hoangphi.service.impl.users;
 
-import com.hoangphi.config.JwtProvider;
+import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.Authorities;
 import com.hoangphi.entity.Role;
@@ -20,6 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -28,18 +29,19 @@ import java.util.*;
 
 @RequiredArgsConstructor
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService, UserDetailsService {
     private final UserRepository userRepository;
-    private final JwtProvider jwtProvider;
+    private final SecurityUtils securityUtils;
     private final RoleRepository roleRepository;
     private final AuthoritiesRepository authoritiesRepository;
     private final PortUtils portUtils;
     private final PasswordEncoder passwordEncoder;
     @Override
-    public UserDetails findByUsername(String username) {
+    public UserDetails loadUserByUsername(String username) {
         User exitsUser=userRepository.findByUsername(username).get();
         List<GrantedAuthority> authorities=new ArrayList<>();
-        exitsUser.getAuthorities().forEach(authority->authorities.add(new SimpleGrantedAuthority(authority.getRole().getRole())));
+        exitsUser.getAuthorities().forEach(authority->
+                authorities.add(new SimpleGrantedAuthority(authority.getRole().getRole())));
         return new org.springframework.security.core.userdetails.User(
                 exitsUser.getUsername(),
                 exitsUser.getPassword(),
@@ -55,7 +57,7 @@ public class UserServiceImpl implements UserService {
         if(token==null||token.isBlank()){
             return null;
         }
-        String userName=jwtProvider.getUsernameFromToken(token);
+        String userName=securityUtils.getCurrentUsername();
         if(userName==null){
             return null;
         }

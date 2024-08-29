@@ -1,6 +1,6 @@
 package com.hoangphi.service.impl.posts;
 
-import com.hoangphi.config.JwtProvider;
+import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.constant.Constant;
 import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.User;
@@ -45,7 +45,7 @@ public class PostServiceImpl implements PostService {
     private final PostRepository postsRepository;
     private final MediasRepository mediasRepository;
     private final LikeRepository likeRepository;
-    private final JwtProvider   jwtProvider;
+    private final SecurityUtils securityUtils;
     private final PortUtils portUltil;
     private final UserServiceImpl userServiceImpl;
 
@@ -438,7 +438,7 @@ public class PostServiceImpl implements PostService {
         String type=rawType.orElse(null);
         if(type!=null&&type.equals("likes")){
             if(token!=null){
-                String usernameFromToken=jwtProvider.getUsernameFromToken(token);
+                String usernameFromToken=securityUtils.getCurrentUsername();
                 if(usernameFromToken.equals(username)){
                     return postsRepository.postsLikeOfUser(username);
                 }

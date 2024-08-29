@@ -1,6 +1,6 @@
 package com.hoangphi.service.impl.products_repo;
 
-import com.hoangphi.config.JwtProvider;
+import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.entity.PriceChange;
 import com.hoangphi.entity.Product;
 import com.hoangphi.entity.ProductRepo;
@@ -26,7 +26,7 @@ public class ProductRepoServiceImpl implements ProductRepoService {
     private final ProductRepository productRepository;
     private final UserRepository userRepository;
     private final PriceChangeRepository priceChangeRepository;
-    private final JwtProvider jwtProvider;
+    private final SecurityUtils securityUtils;
 
     @Override
     public ApiResponse deleteProductRepo(Integer id) {
@@ -125,7 +125,7 @@ public class ProductRepoServiceImpl implements ProductRepoService {
         }
         if(!productRepo.getInPrice().equals(updateRepoRequest.getInPrice())||
                 !productRepo.getOutPrice().equals(updateRepoRequest.getOutPrice())){
-            User user=userRepository.findByUsername(jwtProvider.getUsernameFromToken(token)).orElse(null);
+            User user=userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
             if(user==null){
                 return ApiResponse.builder()
                         .message("User not found !!!")

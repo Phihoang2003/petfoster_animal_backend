@@ -1,6 +1,6 @@
 package com.hoangphi.service.impl.review;
 
-import com.hoangphi.config.JwtProvider;
+import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.constant.Constant;
 import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.Product;
@@ -37,7 +37,7 @@ import java.util.Optional;
 public class AdminReviewServiceImpl implements AdminReviewService {
     private final ReviewRepository reviewRepository;
     private final UserRepository userRepository;
-    private final JwtProvider jwtProvider;
+    private final SecurityUtils securityUtils;
     private final ProductRepository productRepository;
     private final TakeActionServiceImpl takeActionServiceImpl;
     @Override
@@ -204,7 +204,7 @@ public class AdminReviewServiceImpl implements AdminReviewService {
 
     @Override
     public ApiResponse reply(String token, ReviewReplyRequest replayRequest) {
-        User user = userRepository.findByUsername(jwtProvider.getUsernameFromToken(token)).orElse(null);
+        User user = userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
 
         if (user == null) {
             return ApiResponse.builder()

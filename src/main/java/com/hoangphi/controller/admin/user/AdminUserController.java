@@ -1,5 +1,6 @@
 package com.hoangphi.controller.admin.user;
 
+import com.hoangphi.request.users.CreateUserManageRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.service.user.UserService;
 import lombok.RequiredArgsConstructor;
@@ -26,4 +27,12 @@ public class AdminUserController {
     public ResponseEntity<ApiResponse> getUserWithUsername(@PathVariable("username") String username) {
         return ResponseEntity.ok(userService.getUserWithUsername(username));
     }
+
+    @PostMapping("")
+    public ResponseEntity<ApiResponse> createUser(
+            @ModelAttribute("user") CreateUserManageRequest createUserManageRequest) {
+        return ResponseEntity.ok(userService.createUser(createUserManageRequest));
+    }
+
+
 }

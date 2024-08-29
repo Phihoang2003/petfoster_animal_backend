@@ -7,18 +7,19 @@ import com.hoangphi.response.AuthResponse;
 import com.hoangphi.service.AuthService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class AuthController {
-    @Autowired
-    HttpServletRequest httpServletRequest;
-    @Autowired
-     AuthService authService;
+    private final HttpServletRequest httpServletRequest;
+    @Qualifier("authServiceImpl")
+    private final AuthService authService;
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(HttpServletRequest httpServletRequest, @Valid @RequestBody RegisterRequest registerRequest){
         httpServletRequest.setAttribute("username", registerRequest.getUsername());

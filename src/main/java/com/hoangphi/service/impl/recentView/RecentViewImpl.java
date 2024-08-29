@@ -1,6 +1,6 @@
 package com.hoangphi.service.impl.recentView;
 
-import com.hoangphi.config.JwtProvider;
+import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.entity.*;
 import com.hoangphi.repository.ProductRepository;
 import com.hoangphi.repository.RecentViewRepository;
@@ -22,12 +22,12 @@ public class RecentViewImpl implements RecentViewService {
     private final RecentViewRepository recentViewRepository;
     private final UserRepository userRepository;
     private final PortUtils   portUtils;
-    private final JwtProvider jwtProvider;
+    private final SecurityUtils securityUtils;
     private final ReviewRepository reviewRepository;
     private final ProductRepository productRepository;
     @Override
     public ApiResponse getRecentView(String jwt) {
-        User user=userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        User user=userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
         Map<String, String> errorsMap = new HashMap<>();
         if(user==null){
             errorsMap.put("user", "user not found");
@@ -86,7 +86,7 @@ public class RecentViewImpl implements RecentViewService {
 
     @Override
     public ApiResponse putRecentView(String jwt, String productId) {
-        User user=userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        User user=userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
         Map<String, String> errorsMap = new HashMap<>();
         if(user==null){
             errorsMap.put("user", "user not found");

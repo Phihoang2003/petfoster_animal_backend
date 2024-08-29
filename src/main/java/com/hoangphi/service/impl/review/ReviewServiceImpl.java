@@ -1,6 +1,6 @@
 package com.hoangphi.service.impl.review;
 
-import com.hoangphi.config.JwtProvider;
+import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.constant.OrderStatus;
 import com.hoangphi.entity.*;
 import com.hoangphi.repository.OrderRepository;
@@ -25,12 +25,12 @@ public class ReviewServiceImpl implements ReviewService {
     private final ReviewRepository reviewRepository;
     private final UserRepository userRepository;
     private final ProductRepository productRepository;
-    private final JwtProvider jwtProvider;
+    private final SecurityUtils securityUtils;
     private final OrderRepository orderRepository;
     @Override
     public ApiResponse createReview(String jwt, ReviewRequest reviewRequest) {
         Map<String,String> errorsMap=new HashMap<>();
-        User user=userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        User user=userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
         if(user==null){
             errorsMap.put("user","user not found!");
             return ApiResponse.builder()

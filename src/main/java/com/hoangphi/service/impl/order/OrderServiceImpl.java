@@ -1,6 +1,6 @@
 package com.hoangphi.service.impl.order;
 
-import com.hoangphi.config.JwtProvider;
+import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.constant.Constant;
 import com.hoangphi.constant.OrderStatus;
 import com.hoangphi.constant.RespMessage;
@@ -40,7 +40,7 @@ import java.util.concurrent.atomic.AtomicReference;
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
-    private final JwtProvider jwtProvider;
+    private final SecurityUtils securityUtils;
     private final AddressRepository addressRepository;
     private final UserRepository userRepository;
     private final ProductRepoRepository productRepoRepository;
@@ -53,15 +53,13 @@ public class OrderServiceImpl implements OrderService {
     private final FormatUtils formatUtils;
     private final PortUtils portUtils;
     private final ReviewRepository reviewRepository;
-
-    @Autowired
-    private HttpServletRequest httpServletRequest;
+    private final HttpServletRequest httpServletRequest;
 
     @Override
     public ApiResponse order(String jwt, OrderRequest orderRequest) {
         Double total=0.0;
         Map<String,String> errorsMap=new HashMap< >();
-        User user=userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        User user=userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
         if(user==null){
             errorsMap.put("user","User not found");
             return ApiResponse.builder()
@@ -290,7 +288,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public ApiResponse orderDetails(String jwt, Integer id) {
-        User user=userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        User user=userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
         if(user==null){
             return ApiResponse.builder()
                     .status(HttpStatus.UNAUTHORIZED.value())
@@ -351,7 +349,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public ApiResponse orderHistory(String jwt, Optional<Integer> page, Optional<String> status) {
-        User user=userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        User user=userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
         if(user==null){
             return ApiResponse.builder()
                     .status(HttpStatus.UNAUTHORIZED.value())
@@ -463,7 +461,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public ApiResponse cancelOrder(String jwt, Integer id, UpdateStatusRequest updateStatusRequest) {
-        User user = userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        User user = userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
         if (user == null) {
             return ApiResponse.builder()
                     .status(HttpStatus.UNAUTHORIZED.value())

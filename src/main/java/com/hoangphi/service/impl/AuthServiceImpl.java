@@ -1,6 +1,6 @@
 package com.hoangphi.service.impl;
 
-import com.hoangphi.config.JwtProvider;
+import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.constant.Constant;
 import com.hoangphi.constant.PatternExpression;
 import com.hoangphi.constant.RespMessage;
@@ -18,17 +18,22 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
-@Service
+@Service("authServiceImpl")
 @RequiredArgsConstructor
+//@Component("userDetailsService")
 public class AuthServiceImpl implements AuthService {
 
     private final UserRepository userRepository;
@@ -37,10 +42,9 @@ public class AuthServiceImpl implements AuthService {
     private final EmailServiceImpl emailServiceimpl;
 
     private final RoleRepository  roleRepository;
-
+    private final SecurityUtils securityUtils;
     private final UserService userService;
-
-    private final JwtProvider jwtProvider;
+    private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
     @Override
     public AuthResponse login(LoginRequest loginReq) {
@@ -49,7 +53,7 @@ public class AuthServiceImpl implements AuthService {
         Map<String,String> errorsMap=new HashMap<>();
         UserDetails userDetails;
         try{
-            userDetails=userService.findByUsername(loginReq.getUsername());
+            userDetails=userService.loadUserByUsername(loginReq.getUsername());
 
         }catch(Exception e){
             errorsMap.put("username","Username not found");
@@ -75,7 +79,7 @@ public class AuthServiceImpl implements AuthService {
         }
         Authentication authentication=authenticate(username,password);
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token=jwtProvider.generateToken(authentication);
+        String token=securityUtils.createToken(authentication);
         return AuthResponse.builder()
                 .message("Login successfully")
                 .token(token)
@@ -85,8 +89,7 @@ public class AuthServiceImpl implements AuthService {
     }
     @Override
     public Authentication authenticate(String username, String password) {
-        UserDetails userDetails=userService.findByUsername(username);
-
+        UserDetails userDetails=userService.loadUserByUsername(username);
         return new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
     }
 
@@ -107,7 +110,7 @@ public class AuthServiceImpl implements AuthService {
                     .errors(true)
                     .build();
         }
-        if(new Date().getTime()-user.getTokenCreatedAt().getTime()> Constant.TOKEN_EXPIRE_LIMIT){
+        if (Duration.between(user.getTokenCreatedAt(), LocalDateTime.now()).toMillis() > Constant.TOKEN_EXPIRE_LIMIT) {
             return ApiResponse.builder()
                     .message("Token is expired")
                     .status(HttpStatus.BANDWIDTH_LIMIT_EXCEEDED.value())
@@ -164,7 +167,7 @@ public class AuthServiceImpl implements AuthService {
                 .password(passwordEncoder.encode(registerReq.getPassword()))
                 .gender(registerReq.getGender())
                 .fullname(registerReq.getFullname())
-                .createdAt(new Date())
+                .createdAt(LocalDateTime.now())
                 .isActive(true)
                 .provider("local")
                 .isEmailVerified(false)
@@ -193,9 +196,7 @@ public class AuthServiceImpl implements AuthService {
     public UUID sendToken(HttpServletRequest httpServletRequest, String email) {
         UUID token=UUID.randomUUID();
         CompletableFuture.runAsync(()->emailServiceimpl.sendVerificationEmail(httpServletRequest,email,token));
-
         return token;
     }
-
 
 }

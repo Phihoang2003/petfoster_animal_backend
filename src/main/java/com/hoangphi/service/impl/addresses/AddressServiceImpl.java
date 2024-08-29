@@ -1,6 +1,6 @@
 package com.hoangphi.service.impl.addresses;
 
-import com.hoangphi.config.JwtProvider;
+import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.constant.RespMessage;
 import com.hoangphi.entity.Addresses;
 import com.hoangphi.entity.User;
@@ -24,15 +24,15 @@ import java.util.Optional;
 public class AddressServiceImpl implements AddressService {
     private final AddressRepository addressRepository;
     private final UserRepository userRepository;
-    private final JwtProvider jwtProvider;
+    private final SecurityUtils securityUtils;
 
-    public String getUsernameFromToken(String token){
-        return jwtProvider.getUsernameFromToken(token);
+    public String getUsernameFromToken(){
+        return securityUtils.getCurrentUsername();
     }
 
     @Override
     public ApiResponse create(String token, AddressUserRequest data) {
-        String username=getUsernameFromToken(token);
+        String username=getUsernameFromToken();
         System.out.println("username: "+username);
         if(username==null||username.isEmpty()){
             return ApiResponse.builder()
@@ -124,7 +124,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public ApiResponse getAddressesByToken(String token) {
-        String username=getUsernameFromToken(token);
+        String username=getUsernameFromToken();
         if(username==null||username.isEmpty()){
             return ApiResponse.builder()
                     .status(400)
@@ -157,7 +157,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public ApiResponse getAddressById(String token, Integer id) {
-        String username=getUsernameFromToken(token);
+        String username=getUsernameFromToken();
         if(username==null||username.isEmpty()){
             return ApiResponse.builder()
                     .status(400)
@@ -186,7 +186,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public ApiResponse findDefaultAddress(String token) {
-        String username=getUsernameFromToken(token);
+        String username=getUsernameFromToken();
         if(username==null||username.isEmpty()){
             return ApiResponse.builder()
                     .status(400)
@@ -214,7 +214,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public ApiResponse delete(String token, Integer id) {
-        String username=getUsernameFromToken(token);
+        String username=getUsernameFromToken();
         if(username==null||username.isEmpty()){
             return ApiResponse.builder()
                     .status(400)
@@ -262,7 +262,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public ApiResponse update(String token, Integer id, AddressUserRequest data) {
-        String username=getUsernameFromToken(token);
+        String username=getUsernameFromToken();
         if(username==null||username.isEmpty()){
             return ApiResponse.builder()
                     .status(400)

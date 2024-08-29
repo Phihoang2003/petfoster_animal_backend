@@ -1,6 +1,6 @@
 package com.hoangphi.service.impl.search_history;
 
-import com.hoangphi.config.JwtProvider;
+import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.entity.SearchHistory;
 import com.hoangphi.entity.User;
 import com.hoangphi.repository.SearchHistoryRepository;
@@ -21,11 +21,11 @@ import java.util.Map;
 public class SearchHistoryServiceImpl implements SearchHistoryService {
     private final SearchHistoryRepository searchHistoryRepository;
     private final UserRepository userRepository;
-    private final JwtProvider jwtProvider;
+    private final SecurityUtils securityUtils;
     @Override
     public ApiResponse getSearchHistory(String jwt) {
         Map<String, String> errorsMap = new HashMap<>();
-        User user = userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        User user = userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
 
         if (user == null) {
             errorsMap.put("user", "user not found");
@@ -48,7 +48,7 @@ public class SearchHistoryServiceImpl implements SearchHistoryService {
     @Override
     public ApiResponse updateSearchHistory(String jwt, String keyword) {
         Map<String, String> errorsMap = new HashMap<>();
-        User user = userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        User user = userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
         if (user == null) {
             errorsMap.put("user", "user not found");
             return ApiResponse.builder()
@@ -96,7 +96,7 @@ public class SearchHistoryServiceImpl implements SearchHistoryService {
     @Override
     public ApiResponse deleteSearchHistory(String jwt, String keyword) {
         Map<String, String> errorsMap = new HashMap<>();
-        User user = userRepository.findByUsername(jwtProvider.getUsernameFromToken(jwt)).orElse(null);
+        User user = userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
 
         if (user == null) {
             errorsMap.put("user", "user not found");

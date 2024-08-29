@@ -2,6 +2,7 @@ package com.hoangphi.utils;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -14,11 +15,11 @@ import org.thymeleaf.context.Context;
 import java.util.Map;
 
 @Service
+@RequiredArgsConstructor
 public class MailUtils {
-    @Autowired
-    private JavaMailSender mailSender;
-    @Autowired
-    TemplateEngine templateEngine;
+    private final JavaMailSender mailSender;
+    private final TemplateEngine templateEngine;
+
     public void sendEmail(String to,String object,String body){
         //send email
         SimpleMailMessage message = new SimpleMailMessage();

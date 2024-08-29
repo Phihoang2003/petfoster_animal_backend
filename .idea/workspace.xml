@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done get order detail for admin" />
 =======
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done filter order for admin">
@@ -16,6 +17,9 @@
 >>>>>>> hoangphi/handle-order
 =======
     <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="fix bug for modifiable list using List and done filter review for admin" />
+>>>>>>> hoangphi/handle-search-history
+=======
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done" />
 >>>>>>> hoangphi/handle-search-history
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,8 +66,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "HTTP Request.test | #1.executor": "Run",
+    "HTTP Request.test | (dòng trống)#2.executor": "Run",
+    "HTTP Request.test | (dòng trống).executor": "Run",
+>>>>>>> hoangphi/handle-search-history
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -74,10 +86,14 @@
     "data.sources.detected.do.not.suggest.again": "true",
     "extract.method.default.visibility": "private",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "git-widget-placeholder": "development",
 =======
     "git-widget-placeholder": "hoangphi/handle-order",
 >>>>>>> hoangphi/handle-order
+=======
+    "git-widget-placeholder": "hoangphi/handle-search-history",
+>>>>>>> hoangphi/handle-search-history
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/pet-backend/petfoster-animal-back-end-2.0",
@@ -89,6 +105,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+<<<<<<< HEAD
     "settings.editor.selected.configurable": "vcs.Git",
     "vue.rearranger.settings.migration": "true"
 =======
@@ -121,14 +138,18 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
 >>>>>>> hoangphi/handle-search-history
+=======
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> hoangphi/handle-search-history
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlserver.localdb&quot;,
-      &quot;sqlserver&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver.localdb",
+      "sqlserver"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.hoangphi.entity" />
@@ -246,230 +267,17 @@
       <workItem from="1724668095121" duration="630000" />
       <workItem from="1724672247624" duration="3204000" />
       <workItem from="1724721217805" duration="10747000" />
-    </task>
-    <task id="LOCAL-00255" summary="bug for payment with momo">
-      <option name="closed" value="true" />
-      <created>1724502218498</created>
-      <option name="number" value="00255" />
-      <option name="presentableId" value="LOCAL-00255" />
-      <option name="project" value="LOCAL" />
-      <updated>1724502218498</updated>
-    </task>
-    <task id="LOCAL-00256" summary="fix bug for payment with momo successfully">
-      <option name="closed" value="true" />
-      <created>1724510441801</created>
-      <option name="number" value="00256" />
-      <option name="presentableId" value="LOCAL-00256" />
-      <option name="project" value="LOCAL" />
-      <updated>1724510441801</updated>
-    </task>
-    <task id="LOCAL-00257" summary="create payment request">
-      <option name="closed" value="true" />
-      <created>1724560579511</created>
-      <option name="number" value="00257" />
-      <option name="presentableId" value="LOCAL-00257" />
-      <option name="project" value="LOCAL" />
-      <updated>1724560579512</updated>
-    </task>
-    <task id="LOCAL-00258" summary="convert String to LocalDate">
-      <option name="closed" value="true" />
-      <created>1724560644161</created>
-      <option name="number" value="00258" />
-      <option name="presentableId" value="LOCAL-00258" />
-      <option name="project" value="LOCAL" />
-      <updated>1724560644161</updated>
-    </task>
-    <task id="LOCAL-00259" summary="create payment controller and service">
-      <option name="closed" value="true" />
-      <created>1724560670558</created>
-      <option name="number" value="00259" />
-      <option name="presentableId" value="LOCAL-00259" />
-      <option name="project" value="LOCAL" />
-      <updated>1724560670558</updated>
-    </task>
-    <task id="LOCAL-00260" summary="done payment">
-      <option name="closed" value="true" />
-      <created>1724560697069</created>
-      <option name="number" value="00260" />
-      <option name="presentableId" value="LOCAL-00260" />
-      <option name="project" value="LOCAL" />
-      <updated>1724560697069</updated>
-    </task>
-    <task id="LOCAL-00261" summary="create order detail response">
-      <option name="closed" value="true" />
-      <created>1724583538955</created>
-      <option name="number" value="00261" />
-      <option name="presentableId" value="LOCAL-00261" />
-      <option name="project" value="LOCAL" />
-      <updated>1724583538955</updated>
-    </task>
-    <task id="LOCAL-00262" summary="create product item">
-      <option name="closed" value="true" />
-      <created>1724583551316</created>
-      <option name="number" value="00262" />
-      <option name="presentableId" value="LOCAL-00262" />
-      <option name="project" value="LOCAL" />
-      <updated>1724583551316</updated>
-    </task>
-    <task id="LOCAL-00263" summary="convert date to string">
-      <option name="closed" value="true" />
-      <created>1724583574231</created>
-      <option name="number" value="00263" />
-      <option name="presentableId" value="LOCAL-00263" />
-      <option name="project" value="LOCAL" />
-      <updated>1724583574232</updated>
-    </task>
-    <task id="LOCAL-00264" summary="done findByUserProductAndOrder repository">
-      <option name="closed" value="true" />
-      <created>1724583620025</created>
-      <option name="number" value="00264" />
-      <option name="presentableId" value="LOCAL-00264" />
-      <option name="project" value="LOCAL" />
-      <updated>1724583620025</updated>
-    </task>
-    <task id="LOCAL-00265" summary="create orderdetail history controler and service">
-      <option name="closed" value="true" />
-      <created>1724583655735</created>
-      <option name="number" value="00265" />
-      <option name="presentableId" value="LOCAL-00265" />
-      <option name="project" value="LOCAL" />
-      <updated>1724583655735</updated>
-    </task>
-    <task id="LOCAL-00266" summary="done order detail history">
-      <option name="closed" value="true" />
-      <created>1724583677843</created>
-      <option name="number" value="00266" />
-      <option name="presentableId" value="LOCAL-00266" />
-      <option name="project" value="LOCAL" />
-      <updated>1724583677843</updated>
-    </task>
-    <task id="LOCAL-00267" summary="create order history and order history response">
-      <option name="closed" value="true" />
-      <created>1724585940683</created>
-      <option name="number" value="00267" />
-      <option name="presentableId" value="LOCAL-00267" />
-      <option name="project" value="LOCAL" />
-      <updated>1724585940683</updated>
-    </task>
-    <task id="LOCAL-00268" summary="fix bug for duplicate [id] in order history">
-      <option name="closed" value="true" />
-      <created>1724585983883</created>
-      <option name="number" value="00268" />
-      <option name="presentableId" value="LOCAL-00268" />
-      <option name="project" value="LOCAL" />
-      <updated>1724585983883</updated>
-    </task>
-    <task id="LOCAL-00269" summary="done order history">
-      <option name="closed" value="true" />
-      <created>1724586006523</created>
-      <option name="number" value="00269" />
-      <option name="presentableId" value="LOCAL-00269" />
-      <option name="project" value="LOCAL" />
-      <updated>1724586006523</updated>
-    </task>
-    <task id="LOCAL-00270" summary="done order detail table for admin">
-      <option name="closed" value="true" />
-      <created>1724637075073</created>
-      <option name="number" value="00270" />
-      <option name="presentableId" value="LOCAL-00270" />
-      <option name="project" value="LOCAL" />
-      <updated>1724637075073</updated>
-    </task>
-    <task id="LOCAL-00271" summary="create update status request">
-      <option name="closed" value="true" />
-      <created>1724638869318</created>
-      <option name="number" value="00271" />
-      <option name="presentableId" value="LOCAL-00271" />
-      <option name="project" value="LOCAL" />
-      <updated>1724638869318</updated>
-    </task>
-    <task id="LOCAL-00272" summary="add GHN_CANCEL">
-      <option name="closed" value="true" />
-      <created>1724638991153</created>
-      <option name="number" value="00272" />
-      <option name="presentableId" value="LOCAL-00272" />
-      <option name="project" value="LOCAL" />
-      <updated>1724638991153</updated>
-    </task>
-    <task id="LOCAL-00273" summary="create cancel order by customer controller and service">
-      <option name="closed" value="true" />
-      <created>1724639028000</created>
-      <option name="number" value="00273" />
-      <option name="presentableId" value="LOCAL-00273" />
-      <option name="project" value="LOCAL" />
-      <updated>1724639028000</updated>
-    </task>
-    <task id="LOCAL-00274" summary="done cancel order by customer">
-      <option name="closed" value="true" />
-      <created>1724639046375</created>
-      <option name="number" value="00274" />
-      <option name="presentableId" value="LOCAL-00274" />
-      <option name="project" value="LOCAL" />
-      <updated>1724639046375</updated>
-    </task>
-    <task id="LOCAL-00275" summary="create invoice.html">
-      <option name="closed" value="true" />
-      <created>1724641464352</created>
-      <option name="number" value="00275" />
-      <option name="presentableId" value="LOCAL-00275" />
-      <option name="project" value="LOCAL" />
-      <updated>1724641464352</updated>
-    </task>
-    <task id="LOCAL-00276" summary="modified convert date to string">
-      <option name="closed" value="true" />
-      <created>1724641492303</created>
-      <option name="number" value="00276" />
-      <option name="presentableId" value="LOCAL-00276" />
-      <option name="project" value="LOCAL" />
-      <updated>1724641492303</updated>
-    </task>
-    <task id="LOCAL-00277" summary="done print invoice">
-      <option name="closed" value="true" />
-      <created>1724641512725</created>
-      <option name="number" value="00277" />
-      <option name="presentableId" value="LOCAL-00277" />
-      <option name="project" value="LOCAL" />
-      <updated>1724641512725</updated>
-    </task>
-    <task id="LOCAL-00278" summary="create admin order service">
-      <option name="closed" value="true" />
-      <created>1724656828046</created>
-      <option name="number" value="00278" />
-      <option name="presentableId" value="LOCAL-00278" />
-      <option name="project" value="LOCAL" />
-      <updated>1724656828046</updated>
-    </task>
-    <task id="LOCAL-00279" summary="done update status order for admin">
-      <option name="closed" value="true" />
-      <created>1724656936097</created>
-      <option name="number" value="00279" />
-      <option name="presentableId" value="LOCAL-00279" />
-      <option name="project" value="LOCAL" />
-      <updated>1724656936097</updated>
-    </task>
-    <task id="LOCAL-00280" summary="create order filter response">
-      <option name="closed" value="true" />
-      <created>1724657693109</created>
-      <option name="number" value="00280" />
-      <option name="presentableId" value="LOCAL-00280" />
-      <option name="project" value="LOCAL" />
-      <updated>1724657693109</updated>
-    </task>
-    <task id="LOCAL-00281" summary="done update read order for admin">
-      <option name="closed" value="true" />
-      <created>1724657722734</created>
-      <option name="number" value="00281" />
-      <option name="presentableId" value="LOCAL-00281" />
-      <option name="project" value="LOCAL" />
-      <updated>1724657722734</updated>
-    </task>
-    <task id="LOCAL-00282" summary="done update print order for admin">
-      <option name="closed" value="true" />
-      <created>1724657827102</created>
-      <option name="number" value="00282" />
-      <option name="presentableId" value="LOCAL-00282" />
-      <option name="project" value="LOCAL" />
-      <updated>1724657827102</updated>
+      <workItem from="1724758945443" duration="3763000" />
+      <workItem from="1724778974291" duration="1709000" />
+      <workItem from="1724824312998" duration="4988000" />
+      <workItem from="1724830863026" duration="3217000" />
+      <workItem from="1724836577427" duration="581000" />
+      <workItem from="1724838925204" duration="15244000" />
+      <workItem from="1724859378024" duration="5187000" />
+      <workItem from="1724903032991" duration="5492000" />
+      <workItem from="1724912223366" duration="2264000" />
+      <workItem from="1724917048387" duration="5180000" />
+      <workItem from="1724924907223" duration="2536000" />
     </task>
     <task id="LOCAL-00283" summary="done filter order repository for admin">
       <option name="closed" value="true" />
@@ -639,7 +447,231 @@
       <option name="project" value="LOCAL" />
       <updated>1724732449199</updated>
     </task>
-    <option name="localTasksCounter" value="304" />
+    <task id="LOCAL-00304" summary="done create user">
+      <option name="closed" value="true" />
+      <created>1724763165111</created>
+      <option name="number" value="00304" />
+      <option name="presentableId" value="LOCAL-00304" />
+      <option name="project" value="LOCAL" />
+      <updated>1724763165111</updated>
+    </task>
+    <task id="LOCAL-00305" summary="done set transaction for db">
+      <option name="closed" value="true" />
+      <created>1724763218228</created>
+      <option name="number" value="00305" />
+      <option name="presentableId" value="LOCAL-00305" />
+      <option name="project" value="LOCAL" />
+      <updated>1724763218228</updated>
+    </task>
+    <task id="LOCAL-00306" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1724780680285</created>
+      <option name="number" value="00306" />
+      <option name="presentableId" value="LOCAL-00306" />
+      <option name="project" value="LOCAL" />
+      <updated>1724780680287</updated>
+    </task>
+    <task id="LOCAL-00307" summary="done set donate for db">
+      <option name="closed" value="true" />
+      <created>1724780703270</created>
+      <option name="number" value="00307" />
+      <option name="presentableId" value="LOCAL-00307" />
+      <option name="project" value="LOCAL" />
+      <updated>1724780703270</updated>
+    </task>
+    <task id="LOCAL-00308" summary="done get donate">
+      <option name="closed" value="true" />
+      <created>1724824631320</created>
+      <option name="number" value="00308" />
+      <option name="presentableId" value="LOCAL-00308" />
+      <option name="project" value="LOCAL" />
+      <updated>1724824631321</updated>
+    </task>
+    <task id="LOCAL-00309" summary="add management donate and transaction report">
+      <option name="closed" value="true" />
+      <created>1724826701698</created>
+      <option name="number" value="00309" />
+      <option name="presentableId" value="LOCAL-00309" />
+      <option name="project" value="LOCAL" />
+      <updated>1724826701698</updated>
+    </task>
+    <task id="LOCAL-00310" summary="done report donate for admin">
+      <option name="closed" value="true" />
+      <created>1724826728080</created>
+      <option name="number" value="00310" />
+      <option name="presentableId" value="LOCAL-00310" />
+      <option name="project" value="LOCAL" />
+      <updated>1724826728080</updated>
+    </task>
+    <task id="LOCAL-00311" summary="add transaction filter">
+      <option name="closed" value="true" />
+      <created>1724827406701</created>
+      <option name="number" value="00311" />
+      <option name="presentableId" value="LOCAL-00311" />
+      <option name="project" value="LOCAL" />
+      <updated>1724827406701</updated>
+    </task>
+    <task id="LOCAL-00312" summary="create filter and get total amount donate repository">
+      <option name="closed" value="true" />
+      <created>1724827443223</created>
+      <option name="number" value="00312" />
+      <option name="presentableId" value="LOCAL-00312" />
+      <option name="project" value="LOCAL" />
+      <updated>1724827443223</updated>
+    </task>
+    <task id="LOCAL-00313" summary="done filter donate for admin">
+      <option name="closed" value="true" />
+      <created>1724827468377</created>
+      <option name="number" value="00313" />
+      <option name="presentableId" value="LOCAL-00313" />
+      <option name="project" value="LOCAL" />
+      <updated>1724827468377</updated>
+    </task>
+    <task id="LOCAL-00314" summary="add feedback request and response">
+      <option name="closed" value="true" />
+      <created>1724829333035</created>
+      <option name="number" value="00314" />
+      <option name="presentableId" value="LOCAL-00314" />
+      <option name="project" value="LOCAL" />
+      <updated>1724829333035</updated>
+    </task>
+    <task id="LOCAL-00315" summary="done feedback and send email when feedback successfully">
+      <option name="closed" value="true" />
+      <created>1724829367232</created>
+      <option name="number" value="00315" />
+      <option name="presentableId" value="LOCAL-00315" />
+      <option name="project" value="LOCAL" />
+      <updated>1724829367232</updated>
+    </task>
+    <task id="LOCAL-00316" summary="done get feedback for admin">
+      <option name="closed" value="true" />
+      <created>1724832107368</created>
+      <option name="number" value="00316" />
+      <option name="presentableId" value="LOCAL-00316" />
+      <option name="project" value="LOCAL" />
+      <updated>1724832107369</updated>
+    </task>
+    <task id="LOCAL-00317" summary="done set seen feedback in admin">
+      <option name="closed" value="true" />
+      <created>1724832348353</created>
+      <option name="number" value="00317" />
+      <option name="presentableId" value="LOCAL-00317" />
+      <option name="project" value="LOCAL" />
+      <updated>1724832348353</updated>
+    </task>
+    <task id="LOCAL-00318" summary="fix bug oauth2 resource server">
+      <option name="closed" value="true" />
+      <created>1724913577005</created>
+      <option name="number" value="00318" />
+      <option name="presentableId" value="LOCAL-00318" />
+      <option name="project" value="LOCAL" />
+      <updated>1724913577006</updated>
+    </task>
+    <task id="LOCAL-00319" summary="modified">
+      <option name="closed" value="true" />
+      <created>1724914364234</created>
+      <option name="number" value="00319" />
+      <option name="presentableId" value="LOCAL-00319" />
+      <option name="project" value="LOCAL" />
+      <updated>1724914364234</updated>
+    </task>
+    <task id="LOCAL-00320" summary="fix bug role user">
+      <option name="closed" value="true" />
+      <created>1724920397898</created>
+      <option name="number" value="00320" />
+      <option name="presentableId" value="LOCAL-00320" />
+      <option name="project" value="LOCAL" />
+      <updated>1724920397899</updated>
+    </task>
+    <task id="LOCAL-00321" summary="filter user">
+      <option name="closed" value="true" />
+      <created>1724920437797</created>
+      <option name="number" value="00321" />
+      <option name="presentableId" value="LOCAL-00321" />
+      <option name="project" value="LOCAL" />
+      <updated>1724920437797</updated>
+    </task>
+    <task id="LOCAL-00322" summary="done find all with filter user">
+      <option name="closed" value="true" />
+      <created>1724920464112</created>
+      <option name="number" value="00322" />
+      <option name="presentableId" value="LOCAL-00322" />
+      <option name="project" value="LOCAL" />
+      <updated>1724920464112</updated>
+    </task>
+    <task id="LOCAL-00323" summary="done get user by username for admin">
+      <option name="closed" value="true" />
+      <created>1724920962974</created>
+      <option name="number" value="00323" />
+      <option name="presentableId" value="LOCAL-00323" />
+      <option name="project" value="LOCAL" />
+      <updated>1724920962974</updated>
+    </task>
+    <task id="LOCAL-00324" summary="create user request and response">
+      <option name="closed" value="true" />
+      <created>1724922230256</created>
+      <option name="number" value="00324" />
+      <option name="presentableId" value="LOCAL-00324" />
+      <option name="project" value="LOCAL" />
+      <updated>1724922230256</updated>
+    </task>
+    <task id="LOCAL-00325" summary="done get profile user">
+      <option name="closed" value="true" />
+      <created>1724922264247</created>
+      <option name="number" value="00325" />
+      <option name="presentableId" value="LOCAL-00325" />
+      <option name="project" value="LOCAL" />
+      <updated>1724922264247</updated>
+    </task>
+    <task id="LOCAL-00326" summary="done update profile">
+      <option name="closed" value="true" />
+      <created>1724925432286</created>
+      <option name="number" value="00326" />
+      <option name="presentableId" value="LOCAL-00326" />
+      <option name="project" value="LOCAL" />
+      <updated>1724925432286</updated>
+    </task>
+    <task id="LOCAL-00327" summary="done change password for user">
+      <option name="closed" value="true" />
+      <created>1724925590764</created>
+      <option name="number" value="00327" />
+      <option name="presentableId" value="LOCAL-00327" />
+      <option name="project" value="LOCAL" />
+      <updated>1724925590764</updated>
+    </task>
+    <task id="LOCAL-00328" summary="create random for reset">
+      <option name="closed" value="true" />
+      <created>1724926962830</created>
+      <option name="number" value="00328" />
+      <option name="presentableId" value="LOCAL-00328" />
+      <option name="project" value="LOCAL" />
+      <updated>1724926962830</updated>
+    </task>
+    <task id="LOCAL-00329" summary="done for verify and send email for reset password">
+      <option name="closed" value="true" />
+      <created>1724927013150</created>
+      <option name="number" value="00329" />
+      <option name="presentableId" value="LOCAL-00329" />
+      <option name="project" value="LOCAL" />
+      <updated>1724927013150</updated>
+    </task>
+    <task id="LOCAL-00330" summary="done">
+      <option name="closed" value="true" />
+      <created>1724927448180</created>
+      <option name="number" value="00330" />
+      <option name="presentableId" value="LOCAL-00330" />
+      <option name="project" value="LOCAL" />
+      <updated>1724927448180</updated>
+    </task>
+    <task id="LOCAL-00331" summary="done">
+      <option name="closed" value="true" />
+      <created>1724927459654</created>
+      <option name="number" value="00331" />
+      <option name="presentableId" value="LOCAL-00331" />
+      <option name="project" value="LOCAL" />
+      <updated>1724927459654</updated>
+    </task>
+    <option name="localTasksCounter" value="332" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,32 +695,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="done update print order for admin" />
-    <MESSAGE value="done filter order repository for admin" />
-    <MESSAGE value="create filter order response" />
-    <MESSAGE value="done filter order for admin" />
-    <MESSAGE value="done get order detail for admin" />
-    <MESSAGE value="create search history and response" />
-    <MESSAGE value="done get and update search history" />
-    <MESSAGE value="done delete search history" />
-    <MESSAGE value="create review and review reply request" />
-    <MESSAGE value="create find userId and keyword repository" />
-    <MESSAGE value="done create review when order success" />
-    <MESSAGE value="done getReviewItems" />
-    <MESSAGE value="create findSizeByProduct and min price" />
-    <MESSAGE value="create detail rate and review detail" />
-    <MESSAGE value="create getReplyReview and findProduct" />
-    <MESSAGE value="done getReview Item" />
-    <MESSAGE value="done create product take action" />
-    <MESSAGE value="done get detail review" />
-    <MESSAGE value="done delete review for admin" />
-    <MESSAGE value="done findReview with not reply" />
-    <MESSAGE value="done filter review detail for admin" />
-    <MESSAGE value="create get latest review" />
-    <MESSAGE value="create getProductByName for review" />
-    <MESSAGE value="create getProductByName in review" />
-    <MESSAGE value="fix bug for modifiable list using List and done filter review for admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug for modifiable list using List and done filter review for admin" />
+    <MESSAGE value="fix bug" />
+    <MESSAGE value="done set donate for db" />
+    <MESSAGE value="done get donate" />
+    <MESSAGE value="add management donate and transaction report" />
+    <MESSAGE value="done report donate for admin" />
+    <MESSAGE value="add transaction filter" />
+    <MESSAGE value="create filter and get total amount donate repository" />
+    <MESSAGE value="done filter donate for admin" />
+    <MESSAGE value="add feedback request and response" />
+    <MESSAGE value="done feedback and send email when feedback successfully" />
+    <MESSAGE value="done get feedback for admin" />
+    <MESSAGE value="done set seen feedback in admin" />
+    <MESSAGE value="fix bug oauth2 resource server" />
+    <MESSAGE value="modified" />
+    <MESSAGE value="fix bug role user" />
+    <MESSAGE value="filter user" />
+    <MESSAGE value="done find all with filter user" />
+    <MESSAGE value="done get user by username for admin" />
+    <MESSAGE value="create user request and response" />
+    <MESSAGE value="done get profile user" />
+    <MESSAGE value="done update profile" />
+    <MESSAGE value="done change password for user" />
+    <MESSAGE value="create random for reset" />
+    <MESSAGE value="done for verify and send email for reset password" />
+    <MESSAGE value="done" />
+    <option name="LAST_COMMIT_MESSAGE" value="done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -704,7 +736,7 @@
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
-          <line>635</line>
+          <line>633</line>
           <properties class="com.hoangphi.service.impl.order.OrderServiceImpl" method="updateQuantity">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -728,12 +760,12 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
-          <line>151</line>
+          <line>149</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
-          <line>146</line>
+          <line>144</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -758,13 +790,6 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="user" language="JAVA" />
-        <watch expression="shippingInfo" />
-        <watch expression="watch=formatUtils.convertMillisecondsToLocalDate(paymentRequest.getPayAt())" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

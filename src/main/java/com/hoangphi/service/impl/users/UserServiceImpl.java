@@ -11,11 +11,16 @@ import com.hoangphi.repository.UserRepository;
 import com.hoangphi.request.users.CreateUserManageRequest;
 import com.hoangphi.request.users.UpdateUserRequest;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.response.users.UserProfileResponse;
 import com.hoangphi.service.user.UserService;
 import com.hoangphi.utils.ImageUtils;
 import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -184,7 +189,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         }
 
         return ApiResponse.builder()
-                .message("Create succssefully !")
+                .message("Create successfully !")
                 .errors(false)
                 .status(HttpStatus.OK.value())
                 .data(userRepository.save(newUser))
@@ -198,7 +203,71 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public ApiResponse getAllUser(String jwt, Optional<String> keyword, Optional<String> sort, Optional<String> role, Optional<Integer> pages) {
-        return null;
+        List<User> users = userRepository.findAll(keyword.orElse(null), role.orElse(null), sort.orElse(null));
+
+        if (users.isEmpty()) {
+            return ApiResponse.builder().message("No data!")
+                    .status(400)
+                    .errors(false)
+                    .data(PaginationResponse.builder().data(new ArrayList<>())
+                            .build())
+                    .build();
+        }
+
+        Pageable pageable = PageRequest.of(pages.orElse(0), 10);
+        int startIndex = (int) pageable.getOffset();
+        int endIndex = Math.min(startIndex + pageable.getPageSize(), users.size());
+
+        if (startIndex >= endIndex) {
+            return ApiResponse.builder()
+                    .message(RespMessage.NOT_FOUND.getValue())
+                    .data(null)
+                    .errors(true)
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .build();
+        }
+
+        List<User> visibleUsers = users.subList(startIndex, endIndex);
+
+        List<UserProfileResponse> visibleResponseUsers = new ArrayList<>();
+
+        visibleUsers.forEach((user) -> {
+            // find role by user
+            List<Authorities> roles = authoritiesRepository.findByUser(user);
+            Role userRole = null;
+            if (!roles.isEmpty()) {
+                userRole = roles.get(0).getRole();
+            }
+            UserProfileResponse userProfile = UserProfileResponse.builder()
+                    .id(user.getId())
+                    .username(user.getUsername())
+                    .fullName(user.getFullname())
+                    .birthday(user.getBirthday())
+                    .gender(user.getGender() != null)
+                    .phone(user.getPhone())
+                    .email(user.getEmail())
+                    .displayName(user.getDisplayName())
+                    .provider(user.getProvider())
+                    .avatar(user.getAvatar() == null ? null : portUtils.getUrlImage(user.getAvatar()))
+                    .role(userRole == null ? null : userRole.getRole())
+                    .createAt(user.getCreatedAt())
+                    .build();
+
+            visibleResponseUsers.add(userProfile);
+
+        });
+
+        Page<UserProfileResponse> pagination = new PageImpl<UserProfileResponse>(visibleResponseUsers, pageable,
+                users.size());
+
+        return ApiResponse.builder().message("Successfully!")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(PaginationResponse.builder()
+                        .data(pagination.getContent())
+                        .pages(pagination.getTotalPages())
+                        .build())
+                .build();
     }
 
     @Override

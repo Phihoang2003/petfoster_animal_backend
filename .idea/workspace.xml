@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done get profile user">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done update profile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/user/UserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/user/UserProfileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/profile/ProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/profile/ProfileServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/profile/ProfileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/profile/ProfileService.java" afterDir="false" />
     </list>
@@ -217,15 +216,7 @@
       <workItem from="1724903032991" duration="5492000" />
       <workItem from="1724912223366" duration="2264000" />
       <workItem from="1724917048387" duration="5180000" />
-      <workItem from="1724924907223" duration="417000" />
-    </task>
-    <task id="LOCAL-00277" summary="done print invoice">
-      <option name="closed" value="true" />
-      <created>1724641512725</created>
-      <option name="number" value="00277" />
-      <option name="presentableId" value="LOCAL-00277" />
-      <option name="project" value="LOCAL" />
-      <updated>1724641512725</updated>
+      <workItem from="1724924907223" duration="653000" />
     </task>
     <task id="LOCAL-00278" summary="create admin order service">
       <option name="closed" value="true" />
@@ -611,7 +602,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724922264247</updated>
     </task>
-    <option name="localTasksCounter" value="326" />
+    <task id="LOCAL-00326" summary="done update profile">
+      <option name="closed" value="true" />
+      <created>1724925432286</created>
+      <option name="number" value="00326" />
+      <option name="presentableId" value="LOCAL-00326" />
+      <option name="project" value="LOCAL" />
+      <updated>1724925432286</updated>
+    </task>
+    <option name="localTasksCounter" value="327" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -635,7 +634,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create getProductByName for review" />
     <MESSAGE value="create getProductByName in review" />
     <MESSAGE value="fix bug for modifiable list using List and done filter review for admin" />
     <MESSAGE value="done create user" />
@@ -660,7 +658,8 @@
     <MESSAGE value="done get user by username for admin" />
     <MESSAGE value="create user request and response" />
     <MESSAGE value="done get profile user" />
-    <option name="LAST_COMMIT_MESSAGE" value="done get profile user" />
+    <MESSAGE value="done update profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="done update profile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

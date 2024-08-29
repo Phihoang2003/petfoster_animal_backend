@@ -179,7 +179,40 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public ApiResponse changePassword(ChangePasswordRequest changePasswordRequest, String token) {
-        return null;
+    public ApiResponse changePassword(ChangePasswordRequest changePasswordRequest) {
+        Map<String, String> errorsMap = new HashMap<>();
+
+        String username = securityUtils.getCurrentUsername();
+        User user = userRepository.findByUsername(username).orElse(null);
+
+        if (user == null) {
+            return ApiResponse.builder()
+                    .message("User not found !")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        if (!passwordEncoder.matches(changePasswordRequest.getPassword(), user.getPassword())) {
+            errorsMap.put("password", "password is incorrect, please try again!!");
+            return ApiResponse.builder()
+                    .message(RespMessage.FAILURE.getValue())
+                    .errors(errorsMap)
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .data(null)
+                    .build();
+        }
+
+        // all good
+        user.setPassword(passwordEncoder.encode(changePasswordRequest.getNewPassword()));
+
+        return ApiResponse.builder()
+                .message("Update success!")
+                .errors(false)
+                .status(HttpStatus.OK.value())
+                .data(userRepository.save(user))
+                .build();
     }
+
 }

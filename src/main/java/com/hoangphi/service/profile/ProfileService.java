@@ -9,5 +9,5 @@ public interface ProfileService {
 
     ApiResponse updateProfile(UserProfileRequest profileRequest);
 
-    ApiResponse changePassword(ChangePasswordRequest changePasswordRequest, String token);
+    ApiResponse changePassword(ChangePasswordRequest changePasswordRequest);
 }

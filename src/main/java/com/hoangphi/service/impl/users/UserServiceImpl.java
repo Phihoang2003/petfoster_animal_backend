@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private final AuthoritiesRepository authoritiesRepository;
     private final PortUtils portUtils;
     private final PasswordEncoder passwordEncoder;
+
     @Override
     public UserDetails loadUserByUsername(String username) {
         User exitsUser=userRepository.findByUsername(username).get();

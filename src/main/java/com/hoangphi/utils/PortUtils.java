@@ -1,5 +1,6 @@
 package com.hoangphi.utils;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
@@ -7,9 +8,9 @@ import org.springframework.stereotype.Component;
 import java.net.InetAddress;
 
 @Component
+@RequiredArgsConstructor
 public class PortUtils {
-    @Autowired
-    private Environment environment;
+    private final  Environment environment;
 
     private String port;
 

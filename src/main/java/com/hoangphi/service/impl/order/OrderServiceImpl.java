@@ -53,9 +53,7 @@ public class OrderServiceImpl implements OrderService {
     private final FormatUtils formatUtils;
     private final PortUtils portUtils;
     private final ReviewRepository reviewRepository;
-
-    @Autowired
-    private HttpServletRequest httpServletRequest;
+    private final HttpServletRequest httpServletRequest;
 
     @Override
     public ApiResponse order(String jwt, OrderRequest orderRequest) {

@@ -17,7 +17,7 @@ public interface UserService {
 
     public ApiResponse updateUser(UpdateUserRequest updateUserRequest);
 
-    public ApiResponse createUser(CreateUserManageRequest createaUserManageRequest);
+    public ApiResponse createUser(CreateUserManageRequest createUserManageRequest);
 
     public ApiResponse deleteUser(String id);
 

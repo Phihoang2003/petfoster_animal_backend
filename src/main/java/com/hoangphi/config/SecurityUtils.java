@@ -19,7 +19,6 @@ public class SecurityUtils {
     public static final MacAlgorithm JWT_ALGORITHM = MacAlgorithm.HS512;
     private final JwtEncoder jwtEncoder;
 
-
     @Value("${hoangphi.jwt.token-validity-in-seconds}")
     private Long jwtExpiration;
 

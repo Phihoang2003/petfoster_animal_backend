@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+src/main/java/com/hoangphi/constant/
+src/main/resources/application.properties

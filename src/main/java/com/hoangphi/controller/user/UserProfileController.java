@@ -15,6 +15,7 @@ public class UserProfileController {
 
     @GetMapping("/profile")
     public ResponseEntity<ApiResponse> getProfile() {
+
         return ResponseEntity.ok(profileService.getProfile());
     }
 

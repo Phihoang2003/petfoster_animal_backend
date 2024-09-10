@@ -63,8 +63,8 @@ public class AuthServiceImpl implements AuthService {
                     .build();
         }
         if(!passwordEncoder.matches(loginReq.getPassword(),userDetails.getPassword())){
-            errorsMap.put("Username: ", "Username is incorrect");
-            errorsMap.put("Or Password: ","Password is incorrect,please try again!");
+            errorsMap.put("username", "Username is incorrect");
+            errorsMap.put("password","Password is incorrect, please try again!");
             return AuthResponse.builder()
                     .message(HttpStatus.BAD_REQUEST.toString())
                     .errors(errorsMap)
@@ -147,7 +147,7 @@ public class AuthServiceImpl implements AuthService {
                     .build();
         }
         if(userRepository.existsByEmail(registerReq.getEmail())){
-            errorsMap.put("email","Email"+ RespMessage.EXISTS);
+            errorsMap.put("email","Email "+ RespMessage.EXISTS);
             return AuthResponse.builder()
                     .message(HttpStatus.CONFLICT.toString())
                     .errors(errorsMap)

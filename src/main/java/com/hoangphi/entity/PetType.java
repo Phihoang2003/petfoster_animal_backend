@@ -3,6 +3,7 @@ package com.hoangphi.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import net.minidev.json.annotate.JsonIgnore;
+import org.hibernate.annotations.Nationalized;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ public class PetType {
     private String id;
 
     @Column(name="type_name")
+    @Nationalized
     private String name;
 
     @OneToMany(mappedBy = "petType", cascade = CascadeType.ALL)

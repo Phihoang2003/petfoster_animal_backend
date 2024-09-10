@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done">
+    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="load image for ui">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/image/ImageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/image/ImageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/image/ImageUserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/user/UserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/user/UserProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/PetType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/PetType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AuthServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,18 +30,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Phihoang2003"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Phihoang2003&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Phihoang2003/petfoster_animal_backend.git",
-    "accountId": "89bb5881-e3a0-41ef-b818-83bc5bcabd59"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Phihoang2003/petfoster_animal_backend.git&quot;,
+    &quot;accountId&quot;: &quot;89bb5881-e3a0-41ef-b818-83bc5bcabd59&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
     &quot;isMigrated&quot;: true
@@ -51,42 +57,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "HTTP Request.test | #1.executor": "Run",
-    "HTTP Request.test | (dòng trống)#2.executor": "Run",
-    "HTTP Request.test | (dòng trống).executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.PetFosterApplication.executor": "Run",
-    "data.sources.detected.do.not.suggest.again": "true",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "development",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;HTTP Request.test | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | (dòng trống)#2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.test | (dòng trống).executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PetFosterApplication.executor&quot;: &quot;Run&quot;,
+    &quot;data.sources.detected.do.not.suggest.again&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/pet-backend/petfoster-animal-back-end-2.0&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver.localdb",
-      "sqlserver"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver.localdb&quot;,
+      &quot;sqlserver&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.hoangphi.entity" />
@@ -216,6 +222,20 @@
       <workItem from="1724917048387" duration="5180000" />
       <workItem from="1724924907223" duration="2536000" />
       <workItem from="1725203801039" duration="685000" />
+      <workItem from="1725261789224" duration="17000" />
+      <workItem from="1725769496786" duration="71000" />
+      <workItem from="1725769577627" duration="5000" />
+      <workItem from="1725770468017" duration="58000" />
+      <workItem from="1725770541180" duration="1943000" />
+      <workItem from="1725776814089" duration="2000" />
+      <workItem from="1725777420712" duration="1575000" />
+      <workItem from="1725794984668" duration="14000" />
+      <workItem from="1725844073426" duration="7026000" />
+      <workItem from="1725869938897" duration="10000" />
+      <workItem from="1725870216855" duration="3693000" />
+      <workItem from="1725884782596" duration="7000" />
+      <workItem from="1725933715096" duration="2859000" />
+      <workItem from="1725938750607" duration="1649000" />
     </task>
     <task id="LOCAL-00283" summary="done filter order repository for admin">
       <option name="closed" value="true" />
@@ -633,7 +653,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix bug" />
     <MESSAGE value="done set donate for db" />
     <MESSAGE value="done get donate" />
     <MESSAGE value="add management donate and transaction report" />
@@ -658,7 +677,8 @@
     <MESSAGE value="create random for reset" />
     <MESSAGE value="done for verify and send email for reset password" />
     <MESSAGE value="done" />
-    <option name="LAST_COMMIT_MESSAGE" value="done" />
+    <MESSAGE value="load image for ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="load image for ui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -666,7 +686,7 @@
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ImagesRepository.java</url>
           <line>13</line>
-          <properties class="com.hoangphi.repository.ImagesRepository" method="getImagesByProductId">
+          <properties class="com.hoangphi.repository.ImagesRepository">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -675,7 +695,7 @@
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
           <line>633</line>
-          <properties class="com.hoangphi.service.impl.order.OrderServiceImpl" method="updateQuantity">
+          <properties class="com.hoangphi.service.impl.order.OrderServiceImpl">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

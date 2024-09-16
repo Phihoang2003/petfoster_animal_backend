@@ -7,6 +7,7 @@ import com.hoangphi.repository.ProductRepository;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.images.ImagesResponse;
 import com.hoangphi.service.admin.images.ImageService;
+import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.utils.ImageUtils;
 import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,7 @@ public class ImageServiceImpl implements ImageService {
     private final ImagesRepository imagesRepository;
     private final PortUtils portUtils;
     private final ProductRepository productRepository;
+    private final ImageServiceUtils imageServiceUtils;
 
     @Override
     public byte[] getImage(String fileName) {
@@ -144,12 +146,11 @@ public class ImageServiceImpl implements ImageService {
                     .data(null)
                     .build();
         }
-        List<Imgs> newListImgs=images.stream().map(image->{
+        List<String> imagesFilter=imageServiceUtils.uploadFiles(images);
+        List<Imgs> newListImgs=imagesFilter.stream().map(image->{
             try{
-                File file= ImageUtils.createFileImage();
-                image.transferTo(new File(file.getAbsolutePath()));
                 return Imgs.builder()
-                        .nameImg(file.getName())
+                        .nameImg(image)
                         .product(product)
                         .build();
 

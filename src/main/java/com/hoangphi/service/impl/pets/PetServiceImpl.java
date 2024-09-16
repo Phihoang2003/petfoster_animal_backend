@@ -8,6 +8,7 @@ import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.response.pages.PetDetailPageResponse;
 import com.hoangphi.response.pets.*;
+import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.service.pets.PetService;
 import com.hoangphi.service.user.UserService;
 import com.hoangphi.utils.ImageUtils;
@@ -36,7 +37,7 @@ public class PetServiceImpl implements PetService {
     private final PetBreedRepository petBreedRepository;
     private final PetRepository petRepository;
     private final PetImageRepository petImageRepository;
-
+    private final ImageServiceUtils imageServiceUtils;
     private final AdoptRepository adoptRepository;
     private final PortUtils portUltils;
     private final UserService userService;
@@ -84,12 +85,13 @@ public class PetServiceImpl implements PetService {
         if (images.size() > 4) {
             images = images.subList(0, 4);
         }
-        List<PetImgs> newImages=images.stream().map(image->{
+        List<String> imagesFilter = imageServiceUtils.uploadFiles(images);
+        List<PetImgs> newImages=imagesFilter.stream().map(image->{
             try{
-                File newFile= ImageUtils.createFileImage();
-                image.transferTo(new File(newFile.getAbsolutePath()));
+//                File newFile= ImageUtils.createFileImage();
+//                image.transferTo(new File(newFile.getAbsolutePath()));
                 return PetImgs.builder()
-                        .nameImg(newFile.getName())
+                        .nameImg(image)
                         .pet(pet)
                         .build();
             }catch(Exception e){

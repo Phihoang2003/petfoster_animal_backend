@@ -16,6 +16,7 @@ import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.response.users.UserProfileMessageResponse;
 import com.hoangphi.response.users.UserProfileResponse;
+import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.service.user.UserService;
 import com.hoangphi.utils.ImageUtils;
 import com.hoangphi.utils.PortUtils;
@@ -45,6 +46,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private final PortUtils portUtils;
     private final PasswordEncoder passwordEncoder;
     private final AddressRepository addressRepository;
+    private final ImageServiceUtils imageServiceUtils;
 
     @Override
     public UserDetails loadUserByUsername(String username) {
@@ -175,10 +177,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 errorsMap.put("avatar", "Image size is too large");
             } else {
                 try {
-                    File file = ImageUtils.createFileImage();
-
-                    createUserManageRequest.getAvatar().transferTo(new File(file.getAbsolutePath()));
-                    newUser.setAvatar(file.getName());
+//                    File file = ImageUtils.createFileImage();
+//
+//                    createUserManageRequest.getAvatar().transferTo(new File(file.getAbsolutePath()));
+                    List<String> image=imageServiceUtils.uploadFiles(List.of(createUserManageRequest.getAvatar()));
+                    newUser.setAvatar(image.get(0));
                 } catch (Exception e) {
                     System.out.println("Error in update avatar in Profile service impl");
                     e.printStackTrace();

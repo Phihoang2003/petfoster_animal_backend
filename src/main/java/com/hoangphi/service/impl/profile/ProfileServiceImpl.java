@@ -11,6 +11,7 @@ import com.hoangphi.request.profile.UserProfileRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.users.ChangePasswordRequest;
 import com.hoangphi.response.users.UserProfileResponse;
+import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.service.profile.ProfileService;
 import com.hoangphi.utils.ImageUtils;
 import com.hoangphi.utils.PortUtils;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -31,6 +33,7 @@ public class ProfileServiceImpl implements ProfileService {
     private final SecurityUtils  securityUtils;
     private final AuthoritiesRepository authoritiesRepository;
     private final PortUtils portUtils;
+    private final ImageServiceUtils imageServiceUtils;
 
     @Override
     public ApiResponse getProfile() {
@@ -40,6 +43,7 @@ public class ProfileServiceImpl implements ProfileService {
 
         // find role by user
         Role role = authoritiesRepository.findByUser(user).get(0).getRole();
+
 
         // check if user no role
         if (role == null) {
@@ -129,10 +133,10 @@ public class ProfileServiceImpl implements ProfileService {
                 errorsMap.put("avatar", "Image size is too large");
             } else {
                 try {
-                    File file = ImageUtils.createFileImage();
-
-                    profileRequest.getAvatar().transferTo(new File(file.getAbsolutePath()));
-                    user.setAvatar(file.getName());
+//                    File file = ImageUtils.createFileImage();
+                    List<String> image=imageServiceUtils.uploadFiles(List.of(profileRequest.getAvatar()));
+//                    profileRequest.getAvatar().transferTo(new File(file.getAbsolutePath()));
+                    user.setAvatar(image.get(0));
                 } catch (Exception e) {
                     System.out.println("Error in update avatar in Profile service impl");
                     e.printStackTrace();

@@ -189,7 +189,7 @@ public class PostServiceImpl implements PostService {
         postsRepository.save(posts);
 
         return ApiResponse.builder()
-                .message("Successfuly")
+                .message("Successfully")
                 .errors(false)
                 .status(HttpStatus.OK.value())
                 .data(buildDetailResponse(posts))
@@ -237,7 +237,7 @@ public class PostServiceImpl implements PostService {
         });
         postsRepository.delete(posts);
         return ApiResponse.builder()
-                .message("Successfuly")
+                .message("Successfully")
                 .errors(false)
                 .status(HttpStatus.OK.value())
                 .data(buildDetailResponse(posts))
@@ -361,7 +361,7 @@ public class PostServiceImpl implements PostService {
         }
 
         return ApiResponse.builder()
-                .message("Succeessfuly")
+                .message("Successfully")
                 .status(HttpStatus.OK.value())
                 .errors(false)
                 .data(buildDetailResponse(posts))
@@ -397,8 +397,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public ApiResponse posts(String search, Optional<Integer> page) {
-        List<Posts> posts=postsRepository.posts(search);
+    public ApiResponse posts(Optional<String> search, Optional<Integer> page) {
+        List<Posts> posts=postsRepository.posts(search.orElse(null));
         if(posts.isEmpty()){
             return ApiResponse.builder()
                     .message("Failure")

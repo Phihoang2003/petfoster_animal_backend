@@ -21,7 +21,7 @@ public interface PostService {
     ApiResponse detailPost(String uuid);
     List<PostReponse> buildPostHomePageResponses(List<Posts> posts);
 
-    ApiResponse posts(String search, Optional<Integer> page);
+    ApiResponse posts(Optional<String> search, Optional<Integer> page);
 
     ApiResponse postsOfUser(String username, Optional<Integer> page, Optional<String> type);
 

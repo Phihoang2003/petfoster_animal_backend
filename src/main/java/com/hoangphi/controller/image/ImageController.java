@@ -1,6 +1,7 @@
 package com.hoangphi.controller.image;
 
 import com.hoangphi.service.image.ImageService;
+import com.hoangphi.service.impl.images.item.GetMediasItem;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,5 +23,14 @@ public class ImageController {
         return ResponseEntity.status(HttpStatus.OK)
                 .contentType(MediaType.valueOf("image/png"))
                 .body(imageData);
+    }
+    @GetMapping("/medias/{fileName}")
+    public ResponseEntity<?> downloadMedias(@PathVariable String fileName) {
+        GetMediasItem imageData = imageService.getMedias(fileName, "medias");
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .contentType(MediaType
+                        .valueOf(imageData.getContentType() == null ? "image/png" : imageData.getContentType()))
+                .body(imageData.getData());
     }
 }

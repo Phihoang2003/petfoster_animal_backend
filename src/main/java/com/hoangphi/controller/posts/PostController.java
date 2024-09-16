@@ -21,7 +21,7 @@ public class PostController {
         return ResponseEntity.ok(postService.postsOfUser(username, page, type));
     }
     @GetMapping("")
-    public ResponseEntity<ApiResponse> posts(@RequestParam("search") String search,
+    public ResponseEntity<ApiResponse> posts(@RequestParam("search") Optional<String> search,
                                              @RequestParam("page") Optional<Integer> page) {
         return ResponseEntity.ok(postService.posts(search, page));
     }

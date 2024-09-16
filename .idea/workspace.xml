@@ -4,30 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="load image for ui">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/image/ImageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/image/ImageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/image/ImageUserServiceImpl.java" afterDir="false" />
+    <list default="true" id="8274d040-9b51-4765-9798-54dab11bea44" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/item/GetMediasItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/user/UserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/user/UserProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/PetType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/entity/PetType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/AuthServiceImpl.java" afterDir="false" />
-=======
-<<<<<<< HEAD
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-<<<<<<< HEAD
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="done">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-=======
-    <list default="true" id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="resolve problem with delete all images by productId">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
->>>>>>> 84a6eb2b5e428f6a2fd73b022541bcefad4966bd
->>>>>>> 494e3fc75777425723a5cc55be42bd9be8c34d59
->>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/image/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/image/ImageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/image/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/image/ImageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/image/ImageUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/image/ImageUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +22,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -47,207 +30,47 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-    &quot;lastFilter&quot;: {
+  &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
     &quot;assignee&quot;: &quot;Phihoang2003&quot;
-    }
-    }</component>
+  }
+}</component>
   <component name="GithubPullRequestsUISettings">{
-    &quot;selectedUrlAndAccountId&quot;: {
+  &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Phihoang2003/petfoster_animal_backend.git&quot;,
     &quot;accountId&quot;: &quot;89bb5881-e3a0-41ef-b818-83bc5bcabd59&quot;
-    }
-    }</component>
-  <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider">{
-    &quot;isMigrated&quot;: true
-    }</component>
+  }
+}</component>
   <component name="ProjectColorInfo">{
-    &quot;associatedIndex&quot;: 5
-    }</component>
-  <component name="ProjectId" id="2jm60OCaDYZOoJEAlKunRm8ffJU" />
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2lrphsSrFegjcQ4eYFNbvktPLzY" />
   <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< Updated upstream
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;HTTP Request.test | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.test | (dòng trống)#2.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.test | (dòng trống).executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.PetFosterApplication.executor&quot;: &quot;Run&quot;,
-    &quot;data.sources.detected.do.not.suggest.again&quot;: &quot;true&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;git-widget-placeholder&quot;: &quot;development&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/pet-backend/petfoster-animal-back-end-2.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 494e3fc75777425723a5cc55be42bd9be8c34d59
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "HTTP Request.test | #1.executor": "Run",
-    "HTTP Request.test | (dòng trống)#2.executor": "Run",
-    "HTTP Request.test | (dòng trống).executor": "Run",
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
->>>>>>> 84a6eb2b5e428f6a2fd73b022541bcefad4966bd
->>>>>>> 494e3fc75777425723a5cc55be42bd9be8c34d59
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.PetFosterApplication.executor": "Run",
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 494e3fc75777425723a5cc55be42bd9be8c34d59
-    "data.sources.detected.do.not.suggest.again": "true",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "development",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/pet-backend/petfoster-animal-back-end-2.0",
-<<<<<<< HEAD
-=======
-=======
-    "git-widget-placeholder": "development",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend",
->>>>>>> 84a6eb2b5e428f6a2fd73b022541bcefad4966bd
->>>>>>> 494e3fc75777425723a5cc55be42bd9be8c34d59
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-<<<<<<< HEAD
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver.localdb",
-      "sqlserver"
-=======
-<<<<<<< HEAD
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver.localdb",
-      "sqlserver"
-=======
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver"
-=======
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;HTTP Request.test | #1.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.test | (dòng trống)#2.executor&quot;: &quot;Run&quot;,
-    &quot;HTTP Request.test | (dòng trống).executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.PetFosterApplication.executor&quot;: &quot;Run&quot;,
-    &quot;data.sources.detected.do.not.suggest.again&quot;: &quot;true&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;hoangphi/handle-search-history&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/pet-backend/petfoster-animal-back-end-2.0&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
->>>>>>> Stashed changes
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlserver.localdb&quot;,
-      &quot;sqlserver&quot;
-<<<<<<< Updated upstream
-=======
->>>>>>> hoangphi/handle-search-history
->>>>>>> 84a6eb2b5e428f6a2fd73b022541bcefad4966bd
->>>>>>> 494e3fc75777425723a5cc55be42bd9be8c34d59
->>>>>>> Stashed changes
-    ]
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.hoangphi.response.takeAction" />
-      <recent name="com.hoangphi.entity" />
-      <recent name="com.hoangphi.entity.social" />
-      <recent name="com.hoangphi.entity.Order" />
-      <recent name="com.hoangphi.entity.Posts" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Hocweb\Hocweb\ProjectWeb\petfoster_animal_backend\src\main\resources\templates" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PetFosterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="petfoster" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hoangphi.PetFosterApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -259,660 +82,38 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1071fea4-3a34-4dbd-8e9e-862ce2738176" name="Changes" comment="" />
-      <created>1721979682185</created>
+      <changelist id="8274d040-9b51-4765-9798-54dab11bea44" name="Changes" comment="" />
+      <created>1725948174110</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1721979682185</updated>
-      <workItem from="1723426581553" duration="861000" />
-      <workItem from="1723427705941" duration="7262000" />
-      <workItem from="1723447111576" duration="266000" />
-      <workItem from="1723456313637" duration="534000" />
-      <workItem from="1723459267250" duration="54000" />
-      <workItem from="1723477610501" duration="655000" />
-      <workItem from="1723518471926" duration="125000" />
-      <workItem from="1723529607238" duration="3153000" />
-<<<<<<< Updated upstream
-      <workItem from="1723549006063" duration="3080000" />
-      <workItem from="1723554947596" duration="7590000" />
-      <workItem from="1723623579424" duration="8492000" />
-      <workItem from="1723632241355" duration="106000" />
-      <workItem from="1723632357428" duration="20000" />
-      <workItem from="1723637110362" duration="6376000" />
-      <workItem from="1723687356140" duration="1480000" />
-      <workItem from="1723691324550" duration="4412000" />
-      <workItem from="1723702888524" duration="4226000" />
-      <workItem from="1723707609666" duration="1552000" />
-      <workItem from="1723717021088" duration="602000" />
-      <workItem from="1723730104082" duration="3242000" />
-      <workItem from="1723808372581" duration="5936000" />
-      <workItem from="1723879132295" duration="5555000" />
-      <workItem from="1723887673124" duration="1216000" />
-      <workItem from="1723895794615" duration="7052000" />
-      <workItem from="1723949604288" duration="643000" />
-      <workItem from="1723965365878" duration="3685000" />
-      <workItem from="1723982000421" duration="1688000" />
-      <workItem from="1724035431567" duration="5710000" />
-      <workItem from="1724050831899" duration="5850000" />
-      <workItem from="1724059713524" duration="1128000" />
-      <workItem from="1724065678084" duration="1382000" />
-      <workItem from="1724073972801" duration="51000" />
-      <workItem from="1724134506243" duration="5665000" />
-      <workItem from="1724158633906" duration="6937000" />
-      <workItem from="1724223297996" duration="7970000" />
-      <workItem from="1724241116649" duration="113000" />
-      <workItem from="1724312071316" duration="19000" />
-      <workItem from="1724344655982" duration="27000" />
-      <workItem from="1724477637630" duration="7253000" />
-      <workItem from="1724493094060" duration="8926000" />
-      <workItem from="1724502196997" duration="31000" />
-      <workItem from="1724507793337" duration="3424000" />
-      <workItem from="1724549630674" duration="911000" />
-      <workItem from="1724556763909" duration="4234000" />
-      <workItem from="1724581378889" duration="4548000" />
-      <workItem from="1724635729398" duration="5780000" />
-      <workItem from="1724655079173" duration="4807000" />
-      <workItem from="1724664224969" duration="2557000" />
-      <workItem from="1724667150760" duration="580000" />
-      <workItem from="1724668095121" duration="630000" />
-      <workItem from="1724672247624" duration="3204000" />
-      <workItem from="1724721217805" duration="10747000" />
-      <workItem from="1724758945443" duration="3763000" />
-      <workItem from="1724778974291" duration="1709000" />
-      <workItem from="1724824312998" duration="4988000" />
-      <workItem from="1724830863026" duration="3217000" />
-      <workItem from="1724836577427" duration="581000" />
-      <workItem from="1724838925204" duration="15244000" />
-      <workItem from="1724859378024" duration="5187000" />
-      <workItem from="1724903032991" duration="5492000" />
-      <workItem from="1724912223366" duration="2264000" />
-      <workItem from="1724917048387" duration="5180000" />
-      <workItem from="1724924907223" duration="2536000" />
-      <workItem from="1725203801039" duration="685000" />
-      <workItem from="1725261789224" duration="17000" />
-      <workItem from="1725769496786" duration="71000" />
-      <workItem from="1725769577627" duration="5000" />
-      <workItem from="1725770468017" duration="58000" />
-      <workItem from="1725770541180" duration="1943000" />
-      <workItem from="1725776814089" duration="2000" />
-      <workItem from="1725777420712" duration="1575000" />
-      <workItem from="1725794984668" duration="14000" />
-      <workItem from="1725844073426" duration="7026000" />
-      <workItem from="1725869938897" duration="10000" />
-      <workItem from="1725870216855" duration="3693000" />
-      <workItem from="1725884782596" duration="7000" />
-      <workItem from="1725933715096" duration="2859000" />
-      <workItem from="1725938750607" duration="1649000" />
-=======
->>>>>>> Stashed changes
+      <updated>1725948174110</updated>
+      <workItem from="1725948177540" duration="2245000" />
+      <workItem from="1725951519223" duration="5000" />
+      <workItem from="1725953799032" duration="1698000" />
+      <workItem from="1725966727742" duration="4562000" />
+      <workItem from="1725973930042" duration="1942000" />
+      <workItem from="1726043996023" duration="735000" />
+      <workItem from="1726044747680" duration="4000" />
+      <workItem from="1726052549283" duration="393000" />
+      <workItem from="1726056907595" duration="5000" />
+      <workItem from="1726057025972" duration="2784000" />
+      <workItem from="1726060062778" duration="12000" />
+      <workItem from="1726122667498" duration="17000" />
+      <workItem from="1726122694148" duration="4000" />
+      <workItem from="1726302888474" duration="4081000" />
+      <workItem from="1726313516343" duration="67000" />
+      <workItem from="1726324296824" duration="16000" />
+      <workItem from="1726391206992" duration="190000" />
+      <workItem from="1726391542873" duration="3161000" />
+      <workItem from="1726403440588" duration="12000" />
+      <workItem from="1726411079247" duration="1186000" />
+      <workItem from="1726457557776" duration="15000" />
+      <workItem from="1726462971959" duration="380000" />
+      <workItem from="1726463370798" duration="20000" />
     </task>
-    <task id="LOCAL-00118" summary="create brand repository for create brand">
-      <option name="closed" value="true" />
-      <created>1723207740133</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1723207740133</updated>
-    </task>
-    <task id="LOCAL-00119" summary="resolve problem with create brand">
-      <option name="closed" value="true" />
-      <created>1723207772707</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1723207772708</updated>
-    </task>
-    <task id="LOCAL-00120" summary="create update brand controller">
-      <option name="closed" value="true" />
-      <created>1723274740124</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1723274740124</updated>
-    </task>
-    <task id="LOCAL-00121" summary="resolve problem with update brand successfully">
-      <option name="closed" value="true" />
-      <created>1723274770373</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1723274770373</updated>
-    </task>
-    <task id="LOCAL-00122" summary="create getAll brand controller">
-      <option name="closed" value="true" />
-      <created>1723275768933</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1723275768933</updated>
-    </task>
-    <task id="LOCAL-00123" summary="resolve problem update brand successfully">
-      <option name="closed" value="true" />
-      <created>1723275837749</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1723275837749</updated>
-    </task>
-    <task id="LOCAL-00124" summary="resolve problem delete brand successfully">
-      <option name="closed" value="true" />
-      <created>1723276161190</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1723276161190</updated>
-    </task>
-    <task id="LOCAL-00125" summary="create Product Type repository">
-      <option name="closed" value="true" />
-      <created>1723285189659</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1723285189659</updated>
-    </task>
-    <task id="LOCAL-00126" summary="create Product success and save images">
-      <option name="closed" value="true" />
-      <created>1723285355469</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1723285355469</updated>
-    </task>
-    <task id="LOCAL-00127" summary="create productRepository with findAll and findAllNoActive">
-      <option name="closed" value="true" />
-      <created>1723285402737</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1723285402737</updated>
-    </task>
-    <task id="LOCAL-00128" summary="create productRepo and imageRepo">
-      <option name="closed" value="true" />
-      <created>1723285433601</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1723285433601</updated>
-    </task>
-    <task id="LOCAL-00129" summary="create utils createFileImages">
-      <option name="closed" value="true" />
-      <created>1723285467071</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1723285467071</updated>
-    </task>
-    <task id="LOCAL-00130" summary="modified product request">
-      <option name="closed" value="true" />
-      <created>1723285491652</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1723285491652</updated>
-    </task>
-    <task id="LOCAL-00131" summary="create createProduct controller and repository">
-      <option name="closed" value="true" />
-      <created>1723285537996</created>
-      <option name="number" value="00131" />
-      <option name="presentableId" value="LOCAL-00131" />
-      <option name="project" value="LOCAL" />
-      <updated>1723285537996</updated>
-    </task>
-    <task id="LOCAL-00132" summary="resolve problem with create product successfully">
-      <option name="closed" value="true" />
-      <created>1723285568355</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1723285568355</updated>
-    </task>
-    <task id="LOCAL-00133" summary="modified product request">
-      <option name="closed" value="true" />
-      <created>1723350827903</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1723350827904</updated>
-    </task>
-    <task id="LOCAL-00134" summary="create controller and repository update product">
-      <option name="closed" value="true" />
-      <created>1723350892134</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1723350892134</updated>
-    </task>
-    <task id="LOCAL-00135" summary="resolve problem with update product successfully">
-      <option name="closed" value="true" />
-      <created>1723350928139</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1723350928140</updated>
-    </task>
-    <task id="LOCAL-00136" summary="create ProductDetailManageResponse">
-      <option name="closed" value="true" />
-      <created>1723360800962</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1723360800962</updated>
-    </task>
-    <task id="LOCAL-00137" summary="create ProductInfoResponse">
-      <option name="closed" value="true" />
-      <created>1723360825658</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1723360825658</updated>
-    </task>
-    <task id="LOCAL-00138" summary="create ProductManageResponse">
-      <option name="closed" value="true" />
-      <created>1723360842189</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1723360842189</updated>
-    </task>
-    <task id="LOCAL-00139" summary="add getProductById and getAllProduct">
-      <option name="closed" value="true" />
-      <created>1723360890808</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1723360890808</updated>
-    </task>
-    <task id="LOCAL-00140" summary="resolve problem with getALlProduct and getProductById">
-      <option name="closed" value="true" />
-      <created>1723360925473</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1723360925473</updated>
-    </task>
-    <task id="LOCAL-00141" summary="add controller and service for update info product">
-      <option name="closed" value="true" />
-      <created>1723362961899</created>
-      <option name="number" value="00141" />
-      <option name="presentableId" value="LOCAL-00141" />
-      <option name="project" value="LOCAL" />
-      <updated>1723362961899</updated>
-    </task>
-    <task id="LOCAL-00142" summary="resolve problem with update info product successfully">
-      <option name="closed" value="true" />
-      <created>1723363009170</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1723363009170</updated>
-    </task>
-    <task id="LOCAL-00143" summary="add product info request">
-      <option name="closed" value="true" />
-      <created>1723363034644</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1723363034644</updated>
-    </task>
-    <task id="LOCAL-00144" summary="add delete product controller and service">
-      <option name="closed" value="true" />
-      <created>1723363419221</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1723363419221</updated>
-    </task>
-    <task id="LOCAL-00145" summary="resolve problem with delete product successfully(set active=false)">
-      <option name="closed" value="true" />
-      <created>1723363458507</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1723363458507</updated>
-    </task>
-    <task id="LOCAL-00146" summary="add create product repo">
-      <option name="closed" value="true" />
-      <created>1723370550094</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1723370550094</updated>
-    </task>
-    <task id="LOCAL-00147" summary="add delete, getProductRepo and createProductRepo">
-      <option name="closed" value="true" />
-      <created>1723370615978</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1723370615978</updated>
-    </task>
-    <task id="LOCAL-00148" summary="resolve problem with delete,getProductRepo and createProductRepo">
-      <option name="closed" value="true" />
-      <created>1723370656948</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1723370656948</updated>
-    </task>
-    <task id="LOCAL-00149" summary="create RecentViewResponse">
-      <option name="closed" value="true" />
-      <created>1723386051704</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1723386051705</updated>
-    </task>
-    <task id="LOCAL-00150" summary="modified Review entity">
-      <option name="closed" value="true" />
-      <created>1723386239625</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1723386239625</updated>
-    </task>
-    <task id="LOCAL-00151" summary="add findReview by user and product repository">
-      <option name="closed" value="true" />
-      <created>1723386270035</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1723386270035</updated>
-    </task>
-    <task id="LOCAL-00152" summary="add findAll for recent view">
-      <option name="closed" value="true" />
-      <created>1723386309266</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1723386309266</updated>
-    </task>
-    <task id="LOCAL-00153" summary="add get recent view controller and service">
-      <option name="closed" value="true" />
-      <created>1723386337525</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1723386337525</updated>
-    </task>
-    <task id="LOCAL-00154" summary="resolve problem with get recent view">
-      <option name="closed" value="true" />
-      <created>1723386365013</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1723386365013</updated>
-    </task>
-    <task id="LOCAL-00155" summary="modified entity">
-      <option name="closed" value="true" />
-      <created>1723434591027</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434591028</updated>
-    </task>
-    <task id="LOCAL-00156" summary="modified entity to fix loop">
-      <option name="closed" value="true" />
-      <created>1723434696753</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434696753</updated>
-    </task>
-    <task id="LOCAL-00157" summary="add put recent view controller and service">
-      <option name="closed" value="true" />
-      <created>1723434769461</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434769461</updated>
-    </task>
-    <task id="LOCAL-00158" summary="resolve problem with put recent view successfully">
-      <option name="closed" value="true" />
-      <created>1723434808931</created>
-      <option name="number" value="00158" />
-      <option name="presentableId" value="LOCAL-00158" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434808931</updated>
-    </task>
-    <task id="LOCAL-00159" summary="fix bug">
-      <option name="closed" value="true" />
-      <created>1723434932099</created>
-      <option name="number" value="00159" />
-      <option name="presentableId" value="LOCAL-00159" />
-      <option name="project" value="LOCAL" />
-      <updated>1723434932099</updated>
-    </task>
-    <task id="LOCAL-00160" summary="create images response">
-      <option name="closed" value="true" />
-      <created>1723522480468</created>
-      <option name="number" value="00160" />
-      <option name="presentableId" value="LOCAL-00160" />
-      <option name="project" value="LOCAL" />
-      <updated>1723522480468</updated>
-    </task>
-    <task id="LOCAL-00161" summary="add getImages by productId controller and repository">
-      <option name="closed" value="true" />
-      <created>1723522535487</created>
-      <option name="number" value="00161" />
-      <option name="presentableId" value="LOCAL-00161" />
-      <option name="project" value="LOCAL" />
-      <updated>1723522535487</updated>
-    </task>
-    <task id="LOCAL-00162" summary="resolve problem with get images by productId">
-      <option name="closed" value="true" />
-      <created>1723522606338</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1723522606338</updated>
-    </task>
-    <task id="LOCAL-00163" summary="images for addImage by productId">
-      <option name="closed" value="true" />
-      <created>1723525092224</created>
-      <option name="number" value="00163" />
-      <option name="presentableId" value="LOCAL-00163" />
-      <option name="project" value="LOCAL" />
-      <updated>1723525092224</updated>
-    </task>
-    <task id="LOCAL-00164" summary="resolve problem with update more images by productId">
-      <option name="closed" value="true" />
-      <created>1723525162556</created>
-      <option name="number" value="00164" />
-      <option name="presentableId" value="LOCAL-00164" />
-      <option name="project" value="LOCAL" />
-      <updated>1723525162556</updated>
-    </task>
-    <task id="LOCAL-00165" summary="resolve problem with delete Image by productId">
-      <option name="closed" value="true" />
-      <created>1723530675080</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1723530675080</updated>
-    </task>
-    <task id="LOCAL-00166" summary="resolve problem with delete all images by productId">
-      <option name="closed" value="true" />
-      <created>1723532819744</created>
-      <option name="number" value="00166" />
-      <option name="presentableId" value="LOCAL-00166" />
-      <option name="project" value="LOCAL" />
-      <updated>1723532819744</updated>
-    </task>
-    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="CUSTOM_BOOLEAN_PROPERTIES">
-                <map>
-                  <entry key="Show.Git.Branches" value="true" />
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-<<<<<<< Updated upstream
-    <MESSAGE value="done set donate for db" />
-    <MESSAGE value="done get donate" />
-    <MESSAGE value="add management donate and transaction report" />
-    <MESSAGE value="done report donate for admin" />
-    <MESSAGE value="add transaction filter" />
-    <MESSAGE value="create filter and get total amount donate repository" />
-    <MESSAGE value="done filter donate for admin" />
-    <MESSAGE value="add feedback request and response" />
-    <MESSAGE value="done feedback and send email when feedback successfully" />
-    <MESSAGE value="done get feedback for admin" />
-    <MESSAGE value="done set seen feedback in admin" />
-    <MESSAGE value="fix bug oauth2 resource server" />
-    <MESSAGE value="modified" />
-    <MESSAGE value="fix bug role user" />
-    <MESSAGE value="filter user" />
-    <MESSAGE value="done find all with filter user" />
-    <MESSAGE value="done get user by username for admin" />
-    <MESSAGE value="create user request and response" />
-    <MESSAGE value="done get profile user" />
-    <MESSAGE value="done update profile" />
-    <MESSAGE value="done change password for user" />
-    <MESSAGE value="create random for reset" />
-    <MESSAGE value="done for verify and send email for reset password" />
-    <MESSAGE value="done" />
-    <MESSAGE value="load image for ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="load image for ui" />
-=======
-    <MESSAGE value="resolve problem with update info product successfully" />
-    <MESSAGE value="add product info request" />
-    <MESSAGE value="add delete product controller and service" />
-    <MESSAGE value="resolve problem with delete product successfully(set active=false)" />
-    <MESSAGE value="add create product repo" />
-    <MESSAGE value="add delete, getProductRepo and createProductRepo" />
-    <MESSAGE value="resolve problem with delete,getProductRepo and createProductRepo" />
-    <MESSAGE value="create RecentViewResponse" />
-    <MESSAGE value="modified Review entity" />
-    <MESSAGE value="add findReview by user and product repository" />
-    <MESSAGE value="add findAll for recent view" />
-    <MESSAGE value="add get recent view controller and service" />
-    <MESSAGE value="resolve problem with get recent view" />
-    <MESSAGE value="modified entity" />
-    <MESSAGE value="modified entity to fix loop" />
-    <MESSAGE value="add put recent view controller and service" />
-    <MESSAGE value="resolve problem with put recent view successfully" />
-    <MESSAGE value="fix bug" />
-    <MESSAGE value="create images response" />
-    <MESSAGE value="add getImages by productId controller and repository" />
-    <MESSAGE value="resolve problem with get images by productId" />
-    <MESSAGE value="images for addImage by productId" />
-    <MESSAGE value="resolve problem with update more images by productId" />
-    <MESSAGE value="resolve problem with delete Image by productId" />
-    <MESSAGE value="resolve problem with delete all images by productId" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolve problem with delete all images by productId" />
->>>>>>> Stashed changes
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/recentView/RecentViewImpl.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>171</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>180</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/ImageServiceImpl.java</url>
-          <line>189</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/repository/ImagesRepository.java</url>
-          <line>13</line>
-          <properties class="com.hoangphi.repository.ImagesRepository">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-<<<<<<< HEAD
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
-          <line>633</line>
-          <properties class="com.hoangphi.service.impl.order.OrderServiceImpl">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
-          <line>149</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/order/OrderServiceImpl.java</url>
-          <line>144</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hoangphi/utils/GiaoHangNhanhUtils.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-=======
->>>>>>> 84a6eb2b5e428f6a2fd73b022541bcefad4966bd
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

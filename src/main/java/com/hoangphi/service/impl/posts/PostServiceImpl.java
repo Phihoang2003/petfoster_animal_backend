@@ -19,6 +19,7 @@ import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.response.posts.PostDetailResponse;
 import com.hoangphi.response.posts.PostMediaResponse;
 import com.hoangphi.response.posts.PostReponse;
+import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.service.impl.users.UserServiceImpl;
 import com.hoangphi.service.posts.PostService;
 import com.hoangphi.service.user.UserService;
@@ -34,6 +35,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.util.*;
@@ -48,6 +50,7 @@ public class PostServiceImpl implements PostService {
     private final SecurityUtils securityUtils;
     private final PortUtils portUltil;
     private final UserServiceImpl userServiceImpl;
+    private final ImageServiceUtils imageServiceUtils;
 
     @Override
     public ApiResponse create(PostRequest data, String token) {
@@ -83,7 +86,7 @@ public class PostServiceImpl implements PostService {
         postsRepository.save(posts);
 
         return ApiResponse.builder()
-                .message("Successfuly")
+                .message("Successfully")
                 .errors(false)
                 .status(HttpStatus.OK.value())
                 .data(buildDetailResponse(posts))
@@ -525,7 +528,7 @@ public class PostServiceImpl implements PostService {
 
         }
         List<PostMediaResponse> medias = mediasRepository.findMediasWithPost(posts).stream().map(media -> {
-            return PostMediaResponse.builder().url(portUltil.getUrlImage(media.getName(), "medias"))
+            return PostMediaResponse.builder().url(imageServiceUtils.getImage(media.getName()))
                     .id(media.getId())
                     .index(media.getIndex())
                     .isVideo(media.getIsVideo()).build();
@@ -552,21 +555,24 @@ public class PostServiceImpl implements PostService {
                 .title(data.getTitle())
                 .user(user)
                 .build();
+        List<MultipartFile> listUpload=new ArrayList<>();
         List<Medias> medias=data.getMedias().stream().map(item->{
+            if(item.getFile().getSize()>=3*1024*1024){
+                throw new RuntimeException("File size is too large");
+            }
             Boolean isVideo=item.getFile().getContentType().equals("video/mp4");
-            File file= ImageUtils.createFileAndSave("medias\\",item.getFile(), OptionCreateAndSaveFile.builder()
-                    .acceptExtentions(Constant.ACCEPT_EXTENTION)
-                    .build());
+            listUpload.add(item.getFile());
+            System.out.println("File name: "+item.getFile().getName());
             return Medias.builder()
                     .index(item.getIndex())
                     .isVideo(isVideo)
-                    .name(file.getName())
+                    .name(item.getFile().getOriginalFilename())
                     .post(posts)
                     .build();
 
         }).toList();
         posts.setMedias(medias);
-
+        imageServiceUtils.uploadFiles(listUpload);
         return posts;
     }
 

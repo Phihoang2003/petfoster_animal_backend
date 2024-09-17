@@ -304,7 +304,7 @@ public class ProductServiceImpl implements ProductService {
         visibleProducts.forEach(product -> {
             productItems.add(ProductManageResponse.builder()
                     .id(product.getId())
-                    .image(portUtils.getUrlImage(product.getImgs().get(0).getNameImg()))
+                    .image(imageServiceUtils.getImage(product.getImgs().get(0).getNameImg()))
                     .brand(product.getBrand().getBrand())
                     .name(product.getName())
                     .type(product.getProductType().getName())

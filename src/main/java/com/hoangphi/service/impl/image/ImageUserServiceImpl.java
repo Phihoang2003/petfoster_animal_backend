@@ -7,6 +7,7 @@ import com.hoangphi.service.impl.images.item.GetMediasItem;
 import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import software.amazon.awssdk.core.async.AsyncRequestBody;
@@ -40,11 +41,14 @@ public class ImageUserServiceImpl implements ImageServiceUtils {
     private String bucketName;
     private final S3TransferManager transferManager;
     private final ExecutorService executorService;
-
+    private final RedisTemplate<String,String> redisTemplate;
 
     @Override
     public String getImage(String fileName) {
-
+        String cacheUrl=redisTemplate.opsForValue().get(fileName);
+        if(cacheUrl!=null){
+            return cacheUrl;
+        }
         GetObjectRequest getObjectRequest = GetObjectRequest.builder()
                 .bucket(bucketName)
                 .key(fileName)
@@ -52,11 +56,11 @@ public class ImageUserServiceImpl implements ImageServiceUtils {
 
         GetObjectPresignRequest getObjectPresignRequest = GetObjectPresignRequest.builder()
                 .getObjectRequest(getObjectRequest)
-                .signatureDuration(Duration.ofDays(30))
+                .signatureDuration(Duration.ofDays(7))
                 .build();
-
-        return s3Presigner.presignGetObject(getObjectPresignRequest)
-                .url().toString();
+        String preSignedUrl = s3Presigner.presignGetObject(getObjectPresignRequest).url().toString();
+        redisTemplate.opsForValue().set(fileName,preSignedUrl,6, TimeUnit.DAYS);
+        return preSignedUrl;
     }
 
 //    @Override
@@ -111,6 +115,7 @@ public class ImageUserServiceImpl implements ImageServiceUtils {
                 .bucket(bucketName)
                 .key(fileName)
                 .contentType(file.getContentType())
+                .cacheControl("max-age=86400")
                 .build();
 
         try {

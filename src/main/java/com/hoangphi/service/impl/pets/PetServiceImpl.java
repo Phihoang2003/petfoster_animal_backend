@@ -39,7 +39,6 @@ public class PetServiceImpl implements PetService {
     private final PetImageRepository petImageRepository;
     private final ImageServiceUtils imageServiceUtils;
     private final AdoptRepository adoptRepository;
-    private final PortUtils portUltils;
     private final UserService userService;
     private final FavouriteRepository favouriteRepository;
     private final PetTypeRepository petTypeRepository;
@@ -542,7 +541,7 @@ public class PetServiceImpl implements PetService {
                     .id(pet.getPetId())
                     .breed(pet.getPetBreed().getBreedName())
                     .name(pet.getPetName())
-                    .image(portUltils.getUrlImage(pet.getImgs()
+                    .image(imageServiceUtils.getImage(pet.getImgs()
                             .stream()
                             .findFirst()
                             .map(PetImgs::getNameImg)
@@ -565,7 +564,7 @@ public class PetServiceImpl implements PetService {
     public PetManageResponse buildPetManagementResponses(Pet pet) {
         List<String> images = pet.getImgs().stream().map(image -> {
 
-            return portUltils.getUrlImage(image.getNameImg());
+            return imageServiceUtils.getImage(image.getNameImg());
         }).toList();
 
         return PetManageResponse.builder()
@@ -593,7 +592,7 @@ public class PetServiceImpl implements PetService {
                 .id(pet.getPetId())
                 .breed(pet.getPetBreed().getBreedName())
                 .name(pet.getPetName())
-                .image(portUltils.getUrlImage(pet.getImgs().get(0).getNameImg()))
+                .image(imageServiceUtils.getImage(pet.getImgs().get(0).getNameImg()))
                 .description(pet.getDescriptions() == null ? "" : pet.getDescriptions())
                 .fosterDate(fosterDate)
                 .size(pet.getAge())
@@ -610,14 +609,14 @@ public class PetServiceImpl implements PetService {
         boolean canAdopt=isCanAdopt(pet,null);
         boolean liked = user != null && favouriteRepository.existByUserAndPet(user.getId(), pet.getPetId()) != null;
         List<String> images = pet.getImgs().stream().map(image -> {
-            return portUltils.getUrlImage(image.getNameImg());
+            return imageServiceUtils.getImage(image.getNameImg());
         }).toList();
 
         return PetDetailResponse.builder()
                 .id(pet.getPetId())
                 .breed(pet.getPetBreed().getBreedName())
                 .name(pet.getPetName())
-                .image(portUltils.getUrlImage(pet.getImgs()
+                .image(imageServiceUtils.getImage(pet.getImgs()
                         .stream()
                         .findFirst()
                         .map(PetImgs::getNameImg)

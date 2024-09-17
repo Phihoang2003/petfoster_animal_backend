@@ -52,7 +52,7 @@ public class ImageUserServiceImpl implements ImageServiceUtils {
 
         GetObjectPresignRequest getObjectPresignRequest = GetObjectPresignRequest.builder()
                 .getObjectRequest(getObjectRequest)
-                .signatureDuration(Duration.ofDays(7))
+                .signatureDuration(Duration.ofDays(30))
                 .build();
 
         return s3Presigner.presignGetObject(getObjectPresignRequest)

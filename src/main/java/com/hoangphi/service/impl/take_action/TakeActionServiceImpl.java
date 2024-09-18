@@ -8,9 +8,9 @@ import com.hoangphi.repository.ProductRepoRepository;
 import com.hoangphi.repository.ReviewRepository;
 import com.hoangphi.response.takeAction.ProductItem;
 import com.hoangphi.response.takeAction.ReviewItem;
+import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.service.take_action.TakeActionService;
 import com.hoangphi.utils.FormatUtils;
-import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +22,9 @@ import java.util.List;
 public class TakeActionServiceImpl implements TakeActionService {
     private final ReviewRepository reviewRepository;
     private final ProductRepoRepository productRepoRepository;
-    private final PortUtils portUtils;
     private final FormatUtils formatUtils;
+    private final ImageServiceUtils imageServiceUtils;
+
     public ProductItem createProductTakeAction(Product product){
         String image="";
         int discount=0;
@@ -41,7 +42,7 @@ public class TakeActionServiceImpl implements TakeActionService {
                 .id(product.getId())
                 .size(sizes)
                 .discount(discount)
-                .image(portUtils.getUrlImage(image))
+                .image(imageServiceUtils.getImage(image))
                 .name(product.getName())
                 .brand(product.getBrand().getBrand())
                 .price(minRepo.getOutPrice().intValue())
@@ -73,7 +74,7 @@ public class TakeActionServiceImpl implements TakeActionService {
                                 .rating(item.getRate())
                                 .sizes(null)
                                 .avatar(item.getUser().getAvatar() == null ? null
-                                        : portUtils.getUrlImage(item.getUser().getAvatar()))
+                                        : imageServiceUtils.getImage(item.getUser().getAvatar()))
                                 .comment(item.getComment())
                                 .createAt(formatUtils.dateToString(item.getCreateAt(), "MMM d, yyyy"))
                                 .replyItems(null)
@@ -87,7 +88,7 @@ public class TakeActionServiceImpl implements TakeActionService {
                             .rating(review.getRate())
                             .displayName(review.getUser().getDisplayName())
                             .avatar(review.getUser().getAvatar()==null?null:
-                                    portUtils.getUrlImage(review.getUser().getAvatar()))
+                                    imageServiceUtils.getImage(review.getUser().getAvatar()))
                             .sizes(sizes)
                             .comment(review.getComment())
                             .createAt(formatUtils.dateToString(review.getCreateAt(),"MMM d, yyyy"))

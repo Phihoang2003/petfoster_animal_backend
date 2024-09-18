@@ -11,8 +11,6 @@ import com.hoangphi.response.pets.*;
 import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.service.pets.PetService;
 import com.hoangphi.service.user.UserService;
-import com.hoangphi.utils.ImageUtils;
-import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -24,12 +22,11 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
+
 
 @Service
 @RequiredArgsConstructor

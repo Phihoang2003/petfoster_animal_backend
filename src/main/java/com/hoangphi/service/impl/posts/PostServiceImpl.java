@@ -23,9 +23,6 @@ import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.service.impl.users.UserServiceImpl;
 import com.hoangphi.service.posts.PostService;
 import com.hoangphi.service.user.UserService;
-import com.hoangphi.utils.ImageUtils;
-import com.hoangphi.utils.PortUtils;
-import com.hoangphi.utils.parent.OptionCreateAndSaveFile;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -48,7 +45,6 @@ public class PostServiceImpl implements PostService {
     private final MediasRepository mediasRepository;
     private final LikeRepository likeRepository;
     private final SecurityUtils securityUtils;
-    private final PortUtils portUltil;
     private final UserServiceImpl userServiceImpl;
     private final ImageServiceUtils imageServiceUtils;
 
@@ -106,6 +102,15 @@ public class PostServiceImpl implements PostService {
                     .data(null)
                     .build();
         }
+        //change
+        if (validateUpdatePost(data)) {
+            return ApiResponse.builder()
+                    .message("Create failure Make sure you have submitted the correct data")
+                    .errors(false)
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .data(null)
+                    .build();
+        }
 
         // Get post with uuid
         Posts posts = postsRepository.findByUuid(id);
@@ -120,7 +125,7 @@ public class PostServiceImpl implements PostService {
         }
 
         List<Medias> medias = new ArrayList<>();
-
+        List<MultipartFile> listUpload = new ArrayList<>();
         for (PostMediaUpdateRequest item : data.getMedias()) {
             if (item.getId() != null) {
                 Medias mediasNeedUpdateIndex = mediasRepository.findById(item.getId())
@@ -136,10 +141,7 @@ public class PostServiceImpl implements PostService {
             if (item.getFile() != null && item.getId() == null) {
                 Boolean isVideo = item.getFile().getContentType().equalsIgnoreCase("video/mp4");
 
-                File file = ImageUtils.createFileAndSave("medias\\", item.getFile(),
-                        OptionCreateAndSaveFile.builder()
-                                .acceptExtentions(Constant.ACCEPT_EXTENTION)
-                                .build());
+                listUpload.add(item.getFile());
 //                boolean hasVideo = medias.stream().anyMatch(Medias::getIsVideo);
 
                 if (isVideo) {
@@ -147,8 +149,7 @@ public class PostServiceImpl implements PostService {
                     if (exitMedias == null) {
                         mediasRepository.findMediasWithPost(posts)
                                 .forEach(exitMedia -> {
-                                    ImageUtils.deleteImg("medias/"
-                                            + exitMedia.getName());
+                                    imageServiceUtils.deleteImage(exitMedia.getName());
                                     mediasRepository.delete(exitMedia);
                                 });
                     }
@@ -168,7 +169,7 @@ public class PostServiceImpl implements PostService {
                         .index(item.getIndex())
                         .isVideo(isVideo)
                         .post(posts)
-                        .name(file == null ? "" : file.getName())
+                        .name(item.getFile().getOriginalFilename())
                         .build());
             }
 
@@ -176,6 +177,7 @@ public class PostServiceImpl implements PostService {
 
         if (!medias.isEmpty()) {
             posts.setMedias(medias);
+            imageServiceUtils.uploadFiles(listUpload);
         }
 
         if (posts.getMedias().isEmpty()) {
@@ -236,7 +238,7 @@ public class PostServiceImpl implements PostService {
                     .build();
         }
         posts.getMedias().forEach(item->{
-            ImageUtils.deleteImg("medias/"+item.getName());
+            imageServiceUtils.deleteImage(item.getName());
         });
         postsRepository.delete(posts);
         return ApiResponse.builder()
@@ -387,7 +389,7 @@ public class PostServiceImpl implements PostService {
             return PostReponse.builder()
                     .id(post.getUuid())
                     .title(post.getTitle())
-                    .thumbnail(portUltil.getUrlImage(medias.getName(), "medias"))
+                    .thumbnail(imageServiceUtils.getImage(medias.getName()))
                     .containVideo(medias.getIsVideo())
                     .comments(post.getComments().size())
                     .likes(post.getLikes().size())
@@ -502,7 +504,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public PostMediaResponse builPostMediaResponse(Medias media) {
         return PostMediaResponse.builder()
-                .url(portUltil.getUrlImage(media.getName(),"medias"))
+                .url(imageServiceUtils.getImage(media.getName()))
                         .id(media.getId())
                         .index(media.getIndex())
                         .isVideo(media.getIsVideo())
@@ -586,6 +588,24 @@ public class PostServiceImpl implements PostService {
         List<PostMediaRequest> medias = data.getMedias();
         if (medias.size() > 1) {
             for (PostMediaRequest media : medias) {
+                if (media.getFile().getContentType().equals("video/mp4")) {
+                    System.out.println("Can not upload more video");
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public Boolean validateUpdatePost(PostUpdateRequest data){
+        if(data.getTitle()==null||data.getTitle().isEmpty()){
+            return true;
+        }
+        if(data.getMedias().size()<=0){
+            return true;
+        }
+        List<PostMediaUpdateRequest> medias = data.getMedias();
+        if (medias.size() > 1) {
+            for (PostMediaUpdateRequest media : medias) {
                 if (media.getFile().getContentType().equals("video/mp4")) {
                     System.out.println("Can not upload more video");
                     return true;

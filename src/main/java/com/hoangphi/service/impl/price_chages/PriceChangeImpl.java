@@ -6,7 +6,8 @@ import com.hoangphi.repository.PriceChangeRepository;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.price_changes.PriceChangeResponse;
 import com.hoangphi.service.admin.price_changes.PriceChangeService;
-import com.hoangphi.utils.PortUtils;
+import com.hoangphi.service.image.ImageServiceUtils;
+import com.hoangphi.service.impl.images.ImageServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,9 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class PriceChangeImpl implements PriceChangeService {
     private final PriceChangeRepository priceChangeRepository;
-    private final PortUtils portUtils;
+    private final ImageServiceUtils imageServiceUtils;
+    private final ImageServiceImpl imageServiceImpl;
+
     @Override
     public ApiResponse getPriceChange(String idProduct) {
 
@@ -57,7 +60,7 @@ public class PriceChangeImpl implements PriceChangeService {
         user.put("id", priceChange.getUser().getId());
         user.put("fullname", priceChange.getUser().getFullname() == null ? priceChange.getUser().getUsername()
                 : priceChange.getUser().getFullname());
-        user.put("avartar", portUtils.getUrlImage(priceChange.getUser().getAvatar()));
+        user.put("avartar", imageServiceUtils.getImage(priceChange.getUser().getAvatar()));
 
         return PriceChangeResponse.builder()
                 .id(priceChange.getId())

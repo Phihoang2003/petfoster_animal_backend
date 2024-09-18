@@ -13,8 +13,6 @@ import com.hoangphi.response.products_manage.ProductInfoResponse;
 import com.hoangphi.response.products_manage.ProductManageResponse;
 import com.hoangphi.service.admin.products.ProductService;
 import com.hoangphi.service.image.ImageServiceUtils;
-import com.hoangphi.utils.ImageUtils;
-import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -36,7 +34,6 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepoRepository productRepoRepository;
     private final ImagesRepository imagesRepository;
     private final BrandRepository brandRepository;
-    private final PortUtils portUtils;
     private final ImageServiceUtils imageServiceUtils;
 
     @Override
@@ -267,7 +264,7 @@ public class ProductServiceImpl implements ProductService {
                 .repo(selectProduct.getProductsRepo())
                 .images(selectProduct.getImgs().stream().map((image) -> {
                     Map<String, String> imageObj = new HashMap<>();
-                    imageObj.put("image", portUtils.getUrlImage(image.getNameImg()));
+                    imageObj.put("image", imageServiceUtils.getImage(image.getNameImg()));
                     imageObj.put("id", image.getId().toString());
                     return imageObj;
                 }))

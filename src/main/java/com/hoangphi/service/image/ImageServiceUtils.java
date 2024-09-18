@@ -10,5 +10,6 @@ public interface ImageServiceUtils {
 
 //    GetMediasItem getMedias(String fileName, String pathName);
     List<String> uploadFiles(List<MultipartFile> files);
+    void deleteImage(String fileName);
 
 }

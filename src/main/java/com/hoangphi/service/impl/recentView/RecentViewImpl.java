@@ -8,8 +8,8 @@ import com.hoangphi.repository.ReviewRepository;
 import com.hoangphi.repository.UserRepository;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.recent_view.RecentViewResponse;
+import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.service.recent_view.RecentViewService;
-import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -21,10 +21,10 @@ import java.util.*;
 public class RecentViewImpl implements RecentViewService {
     private final RecentViewRepository recentViewRepository;
     private final UserRepository userRepository;
-    private final PortUtils   portUtils;
     private final SecurityUtils securityUtils;
     private final ReviewRepository reviewRepository;
     private final ProductRepository productRepository;
+    private final ImageServiceUtils imageServiceUtils;
     @Override
     public ApiResponse getRecentView(String jwt) {
         User user=userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
@@ -56,7 +56,7 @@ public class RecentViewImpl implements RecentViewService {
                     .brand(recentView.getProduct().getBrand().getBrand())
                     .size(sizes)
                     .discount(10)
-                    .image(portUtils.getUrlImage(recentView.getProduct().getImgs()
+                    .image(imageServiceUtils.getImage(recentView.getProduct().getImgs()
                             .stream()
                             .findFirst()
                             .map(Imgs::getNameImg)

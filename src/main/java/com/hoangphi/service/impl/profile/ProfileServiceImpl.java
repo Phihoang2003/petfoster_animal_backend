@@ -13,14 +13,11 @@ import com.hoangphi.response.users.ChangePasswordRequest;
 import com.hoangphi.response.users.UserProfileResponse;
 import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.service.profile.ProfileService;
-import com.hoangphi.utils.ImageUtils;
-import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +29,6 @@ public class ProfileServiceImpl implements ProfileService {
     private final UserRepository userRepository;
     private final SecurityUtils  securityUtils;
     private final AuthoritiesRepository authoritiesRepository;
-    private final PortUtils portUtils;
     private final ImageServiceUtils imageServiceUtils;
 
     @Override
@@ -65,7 +61,7 @@ public class ProfileServiceImpl implements ProfileService {
                 .gender(user.getGender())
                 .phone(user.getPhone())
                 .email(user.getEmail())
-                .avatar(user.getAvatar() == null ? null : portUtils.getUrlImage(user.getAvatar()))
+                .avatar(user.getAvatar() == null ? null : imageServiceUtils.getImage(user.getAvatar()))
                 .role(role.getRole())
                 .displayName(user.getDisplayName())
                 .provider(user.getProvider())
@@ -172,7 +168,7 @@ public class ProfileServiceImpl implements ProfileService {
 
         User newUser = userRepository.save(user);
 
-        newUser.setAvatar(portUtils.getUrlImage(user.getAvatar()));
+        newUser.setAvatar(imageServiceUtils.getImage(newUser.getAvatar()));
 
         return ApiResponse.builder()
                 .message("Update success!")

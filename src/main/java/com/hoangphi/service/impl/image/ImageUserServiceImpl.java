@@ -41,7 +41,10 @@ public class ImageUserServiceImpl implements ImageServiceUtils {
     @Override
     public String getImage(String fileName) {
         try {
-
+            String preSignUrl=redisTemplate.opsForValue().get(fileName);
+            if(preSignUrl!=null){
+                return preSignUrl;
+            }
 //            String savedETag = redisTemplate.opsForValue().get(fileName + ":etag");
 //            String cachedUrl = redisTemplate.opsForValue().get(fileName + ":url");
 //            HeadObjectRequest headObjectRequest = HeadObjectRequest.builder()
@@ -67,7 +70,7 @@ public class ImageUserServiceImpl implements ImageServiceUtils {
                     .build();
 
             String preSignedUrl = s3Presigner.presignGetObject(getObjectPresignRequest).url().toString();
-//            redisTemplate.opsForValue().set(fileName + ":url", preSignedUrl, 6, TimeUnit.DAYS);
+            redisTemplate.opsForValue().set(fileName,preSignedUrl,6, TimeUnit.DAYS);
             return preSignedUrl;
 
         } catch (S3Exception e) {
@@ -150,7 +153,7 @@ public class ImageUserServiceImpl implements ImageServiceUtils {
             deleteFuture.join();
 
 //            redisTemplate.delete(fileName + ":etag");
-
+            redisTemplate.delete(fileName);
             System.out.println("Deleted image: " + fileName);
         } catch (S3Exception e) {
             e.printStackTrace();

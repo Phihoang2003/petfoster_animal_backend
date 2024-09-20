@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8274d040-9b51-4765-9798-54dab11bea44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/images/item/GetMediasItem.java" afterDir="false" />
+    <list default="true" id="8274d040-9b51-4765-9798-54dab11bea44" name="Changes" comment="done upgrade image to aws s3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/image/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/image/ImageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/controller/posts/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/image/ImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/image/ImageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/image/ImageUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/image/ImageUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/impl/posts/PostServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hoangphi/service/posts/PostService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +16,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Dockerfile" />
         <option value="Class" />
       </list>
     </option>
@@ -41,6 +36,13 @@
     &quot;accountId&quot;: &quot;89bb5881-e3a0-41ef-b818-83bc5bcabd59&quot;
   }
 }</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -61,9 +63,9 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Spring Boot.PetFosterApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;upgrade-aws-s3&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Web_Developer/Hocweb/ProjectWeb/petfoster_animal_backend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/pet-backend/petfoster-animal-back-end-2.0&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -71,6 +73,23 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Web_Developer\Hocweb\ProjectWeb\petfoster_animal_backend" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="PetFosterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="petfoster" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hoangphi.PetFosterApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -110,10 +129,133 @@
       <workItem from="1726457557776" duration="15000" />
       <workItem from="1726462971959" duration="380000" />
       <workItem from="1726463370798" duration="20000" />
+      <workItem from="1726477501401" duration="6115000" />
+      <workItem from="1726486148833" duration="2767000" />
+      <workItem from="1726496911434" duration="1863000" />
+      <workItem from="1726537583410" duration="6249000" />
+      <workItem from="1726551866610" duration="7112000" />
+      <workItem from="1726571954286" duration="9516000" />
+      <workItem from="1726633238057" duration="10710000" />
+      <workItem from="1726649581133" duration="5497000" />
+      <workItem from="1726728971293" duration="3793000" />
+      <workItem from="1726742309691" duration="3682000" />
+      <workItem from="1726828073841" duration="2180000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <option name="closed" value="true" />
+      <created>1726477674231</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726477674231</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add config aws s3">
+      <option name="closed" value="true" />
+      <created>1726483560573</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726483560573</updated>
+    </task>
+    <task id="LOCAL-00003" summary="done upload files and get file on aws">
+      <option name="closed" value="true" />
+      <created>1726483631397</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726483631397</updated>
+    </task>
+    <task id="LOCAL-00004" summary="modified upload image on aws s3">
+      <option name="closed" value="true" />
+      <created>1726483680967</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726483680967</updated>
+    </task>
+    <task id="LOCAL-00005" summary="config redis">
+      <option name="closed" value="true" />
+      <created>1726544526605</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726544526605</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add docker compose for redis">
+      <option name="closed" value="true" />
+      <created>1726544558284</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726544558284</updated>
+    </task>
+    <task id="LOCAL-00007" summary="done base redis service">
+      <option name="closed" value="true" />
+      <created>1726544585915</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726544585915</updated>
+    </task>
+    <task id="LOCAL-00008" summary="modified images for s3">
+      <option name="closed" value="true" />
+      <created>1726544641789</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726544641789</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add redis insign">
+      <option name="closed" value="true" />
+      <created>1726559365913</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726559365913</updated>
+    </task>
+    <task id="LOCAL-00010" summary="done cache preSigned url on redis">
+      <option name="closed" value="true" />
+      <created>1726559404313</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1726559404313</updated>
+    </task>
+    <task id="LOCAL-00011" summary="done fix bug with load image post on s3">
+      <option name="closed" value="true" />
+      <created>1726581691329</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1726581691329</updated>
+    </task>
+    <task id="LOCAL-00012" summary="done upgrade image to aws s3">
+      <option name="closed" value="true" />
+      <created>1726649629683</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1726649629683</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <MESSAGE value="add config aws s3" />
+    <MESSAGE value="done upload files and get file on aws" />
+    <MESSAGE value="modified upload image on aws s3" />
+    <MESSAGE value="config redis" />
+    <MESSAGE value="add docker compose for redis" />
+    <MESSAGE value="done base redis service" />
+    <MESSAGE value="modified images for s3" />
+    <MESSAGE value="add redis insign" />
+    <MESSAGE value="done cache preSigned url on redis" />
+    <MESSAGE value="done fix bug with load image post on s3" />
+    <MESSAGE value="done upgrade image to aws s3" />
+    <option name="LAST_COMMIT_MESSAGE" value="done upgrade image to aws s3" />
   </component>
 </project>

@@ -8,10 +8,9 @@ import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.response.pages.PetDetailPageResponse;
 import com.hoangphi.response.pets.*;
+import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.service.pets.PetService;
 import com.hoangphi.service.user.UserService;
-import com.hoangphi.utils.ImageUtils;
-import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -23,12 +22,11 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
+
 
 @Service
 @RequiredArgsConstructor
@@ -36,9 +34,8 @@ public class PetServiceImpl implements PetService {
     private final PetBreedRepository petBreedRepository;
     private final PetRepository petRepository;
     private final PetImageRepository petImageRepository;
-
+    private final ImageServiceUtils imageServiceUtils;
     private final AdoptRepository adoptRepository;
-    private final PortUtils portUltils;
     private final UserService userService;
     private final FavouriteRepository favouriteRepository;
     private final PetTypeRepository petTypeRepository;
@@ -84,12 +81,13 @@ public class PetServiceImpl implements PetService {
         if (images.size() > 4) {
             images = images.subList(0, 4);
         }
-        List<PetImgs> newImages=images.stream().map(image->{
+        List<String> imagesFilter = imageServiceUtils.uploadFiles(images);
+        List<PetImgs> newImages=imagesFilter.stream().map(image->{
             try{
-                File newFile= ImageUtils.createFileImage();
-                image.transferTo(new File(newFile.getAbsolutePath()));
+//                File newFile= ImageUtils.createFileImage();
+//                image.transferTo(new File(newFile.getAbsolutePath()));
                 return PetImgs.builder()
-                        .nameImg(newFile.getName())
+                        .nameImg(image)
                         .pet(pet)
                         .build();
             }catch(Exception e){
@@ -540,7 +538,7 @@ public class PetServiceImpl implements PetService {
                     .id(pet.getPetId())
                     .breed(pet.getPetBreed().getBreedName())
                     .name(pet.getPetName())
-                    .image(portUltils.getUrlImage(pet.getImgs()
+                    .image(imageServiceUtils.getImage(pet.getImgs()
                             .stream()
                             .findFirst()
                             .map(PetImgs::getNameImg)
@@ -563,7 +561,7 @@ public class PetServiceImpl implements PetService {
     public PetManageResponse buildPetManagementResponses(Pet pet) {
         List<String> images = pet.getImgs().stream().map(image -> {
 
-            return portUltils.getUrlImage(image.getNameImg());
+            return imageServiceUtils.getImage(image.getNameImg());
         }).toList();
 
         return PetManageResponse.builder()
@@ -591,7 +589,7 @@ public class PetServiceImpl implements PetService {
                 .id(pet.getPetId())
                 .breed(pet.getPetBreed().getBreedName())
                 .name(pet.getPetName())
-                .image(portUltils.getUrlImage(pet.getImgs().get(0).getNameImg()))
+                .image(imageServiceUtils.getImage(pet.getImgs().get(0).getNameImg()))
                 .description(pet.getDescriptions() == null ? "" : pet.getDescriptions())
                 .fosterDate(fosterDate)
                 .size(pet.getAge())
@@ -608,14 +606,14 @@ public class PetServiceImpl implements PetService {
         boolean canAdopt=isCanAdopt(pet,null);
         boolean liked = user != null && favouriteRepository.existByUserAndPet(user.getId(), pet.getPetId()) != null;
         List<String> images = pet.getImgs().stream().map(image -> {
-            return portUltils.getUrlImage(image.getNameImg());
+            return imageServiceUtils.getImage(image.getNameImg());
         }).toList();
 
         return PetDetailResponse.builder()
                 .id(pet.getPetId())
                 .breed(pet.getPetBreed().getBreedName())
                 .name(pet.getPetName())
-                .image(portUltils.getUrlImage(pet.getImgs()
+                .image(imageServiceUtils.getImage(pet.getImgs()
                         .stream()
                         .findFirst()
                         .map(PetImgs::getNameImg)

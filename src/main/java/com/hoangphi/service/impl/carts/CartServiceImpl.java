@@ -11,7 +11,7 @@ import com.hoangphi.request.carts.CartRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.carts.CartResponse;
 import com.hoangphi.service.carts.CartService;
-import com.hoangphi.utils.PortUtils;
+import com.hoangphi.service.image.ImageServiceUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class CartServiceImpl implements CartService {
     private final SecurityUtils securityUtils;
     private final ProductRepoRepository productRepoRepository;
     private final CartItemRepository cartItemRepository;
-    private final PortUtils portUtils;
+    private final ImageServiceUtils imageServiceUtils;
 
     @Override
     public ApiResponse createCart(String jwt, CartRequest cartRequest) {
@@ -236,7 +236,7 @@ public class CartServiceImpl implements CartService {
                 .id(productRepo.getProduct().getId())
                 .brand(productRepo.getProduct().getBrand().getBrand())
                 .size(productRepo.getSize())
-                .image(portUtils.getUrlImage(productRepo.getProduct().getImgs()
+                .image(imageServiceUtils.getImage(productRepo.getProduct().getImgs()
                         .stream()
                         .findFirst()
                         .map(Imgs::getNameImg).orElse(null)))

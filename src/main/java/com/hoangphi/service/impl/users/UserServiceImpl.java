@@ -16,9 +16,8 @@ import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.common.PaginationResponse;
 import com.hoangphi.response.users.UserProfileMessageResponse;
 import com.hoangphi.response.users.UserProfileResponse;
+import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.service.user.UserService;
-import com.hoangphi.utils.ImageUtils;
-import com.hoangphi.utils.PortUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -42,9 +41,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private final SecurityUtils securityUtils;
     private final RoleRepository roleRepository;
     private final AuthoritiesRepository authoritiesRepository;
-    private final PortUtils portUtils;
     private final PasswordEncoder passwordEncoder;
     private final AddressRepository addressRepository;
+    private final ImageServiceUtils imageServiceUtils;
 
     @Override
     public UserDetails loadUserByUsername(String username) {
@@ -175,10 +174,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 errorsMap.put("avatar", "Image size is too large");
             } else {
                 try {
-                    File file = ImageUtils.createFileImage();
-
-                    createUserManageRequest.getAvatar().transferTo(new File(file.getAbsolutePath()));
-                    newUser.setAvatar(file.getName());
+//                    File file = ImageUtils.createFileImage();
+//
+//                    createUserManageRequest.getAvatar().transferTo(new File(file.getAbsolutePath()));
+                    List<String> image=imageServiceUtils.uploadFiles(List.of(createUserManageRequest.getAvatar()));
+                    newUser.setAvatar(image.get(0));
                 } catch (Exception e) {
                     System.out.println("Error in update avatar in Profile service impl");
                     e.printStackTrace();
@@ -252,7 +252,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                     .email(user.getEmail())
                     .displayName(user.getDisplayName())
                     .provider(user.getProvider())
-                    .avatar(user.getAvatar() == null ? null : portUtils.getUrlImage(user.getAvatar()))
+                    .avatar(user.getAvatar() == null ? null : imageServiceUtils.getImage(user.getAvatar()))
                     .role(userRole == null ? null : userRole.getRole())
                     .createAt(user.getCreatedAt())
                     .build();
@@ -300,7 +300,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 .username(user.getUsername())
                 .email(user.getEmail())
                 .phone(user.getPhone())
-                .avatar(portUtils.getUrlImage(user.getAvatar()))
+                .avatar(imageServiceUtils.getImage(user.getAvatar()))
                 .address(buildAddress(addresses))
                 .fullName(user.getFullname()).build();
 
@@ -341,7 +341,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 .email(user.getEmail())
                 .displayName(user.getDisplayName())
                 .provider(user.getProvider())
-                .avatar(user.getAvatar()==null?null:portUtils.getUrlImage(user.getAvatar()))
+                .avatar(user.getAvatar()==null?null:imageServiceUtils.getImage(user.getAvatar()))
                 .role(role == null ? null : role.getRole())
                 .createAt(user.getCreatedAt())
                 .build();

@@ -7,8 +7,7 @@ import com.hoangphi.repository.ProductRepository;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.images.ImagesResponse;
 import com.hoangphi.service.admin.images.ImageService;
-import com.hoangphi.utils.ImageUtils;
-import com.hoangphi.utils.PortUtils;
+import com.hoangphi.service.image.ImageServiceUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -24,8 +23,8 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class ImageServiceImpl implements ImageService {
     private final ImagesRepository imagesRepository;
-    private final PortUtils portUtils;
     private final ProductRepository productRepository;
+    private final ImageServiceUtils imageServiceUtils;
 
     @Override
     public byte[] getImage(String fileName) {
@@ -58,7 +57,7 @@ public class ImageServiceImpl implements ImageService {
         List<Imgs> images=imagesRepository.getImagesByProductId(id);
         images.forEach(image->{
             String filename=image.getNameImg();
-            deleteImage(filename);
+            imageServiceUtils.deleteImage(filename);
             imagesRepository.delete(image);
         });
         return ApiResponse.builder()
@@ -92,7 +91,7 @@ public class ImageServiceImpl implements ImageService {
             return ImagesResponse.builder()
                     .id(item.getId())
                     .name(item.getNameImg())
-                    .image(portUtils.getUrlImage(item.getNameImg()))
+                    .image(imageServiceUtils.getImage(item.getNameImg()))
                     .build();
 
         }).toList();
@@ -144,12 +143,11 @@ public class ImageServiceImpl implements ImageService {
                     .data(null)
                     .build();
         }
-        List<Imgs> newListImgs=images.stream().map(image->{
+        List<String> imagesFilter=imageServiceUtils.uploadFiles(images);
+        List<Imgs> newListImgs=imagesFilter.stream().map(image->{
             try{
-                File file= ImageUtils.createFileImage();
-                image.transferTo(new File(file.getAbsolutePath()));
                 return Imgs.builder()
-                        .nameImg(file.getName())
+                        .nameImg(image)
                         .product(product)
                         .build();
 
@@ -160,7 +158,7 @@ public class ImageServiceImpl implements ImageService {
         }).toList();
 
         return ApiResponse.builder()
-                .message("Add images successfuly")
+                .message("Add images successfully")
                 .status(HttpStatus.OK.value())
                 .errors(false)
                 .data(imagesRepository.saveAll(newListImgs))
@@ -188,7 +186,7 @@ public class ImageServiceImpl implements ImageService {
                     .build();
         }
         String filename=image.getNameImg();
-        deleteImage(filename);
+        imageServiceUtils.deleteImage(filename);
         imagesRepository.delete(image);
         return ApiResponse.builder()
                 .message("Delete successfully")
@@ -197,7 +195,5 @@ public class ImageServiceImpl implements ImageService {
                 .data(image)
                 .build();
     }
-    public void deleteImage(String filename){
-        ImageUtils.deleteImg(filename);
-    }
+
 }

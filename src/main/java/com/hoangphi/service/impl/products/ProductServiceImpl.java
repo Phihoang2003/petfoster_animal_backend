@@ -12,8 +12,7 @@ import com.hoangphi.response.products_manage.ProductDetailManageResponse;
 import com.hoangphi.response.products_manage.ProductInfoResponse;
 import com.hoangphi.response.products_manage.ProductManageResponse;
 import com.hoangphi.service.admin.products.ProductService;
-import com.hoangphi.utils.ImageUtils;
-import com.hoangphi.utils.PortUtils;
+import com.hoangphi.service.image.ImageServiceUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -35,7 +34,7 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepoRepository productRepoRepository;
     private final ImagesRepository imagesRepository;
     private final BrandRepository brandRepository;
-    private final PortUtils portUtils;
+    private final ImageServiceUtils imageServiceUtils;
 
     @Override
     public ApiResponse createProduct(CreateProductRequest createProductRequest, List<MultipartFile> images) {
@@ -89,16 +88,17 @@ public class ProductServiceImpl implements ProductService {
         });
         productRepoRepository.saveAll(repoList);
         List<Imgs> imgsList=new ArrayList<>();
-        images.forEach(image->{
+        List<String> imageFilter=imageServiceUtils.uploadFiles(images);
+        imageFilter.forEach(image->{
             try {
-                File file= ImageUtils.createFileImage();
-                image.transferTo(new File(file.getAbsolutePath()));
+//                File file= ImageUtils.createFileImage();
+//                image.transferTo(new File(file.getAbsolutePath()));
                 Imgs newImg=Imgs.builder()
                         .product(product)
-                        .nameImg(file.getName())
+                        .nameImg(image)
                         .build();
                 imgsList.add(newImg);
-            } catch (IOException e) {
+            } catch (Exception e) {
                 throw new RuntimeException(e);
             }
 
@@ -264,7 +264,7 @@ public class ProductServiceImpl implements ProductService {
                 .repo(selectProduct.getProductsRepo())
                 .images(selectProduct.getImgs().stream().map((image) -> {
                     Map<String, String> imageObj = new HashMap<>();
-                    imageObj.put("image", portUtils.getUrlImage(image.getNameImg()));
+                    imageObj.put("image", imageServiceUtils.getImage(image.getNameImg()));
                     imageObj.put("id", image.getId().toString());
                     return imageObj;
                 }))
@@ -301,7 +301,7 @@ public class ProductServiceImpl implements ProductService {
         visibleProducts.forEach(product -> {
             productItems.add(ProductManageResponse.builder()
                     .id(product.getId())
-                    .image(portUtils.getUrlImage(product.getImgs().get(0).getNameImg()))
+                    .image(imageServiceUtils.getImage(product.getImgs().get(0).getNameImg()))
                     .brand(product.getBrand().getBrand())
                     .name(product.getName())
                     .type(product.getProductType().getName())

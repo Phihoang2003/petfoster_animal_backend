@@ -18,11 +18,11 @@ import com.hoangphi.response.orders_history.OrderDetailsResponse;
 import com.hoangphi.response.orders_history.OrderHistory;
 import com.hoangphi.response.orders_history.OrderHistoryResponse;
 import com.hoangphi.response.orders_history.OrderProductItem;
+import com.hoangphi.service.image.ImageServiceUtils;
 import com.hoangphi.service.order.OrderService;
 import com.hoangphi.utils.*;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -51,9 +51,9 @@ public class OrderServiceImpl implements OrderService {
     private final OrderDetailRepository orderDetailRepository;
     private final GiaoHangNhanhUtils giaoHangNhanhUltils;
     private final FormatUtils formatUtils;
-    private final PortUtils portUtils;
     private final ReviewRepository reviewRepository;
     private final HttpServletRequest httpServletRequest;
+    private final ImageServiceUtils imageServiceUtils;
 
     @Override
     public ApiResponse order(String jwt, OrderRequest orderRequest) {
@@ -264,7 +264,7 @@ public class OrderServiceImpl implements OrderService {
                     .errors(false)
                     .data(OrderResponse.builder()
                             .orderId(orders.getId())
-                            .photoUrl(portUtils.getUrlImage(
+                            .photoUrl(imageServiceUtils.getImage(
                                     orders.getOrderDetails()
                                             .get(0)
                                             .getProductRepo()
@@ -613,7 +613,7 @@ public class OrderServiceImpl implements OrderService {
         return OrderProductItem.builder()
                 .id(orderDetail.getProductRepo().getProduct().getId())
                 .size(orderDetail.getProductRepo().getSize())
-                .image(portUtils.getUrlImage(image))
+                .image(imageServiceUtils.getImage(image))
                 .name(orderDetail.getProductRepo().getProduct().getName())
                 .brand(orderDetail.getProductRepo().getProduct().getBrand().getBrand())
                 .price(orderDetail.getProductRepo().getOutPrice().intValue())

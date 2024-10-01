@@ -2,12 +2,17 @@ package com.hoangphi.service.impl.images;
 
 import com.hoangphi.entity.Imgs;
 import com.hoangphi.entity.Product;
+import com.hoangphi.entity.User;
+import com.hoangphi.entity.social.Medias;
 import com.hoangphi.repository.ImagesRepository;
+import com.hoangphi.repository.MediasRepository;
 import com.hoangphi.repository.ProductRepository;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.images.ImagesResponse;
 import com.hoangphi.service.admin.images.ImageService;
 import com.hoangphi.service.image.ImageServiceUtils;
+import com.hoangphi.service.impl.users.UserServiceImpl;
+import com.hoangphi.service.posts.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -25,6 +30,9 @@ public class ImageServiceImpl implements ImageService {
     private final ImagesRepository imagesRepository;
     private final ProductRepository productRepository;
     private final ImageServiceUtils imageServiceUtils;
+    private final UserServiceImpl userServiceImpl;
+    private final MediasRepository mediasRepository;
+    private final PostService postService;
 
     @Override
     public byte[] getImage(String fileName) {
@@ -194,6 +202,51 @@ public class ImageServiceImpl implements ImageService {
                 .errors(false)
                 .data(image)
                 .build();
+    }
+
+    @Override
+    public ApiResponse deleteMedia(Integer idImage, String token) {
+        if (idImage == null || token == null) {
+            return ApiResponse.builder()
+                    .message("Data invalid")
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        User user = userServiceImpl.getUserFromToken(token);
+        Medias media = mediasRepository.findById(idImage).orElse(null);
+
+        if (user == null) {
+            return ApiResponse.builder()
+                    .message("Un authorization")
+                    .status(HttpStatus.FORBIDDEN.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        if (media == null) {
+            return ApiResponse.builder()
+                    .message("Data not found")
+                    .status(HttpStatus.NOT_FOUND.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+
+        imageServiceUtils.deleteImage( media.getName());
+
+        mediasRepository.delete(media);
+
+        return ApiResponse.builder()
+                .message("Successfuly")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(postService.builPostMediaResponse(media))
+                .build();
+
     }
 
 }

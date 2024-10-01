@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class ImageUserServiceImpl implements ImageServiceUtils {
+public class ImageUtilsServiceImpl implements ImageServiceUtils {
     private final MediasRepository mediasRepository;
     private final S3Presigner s3Presigner;
     @Value("${aws.s3.bucket}")
@@ -41,6 +41,9 @@ public class ImageUserServiceImpl implements ImageServiceUtils {
     @Override
     public String getImage(String fileName) {
         try {
+            if(fileName==null){
+                return null;
+            }
             String preSignUrl=redisTemplate.opsForValue().get(fileName);
             if(preSignUrl!=null){
                 return preSignUrl;

@@ -26,4 +26,9 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
     @Query(nativeQuery = true, value = "select * from product " +
             "where product_name like %:name%")
     public List<Product> getProductsByNameInReview(@Param("name") String name);
+    @Query(nativeQuery = true, value = "select top 8 * from product p where p.is_active = 1 order by create_at desc")
+    public List<Product> selectNewArrivals();
+
+    @Query(nativeQuery = true, value = "select * from product p join product_type t on t.product_type_id = p.[type_id] where p.product_id in ( select top 100 product_id from order_detail od join product_repo rp on rp.product_repo_id = od.product_repo_id group by product_id ) and p.is_active = 1")
+    List<Product> findAllProducts();
 }

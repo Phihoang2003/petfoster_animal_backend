@@ -1,5 +1,10 @@
 package com.hoangphi.service.take_action;
 
-public interface TakeActionService {
+import com.hoangphi.response.ApiResponse;
 
+import java.util.Optional;
+
+public interface TakeActionService {
+    ApiResponse homePageTakeAction();
+    ApiResponse bestSellers(Optional<Integer> page);
 }

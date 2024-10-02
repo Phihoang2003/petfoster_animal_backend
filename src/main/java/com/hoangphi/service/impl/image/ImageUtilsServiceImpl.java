@@ -98,8 +98,12 @@ public class ImageUtilsServiceImpl implements ImageServiceUtils {
                 }, executorService))
                 .toList();
 
-        CompletableFuture<Void> allOf = CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
-        allOf.join();
+        try {
+            CompletableFuture<Void> allOf = CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
+            allOf.join();
+        } catch (CompletionException ex) {
+            ex.printStackTrace();
+        }
 
         return futures.stream()
                 .map(future -> {

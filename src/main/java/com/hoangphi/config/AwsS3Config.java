@@ -24,7 +24,7 @@ public class AwsS3Config {
     @Value("${aws.s3.region}")
     private String region;
 
-    @Value("${aws.s3.thread-pool-size:10}")
+    @Value("${aws.s3.thread-pool-size}")
     private int threadPoolSize;
 
     @Bean

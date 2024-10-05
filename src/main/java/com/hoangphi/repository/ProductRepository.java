@@ -31,4 +31,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 
     @Query(nativeQuery = true, value = "select * from product p join product_type t on t.product_type_id = p.[type_id] where p.product_id in ( select top 100 product_id from order_detail od join product_repo rp on rp.product_repo_id = od.product_repo_id group by product_id ) and p.is_active = 1")
     List<Product> findAllProducts();
+
+    @Query(nativeQuery = true,value="select top 10 * from product where " +
+            "[type_id] = (select [type_id] from product where product_id=:productId) and product_id!=:productId")
+    public List<Product> getSameTypeProducts(@Param("productId") String productId);
 }

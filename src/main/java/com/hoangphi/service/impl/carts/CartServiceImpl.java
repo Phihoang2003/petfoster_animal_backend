@@ -42,7 +42,7 @@ public class CartServiceImpl implements CartService {
         }
         Carts carts=cartRepository.findCart(user.getId()).orElse(null);
         if(carts==null){
-            cartRepository.save(Carts.builder()
+            carts=cartRepository.save(Carts.builder()
                     .user(user)
                     .build());
         }
@@ -55,8 +55,6 @@ public class CartServiceImpl implements CartService {
                     .errors(true)
                     .build();
         }
-
-        assert carts != null;
         CartItem item=cartItemRepository.findBySizeAndProductId(carts.getCartId(),cartRequest.getProductId(),cartRequest.getSize()).orElse(null);
 
         if(item!=null){
@@ -104,14 +102,6 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public ApiResponse updateCarts(String jwt, List<CartRequest> cartRequests) {
-        if (cartRequests.isEmpty()) {
-            return ApiResponse.builder()
-                    .status(HttpStatus.BAD_REQUEST.value())
-                    .errors(true)
-                    .data(null)
-                    .message("Cart is empty!!!")
-                    .build();
-        }
         User user = userRepository.findByUsername(securityUtils.getCurrentUsername()).orElse(null);
 
         // if user null
@@ -233,7 +223,7 @@ public class CartServiceImpl implements CartService {
     private CartResponse buildCartResponse(ProductRepo productRepo, int newQuantity) {
 
         return CartResponse.builder()
-                .id(productRepo.getProduct().getId())
+                .productId(productRepo.getProduct().getId())
                 .brand(productRepo.getProduct().getBrand().getBrand())
                 .size(productRepo.getSize())
                 .image(imageServiceUtils.getImage(productRepo.getProduct().getImgs()

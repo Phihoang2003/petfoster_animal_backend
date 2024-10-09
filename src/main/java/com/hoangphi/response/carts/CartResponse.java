@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class CartResponse {
-    private String id;
+    private String productId;
     private String brand;
     private Integer size;
     private String image;

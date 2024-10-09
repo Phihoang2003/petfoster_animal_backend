@@ -39,7 +39,7 @@ public class TakeActionServiceImpl implements TakeActionService {
 
     public ProductItem createProductTakeAction(Product product){
         String image="";
-        int discount=0;
+        int discount=8;
         List<Review> reviews=reviewRepository.findByProduct(product);
         Double rating=reviews.stream().mapToDouble(Review::getRate).average().orElse(0.0);
 

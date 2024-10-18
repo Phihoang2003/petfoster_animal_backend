@@ -2,8 +2,10 @@ package com.hoangphi.controller.user;
 
 import com.hoangphi.request.profile.UserProfileRequest;
 import com.hoangphi.response.ApiResponse;
+import com.hoangphi.response.users.ChangePasswordRequest;
 import com.hoangphi.service.profile.ProfileService;
 import com.hoangphi.service.user.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,5 +30,10 @@ public class UserProfileController {
     @GetMapping("/profile/{username}")
     public ResponseEntity<ApiResponse> getProductFileWithUsername(@PathVariable String username) {
         return ResponseEntity.ok(userService.getUserWithUsername(username));
+    }
+    @PostMapping("/profile/change-password")
+    public ResponseEntity<ApiResponse> changePassword(@RequestBody @Valid ChangePasswordRequest changePasswordRequest
+                                                     ) {
+        return ResponseEntity.ok(profileService.changePassword(changePasswordRequest));
     }
 }

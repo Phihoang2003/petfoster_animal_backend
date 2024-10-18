@@ -56,9 +56,9 @@ public class FormatUtils {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
         return LocalDate.parse(date.format(formatter), formatter);
     }
-    public LocalDate convertStringToLocalDate(String dateString, String pattern) {
+    public LocalDateTime convertStringToLocalDateTime(String dateString, String pattern) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-        return LocalDate.parse(dateString, formatter);
+        return LocalDateTime.parse(dateString, formatter);
     }
 
 }

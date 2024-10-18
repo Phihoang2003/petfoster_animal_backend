@@ -233,9 +233,10 @@ public class OrderServiceImpl implements OrderService {
         if(paymentRequest.getIsPaid()){
             payment.setAmount(paymentRequest.getAmount().doubleValue());
             payment.setIsPaid(paymentRequest.getIsPaid());
-            try{
-                payment.setPayAt(formatUtils.convertStringToLocalDate(paymentRequest.getPayAt(),"yyyyMMdd"));
-            }catch(Exception e){
+            try {
+                // Chuyển đổi chuỗi với định dạng có cả ngày và thời gian "yyyyMMddHHmmss"
+                payment.setPayAt(formatUtils.convertStringToLocalDateTime(paymentRequest.getPayAt(), "yyyyMMddHHmmss"));
+            } catch (Exception e) {
                 errorsMap.put("payAt", "Number Format Exception");
                 return ApiResponse.builder()
                         .message("Number Format Exception")

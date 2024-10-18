@@ -123,6 +123,10 @@ public class ProfileServiceImpl implements ProfileService {
                     .data(null)
                     .build();
         }
+        if (user.getAvatar() != null) {
+            //delete old image
+            imageServiceUtils.deleteImage(user.getAvatar());
+        }
 
         if (profileRequest.getAvatar() != null) {
             if (profileRequest.getAvatar().getSize() > 500000) {

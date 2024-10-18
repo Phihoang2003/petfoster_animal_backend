@@ -20,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -92,7 +93,7 @@ public class AdminOrderServiceImpl implements AdminOrderService {
         Payment payment = orders.getPayment();
         if(updateStatus.equalsIgnoreCase(OrderStatus.DELIVERED.getValue())){
             payment.setIsPaid(true);
-            payment.setPayAt(LocalDate.now());
+            payment.setPayAt(LocalDateTime.now());
             paymentRepository.save(payment);
         }
         if (updateStatus.equalsIgnoreCase(OrderStatus.CANCELLED_BY_ADMIN.getValue()) && orders.getGhnCode() != null) {

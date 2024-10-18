@@ -256,7 +256,7 @@ public class AddressServiceImpl implements AddressService {
                 .status(HttpStatus.OK.value())
                 .message("Delete address success with id: "+ id)
                 .errors(false)
-                .data(null)
+                .data(currentAddress)
                 .build();
     }
 

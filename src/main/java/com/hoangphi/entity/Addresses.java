@@ -1,5 +1,6 @@
 package com.hoangphi.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -26,6 +27,7 @@ public class Addresses {
     private String ward;
     @Nationalized
     private String address;
+    @Setter
     @JoinColumn(name = "is_default")
     private Boolean isDefault;
     @JoinColumn(name = "create_at")

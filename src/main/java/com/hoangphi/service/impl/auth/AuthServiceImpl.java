@@ -1,4 +1,4 @@
-package com.hoangphi.service.impl;
+package com.hoangphi.service.impl.auth;
 
 import com.hoangphi.config.SecurityUtils;
 import com.hoangphi.constant.Constant;
@@ -10,9 +10,11 @@ import com.hoangphi.repository.RoleRepository;
 import com.hoangphi.repository.UserRepository;
 import com.hoangphi.request.LoginRequest;
 import com.hoangphi.request.RegisterRequest;
+import com.hoangphi.request.auth.LoginWithGoogleRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.AuthResponse;
-import com.hoangphi.service.AuthService;
+import com.hoangphi.service.auth.AuthService;
+import com.hoangphi.service.impl.EmailServiceImpl;
 import com.hoangphi.service.user.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -23,10 +25,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -190,6 +190,60 @@ public class AuthServiceImpl implements AuthService {
                 .errors(false)
                 .build();
 
+    }
+
+    @Override
+    public AuthResponse loginWithGoogle(LoginWithGoogleRequest loginWithGoogleResquest) {
+        if (userRepository.findByUuid(loginWithGoogleResquest.getUuid()) != null
+                && userRepository.existsByEmail(loginWithGoogleResquest.getEmail())) {
+
+            Authentication authentication = authenticate(
+                    loginWithGoogleResquest.getUuid(),
+                    "");
+
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+
+            String token=securityUtils.createToken(authentication);
+
+            return AuthResponse.builder()
+                    .message("Login with facebook success")
+                    .token(token)
+                    .build();
+        }
+
+        User newUser = User.builder()
+                .username(loginWithGoogleResquest.getUuid())
+                .gender(true)
+                .fullname(loginWithGoogleResquest.getUsername())
+                .displayName(loginWithGoogleResquest.getUsername())
+                .createdAt(LocalDateTime.now())
+                .isActive(true)
+                .isEmailVerified(true)
+                .avatar(loginWithGoogleResquest.getAvartar())
+                .password("")
+                .uuid(loginWithGoogleResquest.getUuid())
+                .email(loginWithGoogleResquest.getEmail())
+                .provider("google")
+                .build();
+
+        List<Authorities> authoritiesList = new ArrayList<>();
+        Authorities authorities = Authorities.builder().user(newUser).role(roleRepository.getRoleUser())
+                .build();
+        authoritiesList.add(authorities);
+
+        newUser.setAuthorities(authoritiesList);
+        userRepository.save(newUser);
+
+        Authentication authentication = authenticate(newUser.getUsername(), newUser.getPassword());
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        String token=securityUtils.createToken(authentication);
+
+        return AuthResponse.builder()
+                .message("Login with google success")
+                .token(token)
+                .build();
     }
 
 

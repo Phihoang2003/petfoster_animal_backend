@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class BrandResponse {
-    private Integer id;
+    private String id;
     private String name;
 }

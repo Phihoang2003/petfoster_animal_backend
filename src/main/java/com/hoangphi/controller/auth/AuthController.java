@@ -2,13 +2,13 @@ package com.hoangphi.controller.auth;
 
 import com.hoangphi.request.LoginRequest;
 import com.hoangphi.request.RegisterRequest;
+import com.hoangphi.request.auth.LoginWithGoogleRequest;
 import com.hoangphi.response.ApiResponse;
 import com.hoangphi.response.AuthResponse;
-import com.hoangphi.service.AuthService;
+import com.hoangphi.service.auth.AuthService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,5 +33,10 @@ public class AuthController {
     @GetMapping("/verify")
     public ResponseEntity<ApiResponse> verify(@RequestParam("code") String code){
         return ResponseEntity.ok(authService.verifyEmail(code));
+    }
+    @PostMapping("login-google")
+    public ResponseEntity<AuthResponse> loginWithGoogle(
+            @Valid @RequestBody LoginWithGoogleRequest loginWithGoogleResquest) {
+        return ResponseEntity.ok(authService.loginWithGoogle(loginWithGoogleResquest));
     }
 }

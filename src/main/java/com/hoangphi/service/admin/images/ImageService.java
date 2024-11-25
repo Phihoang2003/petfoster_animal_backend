@@ -18,4 +18,6 @@ public interface ImageService {
     ApiResponse deleteImage(String id, Integer idImage);
 
     ApiResponse deleteMedia(Integer idImage, String token);
+
+    ApiResponse uploadImages(List<MultipartFile> images);
 }

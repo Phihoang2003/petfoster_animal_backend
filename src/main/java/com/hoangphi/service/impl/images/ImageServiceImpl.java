@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -247,6 +248,26 @@ public class ImageServiceImpl implements ImageService {
                 .data(postService.builPostMediaResponse(media))
                 .build();
 
+    }
+
+    @Override
+    public ApiResponse uploadImages(List<MultipartFile> images) {
+        if (images.isEmpty()) {
+            return ApiResponse.builder()
+                    .message("Data invalid")
+                    .status(HttpStatus.BAD_REQUEST.value())
+                    .errors(true)
+                    .data(null)
+                    .build();
+        }
+        List<String> newListImages=imageServiceUtils.uploadFiles(images);
+
+        return ApiResponse.builder()
+                .message("Add images successfully")
+                .status(HttpStatus.OK.value())
+                .errors(false)
+                .data(newListImages)
+                .build();
     }
 
 }

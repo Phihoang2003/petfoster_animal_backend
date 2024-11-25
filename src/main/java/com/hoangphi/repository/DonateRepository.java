@@ -47,4 +47,7 @@ public interface DonateRepository extends JpaRepository<Donate,Integer> {
     public Double totalFilterDonation(@Param("search") Optional<String> search,
                                       @Param("minDate") Optional<LocalDate> minDate,
                                       @Param("maxDate") Optional<LocalDate> maxDate);
+
+    @Query("select sum(d.donateAmount) from Donate d")
+    public Integer getDonation();
 }

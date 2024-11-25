@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class OrderProductItem {
-    private String id;
+    private String productId;
     private String brand;
     private String image;
     private String name;

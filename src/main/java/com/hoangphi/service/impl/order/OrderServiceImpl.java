@@ -612,7 +612,7 @@ public class OrderServiceImpl implements OrderService {
                 orderDetail.getProductRepo().getProduct().getId(), orderDetail.getOrder().getId()).orElse(null);
 
         return OrderProductItem.builder()
-                .id(orderDetail.getProductRepo().getProduct().getId())
+                .productId(orderDetail.getProductRepo().getProduct().getId())
                 .size(orderDetail.getProductRepo().getSize())
                 .image(imageServiceUtils.getImage(image))
                 .name(orderDetail.getProductRepo().getProduct().getName())

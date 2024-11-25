@@ -28,6 +28,9 @@ public interface AdoptRepository extends JpaRepository<Adopt,Integer> {
     @Query("select a from Adopt a where a.user.id=:userId order by a.registerAt desc")
     List<Adopt> findByUser(@Param("userId") String userId);
 
+    @Query("select a from Adopt a where a.status = 'Adopted'")
+    public List<Adopt> getAdoptedPets();
+
     @Query(nativeQuery = true, value = "select * from adopt where user_id = :userId and adopt_id = :adoptId")
     Adopt existsByUser(@Param("userId") String userId, @Param("adoptId") Integer adoptId);
 

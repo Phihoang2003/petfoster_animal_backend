@@ -29,4 +29,7 @@ public interface PostRepository extends JpaRepository<Posts, Integer>{
     @Query(nativeQuery = true, value = "select posts.*, u.user_id as userIdAlias from posts join users u on posts.user_id = u.user_id where posts.id in (select top 5 p.id from posts p join likes l on l.post_id = p.id group by p.id order by COUNT(*) desc) and u.username = :username order by posts.create_at desc")
     List<Posts> highlightOfUser(@Param("username") String username);
 
+    @Query(nativeQuery = true, value = "select top 4 * from posts")
+    List<Posts> findAllByActive();
+
 }
